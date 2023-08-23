@@ -1,0 +1,361 @@
+concentration,sex,response,response_type
+0,Male,50.5,Hematocrit
+0,Male,49.3,Hematocrit
+0,Male,46.8,Hematocrit
+0,Male,49,Hematocrit
+0,Male,46.7,Hematocrit
+0,Male,47.9,Hematocrit
+0,Male,47.3,Hematocrit
+0,Male,47.7,Hematocrit
+0,Male,47,Hematocrit
+0,Male,48.5,Hematocrit
+0,Female,48.4,Hematocrit
+0,Female,49.9,Hematocrit
+0,Female,46.2,Hematocrit
+0,Female,47.9,Hematocrit
+0,Female,48.9,Hematocrit
+0,Female,50.5,Hematocrit
+0,Female,47.7,Hematocrit
+0,Female,48.7,Hematocrit
+0,Female,47.5,Hematocrit
+0,Female,45.6,Hematocrit
+125,Male,48.5,Hematocrit
+125,Male,46.3,Hematocrit
+125,Male,49,Hematocrit
+125,Male,48,Hematocrit
+125,Male,50.4,Hematocrit
+125,Male,48.4,Hematocrit
+125,Male,47.8,Hematocrit
+125,Male,49.8,Hematocrit
+125,Male,48.8,Hematocrit
+125,Male,48.3,Hematocrit
+125,Female,47.5,Hematocrit
+125,Female,46.7,Hematocrit
+125,Female,47.3,Hematocrit
+125,Female,49.7,Hematocrit
+125,Female,45,Hematocrit
+125,Female,48.8,Hematocrit
+125,Female,45.5,Hematocrit
+125,Female,48.1,Hematocrit
+125,Female,51.1,Hematocrit
+125,Female,44.2,Hematocrit
+250,Male,49.6,Hematocrit
+250,Male,46,Hematocrit
+250,Male,47.5,Hematocrit
+250,Male,46.6,Hematocrit
+250,Male,47.2,Hematocrit
+250,Male,50.5,Hematocrit
+250,Male,45.4,Hematocrit
+250,Male,48.8,Hematocrit
+250,Male,46.9,Hematocrit
+250,Male,47.8,Hematocrit
+250,Female,48.9,Hematocrit
+250,Female,45.7,Hematocrit
+250,Female,46,Hematocrit
+250,Female,48.4,Hematocrit
+250,Female,46.9,Hematocrit
+250,Female,47.6,Hematocrit
+250,Female,48,Hematocrit
+250,Female,46.3,Hematocrit
+250,Female,49.7,Hematocrit
+250,Female,47.3,Hematocrit
+500,Male,47.5,Hematocrit
+500,Male,47.7,Hematocrit
+500,Male,46,Hematocrit
+500,Male,46.9,Hematocrit
+500,Male,47.7,Hematocrit
+500,Male,47,Hematocrit
+500,Male,48.2,Hematocrit
+500,Male,47.8,Hematocrit
+500,Male,45.7,Hematocrit
+500,Male,48.4,Hematocrit
+500,Female,48.1,Hematocrit
+500,Female,48.5,Hematocrit
+500,Female,49.1,Hematocrit
+500,Female,47.2,Hematocrit
+500,Female,45.7,Hematocrit
+500,Female,49.8,Hematocrit
+500,Female,50.3,Hematocrit
+500,Female,48.2,Hematocrit
+500,Female,52,Hematocrit
+500,Female,47.9,Hematocrit
+1000,Male,47.3,Hematocrit
+1000,Male,46.8,Hematocrit
+1000,Male,46.1,Hematocrit
+1000,Male,46.8,Hematocrit
+1000,Male,47,Hematocrit
+1000,Male,48,Hematocrit
+1000,Male,47.3,Hematocrit
+1000,Male,45.6,Hematocrit
+1000,Male,46.1,Hematocrit
+1000,Male,46.6,Hematocrit
+1000,Female,50.5,Hematocrit
+1000,Female,48.1,Hematocrit
+1000,Female,46.6,Hematocrit
+1000,Female,47.8,Hematocrit
+1000,Female,47.3,Hematocrit
+1000,Female,52.3,Hematocrit
+1000,Female,45.6,Hematocrit
+1000,Female,49.2,Hematocrit
+1000,Female,46.8,Hematocrit
+1000,Female,48.2,Hematocrit
+2000,Male,48.7,Hematocrit
+2000,Male,47.3,Hematocrit
+2000,Male,48.4,Hematocrit
+2000,Male,48,Hematocrit
+2000,Male,47.7,Hematocrit
+2000,Male,48.6,Hematocrit
+2000,Male,47.9,Hematocrit
+2000,Male,49.9,Hematocrit
+2000,Male,47.3,Hematocrit
+2000,Male,45,Hematocrit
+2000,Female,46.6,Hematocrit
+2000,Female,47.8,Hematocrit
+2000,Female,56,Hematocrit
+2000,Female,49.8,Hematocrit
+2000,Female,48.4,Hematocrit
+2000,Female,46.1,Hematocrit
+2000,Female,47.2,Hematocrit
+2000,Female,48.9,Hematocrit
+2000,Female,47.7,Hematocrit
+2000,Female,48.3,Hematocrit
+0,Male,5.5,Total Lymphocyte count
+0,Male,4.94,Total Lymphocyte count
+0,Male,7.32,Total Lymphocyte count
+0,Male,3.83,Total Lymphocyte count
+0,Male,5.35,Total Lymphocyte count
+0,Male,5.35,Total Lymphocyte count
+0,Male,5.3,Total Lymphocyte count
+0,Male,4.41,Total Lymphocyte count
+0,Male,4.94,Total Lymphocyte count
+0,Male,1.69,Total Lymphocyte count
+0,Female,2.71,Total Lymphocyte count
+0,Female,2.34,Total Lymphocyte count
+0,Female,3.72,Total Lymphocyte count
+0,Female,5.57,Total Lymphocyte count
+0,Female,4.84,Total Lymphocyte count
+0,Female,4.24,Total Lymphocyte count
+0,Female,2.58,Total Lymphocyte count
+0,Female,4.6,Total Lymphocyte count
+0,Female,2.93,Total Lymphocyte count
+0,Female,3.76,Total Lymphocyte count
+125,Male,3.88,Total Lymphocyte count
+125,Male,1.1,Total Lymphocyte count
+125,Male,1.72,Total Lymphocyte count
+125,Male,4.28,Total Lymphocyte count
+125,Male,6.41,Total Lymphocyte count
+125,Male,3.71,Total Lymphocyte count
+125,Male,4.06,Total Lymphocyte count
+125,Male,4.76,Total Lymphocyte count
+125,Male,5.44,Total Lymphocyte count
+125,Male,4.16,Total Lymphocyte count
+125,Female,2.76,Total Lymphocyte count
+125,Female,2.92,Total Lymphocyte count
+125,Female,4.76,Total Lymphocyte count
+125,Female,4.61,Total Lymphocyte count
+125,Female,2.82,Total Lymphocyte count
+125,Female,5.82,Total Lymphocyte count
+125,Female,4.81,Total Lymphocyte count
+125,Female,5.53,Total Lymphocyte count
+125,Female,5.45,Total Lymphocyte count
+125,Female,3.45,Total Lymphocyte count
+250,Male,2.79,Total Lymphocyte count
+250,Male,5.13,Total Lymphocyte count
+250,Male,4.82,Total Lymphocyte count
+250,Male,6.01,Total Lymphocyte count
+250,Male,3.64,Total Lymphocyte count
+250,Male,3.68,Total Lymphocyte count
+250,Male,6.07,Total Lymphocyte count
+250,Male,3.46,Total Lymphocyte count
+250,Male,4.45,Total Lymphocyte count
+250,Male,4.05,Total Lymphocyte count
+250,Female,5.48,Total Lymphocyte count
+250,Female,3.2,Total Lymphocyte count
+250,Female,5.04,Total Lymphocyte count
+250,Female,3.5,Total Lymphocyte count
+250,Female,3.34,Total Lymphocyte count
+250,Female,4.93,Total Lymphocyte count
+250,Female,2.16,Total Lymphocyte count
+250,Female,4.47,Total Lymphocyte count
+250,Female,5.67,Total Lymphocyte count
+250,Female,3.18,Total Lymphocyte count
+500,Male,5.54,Total Lymphocyte count
+500,Male,0.98,Total Lymphocyte count
+500,Male,3.91,Total Lymphocyte count
+500,Male,4.14,Total Lymphocyte count
+500,Male,5.58,Total Lymphocyte count
+500,Male,3.45,Total Lymphocyte count
+500,Male,5.01,Total Lymphocyte count
+500,Male,4.52,Total Lymphocyte count
+500,Male,3.06,Total Lymphocyte count
+500,Male,4.7,Total Lymphocyte count
+500,Female,4.21,Total Lymphocyte count
+500,Female,3.42,Total Lymphocyte count
+500,Female,2.87,Total Lymphocyte count
+500,Female,2.71,Total Lymphocyte count
+500,Female,4.57,Total Lymphocyte count
+500,Female,4.03,Total Lymphocyte count
+500,Female,4.78,Total Lymphocyte count
+500,Female,2.26,Total Lymphocyte count
+500,Female,3.56,Total Lymphocyte count
+500,Female,4.1,Total Lymphocyte count
+1000,Male,3.32,Total Lymphocyte count
+1000,Male,4.23,Total Lymphocyte count
+1000,Male,1.71,Total Lymphocyte count
+1000,Male,2.19,Total Lymphocyte count
+1000,Male,4.09,Total Lymphocyte count
+1000,Male,5.08,Total Lymphocyte count
+1000,Male,3.31,Total Lymphocyte count
+1000,Male,4.01,Total Lymphocyte count
+1000,Male,3.44,Total Lymphocyte count
+1000,Male,2.92,Total Lymphocyte count
+1000,Female,3.84,Total Lymphocyte count
+1000,Female,4.54,Total Lymphocyte count
+1000,Female,3.08,Total Lymphocyte count
+1000,Female,3.54,Total Lymphocyte count
+1000,Female,2.33,Total Lymphocyte count
+1000,Female,3.37,Total Lymphocyte count
+1000,Female,3.09,Total Lymphocyte count
+1000,Female,3.22,Total Lymphocyte count
+1000,Female,6.31,Total Lymphocyte count
+1000,Female,7.17,Total Lymphocyte count
+2000,Male,3,Total Lymphocyte count
+2000,Male,4.34,Total Lymphocyte count
+2000,Male,1.77,Total Lymphocyte count
+2000,Male,2.97,Total Lymphocyte count
+2000,Male,2.06,Total Lymphocyte count
+2000,Male,3.87,Total Lymphocyte count
+2000,Male,4.21,Total Lymphocyte count
+2000,Male,5.92,Total Lymphocyte count
+2000,Male,1.78,Total Lymphocyte count
+2000,Male,1.41,Total Lymphocyte count
+2000,Female,3.51,Total Lymphocyte count
+2000,Female,2.92,Total Lymphocyte count
+2000,Female,2.55,Total Lymphocyte count
+2000,Female,1.9,Total Lymphocyte count
+2000,Female,2.73,Total Lymphocyte count
+2000,Female,2.48,Total Lymphocyte count
+2000,Female,3.64,Total Lymphocyte count
+2000,Female,4.76,Total Lymphocyte count
+2000,Female,5.67,Total Lymphocyte count
+2000,Female,3.12,Total Lymphocyte count
+0,Male,14.3,Mean Cell Hemoglobin
+0,Male,14.6,Mean Cell Hemoglobin
+0,Male,15,Mean Cell Hemoglobin
+0,Male,14.7,Mean Cell Hemoglobin
+0,Male,14.9,Mean Cell Hemoglobin
+0,Male,14.9,Mean Cell Hemoglobin
+0,Male,15,Mean Cell Hemoglobin
+0,Male,14.7,Mean Cell Hemoglobin
+0,Male,15.1,Mean Cell Hemoglobin
+0,Male,15,Mean Cell Hemoglobin
+0,Female,15.4,Mean Cell Hemoglobin
+0,Female,15.2,Mean Cell Hemoglobin
+0,Female,14.7,Mean Cell Hemoglobin
+0,Female,15,Mean Cell Hemoglobin
+0,Female,15.4,Mean Cell Hemoglobin
+0,Female,15.2,Mean Cell Hemoglobin
+0,Female,14.9,Mean Cell Hemoglobin
+0,Female,15.3,Mean Cell Hemoglobin
+0,Female,15.2,Mean Cell Hemoglobin
+0,Female,15.3,Mean Cell Hemoglobin
+125,Male,14.9,Mean Cell Hemoglobin
+125,Male,15.2,Mean Cell Hemoglobin
+125,Male,14.6,Mean Cell Hemoglobin
+125,Male,14.5,Mean Cell Hemoglobin
+125,Male,14.3,Mean Cell Hemoglobin
+125,Male,14.9,Mean Cell Hemoglobin
+125,Male,14.5,Mean Cell Hemoglobin
+125,Male,14.6,Mean Cell Hemoglobin
+125,Male,14.8,Mean Cell Hemoglobin
+125,Male,14.7,Mean Cell Hemoglobin
+125,Female,15.1,Mean Cell Hemoglobin
+125,Female,15.5,Mean Cell Hemoglobin
+125,Female,15,Mean Cell Hemoglobin
+125,Female,15.2,Mean Cell Hemoglobin
+125,Female,15.1,Mean Cell Hemoglobin
+125,Female,15.2,Mean Cell Hemoglobin
+125,Female,15.5,Mean Cell Hemoglobin
+125,Female,14.9,Mean Cell Hemoglobin
+125,Female,15,Mean Cell Hemoglobin
+125,Female,15.3,Mean Cell Hemoglobin
+250,Male,14.6,Mean Cell Hemoglobin
+250,Male,14.7,Mean Cell Hemoglobin
+250,Male,14.8,Mean Cell Hemoglobin
+250,Male,15,Mean Cell Hemoglobin
+250,Male,14.7,Mean Cell Hemoglobin
+250,Male,14.9,Mean Cell Hemoglobin
+250,Male,14.8,Mean Cell Hemoglobin
+250,Male,15.1,Mean Cell Hemoglobin
+250,Male,14.9,Mean Cell Hemoglobin
+250,Male,14.8,Mean Cell Hemoglobin
+250,Female,15,Mean Cell Hemoglobin
+250,Female,15.1,Mean Cell Hemoglobin
+250,Female,15,Mean Cell Hemoglobin
+250,Female,15.3,Mean Cell Hemoglobin
+250,Female,15.3,Mean Cell Hemoglobin
+250,Female,15.4,Mean Cell Hemoglobin
+250,Female,15.2,Mean Cell Hemoglobin
+250,Female,15.2,Mean Cell Hemoglobin
+250,Female,15.2,Mean Cell Hemoglobin
+250,Female,15.1,Mean Cell Hemoglobin
+500,Male,15.1,Mean Cell Hemoglobin
+500,Male,14.4,Mean Cell Hemoglobin
+500,Male,15.1,Mean Cell Hemoglobin
+500,Male,14.6,Mean Cell Hemoglobin
+500,Male,14.6,Mean Cell Hemoglobin
+500,Male,14.9,Mean Cell Hemoglobin
+500,Male,14.9,Mean Cell Hemoglobin
+500,Male,14.8,Mean Cell Hemoglobin
+500,Male,14.7,Mean Cell Hemoglobin
+500,Male,14.7,Mean Cell Hemoglobin
+500,Female,15.3,Mean Cell Hemoglobin
+500,Female,15.1,Mean Cell Hemoglobin
+500,Female,15.3,Mean Cell Hemoglobin
+500,Female,15.4,Mean Cell Hemoglobin
+500,Female,15,Mean Cell Hemoglobin
+500,Female,15.1,Mean Cell Hemoglobin
+500,Female,14.8,Mean Cell Hemoglobin
+500,Female,15.4,Mean Cell Hemoglobin
+500,Female,15.2,Mean Cell Hemoglobin
+500,Female,15.2,Mean Cell Hemoglobin
+1000,Male,14.6,Mean Cell Hemoglobin
+1000,Male,14.8,Mean Cell Hemoglobin
+1000,Male,14.9,Mean Cell Hemoglobin
+1000,Male,14.8,Mean Cell Hemoglobin
+1000,Male,14.7,Mean Cell Hemoglobin
+1000,Male,14.9,Mean Cell Hemoglobin
+1000,Male,14.7,Mean Cell Hemoglobin
+1000,Male,14.8,Mean Cell Hemoglobin
+1000,Male,14.5,Mean Cell Hemoglobin
+1000,Male,14.6,Mean Cell Hemoglobin
+1000,Female,15.4,Mean Cell Hemoglobin
+1000,Female,15.3,Mean Cell Hemoglobin
+1000,Female,15.3,Mean Cell Hemoglobin
+1000,Female,15.5,Mean Cell Hemoglobin
+1000,Female,14.9,Mean Cell Hemoglobin
+1000,Female,15.1,Mean Cell Hemoglobin
+1000,Female,15.1,Mean Cell Hemoglobin
+1000,Female,15.5,Mean Cell Hemoglobin
+1000,Female,15.1,Mean Cell Hemoglobin
+1000,Female,15,Mean Cell Hemoglobin
+2000,Male,14.7,Mean Cell Hemoglobin
+2000,Male,14.8,Mean Cell Hemoglobin
+2000,Male,15.1,Mean Cell Hemoglobin
+2000,Male,14.6,Mean Cell Hemoglobin
+2000,Male,15.1,Mean Cell Hemoglobin
+2000,Male,14.8,Mean Cell Hemoglobin
+2000,Male,14.5,Mean Cell Hemoglobin
+2000,Male,15,Mean Cell Hemoglobin
+2000,Male,14.7,Mean Cell Hemoglobin
+2000,Male,14.6,Mean Cell Hemoglobin
+2000,Female,15.2,Mean Cell Hemoglobin
+2000,Female,15.2,Mean Cell Hemoglobin
+2000,Female,15.2,Mean Cell Hemoglobin
+2000,Female,14.6,Mean Cell Hemoglobin
+2000,Female,15.3,Mean Cell Hemoglobin
+2000,Female,15.3,Mean Cell Hemoglobin
+2000,Female,15.3,Mean Cell Hemoglobin
+2000,Female,14.8,Mean Cell Hemoglobin
+2000,Female,15,Mean Cell Hemoglobin
+2000,Female,14.8,Mean Cell Hemoglobin

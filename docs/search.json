@@ -2,15 +2,155 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "MVEN10",
+    "title": "Home",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "This is a website for the exercises on the course Risk Assessment in Environment and Public Health MVEN10 Fall 2023.\nEx 1. Expressions of uncertainty - How probable is probable?\nEx 2. Chance, belief and frequency\nEx 3. Introduction to Quarto and R\nEx 4. Risk classification"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "ex/introduction_to_quarto_and_R.html",
+    "href": "ex/introduction_to_quarto_and_R.html",
+    "title": "Ex temp",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "To\n\n\n\n\n\n\n\n\n\n\nminutes\n\n\n\nBe prepared to report back at the end of the exercise. Write a report using the template and upload it on the assignment in canvas."
+  },
+  {
+    "objectID": "ex/introduction_to_quarto_and_R.html#exercise-overview",
+    "href": "ex/introduction_to_quarto_and_R.html#exercise-overview",
+    "title": "Ex temp",
+    "section": "",
+    "text": "To\n\n\n\n\n\n\n\n\n\n\nminutes\n\n\n\nBe prepared to report back at the end of the exercise. Write a report using the template and upload it on the assignment in canvas."
+  },
+  {
+    "objectID": "ex/introduction_to_quarto_and_R.html#content-1",
+    "href": "ex/introduction_to_quarto_and_R.html#content-1",
+    "title": "Ex temp",
+    "section": "Content",
+    "text": "Content"
+  },
+  {
+    "objectID": "ex/ex_report_template.html",
+    "href": "ex/ex_report_template.html",
+    "title": "Report of exercise [number]",
+    "section": "",
+    "text": "Write text here"
+  },
+  {
+    "objectID": "ex/ex_report_template.html#header",
+    "href": "ex/ex_report_template.html#header",
+    "title": "Report of exercise [number]",
+    "section": "",
+    "text": "Write text here"
+  },
+  {
+    "objectID": "ex/chance_belief_frequency.html",
+    "href": "ex/chance_belief_frequency.html",
+    "title": "Chance, belief and frequency",
+    "section": "",
+    "text": "Probability is a mathematical concept defined basic rules.\n\n\n\n\n\n\nThe basic rules of probability\n\n\n\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\n\n\nThere are different ways to interpret and use probability, sometimes within the same assessment.\n\n\n\n\nTo understand common interpretations of probability and for what they are used\n\n\n\n\n\nOutcomes from an experiment\nExperiment to illustrate the frequency interpretation of probability\nFrom empirical results to expected results\nFrom expected results to theoretical probabilities\n\n\n\n\n30 minutes\n\n\n\nNo reporting required"
+  },
+  {
+    "objectID": "ex/chance_belief_frequency.html#exercise-overview",
+    "href": "ex/chance_belief_frequency.html#exercise-overview",
+    "title": "Chance, belief and frequency",
+    "section": "",
+    "text": "Probability is a mathematical concept defined basic rules.\n\n\n\n\n\n\nThe basic rules of probability\n\n\n\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\n\n\nThere are different ways to interpret and use probability, sometimes within the same assessment.\n\n\n\n\nTo understand common interpretations of probability and for what they are used\n\n\n\n\n\nOutcomes from an experiment\nExperiment to illustrate the frequency interpretation of probability\nFrom empirical results to expected results\nFrom expected results to theoretical probabilities\n\n\n\n\n30 minutes\n\n\n\nNo reporting required"
+  },
+  {
+    "objectID": "ex/chance_belief_frequency.html#section",
+    "href": "ex/chance_belief_frequency.html#section",
+    "title": "Chance, belief and frequency",
+    "section": "",
+    "text": "The basic rules of probability\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\nThe rules of probability does not change with interpretation."
+  },
+  {
+    "objectID": "ex/expressing_uncertainty.html",
+    "href": "ex/expressing_uncertainty.html",
+    "title": "Expressions of uncertainty - How probable is probable?",
+    "section": "",
+    "text": "We all use a wide variety of terms to indicate uncertainty - “could”, “maybe”, “possible” and so on. Can these be intepreted as numerical probabilities?\n\n\n\n\nTo show that the interpretation of verbal expressions as numerical probabilities varies between individuals and contexts\nTo demonstrate ways to standardise verbal expressions and allow the student to comment and critique these efforts\n\n\n\n\n\nInterpretation of words and matching to probability scales\n\n\n\n\n45 minutes\n\n\n\nBe prepared to report back at the end of the exercise.\n\n\n\nThe origin to this exercise is from the book Teaching Probability by Jenny Gage and David Spiegelhalter.\nEFSA’s probability scale is defined in The principles and methods behind EFSA’s Guidance on Uncertainty Analysis in Scientific Assessment\nThe table with the IARC classification system is taken from wiki.cancer.org.au/policy/IARC_classifications"
+  },
+  {
+    "objectID": "ex/expressing_uncertainty.html#exercise-overview",
+    "href": "ex/expressing_uncertainty.html#exercise-overview",
+    "title": "Expressions of uncertainty - How probable is probable?",
+    "section": "",
+    "text": "We all use a wide variety of terms to indicate uncertainty - “could”, “maybe”, “possible” and so on. Can these be intepreted as numerical probabilities?\n\n\n\n\nTo show that the interpretation of verbal expressions as numerical probabilities varies between individuals and contexts\nTo demonstrate ways to standardise verbal expressions and allow the student to comment and critique these efforts\n\n\n\n\n\nInterpretation of words and matching to probability scales\n\n\n\n\n45 minutes\n\n\n\nBe prepared to report back at the end of the exercise.\n\n\n\nThe origin to this exercise is from the book Teaching Probability by Jenny Gage and David Spiegelhalter.\nEFSA’s probability scale is defined in The principles and methods behind EFSA’s Guidance on Uncertainty Analysis in Scientific Assessment\nThe table with the IARC classification system is taken from wiki.cancer.org.au/policy/IARC_classifications"
+  },
+  {
+    "objectID": "ex/expressing_uncertainty.html#interpretation-of-words",
+    "href": "ex/expressing_uncertainty.html#interpretation-of-words",
+    "title": "Expressions of uncertainty - How probable is probable?",
+    "section": "Interpretation of words",
+    "text": "Interpretation of words\nRead the following paragraph\n\nArthur was worried. It was almost certain there would be a maths test today, and he hadn’t been paying much attention recently. Sally would probably get more marks than hi, but here was a distinct possibility that Zak would mess up. The weather forecast said it might rain, so took a coat, and as he walked to school he thought he was likely to meet Zak, who always played around, and could make him late. If he were late, he was certain to get into trouble. Perhaps there would be a fire drill to disrupt the test? But really there was little chance of that and it was also extremely unlikely an asteroid would hit the school. It was going to be a difficult sort of day.\n\nDo individually\n\nUnderline the words or phrases that express uncertainty, such as “could”, “likely” and so on.\nMake a list of these words, and rank them in terms of highest to lowest probability.\nPut each word on the vertical probability scale. For example, if you think that “almost certain” is near 50% write it next to 50%.\n\nCollect together the responses and dicuss the ranges in opinion."
+  },
+  {
+    "objectID": "ex/expressing_uncertainty.html#high-and-small-risk",
+    "href": "ex/expressing_uncertainty.html#high-and-small-risk",
+    "title": "Expressions of uncertainty - How probable is probable?",
+    "section": "High and small risk",
+    "text": "High and small risk\nRead the following text\n\nPregnant women usually have a screening test for possible problems with their foetus. A test result that shows any probability above 1 in 150 (0.6%) of having a baby with Down’s syndrome is called a “higher-risk result” of the NHS Choices website. Such women are offered an aminocentesis to confirm or rule out the diagnosis, but this procedure carries some risk of causing a miscarriage - this risk is estimated to be about 1%, and is described as a “small associated risk” by NHS Choices.\n\nDiscuss the following questions:\n\nWhat do you think of this?\nWhy do you think this wording has been used?"
+  },
+  {
+    "objectID": "ex/expressing_uncertainty.html#probability-scales",
+    "href": "ex/expressing_uncertainty.html#probability-scales",
+    "title": "Expressions of uncertainty - How probable is probable?",
+    "section": "Probability scales",
+    "text": "Probability scales\nLet us consider a situation where the assessment question is a Yes/No question. The assessor’s uncertainty (or certainty) about the conclusion can be expressed as the probability that the answer is Yes.\nMany organisations have tried to standardise terms expressing uncertainty. Below is the probabilty scale defined by the European Food Safety Authority (EFSA) to harmonise the use of verbal expressions when communicating uncertainty to the public.\n\n\n\n\nTable 1: EFSAs Approximate probability scale\n\n\nProbability term\nSubjective probability range\nAdditional options\n\n\n\n\n\nAlmost certain\n99-100%\nMore likely than not: &gt;50%\nUnable to give any probability: range is 0-100%. Report as 'inconclusive', 'cannot conclude' or 'unknown'\n\n\nExtremely likely\n95-99%\n\n\nVery likely\n90-95%\n\n\nLikely\n66-90%\n\n\nAbout as likely as not\n33-66%\n\n\n\nUnlikely\n10-33%\n\n\nVery unlikely\n5-10%\n\n\nExtremely unlikely\n1-5%\n\n\nAlmost impossible\n0-1%\n\n\n\n\n\n\n\n\nDiscuss the following questions:\n\nWhat do you think of this scale?\nHow does the scale fit with the matching between verbal expressions and probabilities made in the first exercise?\nWhat do you think comes first when summarising uncertainty in the conclusion of an assessment - the quantitative or the verbal expression?\nWhy do you think it is called the approximate probability scale?"
+  },
+  {
+    "objectID": "ex/expressing_uncertainty.html#verbal-expressions-for-the-level-of-evidence",
+    "href": "ex/expressing_uncertainty.html#verbal-expressions-for-the-level-of-evidence",
+    "title": "Expressions of uncertainty - How probable is probable?",
+    "section": "Verbal expressions for the level of evidence",
+    "text": "Verbal expressions for the level of evidence\nThe International Agency for Research on Cancer (IARC) have devised a system of categories to evaluate the carcinogenicity of an agent to humans. An agent is classified based on scientific evidence derived from human and experimental animal studies and from mechanistic and other relevant data. The list of categories and their definition are as follows:\n\nTable 2. IARC classifications of carcinogenic agents\n\n\n\n\n\n\n\nGroup\nDescription\nDefinition\n\n\n\n\nGroup 1\nCarcinogenic to humans\nSufficient evidence of carcinogenicity OR Evidence of carcinogenicity in humans is less than sufficient but there is sufficient evidence of carcinogenicity in experimental animals and strong evidence in exposed humans that the agent acts through a relevant mechanism of carcinogenicity\n\n\nGroup 2A\nProbably carcinogenic to humans*\nLimited evidence of carcinogenicity in humans and sufficient evidence of carcinogenicity in experimental animals OR Inadequate evidence of carcinogenicity in humans and sufficient evidence of carcinogenicity in experimental animals and strong evidence that the carcinogenesis is mediated by a mechanism that also operates in humans OR Limited evidence of carcinogenicity in humans, but belongs, based on mechanistic considerations, to a class of agents for which one or more members have been classified in Group 1 or Group 2A\n\n\nGroup 2B\nPossibly carcinogenic to humans*\nLimited evidence of carcinogenicity in humans and less than sufficient evidence of carcinogenicity in experimental animals OR Inadequate evidence of carcinogenicity in humans but sufficient evidence of carcinogenicity in experimental animals OR Inadequate evidence of carcinogenicity in humans and less than sufficient evidence of carcinogenicity in experimental animals, but with supporting evidence from mechanistic and other relevant data\n\n\nGroup 3\nNot classifiable as to its carcinogenicity to humans\nEvidence of carcinogenicity is inadequate in humans and inadequate or limited in experimental animals OR Evidence of carcinogenicity is inadequate in humans but sufficient in experimental animals, but strong evidence that the mechanism of carcinogenicity in experimental animals does not operate in humans OR Agents that do not fall into any other group. Agents in Group 3 are not determined to be non-carcinogenic or safe overall, but often means that further research is needed.\n\n\n\n* Footnote to the table: The terms “probably carcinogenic” and “possibly carcinogenic” have no quantitative significance and are used simply as descriptors of different levels of evidence of human carcinogenicity, with probably carcinogenic signifying a higher level of evidence than possibly carcinogenic.\nDiscuss the following questions:\n\nHow do you understand the term “probably” and “possibly” in this classification system?\nIs there a difference between expressing the level of evidence and the certainty about a conclusion\nSuggest probabilities (or ranges of probabilities) corresponding to each group!\n\n\n\n\n\n\n\nNote\n\n\n\nThe distinction between expressing the level of evidence and the certainty about a conclusion is also refereed to as indirect and direct uncertainty see van der Bles et al. 2019. In risk assessment you will come across both these ways of expressing uncertainty. We will discuss in a later exercises how expert judgements or modelling can be used to consider indirect uncertainty when quantifying uncertainty in the conclusion."
+  },
+  {
+    "objectID": "ex/ex_temp.html",
+    "href": "ex/ex_temp.html",
+    "title": "Ex temp",
+    "section": "",
+    "text": "To\n\n\n\n\n\n\n\n\n\n\nminutes\n\n\n\nBe prepared to report back at the end of the exercise. Write a report using the template and upload it on the assignment in canvas."
+  },
+  {
+    "objectID": "ex/ex_temp.html#exercise-overview",
+    "href": "ex/ex_temp.html#exercise-overview",
+    "title": "Ex temp",
+    "section": "",
+    "text": "To\n\n\n\n\n\n\n\n\n\n\nminutes\n\n\n\nBe prepared to report back at the end of the exercise. Write a report using the template and upload it on the assignment in canvas."
+  },
+  {
+    "objectID": "ex/ex_temp.html#content-1",
+    "href": "ex/ex_temp.html#content-1",
+    "title": "Ex temp",
+    "section": "Content",
+    "text": "Content"
+  },
+  {
+    "objectID": "ex/risk_classification_ROC.html",
+    "href": "ex/risk_classification_ROC.html",
+    "title": "Ex temp",
+    "section": "",
+    "text": "To\n\n\n\n\n\n\n\n\n\n\nminutes\n\n\n\nBe prepared to report back at the end of the exercise. Write a report using the template and upload it on the assignment in canvas."
+  },
+  {
+    "objectID": "ex/risk_classification_ROC.html#exercise-overview",
+    "href": "ex/risk_classification_ROC.html#exercise-overview",
+    "title": "Ex temp",
+    "section": "",
+    "text": "To\n\n\n\n\n\n\n\n\n\n\nminutes\n\n\n\nBe prepared to report back at the end of the exercise. Write a report using the template and upload it on the assignment in canvas."
+  },
+  {
+    "objectID": "ex/risk_classification_ROC.html#content-1",
+    "href": "ex/risk_classification_ROC.html#content-1",
+    "title": "Ex temp",
+    "section": "Content",
+    "text": "Content"
+  },
+  {
+    "objectID": "ex/chance_belief_frequency.html#frequency",
+    "href": "ex/chance_belief_frequency.html#frequency",
+    "title": "Chance, belief and frequency",
+    "section": "Frequency",
+    "text": "Frequency\nThe experiment is setup as follows:\n\nAssign one student to flip Todd Redden’s Decision Maker Coin using the virtual coin flipper on random.org\nRecord if the outcome is DO IT! or The HELL WITH IT.\nAssign another student to throw a six sided dice using the virtual dice roller on random.org\nRecord if the outcome is a number in the range 1 to 5 or a six\nRepeat N=5 times\n\nAssign one student to record the outcomes in this frequency tree (replace N and # with numbers).\n\n\n\n\nflowchart LR\n  A(\"N\") --&gt;|DO IT!|B(\"#\")\n  A(\"N\") --&gt;|The HELL WITH IT|C(\"#\")\n  B(\"#\") --&gt;|1 to 5|D(\"#\")\n  B(\"#\") --&gt;|six|E(\"#\")\n  C(\"#\") --&gt;|1 to 5|F(\"#\")\n  C(\"#\") --&gt;|six|G(\"#\")\n\n\n\n\n\nAnswer the following questions:\n\nWhat is the observed frequency of the event “DO IT! followed by a six”?\nIs this a reliable estimate of the frequency? If not, what can one do to make it more reliable?\nWhat do you expect the frequency to be if N would be a very large number?\n\n\n\n\n\n\n\nTip\n\n\n\nDefine the events A = “DO IT!” and B = “six”.\nSpecify P(A) and P(B).\nCalculate P(A and B) using the multiplication rule for two independent events.\n\n\nContinue the experiment until N = 100"
   }
 ]

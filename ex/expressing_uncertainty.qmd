@@ -1,0 +1,139 @@
+---
+title: "Expressions of uncertainty - How probable is probable?"
+subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
+author: "Ullrika Sahlin"
+format: html
+editor: visual
+---
+
+## Exercise overview
+
+### Background
+
+We all use a wide variety of terms to indicate uncertainty - "could", "maybe", "possible" and so on. Can these be intepreted as numerical probabilities?
+
+### Purpose
+
+-   To show that the interpretation of verbal expressions as numerical probabilities varies between individuals and contexts
+
+-   To demonstrate ways to standardise verbal expressions and allow the student to comment and critique these efforts
+
+### Content
+
+-   Interpretation of words and matching to probability scales
+
+### Duration
+
+45 minutes
+
+### Reporting
+
+Be prepared to report back at the end of the exercise.
+
+### References
+
+The origin to this exercise is from the book Teaching Probability by Jenny Gage and David Spiegelhalter.
+
+EFSA's probability scale is defined in [The principles and methods behind EFSA's Guidance on Uncertainty Analysis in Scientific Assessment](https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2018.5122#efs25122-sec-0082-title)
+
+The table with the IARC classification system is taken from [wiki.cancer.org.au/policy/IARC_classifications](https://wiki.cancer.org.au/policy/IARC_classifications)
+
+## Interpretation of words
+
+Read the following paragraph
+
+> Arthur was worried. It was almost certain there would be a maths test today, and he hadn't been paying much attention recently. Sally would probably get more marks than hi, but here was a distinct possibility that Zak would mess up. The weather forecast said it might rain, so took a coat, and as he walked to school he thought he was likely to meet Zak, who always played around, and could make him late. If he were late, he was certain to get into trouble. Perhaps there would be a fire drill to disrupt the test? But really there was little chance of that and it was also extremely unlikely an asteroid would hit the school. It was going to be a difficult sort of day.
+
+Do individually
+
+-   Underline the words or phrases that express uncertainty, such as "could", "likely" and so on.
+
+-   Make a list of these words, and rank them in terms of highest to lowest probability.
+
+-   Put each word on the vertical probability scale. For example, if you think that "almost certain" is near 50% write it next to 50%.
+
+Collect together the responses and dicuss the ranges in opinion.
+
+## High and small risk
+
+Read the following text
+
+> Pregnant women usually have a screening test for possible problems with their foetus. A test result that shows any probability above 1 in 150 (0.6%) of having a baby with Down's syndrome is called a "higher-risk result" of the NHS Choices website. Such women are offered an aminocentesis to confirm or rule out the diagnosis, but this procedure carries some risk of causing a miscarriage - this risk is estimated to be about 1%, and is described as a "small associated risk" by NHS Choices.
+
+Discuss the following questions:
+
+-   What do you think of this?
+
+-   Why do you think this wording has been used?
+
+## Probability scales
+
+Let us consider a situation where the assessment question is a Yes/No question. The assessor's uncertainty (or certainty) about the conclusion can be expressed as the *probability that the answer is Yes*.
+
+Many organisations have tried to standardise terms expressing uncertainty. Below is the probabilty scale defined by the European Food Safety Authority ([EFSA](https://www.efsa.europa.eu/en)) to harmonise the use of verbal expressions when communicating uncertainty to the public.
+
+```{r}
+#| label: tbl-approx-probscale
+#| tbl-cap: "EFSAs Approximate probability scale"
+#| echo: false
+#| message: false
+#| warning: false
+
+# update rvest
+# install.packages("rvest")
+# install the latest version
+# remotes::install_github("haozhu233/kableExtra")
+
+library(kableExtra)
+library(magrittr)
+ptbl <- data.frame(
+  term=c("Almost certain", "Extremely likely", "Very likely", "Likely", "About as likely as not", "Unlikely", "Very unlikely", "Extremely unlikely", "Almost impossible"),
+  range=c("99-100%", "95-99%", "90-95%", "66-90%", "33-66%", "10-33%", "5-10%", "1-5%", "0-1%"),
+  addopt=c(rep("More likely than not: >50%", 4), rep(" ", 5)),
+  addopt2=rep("Unable to give any probability: range is 0-100%. Report as 'inconclusive', 'cannot conclude' or 'unknown'", 9)
+) 
+tbl_col_names <- c("Probability term", "Subjective probability range", "Additional options", "")
+ptbl %>% 
+  kbl(col.names =tbl_col_names ) %>% 
+  kable_classic(full_width = FALSE) %>%
+  column_spec(1:3, width = "10em", border_left = TRUE, border_right = TRUE) %>% 
+  collapse_rows(columns = 3:4, valign = "top")
+
+```
+
+Discuss the following questions:
+
+-   What do you think of this scale?
+
+-   How does the scale fit with the matching between verbal expressions and probabilities made in the first exercise?
+
+-   What do you think comes first when summarising uncertainty in the conclusion of an assessment - the quantitative or the verbal expression?
+
+-   Why do you think it is called the approximate probability scale?
+
+## Verbal expressions for the level of evidence
+
+The International Agency for Research on Cancer (IARC) have devised a system of categories to evaluate the carcinogenicity of an agent to humans. An agent is classified based on scientific evidence derived from human and experimental animal studies and from mechanistic and other relevant data. The list of categories and their definition are as follows:
+
+| Group    | Description                                          | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|-----------------|:----------------|:-------------------------------------|
+| Group 1  | Carcinogenic to humans                               | Sufficient evidence of carcinogenicity OR Evidence of carcinogenicity in humans is less than sufficient but there is sufficient evidence of carcinogenicity in experimental animals and strong evidence in exposed humans that the agent acts through a relevant mechanism of carcinogenicity                                                                                                                                                                                                                                                  |
+| Group 2A | Probably carcinogenic to humans\*                    | Limited evidence of carcinogenicity in humans and sufficient evidence of carcinogenicity in experimental animals OR Inadequate evidence of carcinogenicity in humans and sufficient evidence of carcinogenicity in experimental animals and strong evidence that the carcinogenesis is mediated by a mechanism that also operates in humans OR Limited evidence of carcinogenicity in humans, but belongs, based on mechanistic considerations, to a class of agents for which one or more members have been classified in Group 1 or Group 2A |
+| Group 2B | Possibly carcinogenic to humans\*                    | Limited evidence of carcinogenicity in humans and less than sufficient evidence of carcinogenicity in experimental animals OR Inadequate evidence of carcinogenicity in humans but sufficient evidence of carcinogenicity in experimental animals OR Inadequate evidence of carcinogenicity in humans and less than sufficient evidence of carcinogenicity in experimental animals, but with supporting evidence from mechanistic and other relevant data                                                                                      |
+| Group 3  | Not classifiable as to its carcinogenicity to humans | Evidence of carcinogenicity is inadequate in humans and inadequate or limited in experimental animals OR Evidence of carcinogenicity is inadequate in humans but sufficient in experimental animals, but strong evidence that the mechanism of carcinogenicity in experimental animals does not operate in humans OR Agents that do not fall into any other group. Agents in Group 3 are not determined to be non-carcinogenic or safe overall, but often means that further research is needed.                                               |
+
+: Table 2. IARC classifications of carcinogenic agents
+
+\* *Footnote to the table:* The terms "probably carcinogenic" and "possibly carcinogenic" have no quantitative significance and are used simply as descriptors of different levels of evidence of human carcinogenicity, with probably carcinogenic signifying a higher level of evidence than possibly carcinogenic.
+
+Discuss the following questions:
+
+-   How do you understand the term "probably" and "possibly" in this classification system?
+
+-   Is there a difference between expressing the *level of evidence* and the *certainty about a conclusion*
+
+-   Suggest probabilities (or ranges of probabilities) corresponding to each group!
+
+:::{.callout-note}
+The distinction between expressing the *level of evidence* and the *certainty about a conclusion* is also refereed to as indirect and direct uncertainty [see van der Bles et al. 2019](https://royalsocietypublishing.org/doi/10.1098/rsos.181870). In risk assessment you will come across both these ways of expressing uncertainty. We will discuss in a later exercises how expert judgements or modelling can be used to consider indirect uncertainty when quantifying uncertainty in the conclusion.
+:::

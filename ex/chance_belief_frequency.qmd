@@ -1,0 +1,104 @@
+---
+title: "Chance, belief and frequency"
+subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
+author: "Ullrika Sahlin"
+format: html
+editor: visual
+---
+
+## Exercise overview
+
+### Background
+
+Probability is a mathematical concept defined basic rules.
+
+:::{.callout-note title="The basic rules of probability"}
+
+**Definition:** The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.
+
+**Complement rule:** P(*not* A) = 1 - P(A)
+
+**Addition rule:** 
+
+for mutually exclusive events A, B: P(A *or* B) = P(A) + P(B)
+
+for non-mutually exclusive events A, B: P(A *or* B) = P(A) + P(B) - P(A *and* B)
+
+**Multiplication rule:** 
+
+for independent events A, B: P(A *and* B) = P(A) x P(B)
+
+for dependent events A, B: P(A *and* B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B
+:::
+
+There are different ways to interpret and use probability, sometimes within the same assessment.
+
+### Purpose
+
+-   To understand common interpretations of probability and for what they are used
+
+### Content
+
+-   Outcomes from an experiment
+
+-   Experiment to illustrate the frequency interpretation of probability
+
+-   From empirical results to expected results
+
+-   From expected results to theoretical probabilities
+
+### Duration
+
+30 minutes
+
+### Reporting
+
+No reporting required
+
+### References
+
+## Frequency
+
+The experiment is setup as follows: 
+
+- Assign one student to flip Todd Redden's Decision Maker Coin [using the virtual coin flipper on random.org](https://www.random.org/coins/?num=1&cur=20-novelty.decision-maker)
+
+- Record if the outcome is **DO IT!** or **The HELL WITH IT**.
+
+- Assign another student to throw a six sided dice [using the virtual dice roller on random.org](https://www.random.org/dice/?num=1)
+
+- Record if the outcome is a number in the range **1 to 5** or a **six**
+
+- Repeat N=5 times 
+
+
+Assign one student to record the outcomes in this frequency tree (replace N and # with numbers). 
+
+```{mermaid}
+flowchart LR
+  A("N") -->|DO IT!|B("#")
+  A("N") -->|The HELL WITH IT|C("#")
+  B("#") -->|1 to 5|D("#")
+  B("#") -->|six|E("#")
+  C("#") -->|1 to 5|F("#")
+  C("#") -->|six|G("#")
+```
+
+Answer the following questions: 
+
+- What is the observed frequency of the event "DO IT! followed by a six"? 
+
+- Is this a reliable estimate of the frequency? If not, what can one do to make it more reliable? 
+
+- What do you expect the frequency to be if N would be a very large number? 
+
+:::{.callout-tip}
+Define the events A = "DO IT!" and B = "six". 
+
+Specify P(A) and P(B).
+
+Calculate P(A *and* B) using the multiplication rule for two independent events. 
+:::
+
+Continue the experiment until N = 100
+

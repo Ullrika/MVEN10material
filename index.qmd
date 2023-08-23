@@ -1,11 +1,14 @@
 ---
-title: "MVEN10"
+title: "Home"
+author: "Ullrika Sahlin"
 ---
 
-This is a Quarto website.
+This is a website for the exercises on the course Risk Assessment in Environment and Public Health MVEN10 Fall 2023.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+[Ex 1. Expressions of uncertainty - How probable is probable?](ex/expressing_uncertainty.qmd)
 
-```{r}
-1 + 1
-```
+[Ex 2. Chance, belief and frequency](ex/chance_belief_frequency.qmd)
+
+[Ex 3. Introduction to Quarto and R](ex/introduction_to_quarto_and_R.qmd)
+
+[Ex 4. Risk classification](ex/risk_classification_ROC.qmd)
