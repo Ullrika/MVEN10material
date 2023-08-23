@@ -56,11 +56,11 @@
     "text": "Probability is a mathematical concept defined basic rules.\n\n\n\n\n\n\nThe basic rules of probability\n\n\n\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\n\n\nThere are different ways to interpret and use probability, sometimes within the same assessment.\n\n\n\n\nTo understand common interpretations of probability and for what they are used\n\n\n\n\n\nOutcomes from an experiment\nExperiment to illustrate the frequency interpretation of probability\nFrom empirical results to expected results\nFrom expected results to theoretical probabilities\n\n\n\n\n30 minutes\n\n\n\nNo reporting required"
   },
   {
-    "objectID": "ex/chance_belief_frequency.html#section",
-    "href": "ex/chance_belief_frequency.html#section",
+    "objectID": "ex/chance_belief_frequency.html#frequency",
+    "href": "ex/chance_belief_frequency.html#frequency",
     "title": "Chance, belief and frequency",
-    "section": "",
-    "text": "The basic rules of probability\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\nThe rules of probability does not change with interpretation."
+    "section": "Frequency",
+    "text": "Frequency\nThe experiment is setup as follows:\n\nAssign one student to flip Todd Redden’s Decision Maker Coin using the virtual coin flipper on random.org\nRecord if the outcome is DO IT! or The HELL WITH IT.\nAssign another student to throw a six sided dice using the virtual dice roller on random.org\nRecord if the outcome is a number in the range 1 to 5 or a six\nRepeat N=5 times\n\nAssign one student to record the outcomes in this frequency tree (replace N and # with numbers).\n\n\n\n\nflowchart LR\n  A(\"N\") --&gt;|DO IT!|B(\"#\")\n  A(\"N\") --&gt;|The HELL WITH IT|C(\"#\")\n  B(\"#\") --&gt;|1 to 5|D(\"#\")\n  B(\"#\") --&gt;|six|E(\"#\")\n  C(\"#\") --&gt;|1 to 5|F(\"#\")\n  C(\"#\") --&gt;|six|G(\"#\")\n\n\n\n\n\nAnswer the following questions:\n\nWhat is the observed frequency of the event “DO IT! followed by a six”?\nIs this a reliable estimate of the frequency? If not, what can one do to make it more reliable?\nWhat do you expect the frequency to be if N would be a very large number?\n\n\n\n\n\n\n\nTip\n\n\n\nDefine the events A = “DO IT!” and B = “six”.\nSpecify P(A) and P(B).\nCalculate P(A and B) using the multiplication rule for two independent events.\n\n\nContinue the experiment until N = 100"
   },
   {
     "objectID": "ex/expressing_uncertainty.html",
@@ -145,12 +145,5 @@
     "title": "Ex temp",
     "section": "Content",
     "text": "Content"
-  },
-  {
-    "objectID": "ex/chance_belief_frequency.html#frequency",
-    "href": "ex/chance_belief_frequency.html#frequency",
-    "title": "Chance, belief and frequency",
-    "section": "Frequency",
-    "text": "Frequency\nThe experiment is setup as follows:\n\nAssign one student to flip Todd Redden’s Decision Maker Coin using the virtual coin flipper on random.org\nRecord if the outcome is DO IT! or The HELL WITH IT.\nAssign another student to throw a six sided dice using the virtual dice roller on random.org\nRecord if the outcome is a number in the range 1 to 5 or a six\nRepeat N=5 times\n\nAssign one student to record the outcomes in this frequency tree (replace N and # with numbers).\n\n\n\n\nflowchart LR\n  A(\"N\") --&gt;|DO IT!|B(\"#\")\n  A(\"N\") --&gt;|The HELL WITH IT|C(\"#\")\n  B(\"#\") --&gt;|1 to 5|D(\"#\")\n  B(\"#\") --&gt;|six|E(\"#\")\n  C(\"#\") --&gt;|1 to 5|F(\"#\")\n  C(\"#\") --&gt;|six|G(\"#\")\n\n\n\n\n\nAnswer the following questions:\n\nWhat is the observed frequency of the event “DO IT! followed by a six”?\nIs this a reliable estimate of the frequency? If not, what can one do to make it more reliable?\nWhat do you expect the frequency to be if N would be a very large number?\n\n\n\n\n\n\n\nTip\n\n\n\nDefine the events A = “DO IT!” and B = “six”.\nSpecify P(A) and P(B).\nCalculate P(A and B) using the multiplication rule for two independent events.\n\n\nContinue the experiment until N = 100"
   }
 ]
