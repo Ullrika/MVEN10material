@@ -1,5 +1,5 @@
 ---
-title: "MVEN10material"
+title: "MVEN10"
 ---
 
 This is a Quarto website.

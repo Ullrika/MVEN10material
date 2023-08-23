@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "MVEN10material"
+  title: "MVEN10"
   navbar:
     left:
       - href: index.qmd
