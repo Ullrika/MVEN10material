@@ -18,57 +18,55 @@ website:
           file: ex/introduction_to_quarto_and_R.qmd
         - text: "Exercise 4"
           file: ex/risk_classification_ROC.qmd
-      - section: "Sept 4"
-        contents:
-        - text: "Exercise 5"
-          file: ex/ex_temp.qmd
-        - text: "Exercise 6"
-          file: ex/ex_temp.qmd
-        - text: "Exercise 7"
-          file: ex/ex_temp.qmd
-        - text: "Exercise 8"
-          file: ex/ex_temp.qmd
-        - text: "Exercise 9"
-          file: ex/ex_temp.qmd
-      - section: "Sept 6"
-        contents:
-        - text: "Exercise 10"
-          file: ex/ex_temp.qmd
-        - text: "Exercise 11"
-          file: ex/ex_temp.qmd
-        - text: "Exercise 12"
-          file: ex/ex_temp.qmd
-      - section: "Sept 11"
-        contents:
-        - text: "Exercise 13"
-          file: ex/ex_temp.qmd
-      - section: "Sept 13"
-        contents:
-        - text: "Exercise 14"
-          file: ex/ex_temp.qmd
-      - section: "Sept 18"
-        contents:
-        - text: "Exercise 15"
-          file: ex/ex_temp.qmd
-      - section: "Oct 10"
-        contents:
-        - text: "Exercise 16"
-          file: ex/ex_temp.qmd
-      - section: "Oct 16"
-        contents:
-        - text: "Exercise 18"
-          file: ex/ex_temp.qmd
-      - section: "Oct 18"
-        contents:
-        - text: "Exercise 20"
-          file: ex/ex_temp.qmd
+      # - section: "Sept 4"
+      #   contents:
+      #   - text: "Exercise 5"
+      #     file: ex/ex_temp.qmd
+      #   - text: "Exercise 6"
+      #     file: ex/ex_temp.qmd
+      #   - text: "Exercise 7"
+      #     file: ex/ex_temp.qmd
+      #   - text: "Exercise 8"
+      #     file: ex/ex_temp.qmd
+      #   - text: "Exercise 9"
+      #     file: ex/ex_temp.qmd
+      # - section: "Sept 6"
+      #   contents:
+      #   - text: "Exercise 10"
+      #     file: ex/ex_temp.qmd
+      #   - text: "Exercise 11"
+      #     file: ex/ex_temp.qmd
+      #   - text: "Exercise 12"
+      #     file: ex/ex_temp.qmd
+      # - section: "Sept 11"
+      #   contents:
+      #   - text: "Exercise 13"
+      #     file: ex/ex_temp.qmd
+      # - section: "Sept 13"
+      #   contents:
+      #   - text: "Exercise 14"
+      #     file: ex/ex_temp.qmd
+      # - section: "Sept 18"
+      #   contents:
+      #   - text: "Exercise 15"
+      #     file: ex/ex_temp.qmd
+      # - section: "Oct 10"
+      #   contents:
+      #   - text: "Exercise 16"
+      #     file: ex/ex_temp.qmd
+      # - section: "Oct 16"
+      #   contents:
+      #   - text: "Exercise 18"
+      #     file: ex/ex_temp.qmd
+      # - section: "Oct 18"
+      #   contents:
+      #   - text: "Exercise 20"
+      #     file: ex/ex_temp.qmd
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
-    
-
 
 editor: visual
 

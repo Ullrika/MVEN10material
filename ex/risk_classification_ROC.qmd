@@ -1,5 +1,5 @@
 ---
-title: "Ex temp"
+title: "Risk classification ROC"
 subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Ullrika Sahlin"
 ---
@@ -8,12 +8,9 @@ author: "Ullrika Sahlin"
 
 ### Background
 
-
 ### Purpose
 
--   To 
-
-
+-   To
 
 ### Content
 
@@ -21,14 +18,12 @@ author: "Ullrika Sahlin"
 
 ### Duration
 
- minutes
+minutes
 
 ### Reporting
 
-Be prepared to report back at the end of the exercise.
-Write a report using the template and upload it on the assignment in canvas. 
+Be prepared to report back at the end of the exercise. Write a report using the template and upload it on the assignment in canvas.
 
 ### References
 
-## Content
-
+## 

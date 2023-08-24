@@ -1,5 +1,5 @@
 ---
-title: "Ex temp"
+title: "Introduction to quarto and R"
 subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Ullrika Sahlin"
 ---
@@ -8,27 +8,310 @@ author: "Ullrika Sahlin"
 
 ### Background
 
+Calculations, simulations, data analysis and statistical analysis are common elements in risk assessments. 
+
+Being able to produce or read code supporting an assessment is a valuable skill when working as an expert or assessor. 
+
+Open source systems for coding and reporting are useful for collaborative work, reproducibility and external evaluation.  
 
 ### Purpose
 
--   To 
-
-
+To learn how to create a presentation in html format using Quarto and how to combine text, figures, equations and results from analysis into a report.  
 
 ### Content
 
--   
+- Create a Quarto presentation in html format from R Studio cloud. 
+
+- Use basic commands in R run from R Studio cloud. 
+
+- Create a quarto report integrating text and results from running commands i R from R Studio cloud.   
 
 ### Duration
 
- minutes
+minutes
 
 ### Reporting
 
-Be prepared to report back at the end of the exercise.
-Write a report using the template and upload it on the assignment in canvas. 
+No reporting required
 
 ### References
 
-## Content
+[https://quarto.org/](https://quarto.org/)
+
+## Quarto presentation
+
+(@) Go to [posit.cloud](https://posit.cloud/) and register an account. 
+
+(@) Open a new workspace and call it "intro". 
+
+(@) Click on the new file button (up to the left) and open a new Quarto Presentation.
+
+(@) Assign a title, e.g. My report
+
+(@) Assign yourself as author
+
+(@) Click on **Create**
+
+If you get a yellow ribbon asking you to install rmarkdown - Click install and wait. When finished, your window should look like this:
+
+![](../img/intro1.png)
+
+(@) Save the file as "testpresentation.qmd"
+
+(@) Press Render
+
+The program is running the qmd-file creating a html-file that is automatically opened in your browser. 
+
+Use the page down button or left/right arrow to change slide. 
+
+(@) Go back to the page with Your workspace intro
+
+The code in testpresentation.qmd is currently shown as Visual. 
+
+(@) Change to Source. 
+
+You can enlarge the window by reducing the console window.
+
+(@) Remove all text from line 8 and downwards
+
+(@) Add the following text
+
+```default
+## Slide 1
+
+A probability is always between 0 and 1
+
+## Slide 2
+
+Probability can be interpreted as a
+
+- theoretical probability
+
+- frequency
+
+- subjective probability
+
+## Slide 3
+
+Today we have learnt about 
+
+### Uncertainty
+
+It was *fun*
+
+### Probability
+
+It was even more **fun**
+
+## Slide 4
+
+Now I practise writing a math expression 
+
+$\frac{m}{n}$
+
+$\alpha$
+
+I use two dollar signs to center it
+
+$$X\cdot Y$$
+
+```
+
+(@) Press Render and look at the html-document for the presentation. 
+
+If you did not close it before, it should be in the browser. 
+
+Now you know how to create a presentation with headings, subheadings and bulletpoints. 
+
+## Basic commands in R
+
+### Simple calculations
+
+(@) Click on new file and open an **R Script** 
+
+R can work as a calculator 
+
+(@) On line 1, type 1 + 2 and press Run
+
+You should see the result 3 in the Console
+
+```{r}
+1 + 2
+```
+
+You can save the result from a calculation as an object 
+
+(@) Change the code on line 1 to be y = 1 + 2 and press Run
+
+To see the value of y, you have to type it as well in the code an rerun or in the Console 
+
+```{r}
+y = 1 + 2
+y
+```
+
+### Simple plotting
+
+Now let us look at how to create a plot 
+
+(@) Create a data frame consisting of two variables X and Y with 10 values each, where Y is positively associated with X.
+
+:::{.callout-note}
+
+It is useful to denote variables with capital letters and use lower case letters for observations of this variable. 
+
+For example, x is an sample from X.
+:::
+
+(@) Plot the sample from Y against the sample from X
+
+```{r}
+x = runif(10)
+y = 2*x + rnorm(10)
+plot(x,y)
+```
+
+Nice visualisations of data makes a huge difference to a report. We will therefore demonstrate a way to generate the same plot using [ggplot2](https://ggplot2.tidyverse.org/).
+
+(@) Install ggplot2 by typing **install.packages("ggplot2")** in the R Console (you only have to do this one time)
+
+R-packages are libraries with functions and data sets designed for a specific purpose. 
+
+(@) Load the library
+
+```{r}
+library("ggplot2")
+```
+
+(@) Create a data frame with the observations and redo the plotting using ggplot2
+
+```{r}
+df = data.frame(x=x,y=y)
+
+ggplot(df,aes(x=x,y=y))+
+  geom_point()
+```
+
+There will be time to explore ggplot later on in the course, but let us add a line fitted to the data. 
+
+```{r}
+ggplot(df,aes(x=x,y=y))+
+  geom_point()+
+  geom_smooth(method=lm,formula = y ~ x)
+```
+
+Now you can make a plot using R! More things will be introduced during exercises.
+
+There are lot of resources for self studies on R. We recommend you to have a look at the [W3schools' tutorial on R Statistics](https://www.w3schools.com/r/r_stat_intro.asp) after the exercise. 
+
+## Quarto report
+
+Now you will create a report using Quarto in which you combine text and outputs from code running in R. 
+
+(@) Create a new Quarto Document with the title "My Report", you as the author and save it as "testreport.qmd"
+
+(@) In the configuration section (also known as the YAML), add the text "date: today" as shown in the figure below.
+
+![](../img/intro2.png)
+
+(@) Press Render and view the generated html-file that appears in the browser.
+
+(@) Go back and look at the testreport.qmd file. R-code is added as gray chunks. One can use to show or hide the code. 
+
+Let us now add our own information into the report. 
+
+(@) Remove everything from line 9 and downwards. 
+
+(@) Add the following text
+
+```default
+## Summary
+
+### Lessons learnt
+
+Probability can be interpreted as a
+
+- theoretical probability
+
+- frequency
+
+- subjective probability
+
+### Skills gained
+
+(@) Generate presentations and reports using Quarto
+
+(@) Create and plot data from R, such as this
+```
+
+(@) Press Render to see what the report looks like
+
+Let us now add the figure by adding the following code 
+
+```{r}
+library("ggplot2")
+x = runif(10)
+y = 2*x + rnorm(10)
+df = data.frame(x=x,y=y)
+ggplot(df,aes(x=x,y=y))+
+  geom_point()+
+  geom_smooth(method=lm,formula = y ~ x)
+```
+
+(@) Press Render and look at the report
+
+Let us now hide the code by adding #| echo: false in the beginning of the r-chunk
+
+![](../img/intro4.png)
+
+(@) Press Render
+
+Let us improve the accessibility of the report by adding a table of content. 
+
+(@) Change the YAML as shown below. The **toc** is the table of contents. 
+
+![](../img/intro3.png)
+
+(@) Render
+
+Isn't this great
+
+Let us add an image saved as a png file 
+
+(@) Download the image and upload it to your project in R Studio cloud 
+
+
+```{r}
+#| echo: false
+downloadthis::download_file(
+  path = "../img/twobuttons.jpg",
+  output_name = "twobuttons",
+  button_label = "Download image",
+  button_type = "default",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+```
+
+(@) Add the following text at the end of your report 
+
+```default
+## Risk
+
+*No matter what, it is difficult to save the world without acknowledging that risk involves our values and our uncertainties about the world.*
+
+![](twobuttons.jpg){width=40%}
+```
+
+Here is your report. 
+
+
+:::{.callout-tip}
+
+You can integrate code and create figures in the same way in a Quarto presentation. The only difference is that there is a limitation on every slide. 
+
+Every ## starts a new slide
+
+:::
 
