@@ -1,5 +1,5 @@
 ---
-title: "Introduction to quarto and R"
+title: "Introduction to Quarto and R"
 subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Ullrika Sahlin"
 ---
@@ -28,7 +28,7 @@ To learn how to create a presentation in html format using Quarto and how to com
 
 ### Duration
 
-minutes
+45 minutes
 
 ### Reporting
 
@@ -270,15 +270,15 @@ Let us improve the accessibility of the report by adding a table of content.
 
 (@) Change the YAML as shown below. The **toc** is the table of contents. 
 
-![](../img/intro3.png)
+![](../img/intro3.png){scale=50%}
 
 (@) Render
 
-Isn't this great
+Isn't this great!
 
-Let us add an image saved as a png file 
+Let us now end by adding an image to the report
 
-(@) Download the image and upload it to your project in R Studio cloud 
+(@) Download this image and upload it to your project in R Studio cloud 
 
 
 ```{r}
@@ -286,7 +286,7 @@ Let us add an image saved as a png file
 downloadthis::download_file(
   path = "../img/twobuttons.jpg",
   output_name = "twobuttons",
-  button_label = "Download image",
+  button_label = "Download risk meme as example image",
   button_type = "default",
   has_icon = TRUE,
   icon = "fa fa-save",
@@ -294,7 +294,8 @@ downloadthis::download_file(
 )
 ```
 
-(@) Add the following text at the end of your report 
+
+(@) Add the following text at the end of your testreport.qmd file 
 
 ```default
 ## Risk
@@ -304,7 +305,7 @@ downloadthis::download_file(
 ![](twobuttons.jpg){width=40%}
 ```
 
-Here is your report. 
+(@) Render and view your report. 
 
 
 :::{.callout-tip}

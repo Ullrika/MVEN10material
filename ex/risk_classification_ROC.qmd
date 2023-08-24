@@ -1,5 +1,5 @@
 ---
-title: "Risk classification ROC"
+title: "Risk classification"
 subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Ullrika Sahlin"
 ---
@@ -8,9 +8,20 @@ author: "Ullrika Sahlin"
 
 ### Background
 
+Binary outcome
+
+- Confusion matrix
+
+ROC methodology
+
 ### Purpose
 
--   To
+- To derive errors from a classification model
+
+
+- Tuning the classifier using the ROC methodology
+
+- Comparing alternative classification models
 
 ### Content
 
@@ -18,11 +29,11 @@ author: "Ullrika Sahlin"
 
 ### Duration
 
-minutes
+45 minutes - partly as home work
 
 ### Reporting
 
-Be prepared to report back at the end of the exercise. Write a report using the template and upload it on the assignment in canvas.
+Write a report using the template and upload it on the assignment in canvas.
 
 ### References
 
