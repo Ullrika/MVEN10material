@@ -10,13 +10,13 @@ website:
     contents: 
       - section: "Aug 30"
         contents:
-        - text: "Exercise 1"
+        - text: "Exercise 1 45 min"
           file: ex/expressing_uncertainty.qmd
-        - text: "Exercise 2"
+        - text: "Exercise 2 30 min"
           file: ex/chance_belief_frequency.qmd
-        - text: "Exercise 3"
+        - text: "Exercise 3 45 min"
           file: ex/introduction_to_quarto_and_R.qmd
-        - text: "Exercise 4"
+        - text: "Exercise 4 45 min"
           file: ex/risk_classification_ROC.qmd
       # - section: "Sept 4"
       #   contents:

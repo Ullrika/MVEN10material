@@ -173,9 +173,7 @@ plot(x,y)
 
 Nice visualisations of data makes a huge difference to a report. We will therefore demonstrate a way to generate the same plot using [ggplot2](https://ggplot2.tidyverse.org/).
 
-(@) Install ggplot2 by typing **install.packages("ggplot2")** in the R Console (you only have to do this one time)
-
-R-packages are libraries with functions and data sets designed for a specific purpose. 
+(@) Install ggplot2 by typing **install.packages("tidyverse")** in the R Console. This installs several packages including ggplot2 that you will use later on. R-packages are libraries with functions and data sets designed for a specific purpose. Note that you will only have to do this one time in your work space. 
 
 (@) Load the library
 

@@ -8,24 +8,68 @@ author: "Ullrika Sahlin"
 
 ### Background
 
-Binary outcome
+A classification model is a model that assigns cases into two or more classes. Here we focus on the problem to classify breast cancers into malignant (cancerous) or benign (non cancerous).  
 
-- Confusion matrix
+There are two types of errors
 
-ROC methodology
+- a benign cancer is classified as positive - this is referred to as a false positive (TP)
+
+- a malignant cancer is classified as negative - this is referred to as a false negative (FN)
+
+All four possible outcomes of applying a binary classification model can be presented in a confusion matrix 
+
+|True situation | Positive prediction | Negative prediction|
+|---------|:-----:|:------:|
+| Cancerous    | True positive (TP)   | False negative (FN) |
+| Non cancerous  |False positive (TP) |  True negative (TN)|
+
+: Confusion matrix
+
+Desirable properties of a classification model are that its performance has
+
+- High probability of correct classifications
+
+- Low probability of both type of errors 
+
+In simple terms a binary classifier consists of 
+
+- an indicator (a quantity that can be a single predictor or derived from a combination of several predictors)
+
+- a cutoff for the indicator
+
+A modeler sets the cutoff of the indicator to achieve a desired performance of the model using
+
+- a data set with known cases and values on the predictors
+
+- a rule to trade-off the two types of errors
+
+The Receiver Operating Curve (ROC) methodology is one way to make such trade-off of a binary classifier. 
 
 ### Purpose
 
-- To derive errors from a classification model
+The purpose of this excerise is to 
 
+- become familiar with errors from a classification model
 
-- Tuning the classifier using the ROC methodology
+- work with a classifier using the ROC methodology
 
-- Comparing alternative classification models
+- gain experience in comparing alternative classification models
+
+- to gain more R skills
+
+- to practice making a report using Quarto
 
 ### Content
 
--   
+- Load data
+
+- Build a simple classifier and calculate frequency of different types of errors
+
+- Evaluate the classifier using the ROC curve methodology
+
+- Build another classifier and compare the two models
+
+- Instructions how to write the report
 
 ### Duration
 
@@ -37,4 +81,242 @@ Write a report using the template and upload it on the assignment in canvas.
 
 ### References
 
-## 
+The data set [Binary Classification Prediction for type of Breast Cancer](https://www.kaggle.com/datasets/yasserh/breast-cancer-dataset?resource=download) is downloaded from Kaggle 
+
+## Binary classifer
+
+### Read in data
+
+(@) Download the data file and save it on your project at R Studio cloud
+
+```{r}
+#| echo: false
+downloadthis::download_file(
+  path = "../data/breast-cancer.csv",
+  button_label = "Download csv file",
+  button_type = "info",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+```
+
+(@) Load the data into a data frame that you name **df**
+
+To do this you load two R packages. One to read in files and one to tidy your data. 
+
+To view the data fram type **df** (done in the code below). 
+
+```{r}
+#| message: false
+library(readr)
+library(tidyr)
+df <- as_tibble(read_csv("../data/breast-cancer.csv"))
+df
+```
+
+(@) Narrow down the data set to include two predictors for the classifier: mean radius and mean compactness of the cancer.  
+
+The R-package dplyr has useful functions for wrangling data. The **%>%*** is called a pipe that makes it possible to add functions to functions. 
+
+```{r}
+#| message: false
+library(dplyr)
+df %>% select(c(diagnosis, radius_mean, compactness_mean))
+```
+
+
+
+### Visualise predictors 
+
+It is always good to look at data to get a feel for it. Is it continuous, categorical or discrete numbers? What is the range of values. 
+
+Since we will use the predictors to classify, it can be useful to summarise the values of the predictors after dividing the data according to the diagnosis. If it is a good predictor, we expect the data to look different between the groups.  
+
+
+(@) Visualise the predictors per diagnose group. 
+
+Below we use density graphs, which can be thought of as a smooth histogram. 
+
+```{r}
+library(ggplot2)
+df %>% select(c(diagnosis, radius_mean, compactness_mean)) %>% 
+ggplot(aes(x=radius_mean, fill=diagnosis)) +
+  geom_density(alpha=0.5)
+```
+
+
+```{r}
+df %>% select(c(diagnosis, radius_mean, compactness_mean)) %>% 
+ggplot(aes(x=compactness_mean, fill=diagnosis)) +
+  geom_density(alpha=0.5)
+```
+
+:::{.callout-note title="Information to put in the report"}
+Which of the two predictors do you think is the better indicator to classify cancers into malignant or benign? 
+Motivate your choice based on the two visualisations plots. 
+
+Include the plots in the report.
+:::
+
+In this exercise you will build two models, one per predictor and then compare them. 
+
+### Model with mean radius as predictor
+
+(@) Select a cutoff of 15 for the predictor radius_mean and classify data into positive if the predictor is above the cutoff and negative if the predictor is below the cutoff. Save the predictions as **pred_rad**.
+
+In the code this is done by the functions *mutate* and *case_when*.
+
+```{r}
+df %>% select(c(diagnosis, radius_mean, compactness_mean)) %>%
+  mutate(pred_rad=case_when(radius_mean>15 ~ "pos", .default = 'neg'))
+```
+
+(@) Derive the frequency of the confusion matrix for the classification model with the mean radius as predictor.
+
+The code below selects the two variables and counts the frequency of each combination of the two variables using the function *table*.
+
+:::{.callout-tip}
+To read the help text for a function type a ? followed by the name of the function in the Console. Or put your cursor on top of the function and press F1. 
+:::
+
+```{r}
+table(df %>% select(c(diagnosis, radius_mean, compactness_mean)) %>%
+  mutate(pred_rad=case_when(radius_mean>15 ~ "pos", .default = 'neg')) %>% 
+  select(c(diagnosis,pred_rad)))
+```
+
+Note that the output from *table* is here in the reversed order compared to the standard format of a confusion matrix. The reason is that the categories are ordered in alphabetic order. 
+
+:::{.callout-note title="Information to add in the report"}
+For the binary classification model using mean radius as predictor:
+
+- What is the frequency of False positives (FP)?
+
+- What is the frequency of False negatives (FN)?
+
+- Which of these two errors do you think is worse? Motivate your answer. 
+:::
+
+### Sensitivity and specificty to measure performance of a binary classifier
+
+Sensitivity is the fraction of true positives, i.e. $\frac{TP}{TP + FN}$ and describes the proportion of malignant cancers correctly predicted as positive.  
+
+Specificity is the fraction of true negatives, i.e. $\frac{TN}{FP + TN}$ and describes the proportion of benign cancers correctly predicted as negative. 
+
+:::{.callout-note title="Information to add in the report"}
+For the binary classification model using mean radius as predictor:
+
+- What is the frequency of True Positives (TP)?
+
+- What is the frequency of True Negatives (TN)?
+
+- What is the sensitivity and specificity?
+:::
+
+Sensitivity and specificity measures performance of the classification model. Sensitivity and specificity should be as high as possible, but increasing one will decrease the other.  
+
+The model can be tuned towards better performance by changing the cutoff value. See for example what happens when the cutoff is changed to 11. 
+
+```{r}
+table(df %>% select(c(diagnosis, radius_mean, compactness_mean)) %>%
+  mutate(pred_rad=case_when(radius_mean>11 ~ "pos", .default = 'neg')) %>% 
+  select(c(diagnosis,pred_rad)))
+```
+
+All but one malignant cancer is classified as positive, which is good, but it comes with a cost of classifying 272 benign cancers as positive. 
+
+In other words, when changing the cutoff from 15 to 11 the
+
+- sensitivity is $\frac{211}{211+1}=0.95$ and 
+
+- specificity is $\frac{84}{273+84}=0.24$
+
+
+### The ROC curve methodology
+
+A ROC curve is a plot of sensitivity versus 1-specificity for all values of the cutoff. It can illustrate how well the model performs and help choosing the cutoff. 
+
+(@) Load one of the many R-packages for ROC curve analysis. 
+
+Before loading the library you might have to install it using **install.packages("pROC")**. This only needs to be done ones. 
+
+The ROC curve analysis is run using the functions *roc* and *coords*
+
+```{r}
+library(pROC)
+r = roc(diagnosis ~ radius_mean, data=df)
+coords(r)
+```
+
+
+(@) Plot the ROC curve
+
+The code plots sensitivity against specificity (on reversed axis) for all possible values on the cutoff.
+
+```{r}
+r %>% ggroc +
+  ggtitle("ROC curve predictor radius_mean") 
+```
+
+(@) Find a cutoff value that offers a good balance between sensitivity and specificity. 
+
+```{r}
+ssc = coords(r, "best", best.method = "closest.topleft")
+ssc
+```
+
+(@) Redo the plot of the ROC curve where you also add the optimal cutoff as a red point.
+
+```{r}
+r %>% ggroc +
+  ggtitle("ROC curve predictor radius_mean") +
+  geom_point(data=ssc,aes(x=specificity,y =sensitivity),col='red')+
+  annotate("text", x = ssc$specificity-0.2, y = ssc$sensitivity, label = paste0("cutoff = ", ssc$threshold))
+```
+
+(@) Redo the plot and also add information about the area under the curve (AUC). 
+
+The AUC measure is useful for model comparisons, where a higher value implies a better model. A value of AUC close to 0.5 corresponds to a random guess. 
+
+```{r}
+r %>% ggroc +
+  annotate("text", x = 0.3, y = 0.05, label = paste0("AUC = ", round(auc(r), 2))) +
+  ggtitle("ROC curve predictor radius_mean") +
+  geom_point(data=ssc,aes(x=specificity,y =sensitivity),col='red')+
+  annotate("text", x = ssc$specificity-0.2, y = ssc$sensitivity, label = paste0("cutoff = ", ssc$threshold))
+```
+
+### ROC curve for model comparison
+
+(@) Do the ROC curve analysis for the binary classification model using mean compactness as predictor. 
+
+```{r}
+r2 = roc(diagnosis ~ compactness_mean, data=df)
+coords(r2,"best", best.method = "closest.topleft")
+```
+
+(@) Which of the two models has the best performance evaluated by specificity and sensitivity? 
+
+
+(@) Compare the ROC curves of the models and the area under the curves. 
+
+```{r}
+list(radius=r,compactness=r2) %>% ggroc +
+  annotate("text", x = 0.3, y = 0.105, label = paste0("AUC radius = ", round(auc(r), 2))) +
+  annotate("text", x = 0.3, y = 0.05, label = paste0("AUC compactness = ", round(auc(r2), 2))) +
+  ggtitle("ROC curves")
+```
+
+
+:::{.callout-note title="Information to add in the report"}
+Add the graph with the two ROC curves to the project. 
+
+Which of the two binary classification models have the best performance according to the AUC measure? 
+
+Suggest three things that could be done to build a better classification model? 
+:::
+
+## Reporting
+
+Download the template for the report and open it in  
