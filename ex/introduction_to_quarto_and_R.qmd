@@ -212,7 +212,7 @@ Now you will create a report using Quarto in which you combine text and outputs 
 
 (@) In the configuration section (also known as the YAML), add the text "date: today" as shown in the figure below.
 
-![](../img/intro2.png)
+![](../img/intro2.png){width=80%}
 
 (@) Press Render and view the generated html-file that appears in the browser.
 
@@ -262,7 +262,7 @@ ggplot(df,aes(x=x,y=y))+
 
 Let us now hide the code by adding #| echo: false in the beginning of the r-chunk
 
-![](../img/intro4.png)
+![](../img/intro4.png){width=50%}
 
 (@) Press Render
 
