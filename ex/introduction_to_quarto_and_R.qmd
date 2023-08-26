@@ -270,7 +270,7 @@ Let us improve the accessibility of the report by adding a table of content.
 
 (@) Change the YAML as shown below. The **toc** is the table of contents. 
 
-![](../img/intro3.png){scale=50%}
+![](../img/intro3.png){width=50%}
 
 (@) Render
 
@@ -312,7 +312,19 @@ downloadthis::download_file(
 
 You can integrate code and create figures in the same way in a Quarto presentation. The only difference is that there is a limitation on every slide. 
 
-Every ## starts a new slide
+Begin a new slide by **## [header of the slide]**
 
+:::
+
+
+:::{.callout-info}
+
+To simplify sharing code and organise files during the course we here recommend to use folders
+
+**data** for storing data
+
+**ex** for storing .rmd files
+
+**img** for storing images
 :::
 

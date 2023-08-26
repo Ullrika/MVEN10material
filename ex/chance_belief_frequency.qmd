@@ -186,7 +186,7 @@ Given that the evidence is revealing the outcome, the subjective probabilities h
 In risk assessment, we seldom have such full certainty as in this example. Probabilities are almost inevitably based on judgements and assumptions such as random sampling.
 
 
-:::{.callout tip title="A general advice"}
+:::{.callout-tip title="A general advice"}
 
 Probability can be thought of as an expected frequency. Instead of saying that "the probability of the event is 0.20 (or 20%)", you can say "out of 100 situations like this, we would expect the event to occur 20 times".
 
