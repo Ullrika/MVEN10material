@@ -6,6 +6,8 @@ author: "Ullrika Sahlin"
 
 ## Exercise overview
 
+- Work in pairs or alone.
+
 ### Background
 
 Calculations, simulations, data analysis and statistical analysis are common elements in risk assessments. 

@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="[Write your name here]">
+<meta name="author" content="Your name">
 <meta name="dcterms.date" content="2023-08-26">
 
-<title>MVEN10 - Report of exercise [number]</title>
+<title>MVEN10 - Exercise 4. Risk classification</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -62,6 +62,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -147,7 +149,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#header" id="toc-header" class="nav-link active" data-scroll-target="#header">Header</a></li>
+  <li><a href="#data-visualisation-and-initial-comparison-of-predictors" id="toc-data-visualisation-and-initial-comparison-of-predictors" class="nav-link active" data-scroll-target="#data-visualisation-and-initial-comparison-of-predictors">Data visualisation and initial comparison of predictors</a></li>
+  <li><a href="#frequency-of-errors-for-the-binary-classification-model-with-mean-radius-as-predictor-and-cutoff-15" id="toc-frequency-of-errors-for-the-binary-classification-model-with-mean-radius-as-predictor-and-cutoff-15" class="nav-link" data-scroll-target="#frequency-of-errors-for-the-binary-classification-model-with-mean-radius-as-predictor-and-cutoff-15">Frequency of errors for the binary classification model with mean radius as predictor and cutoff 15</a></li>
+  <li><a href="#sensitivity-and-specificity-for-the-binary-classification-model-with-mean-radius-as-predictor-and-cutoff-15" id="toc-sensitivity-and-specificity-for-the-binary-classification-model-with-mean-radius-as-predictor-and-cutoff-15" class="nav-link" data-scroll-target="#sensitivity-and-specificity-for-the-binary-classification-model-with-mean-radius-as-predictor-and-cutoff-15">Sensitivity and specificity for the binary classification model with mean radius as predictor and cutoff 15</a></li>
+  <li><a href="#model-comparison-using-the-roc-curve-methodology" id="toc-model-comparison-using-the-roc-curve-methodology" class="nav-link" data-scroll-target="#model-comparison-using-the-roc-curve-methodology">Model comparison using the ROC curve methodology</a></li>
   </ul>
 </nav>
     </div>
@@ -156,8 +161,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Report of exercise [number]</h1>
-<p class="subtitle lead">MVEN10 Fall 2023</p>
+<h1 class="title">Exercise 4. Risk classification</h1>
+<p class="subtitle lead">Report</p>
 </div>
 
 
@@ -167,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>[Write your name here] </p>
+             <p>Your name </p>
           </div>
   </div>
     
@@ -184,9 +189,50 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="header" class="level2">
-<h2 class="anchored" data-anchor-id="header">Header</h2>
-<p>Write text here</p>
+<section id="data-visualisation-and-initial-comparison-of-predictors" class="level2">
+<h2 class="anchored" data-anchor-id="data-visualisation-and-initial-comparison-of-predictors">Data visualisation and initial comparison of predictors</h2>
+<p>Which of the two predictors do you think is the better indicator to classify cancers into malignant or benign?</p>
+<p>Answer: <!-- TYPE YOUR ANSWER HERE --></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="ex4_report_template_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="ex4_report_template_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+</section>
+<section id="frequency-of-errors-for-the-binary-classification-model-with-mean-radius-as-predictor-and-cutoff-15" class="level2">
+<h2 class="anchored" data-anchor-id="frequency-of-errors-for-the-binary-classification-model-with-mean-radius-as-predictor-and-cutoff-15">Frequency of errors for the binary classification model with mean radius as predictor and cutoff 15</h2>
+<p>For the binary classification model using mean radius as predictor:</p>
+<p>Frequency of False positives (FP) is <!-- TYPE YOUR ANSWER HERE --></p>
+<p>Frequency of False negatives (FN) is <!-- TYPE YOUR ANSWER HERE --></p>
+<p>Which of these two errors do you think is worse? Motivate your answer.</p>
+<!-- TYPE YOUR ANSWER HERE -->
+</section>
+<section id="sensitivity-and-specificity-for-the-binary-classification-model-with-mean-radius-as-predictor-and-cutoff-15" class="level2">
+<h2 class="anchored" data-anchor-id="sensitivity-and-specificity-for-the-binary-classification-model-with-mean-radius-as-predictor-and-cutoff-15">Sensitivity and specificity for the binary classification model with mean radius as predictor and cutoff 15</h2>
+<p>For the binary classification model using mean radius as predictor:</p>
+<p>Frequency of True Positives (TP) is <!-- TYPE YOUR ANSWER HERE --></p>
+<p>Frequency of True Negatives (TN) is <!-- TYPE YOUR ANSWER HERE --></p>
+<p>Sensitivity, i.e.&nbsp;<span class="math inline">\(\frac{TP}{TP + FN}\)</span> is <!-- TYPE YOUR ANSWER HERE --></p>
+<p>Specificity <span class="math inline">\(\frac{TN}{FP + TN}\)</span> is <!-- TYPE YOUR ANSWER HERE --></p>
+</section>
+<section id="model-comparison-using-the-roc-curve-methodology" class="level2">
+<h2 class="anchored" data-anchor-id="model-comparison-using-the-roc-curve-methodology">Model comparison using the ROC curve methodology</h2>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="ex4_report_template_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Which of the two binary classification models have the best performance according to the AUC measure?</p>
+<!-- TYPE YOUR ANSWER HERE -->
+<p>Suggest three things that could be done to build a better classification model?</p>
+<ul>
+<li><p>suggestion 1</p></li>
+<li><p>suggestion 2</p></li>
+<li><p>suggestion 3</p></li>
+</ul>
 
 
 </section>
