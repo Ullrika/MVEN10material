@@ -79,9 +79,9 @@ The purpose of this exercise is to
 
 ### Reporting
 
-Write a report using the template.
+Write a report using the template provided. Start preparing the report after you have worked through the exercise. 
 
-Create a group in canvas and upload the report on the assignment in canvas. 
+Add your name(s) to create a group under E4 in canvas and upload the report on the assignment in canvas. 
 
 ### References
 
@@ -89,32 +89,9 @@ The data set [Binary Classification Prediction for type of Breast Cancer](https:
 
 ## Instructions to excercise and reporting
 
-Open an empty rmd document in R Studio cloud, save it in a folder named **ex** and paste in the code or modify the code following the steps in the exercise.
+Open an new Quarto document in R Studio cloud, save it in a folder named **ex** and paste in the code or modify the code following the steps in the exercise.
 
 When you have gone through all steps, it is time to prepare a report. 
-
-Download the template for the report, upload it to your project in R Studio cloud and open it. 
-
-
-```{r}
-#| echo: false
-downloadthis::download_file(
-  path = "../ex/ex4_report_template.qmd",
-  button_label = "Download template",
-  button_type = "default",
-  has_icon = TRUE,
-  icon = "fa fa-save",
-  self_contained = FALSE
-)
-```
-
-All code in for the report is in the template. You are to 
-
-- add text, such as the answers to questions 
-
-- hide code or figures in the final report 
-
-Render the report as a html-file and upload on the assignment on canvas. 
 
 ## Load and visualise data
 
@@ -152,7 +129,7 @@ df
 
 (@) Narrow down the data set to include two predictors for the classifier: mean radius and mean compactness of the cancer.  
 
-The R-package dplyr has useful functions for wrangling data. The **%>%*** is called a pipe that makes it possible to add functions to functions. 
+The R-package dplyr has useful functions for wrangling data. The **%>%** is called a pipe that makes it possible to add functions to functions. 
 
 ```{r}
 #| message: false
@@ -351,4 +328,28 @@ Which of the two binary classification models have the best performance accordin
 
 Suggest three things that could be done to build a better classification model? 
 :::
+
+## Instructions for reporting
+
+Download the template for the report, upload it to the folder named **ex** in your project in R Studio cloud and open it. 
+
+
+```{r}
+#| echo: false
+downloadthis::download_file(
+  path = "../ex/ex4_report_template.qmd",
+  button_label = "Download template",
+  button_type = "default",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+```
+
+All code in for the report is in the template. You are to 
+
+- add text, such as the answers to questions 
+
+
+Render the report as a html-file and upload it on the assignment for your E4 group on canvas. 
 

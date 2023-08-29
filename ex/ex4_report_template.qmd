@@ -25,11 +25,9 @@ library(pROC)
 
 Which of the two predictors do you think is the better indicator to classify cancers into malignant or benign?
 
-Answer:
-<!-- TYPE YOUR ANSWER HERE -->
+Answer: <!-- TYPE YOUR ANSWER HERE -->
 
 ```{r}
-#| warning: false
 
 ## Load data
 df <- as_tibble(read_csv("../data/breast-cancer.csv"))
@@ -45,7 +43,6 @@ ggplot(aes(x=compactness_mean, fill=diagnosis)) +
   geom_density(alpha=0.5)
 ```
 
-
 ## Frequency of errors for the binary classification model with mean radius as predictor and cutoff 15
 
 ```{r}
@@ -60,14 +57,13 @@ table(df %>% select(c(diagnosis, radius_mean, compactness_mean)) %>%
 
 For the binary classification model using mean radius as predictor:
 
-Frequency of False positives (FP) is  <!-- TYPE YOUR ANSWER HERE -->
+Frequency of False positives (FP) is <!-- TYPE YOUR ANSWER HERE -->
 
-Frequency of False negatives (FN) is  <!-- TYPE YOUR ANSWER HERE -->
+Frequency of False negatives (FN) is <!-- TYPE YOUR ANSWER HERE -->
 
 Which of these two errors do you think is worse? Motivate your answer.
 
 <!-- TYPE YOUR ANSWER HERE -->
-
 
 ## Sensitivity and specificity for the binary classification model with mean radius as predictor and cutoff 15
 
@@ -84,7 +80,6 @@ Specificity $\frac{TN}{FP + TN}$ is <!-- TYPE YOUR ANSWER HERE -->
 ## Model comparison using the ROC curve methodology
 
 ```{r}
-#| message: false
 r = roc(diagnosis ~ radius_mean, data=df)
 ssc = coords(r, "best", best.method = "closest.topleft")
 
@@ -105,8 +100,8 @@ Which of the two binary classification models have the best performance accordin
 
 Suggest three things that could be done to build a better classification model?
 
-- suggestion 1
+-   suggestion 1
 
-- suggestion 2
+-   suggestion 2
 
-- suggestion 3
+-   suggestion 3
