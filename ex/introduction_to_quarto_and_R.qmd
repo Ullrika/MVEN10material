@@ -44,7 +44,7 @@ No reporting required
 
 (@) Go to [posit.cloud](https://posit.cloud/) and register an account. 
 
-(@) Open a new workspace and call it "intro". 
+(@) Open a new project and call it "intro". 
 
 (@) Click on the new file button (up to the left) and open a new Quarto Presentation.
 
@@ -175,7 +175,9 @@ plot(x,y)
 
 Nice visualisations of data makes a huge difference to a report. We will therefore demonstrate a way to generate the same plot using [ggplot2](https://ggplot2.tidyverse.org/).
 
-(@) Install ggplot2 by typing **install.packages("tidyverse")** in the R Console. This installs several packages including ggplot2 that you will use later on. R-packages are libraries with functions and data sets designed for a specific purpose. Note that you will only have to do this one time in your work space. 
+(@) Install ggplot2 by typing **install.packages("tidyverse")** in the R Console. You might have to rewrite the quotation marks. 
+
+This installs several packages including ggplot2 that you will use later on. R-packages are libraries with functions and data sets designed for a specific purpose. Note that you will only have to do this one time in your work space. 
 
 (@) Load the library
 

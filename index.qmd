@@ -13,9 +13,10 @@ This is a website for the exercises on the course Risk Assessment in Environment
 
 [Ex 3. Introduction to Quarto and R](ex/introduction_to_quarto_and_R.qmd)
 
+## Sept 4 13 - 16
+
 [Ex 4. Risk classification](ex/risk_classification_ROC.qmd)
 
-## Sept 4 13 - 16
 
 ## Sept 6 13 - 16
 

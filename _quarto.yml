@@ -12,14 +12,14 @@ website:
         contents:
         - text: "Exercise 1 45 min"
           file: ex/expressing_uncertainty.qmd
-        - text: "Exercise 2 30 min"
+        - text: "Exercise 2 45 min"
           file: ex/chance_belief_frequency.qmd
         - text: "Exercise 3 45 min"
           file: ex/introduction_to_quarto_and_R.qmd
+      - section: "Sept 4"
+        contents:
         - text: "Exercise 4 45 min"
           file: ex/risk_classification_ROC.qmd
-      # - section: "Sept 4"
-      #   contents:
       #   - text: "Exercise 5"
       #     file: ex/ex_temp.qmd
       #   - text: "Exercise 6"
