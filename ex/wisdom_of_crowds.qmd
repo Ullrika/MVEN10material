@@ -1,0 +1,95 @@
+---
+title: "Wisdom of crowds"
+author: "Ullrika"
+format: revealjs
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+library(dplyr)
+library(ggplot2)
+```
+
+```{r}
+## add the calculated 80% prob from the linear pool
+
+lb_lp = 2
+ub_lp = 12
+```
+
+<!-- https://docs.google.com/spreadsheets/d/1HbFNHzYl8LTjbYIaxvbW77lGdZi7j4T0gRTCyY55Y_U/edit?usp=sharing -->
+
+```{r}
+#| eval: false
+
+# open excel file and copy the values to be pasted in here
+df <- read.delim("clipboard",header=FALSE)
+colnames(df) <- c("P10","P90","P")
+rownames(df) <- LETTERS[1:nrow(df)]
+save(df,file="df.Rdata")
+```
+
+```{r}
+#| eval: true
+load("../data/df.Rdata")
+```
+
+```{r}
+df$diff <- df$P90-df$P10
+df$nr <- 1:nrow(df)
+
+df2 <- data.frame(value=c(df$P10,df$P90),bound = rep(c("Lower","Upper"),each=nrow(df)),expert=rep(paste("expert",LETTERS[1:nrow(df)]),2))
+df2$bound <- ordered(df2$bound,levels=c("Upper","Lower"))
+```
+
+## Individual judgements
+
+- Judgements shown as 80% probability intervals 
+
+```{r}
+df2 %>%
+  ggplot(aes(x=expert,y=value, fill=bound))+
+  geom_bar(stat="identity",width=0.5) +
+  scale_fill_manual(values = c("#6A51A3","#E7E7E7"))+
+  theme(legend.position = "none") +
+  coord_flip() 
+  
+```
+
+## With the aggregated judgement
+
+- Aggregation made taking the linear pool
+
+```{r}
+df3 <- df2 %>%
+  add_row(value = lb_lp, bound = "Lower", expert = "Aggregated") %>%
+  add_row(value = ub_lp-lb_lp, bound = "Upper", expert = "Aggregated")
+df3$bound <- ordered(df3$bound,levels=c("Upper","Lower"))
+
+df3 %>%
+  ggplot(aes(x=expert,y=value, fill=bound))+
+  geom_bar(stat="identity",width=0.5) +
+  scale_fill_manual(values = c("#6A51A3","#E7E7E7"))+
+ geom_rect(aes(ymin=lb_lp,ymax=ub_lp,xmin=0.75,xmax=1.25),colour='orange',linewidth = 1, alpha=0,inherit.aes=FALSE) +
+  theme(legend.position = "none") +
+  coord_flip() 
+  
+```
+
+## With the true value 
+
+- The true value is the red line
+
+```{r}
+df3 %>%
+  ggplot(aes(x=expert,y=value, fill=bound))+
+  geom_bar(stat="identity",width=0.5) +
+  scale_fill_manual(values = c("#6A51A3","#E7E7E7"))+
+  geom_rect(aes(ymin=lb_lp,ymax=ub_lp,xmin=0.75,xmax=1.25),colour='orange',linewidth = 1, alpha=0,inherit.aes=FALSE) +
+ theme(legend.position = "none") +
+  geom_hline(aes(yintercept = 30, colour = "red"), linewidth = 1) +
+  coord_flip() 
+  
+```

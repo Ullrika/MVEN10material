@@ -1,0 +1,124 @@
+---
+title: "Observe and Summarise"
+subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
+author: "Ullrika Sahlin"
+format: html
+editor: visual
+---
+
+## Exercise overview
+
+- Work in groups of 2-4
+
+### Background
+
+Risk assessments are made using available data (+ evidence and expert knowledge).
+
+Observations of the real world are useful to inform (or with a fancy word - calibrate) assessment models. 
+It is important to consider how data have been collected and it is related to the system being studied.
+
+### Purpose
+
+- To get a feeling for collecting and managing data for further analysis
+
+- To practice summarising data by its descriptive statistics
+
+### Content
+
+- make observations and save them in a spreadsheet
+
+- load data to R
+
+- summarise by statistics and suitable graph
+
+- make a report
+
+### Duration
+
+70 minutes
+
+### Reporting
+
+Write a report using a qmd document and upload it on the discussion forum in canvas. 
+
+## Collect observations
+
+Collect 20 observations from one of these alternatives: 
+
+- Measure the length of wooden bricks in the box placed in the lecture room.
+
+- Weight fallen apples. There are lots around the Ecology building. 
+
+- Count the number of cars passing in one direction during 30 seconds intervals. Do it on Tunavägen by the bridge over the tram.
+
+- Same as above, but measure instead the time between cars passing. 
+
+- Something you suggest yourself, as long as it is discrete or continuous data. Check if OK with Ullrika first. Send her an email. 
+
+Open a new spreadsheet and call it "ex7_yournames.xlsx", where "yournames" is altered to your names.
+
+Call the first sheet **metadata** and the second sheet one **data**. 
+
+Feed in the observations in the data sheet. Give them a name on the top of the column. I call mine "obs". 
+
+In the metadata sheet, add information on how and when data was collected and by whom. If the data is discrete or continuous. If applicable, what unit used. Any other relevant information. 
+
+Post the spreadsheet on the [discussion forum for exercises](https://canvas.education.lu.se/courses/23481/discussion_topics/331809). 
+
+## Descriptive statistics
+
+Load your data into R. 
+
+The code below loads a package for reading Excel files. If you don't have this, you will be asked to install it. 
+
+The function read_excel directs to the Excel file and which sheet to read from. 
+
+```{r}
+library(readxl)
+df = read_excel(path="../files/ex7_yournames.xlsx",sheet="data")
+df
+```
+
+```{r}
+summary(df)
+```
+
+Sample size 
+
+```{r}
+nrow(df)
+```
+
+## Visualise your data
+
+```{r}
+library(ggplot2)
+```
+
+### Boxplot
+
+```{r}
+
+ggplot(df,aes(y=obs))+
+  geom_boxplot()
+```
+
+### Histogram
+
+```{r}
+
+ggplot(df,aes(x=obs))+
+  geom_histogram(binwidth=2)
+```
+
+### Density plot
+
+```{r}
+
+ggplot(df,aes(x=obs))+
+  geom_density()
+```
+
+## Report
+
+Upload the report into the same discussion on canvas where you also provided the data.  

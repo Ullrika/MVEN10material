@@ -20,17 +20,19 @@ website:
         contents:
         - text: "Exercise 4 45 min"
           file: ex/risk_classification_ROC.qmd
-      #   - text: "Exercise 5"
-      #     file: ex/ex_temp.qmd
-      #   - text: "Exercise 6"
-      #     file: ex/ex_temp.qmd
-      #   - text: "Exercise 7"
-      #     file: ex/ex_temp.qmd
-      #   - text: "Exercise 8"
-      #     file: ex/ex_temp.qmd
-      #   - text: "Exercise 9"
-      #     file: ex/ex_temp.qmd
-      # - section: "Sept 6"
+        - text: "Exercise 5 45 min"
+          file: ex/expert_judgement.qmd
+        - text: "Exercise 6 45 min"
+          file: ex/useful_functions.qmd
+      - section: "Sept 6"
+        contents:  
+        - text: "Exercise 7"
+          file: ex/observe_summarise.qmd
+      #  - text: "Exercise 8"
+      #    file: ex/observe_fit_simulate.qmd
+      #  - text: "Exercise 9"
+      #    file: ex/the_bus_stop.qmd
+      # - section: "Sept 11"
       #   contents:
       #   - text: "Exercise 10"
       #     file: ex/ex_temp.qmd

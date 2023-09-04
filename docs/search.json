@@ -18,14 +18,14 @@
     "href": "index.html#sept-4-13---16",
     "title": "Home",
     "section": "Sept 4 13 - 16",
-    "text": "Sept 4 13 - 16\nEx 4. Risk classification"
+    "text": "Sept 4 13 - 16\nEx 4. Risk classification\nEx 5. Expert judgement\nEx 6. Introduction to useful functions in Microsoft Excel"
   },
   {
     "objectID": "index.html#sept-6-13---16",
     "href": "index.html#sept-6-13---16",
     "title": "Home",
     "section": "Sept 6 13 - 16",
-    "text": "Sept 6 13 - 16"
+    "text": "Sept 6 13 - 16\nEx 7. Observe and summarise"
   },
   {
     "objectID": "index.html#sept-11-13---16",
@@ -68,6 +68,125 @@
     "title": "Home",
     "section": "Oct 18 13 - 15",
     "text": "Oct 18 13 - 15"
+  },
+  {
+    "objectID": "ex/useful_functions_with_R.html",
+    "href": "ex/useful_functions_with_R.html",
+    "title": "The R-version of what we did in Introduction to useful functions in Excel",
+    "section": "",
+    "text": "Load packages\n\nlibrary(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nLoad data and save the variable to an object called x\n\ndf = as_tibble(read_csv(\"../data/breast-cancer.csv\"))%&gt;% select(radius_mean)"
+  },
+  {
+    "objectID": "ex/useful_functions_with_R.html#preparations",
+    "href": "ex/useful_functions_with_R.html#preparations",
+    "title": "The R-version of what we did in Introduction to useful functions in Excel",
+    "section": "",
+    "text": "Load packages\n\nlibrary(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nLoad data and save the variable to an object called x\n\ndf = as_tibble(read_csv(\"../data/breast-cancer.csv\"))%&gt;% select(radius_mean)"
+  },
+  {
+    "objectID": "ex/useful_functions_with_R.html#descriptive-statistics",
+    "href": "ex/useful_functions_with_R.html#descriptive-statistics",
+    "title": "The R-version of what we did in Introduction to useful functions in Excel",
+    "section": "Descriptive statistics",
+    "text": "Descriptive statistics\n\nsummary(df)\n\n  radius_mean    \n Min.   : 6.981  \n 1st Qu.:11.700  \n Median :13.370  \n Mean   :14.127  \n 3rd Qu.:15.780  \n Max.   :28.110  \n\n\n\nx = df$radius_mean\nquantile(x,probs=0.25)\n\n 25% \n11.7 \n\nmedian(x)\n\n[1] 13.37\n\nquantile(x,probs=0.95)\n\n   95% \n20.576 \n\nmean(x)\n\n[1] 14.12729\n\nsd(x)\n\n[1] 3.524049\n\nmin(x)\n\n[1] 6.981\n\nmax(x)\n\n[1] 28.11\n\nlength(x)\n\n[1] 569\n\n\nCalculate the three summary statistics described in the green area of the sheet.\n\nThe third quartile in the sample, P75\n\n\nquantile(x,probs=0.75)\n\n  75% \n15.78 \n\n\n\nThe 5% quantile (or 5th percentile), P05\n\n\nquantile(x,probs=0.05)\n\n    5% \n9.5292 \n\n\n\nThe coefficient of variation is the ratio between the sample standard deviation and the sample mean\n\n\nsd(x)/mean(x)*100\n\n[1] 24.94497"
+  },
+  {
+    "objectID": "ex/useful_functions_with_R.html#histogram",
+    "href": "ex/useful_functions_with_R.html#histogram",
+    "title": "The R-version of what we did in Introduction to useful functions in Excel",
+    "section": "Histogram",
+    "text": "Histogram\n\nhist(x)\n\n\n\n\n\ndf %&gt;% \n  ggplot(aes(x=x))+\n  geom_histogram()\n\n\n\n\n\ndf %&gt;% \n  ggplot(aes(x=x))+\n  geom_histogram(binwidth = 2.5)\n\n\n\n\n\ndf %&gt;% \n  ggplot(aes(x=x))+\n  geom_density()"
+  },
+  {
+    "objectID": "ex/useful_functions_with_R.html#probability-functions",
+    "href": "ex/useful_functions_with_R.html#probability-functions",
+    "title": "The R-version of what we did in Introduction to useful functions in Excel",
+    "section": "Probability functions",
+    "text": "Probability functions\nThe probability functions follow the principles of combining p, d, q and r with the name (or short name) of the probability distributions.\n\nFunctions for the normal distribution\n\n\nWhat to calculate\nR-function\n\n\n\n\nCDF\npnorm\n\n\nPDF\ndnorm\n\n\nquantile\nqnorm\n\n\nrandom draw\nrnorm\n\n\n\nCalculate the probability that a normally distributed variable with mean 14 and standard deviation 3.5 is less than 10\n\npnorm(10,mean=14,sd=3.5)\n\n[1] 0.126549\n\n\nFind the 95% quantile in the same distribution\n\nqnorm(0.95,mean=14,sd=3.5)\n\n[1] 19.75699\n\n\nCalculate the probability that an exponentially distributed variable with mean 14 is less than 10\n\npexp(10,rate=1/14)\n\n[1] 0.5104583\n\n\n\n\n\n\n\n\nTip\n\n\n\nType a question mark before the function to see the help text ?pexp"
+  },
+  {
+    "objectID": "ex/useful_functions_with_R.html#plot-probability-distributions",
+    "href": "ex/useful_functions_with_R.html#plot-probability-distributions",
+    "title": "The R-version of what we did in Introduction to useful functions in Excel",
+    "section": "Plot probability distributions",
+    "text": "Plot probability distributions\n\nm=14\ns=3.5\ndata.frame(pp=ppoints(100)) %&gt;%\n  mutate(x=qnorm(pp,m,s)) %&gt;%\n  mutate(d=dnorm(x,m,s)) %&gt;%\n  ggplot(aes(x=x,y=d))+\n  geom_line()+\n  xlab('value')+\n  ylab('density')\n\n\n\n\n\n\n\n\n\n\nExtra\n\n\n\nIf you feel you have the time or do another time:\nCopy the sheet and refine the grid by using pp-values from 0.001 to 0.999.\n\n\n\nm=14\ns=3.5\ndata.frame(pp=ppoints(1000)) %&gt;%\n  mutate(x=qnorm(pp,m,s)) %&gt;%\n  mutate(d=dnorm(x,m,s)) %&gt;%\n  ggplot(aes(x=x,y=d))+\n  geom_line()+\n  xlab('value')+\n  ylab('density')"
+  },
+  {
+    "objectID": "ex/useful_functions_with_R.html#random-sampling",
+    "href": "ex/useful_functions_with_R.html#random-sampling",
+    "title": "The R-version of what we did in Introduction to useful functions in Excel",
+    "section": "Random sampling",
+    "text": "Random sampling\nAll sample generators start with a random number between 0 and 1. This is also a sample from a uniform distribution.\n\nrunif(1)\n\n[1] 0.9364298\n\n\nType a function that generates a uniform random number in the interval 1 to 6.\n\nrunif(1,min=1,max=6)\n\n[1] 1.572844\n\n\nA random draw from a probability distribution can be generated by the inverse method. - Draws pp-values from a uniform distribution between 0 and 1 - Transform them into quantiles of the target distribution\nGenerates random draws from a normal distribution using the inverse method\n\nqnorm(runif(1),m,s)\n\n[1] 16.90023\n\n\nThis is already implemented as a function\n\nrnorm(1,m,s)\n\n[1] 14.13198\n\n\nDraw from a beta distribution with parameters \\(\\alpha=2\\) and \\(\\beta=8\\)\n\nrbeta(1,2,8)\n\n[1] 0.1584085"
+  },
+  {
+    "objectID": "ex/useful_functions_with_R.html#compare-descriptive-statistics-against-theoretical-values",
+    "href": "ex/useful_functions_with_R.html#compare-descriptive-statistics-against-theoretical-values",
+    "title": "The R-version of what we did in Introduction to useful functions in Excel",
+    "section": "Compare descriptive statistics against theoretical values",
+    "text": "Compare descriptive statistics against theoretical values\nWow - now we can generate data where we know the true value on parameters and all theoretical probabilities and quantiles, and compare with what we get when deriving descriptive statistics from the random sample.\nThis sheet generates a random sample of size 20 from a beta distribution.\n\nrbeta(n=20,2,8)\n\n [1] 0.17618115 0.18096165 0.18375564 0.06581237 0.17240445 0.10465186\n [7] 0.22541340 0.17900863 0.21226321 0.20831713 0.17892303 0.20291295\n[13] 0.13946723 0.12091582 0.14635946 0.24789771 0.12841287 0.02076589\n[19] 0.17510880 0.31906222\n\n\nA beta distribution has two parameters \\(\\alpha\\) and \\(\\beta\\)\nThe expected value of a beta distributed variable is \\(\\frac{\\alpha}{\\alpha+\\beta}\\)\nCompare the calculated sample average to the theoretical expected value\n\nalpha=2\nbeta=8\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=20,alpha,beta))\n\n[1] 0.1752468\n\n\nWe can also derive the theoretical quantile, let us say the P95.\nCompare the quantile from the sample with the quantile calculated from the inverse probability distribution function\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=20,alpha,beta),probs=0.95)\n\n      95% \n0.3699698 \n\n\n\nWhich of them has the smallest difference? Why do you think it is like that?\n\n\n\n\n\n\n\nExtra\n\n\n\nIf you feel you have the time or do another time:\nExplore what happens with the difference between theoretical and statistical values when you increase sample size from 20 to a high number (close to 1000)?\n\n\nBelow I wrte a script where sample size is controlled at one place. The P95 is approximated fairly well by the sampling when I use \\(n=10 000\\).\n\nalpha=2\nbeta=8\nn=10000\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=n,alpha,beta))\n\n[1] 0.20145\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=n,alpha,beta),probs=0.95)\n\n      95% \n0.4296468 \n\n\nLet us visualise the convergence of the approximation of the mean and 95th percentile of the beta distribution using Monte Carlo simulation.\nThe code below defines a function which calculates the mean and P95 after every increase of the sample size and plots the convergence.\n\nplot_conv &lt;- function(n){\nsample_mean=cummean(rbeta(n=n,alpha,beta))\nsample_P95=unlist(lapply(1:n,function(iter){\n  quantile(rbeta(n=iter,alpha,beta),probs=0.95)}))\ndata.frame(values=c(sample_mean,sample_P95),n=rep(1:n,2), statistic=rep(c(\"mean\",\"P95\"),each=n))  %&gt;%\n  ggplot(aes(x=n,y=values,color=statistic))+\n  geom_line()+\n  geom_hline(yintercept = alpha/(alpha+beta)) +\n  geom_hline(yintercept = qbeta(0.95,alpha,beta))\n}\n\nWe start with \\(n=10\\)\n\nplot_conv(n=10)\n\n\n\n\n..increase to \\(n=100\\)\n\nplot_conv(n=100)\n\n\n\n\n..increase to \\(n=1000\\)\n\nplot_conv(n=10^3)\n\n\n\n\n..and finally \\(n=10000\\)\n\nplot_conv(n=10^4)"
+  },
+  {
+    "objectID": "ex/the_bus_stop.html",
+    "href": "ex/the_bus_stop.html",
+    "title": "Expert judgement",
+    "section": "",
+    "text": "Work in pairs or alone.\n\n\n\n\n\n\n\nTo\n\n\n\n\n\n\n\n\n\n\nminutes\n\n\n\nBe prepared to report back at the end of the exercise. Write a report using the template and upload it on the assignment in canvas.\n\n\n\nhttps://shelf.sites.sheffield.ac.uk/software#h.n8yy6jrhk7"
+  },
+  {
+    "objectID": "ex/the_bus_stop.html#exercise-overview",
+    "href": "ex/the_bus_stop.html#exercise-overview",
+    "title": "Expert judgement",
+    "section": "",
+    "text": "Work in pairs or alone.\n\n\n\n\n\n\n\nTo\n\n\n\n\n\n\n\n\n\n\nminutes\n\n\n\nBe prepared to report back at the end of the exercise. Write a report using the template and upload it on the assignment in canvas.\n\n\n\nhttps://shelf.sites.sheffield.ac.uk/software#h.n8yy6jrhk7"
+  },
+  {
+    "objectID": "ex/the_bus_stop.html#content-1",
+    "href": "ex/the_bus_stop.html#content-1",
+    "title": "Expert judgement",
+    "section": "Content",
+    "text": "Content\nMake judgements\nDemonstrate the “Wisdom of crowds” by considering the aggregated judgement"
+  },
+  {
+    "objectID": "ex/observe_summarise.html",
+    "href": "ex/observe_summarise.html",
+    "title": "Observe and Summarise",
+    "section": "",
+    "text": "Work in groups of 2-4\n\n\n\nRisk assessments are made using available data (+ evidence and expert knowledge).\nObservations of the real world are useful to inform (or with a fancy word - calibrate) assessment models. It is important to consider how data have been collected and it is related to the system being studied.\n\n\n\n\nTo get a feeling for collecting and managing data for further analysis\nTo practice summarising data by its descriptive statistics\n\n\n\n\n\nmake observations and save them in a spreadsheet\nload data to R\nsummarise by statistics and suitable graph\nmake a report\n\n\n\n\n70 minutes\n\n\n\nWrite a report using a qmd document and upload it on the discussion forum in canvas."
+  },
+  {
+    "objectID": "ex/observe_summarise.html#exercise-overview",
+    "href": "ex/observe_summarise.html#exercise-overview",
+    "title": "Observe and Summarise",
+    "section": "",
+    "text": "Work in groups of 2-4\n\n\n\nRisk assessments are made using available data (+ evidence and expert knowledge).\nObservations of the real world are useful to inform (or with a fancy word - calibrate) assessment models. It is important to consider how data have been collected and it is related to the system being studied.\n\n\n\n\nTo get a feeling for collecting and managing data for further analysis\nTo practice summarising data by its descriptive statistics\n\n\n\n\n\nmake observations and save them in a spreadsheet\nload data to R\nsummarise by statistics and suitable graph\nmake a report\n\n\n\n\n70 minutes\n\n\n\nWrite a report using a qmd document and upload it on the discussion forum in canvas."
+  },
+  {
+    "objectID": "ex/observe_summarise.html#collect-observations",
+    "href": "ex/observe_summarise.html#collect-observations",
+    "title": "Observe and Summarise",
+    "section": "Collect observations",
+    "text": "Collect observations\nCollect 20 observations from one of these alternatives:\n\nMeasure the length of wooden bricks in the box placed in the lecture room.\nWeight fallen apples. There are lots around the Ecology building.\nCount the number of cars passing in one direction during 30 seconds intervals. Do it on Tunavägen by the bridge over the tram.\nSame as above, but measure instead the time between cars passing.\nSomething you suggest yourself, as long as it is discrete or continuous data. Check if OK with Ullrika first. Send her an email.\n\nOpen a new spreadsheet and call it “ex7_yournames.xlsx”, where “yournames” is altered to your names.\nCall the first sheet metadata and the second sheet one data.\nFeed in the observations in the data sheet. Give them a name on the top of the column. I call mine “obs”.\nIn the metadata sheet, add information on how and when data was collected and by whom. If the data is discrete or continuous. If applicable, what unit used. Any other relevant information.\nPost the spreadsheet on the discussion forum for exercises."
+  },
+  {
+    "objectID": "ex/observe_summarise.html#descriptive-statistics",
+    "href": "ex/observe_summarise.html#descriptive-statistics",
+    "title": "Observe and Summarise",
+    "section": "Descriptive statistics",
+    "text": "Descriptive statistics\nLoad your data into R.\nThe code below loads a package for reading Excel files. If you don’t have this, you will be asked to install it.\nThe function read_excel directs to the Excel file and which sheet to read from.\n\nlibrary(readxl)\n\nWarning: package 'readxl' was built under R version 4.3.1\n\ndf = read_excel(path=\"../files/ex7_yournames.xlsx\",sheet=\"data\")\ndf\n\n# A tibble: 19 × 1\n     obs\n   &lt;dbl&gt;\n 1   4  \n 2   2.2\n 3   8.1\n 4   9.2\n 5   9.9\n 6  10  \n 7  14  \n 8   1  \n 9   3  \n10   3.3\n11   4.1\n12   6  \n13   3.6\n14   5.7\n15   8.9\n16   2.2\n17   3.6\n18   8  \n19   5.1\n\n\n\nsummary(df)\n\n      obs        \n Min.   : 1.000  \n 1st Qu.: 3.450  \n Median : 5.100  \n Mean   : 5.889  \n 3rd Qu.: 8.500  \n Max.   :14.000  \n\n\nSample size\n\nnrow(df)\n\n[1] 19"
+  },
+  {
+    "objectID": "ex/observe_summarise.html#visualise-your-data",
+    "href": "ex/observe_summarise.html#visualise-your-data",
+    "title": "Observe and Summarise",
+    "section": "Visualise your data",
+    "text": "Visualise your data\n\nlibrary(ggplot2)\n\n\nBoxplot\n\nggplot(df,aes(y=obs))+\n  geom_boxplot()\n\n\n\n\n\n\nHistogram\n\nggplot(df,aes(x=obs))+\n  geom_histogram(binwidth=2)\n\n\n\n\n\n\nDensity plot\n\nggplot(df,aes(x=obs))+\n  geom_density()"
+  },
+  {
+    "objectID": "ex/observe_summarise.html#report",
+    "href": "ex/observe_summarise.html#report",
+    "title": "Observe and Summarise",
+    "section": "Report",
+    "text": "Report\nUpload the report into the same discussion on canvas where you also provided the data."
   },
   {
     "objectID": "ex/introduction_to_quarto_and_R.html",
@@ -119,6 +238,62 @@
     "text": "Write text here"
   },
   {
+    "objectID": "ex/expert_judgement.html",
+    "href": "ex/expert_judgement.html",
+    "title": "Expert judgement",
+    "section": "",
+    "text": "this is an exercise done jointly in class\n\n\n\nExpert judgement are common in risk assessment. To ensure rigour of the assessment, these judgements should be collected in a structured way. Methods have been developed to reduce linguistic uncertainty and cognitive biases when experts make judgements, and to aggregate judgements by a group of experts.\nQuantitative judgements, e.g. judgements expressed by subjective probabilities are preferable over qualitative expressions of uncertainty. The reasons are that\n\nqualitative judgements have different meanings for different people, and\nquantitative judgements can be combined using probability rules (probability calculations)\n\nEFSA defines Expert Knowledge Elicitation as\n\nA systematic, documented and reviewable process to retrieve expert judgements from a group of experts, often in the form of a probability distribution.\n\nIn general, it is possible to make a quantitative judgement when the question asked to an expert is well-defined.\nThe expert should also feel that she has some basis to make his/her judgement.\n\nA good expert makes judgements where she has domain knowledge and is hesitant to make judgements for questions where she feels there is not enough basis for a judgement.\n\nIt is also important that experts receive training in making probabilistic judgements to ensure they understand them.\n\n\n\n\nTo get basic training in probability distributions\nTo demonstrate how quantitative judgements can be elicited and aggregated from experts\n\n\n\n\n\nThe student receives training in making probabilistic judgements\nThe teacher elicit student’s judgements on a binary outcome and a continuous quantity. Judgements are anonymous.\nWe “test” the Wisdom of crowds by considering the aggregated judgement about an observable and compare to the true value.\n\n\n\n\n45 minutes\n\n\n\nNo need to report other than contributing with judgements\n\n\n\nEFSA (2014). Guidance on Expert Knowledge Elicitation in Food and Feed Safety Risk Assessment.\nSheffield Elicitation Framework SHELF web page"
+  },
+  {
+    "objectID": "ex/expert_judgement.html#exercise-overview",
+    "href": "ex/expert_judgement.html#exercise-overview",
+    "title": "Expert judgement",
+    "section": "",
+    "text": "this is an exercise done jointly in class\n\n\n\nExpert judgement are common in risk assessment. To ensure rigour of the assessment, these judgements should be collected in a structured way. Methods have been developed to reduce linguistic uncertainty and cognitive biases when experts make judgements, and to aggregate judgements by a group of experts.\nQuantitative judgements, e.g. judgements expressed by subjective probabilities are preferable over qualitative expressions of uncertainty. The reasons are that\n\nqualitative judgements have different meanings for different people, and\nquantitative judgements can be combined using probability rules (probability calculations)\n\nEFSA defines Expert Knowledge Elicitation as\n\nA systematic, documented and reviewable process to retrieve expert judgements from a group of experts, often in the form of a probability distribution.\n\nIn general, it is possible to make a quantitative judgement when the question asked to an expert is well-defined.\nThe expert should also feel that she has some basis to make his/her judgement.\n\nA good expert makes judgements where she has domain knowledge and is hesitant to make judgements for questions where she feels there is not enough basis for a judgement.\n\nIt is also important that experts receive training in making probabilistic judgements to ensure they understand them.\n\n\n\n\nTo get basic training in probability distributions\nTo demonstrate how quantitative judgements can be elicited and aggregated from experts\n\n\n\n\n\nThe student receives training in making probabilistic judgements\nThe teacher elicit student’s judgements on a binary outcome and a continuous quantity. Judgements are anonymous.\nWe “test” the Wisdom of crowds by considering the aggregated judgement about an observable and compare to the true value.\n\n\n\n\n45 minutes\n\n\n\nNo need to report other than contributing with judgements\n\n\n\nEFSA (2014). Guidance on Expert Knowledge Elicitation in Food and Feed Safety Risk Assessment.\nSheffield Elicitation Framework SHELF web page"
+  },
+  {
+    "objectID": "ex/expert_judgement.html#training-in-making-probabilistic-judgements",
+    "href": "ex/expert_judgement.html#training-in-making-probabilistic-judgements",
+    "title": "Expert judgement",
+    "section": "Training in making probabilistic judgements",
+    "text": "Training in making probabilistic judgements\nExample of how a training text to experts can look like:\n\nAs an expert you will be asked to express your uncertainty about the true value of a quantity by a probability distribution that quantifies the range and probability of possible values.\nThe probabilities are interpreted as your subjective probability.\nNote that there is only one true value on the quantity – the distribution represents your uncertainty and not variability.\n\n\n\n\n\n\n\nWe generally use 5 judgements to elicit a full distribution\n\nFirst, the lower and upper plausible bounds (P01 and P99)\nthen the median (P50)\nand finally the lower and upper quartiles (P25 and P75)\n\n\nThis is done in this order to reduce the risk of bias\n\n\n\n\n\n\nQuartiles\n\n\n\nQuartiles divide a probability distribution into four sections of equal probability. The first quartile is the 25% quantile (P25). The second quartile is the median (P50). The third quartile is the 75% quantile (P75), which means that it is 25% chance that the true value is above the P75.\n\n\n\n\n\n\n\n\nIn some cases it may be sufficient to elicit a single probability, e.g. that the quantity is above 5\n\n\n\n\n\n\n\nor below 2"
+  },
+  {
+    "objectID": "ex/expert_judgement.html#elicitation-of-a-continuous-quantity",
+    "href": "ex/expert_judgement.html#elicitation-of-a-continuous-quantity",
+    "title": "Expert judgement",
+    "section": "Elicitation of a continuous quantity",
+    "text": "Elicitation of a continuous quantity\nNow we will practice doing an elicitation where you are the experts.\nThe elicitor (Ullrika) will introduce the quantity to be elicited in class and make sure the quantity is well defined. She will then ask you to make your judgements on a piece of paper.\n\nFit single distribution to judgements\nWe will use an online app from the SHELF software to fit and explore the judgements. Go to SHELF webpage and open the app for a single expert.\n\n\nProvide your lower and upper plausible bounds by replacing the values 0 and 100 in the box Parameter limits\nProvide your judgements on the median, and the lower and upper quartiles by replacing the values 25, 50 and 75 in the box Parameter values\nClick on the Quartiles tab to view a visualisation of your judgements\nClick on the CDF tab to view a visualisation of your judgements.\nStay on the CDF tab and tick the box show fitted CDF\n\n\nNow you see a line added through the points. This “distribution” is here called a histogram (Note - it is not an actual distribution).\nThe software will help the elicitor to “fit” a probability distribution that represents your judgements by finding one with a CDF that is in good agreement with the points on the CDF graph.\n\nClick on the black triangle and select the Best fitting distribution\n\n\n\nWhat type of distribution is it (name above the graph).\nDo you think the CDF of the fitted distribution corresponds well to your judgements?\n\nYou can try other distributions and see how the fit looks like, but keep the best fitting when continuing.\n\nNow we want to see how the fitted probability distributions intended to represent your uncertainty about the quantity looks like. Tick show fitted PDF and go to the PDF tab.\n\n\nThe PDF representation of a probability distribution can be easier to relate to.\nDo you think the PDF can be a representation of your uncertainty?\n\n\nYou are welcome to change your judgements until you accept the fitted distribution\n\nThe tutor has provided an important threshold for the quantity on the board. Use the fitted probability distribution to calculate the probability that the quantity is below a value provided by the tutor!\n\nThe quantiles P10 and P90 can be seen as bounds of a probability interval where you are 80% certain that the true value lies.\n\nTake note of the calculated quantiles in the table to the right in the section Fitted quantiles and cumulative probabilities below the PDF graph\n\nReplace the 0 with the value for the critical threshold in the box Feedback probabilities\n\n\n\nTake note of the calculated probability in the table to the right in the section Fitted quantiles and cumulative probabilities below the PDF graph\nTo prepare for the next step, fill in your judgements and the calculated quantiles P10 and P90 and calculated probabilities in this google form\n\n\n\nAggregation of expert judgements\nThis part of the exercise is led by the tutor (Ullrika)\nShe will use the SHELF online tool for multiple experts"
+  },
+  {
+    "objectID": "ex/expert_judgement.html#wisdom-of-the-crowds",
+    "href": "ex/expert_judgement.html#wisdom-of-the-crowds",
+    "title": "Expert judgement",
+    "section": "Wisdom of the crowds",
+    "text": "Wisdom of the crowds\nThe wisdom of the crowds interesting wiki page states that pooling judgements using a trusted process from a diverse group of experts, that made their judgements independent of each other, is better than using one expert.\nThe tutor has the true answer\nWe will pool your judgments by making averages of the PDF over each point, also known as a linear pool\n\nIs the linear pool a better judgement?"
+  },
+  {
+    "objectID": "ex/chance_belief_frequency.html",
+    "href": "ex/chance_belief_frequency.html",
+    "title": "Chance, belief and frequency",
+    "section": "",
+    "text": "Work in groups of 4-5\n\n\n\nProbability is a mathematical concept defined basic rules.\n\n\n\n\n\n\nThe basic rules of probability\n\n\n\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\n\n\nThere are different ways to interpret and use probability, sometimes within the same assessment. In this exercise you will be exposed to probability as a\n\nTheoretical probability: The number of outcomes favouring the event, divided by the total number of outcomes, assuming the outcomes are all equally likely.\nFrequency: The proportion of times, in the long run of identical circumstances that the event occurs.\nSubjective probability: A persons confidence that an event will occur, expressed as a number between 0 and 1.\n\n\n\n\n\nTo understand common interpretations of probability and for what they are used\n\n\n\n\n\nExperiment to illustrate the frequency interpretation of probability\nTheoretical probability vs Expected frequency\nSubjective probability\n\n\n\n\n30 minutes\n\n\n\nNo reporting required\n\n\n\nI have used examples and text from the book Teaching probability by Jenny Gage and David Spiegelhalter from 2016. Cambridge University Press."
+  },
+  {
+    "objectID": "ex/chance_belief_frequency.html#exercise-overview",
+    "href": "ex/chance_belief_frequency.html#exercise-overview",
+    "title": "Chance, belief and frequency",
+    "section": "",
+    "text": "Work in groups of 4-5\n\n\n\nProbability is a mathematical concept defined basic rules.\n\n\n\n\n\n\nThe basic rules of probability\n\n\n\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\n\n\nThere are different ways to interpret and use probability, sometimes within the same assessment. In this exercise you will be exposed to probability as a\n\nTheoretical probability: The number of outcomes favouring the event, divided by the total number of outcomes, assuming the outcomes are all equally likely.\nFrequency: The proportion of times, in the long run of identical circumstances that the event occurs.\nSubjective probability: A persons confidence that an event will occur, expressed as a number between 0 and 1.\n\n\n\n\n\nTo understand common interpretations of probability and for what they are used\n\n\n\n\n\nExperiment to illustrate the frequency interpretation of probability\nTheoretical probability vs Expected frequency\nSubjective probability\n\n\n\n\n30 minutes\n\n\n\nNo reporting required\n\n\n\nI have used examples and text from the book Teaching probability by Jenny Gage and David Spiegelhalter from 2016. Cambridge University Press."
+  },
+  {
+    "objectID": "ex/chance_belief_frequency.html#frequency",
+    "href": "ex/chance_belief_frequency.html#frequency",
+    "title": "Chance, belief and frequency",
+    "section": "Frequency",
+    "text": "Frequency\nThe experiment is setup as follows:\n\nAssign one student to flip the symmetric coin of the type Antoninus Pius - Bronze Sestertius - Roman Empire using the virtual coin flipper on random.org\nRecord if the outcome is heads or tails.\nAssign another student to throw a six sided dice using the virtual dice roller on random.org\nRecord if the outcome is a number in the range 1 to 5 or a six\nRepeat N=5 times\n\nAssign one student to record the outcomes in this frequency tree (replace N and # with numbers).\n\n\n\n\nflowchart LR\n  A(\"N\") --&gt;|heads|B(\"#\")\n  A(\"N\") --&gt;|tails|C(\"#\")\n  B(\"#\") --&gt;|1 to 5|D(\"#\")\n  B(\"#\") --&gt;|six|E(\"#\")\n  C(\"#\") --&gt;|1 to 5|F(\"#\")\n  C(\"#\") --&gt;|six|G(\"#\")\n\n\n\n\n\nAnswer the following questions:\n\nWhat is the observed frequency of the event “heads followed by a six”?\n\n\nExpected frequency\n\nIs this a reliable estimate of the expected frequency? If not, what can one do to make it more reliable?\nWhat do you expect the frequency to be if N would be a very large number?\n\n\n\n\n\n\n\nTip\n\n\n\nDefine the events A = “heads” and B = “six”.\nSpecify P(A) and P(B).\nCalculate P(A and B) using the multiplication rule for two independent events.\nDon’t forget to multiply by N to get the expected frequency.\n\n\nRepeat the experiment with N = 100 to verify if estimates of the expected frequencies become more reliable with a larger number of observations.\n\n\n\n\n\n\nTip\n\n\n\nYou can use the prepared spreadsheet in frequency_experiment.xlsx\n\n\n\n Download xlsx file\n\n\n\nFirst you have to figure out how to expand the formulas for 100 iterations.\n\n\n\n\nChance\nNow let us go back to the step where you specified the probabilities P(A) and P(B). How did you do that? One way to do it is to look at the outcome space, find the outcomes that correspond to the event and divide by the total number of outcomes.\nFor the coin the outcome space is “heads” and “tails”, i.e. n = 2. The event of a getting “heads” can occur in one of the outcomes, i.e. m = 1. Under the assumption that all outcomes are equally likely, the theoretical probability for “heads” is \\(\\frac{m}{n} = \\frac{1}{2}\\).\nFor the dice, the outcome space is 1, 2, 3, 4, 5, and 6, i.e. n = 6. The event of getting a “six” can occur in one way, i.e. m = 1. The theoretical probability for the event “six” is therefore \\(\\frac{1}{6}\\).\n\n\n\n\n\n\nNote\n\n\n\nNotice that theoretical probabilities can only be used in balanced situations such as dice, cards, or lottery tickets where it justified to assume symmetry (equal probability) for all possible outcomes.\n\n\n\n\nRelative frequency\nIf we divide the frequency of an event by the number of trials N, we get the relative frequency which is a good estimate of a probability for the event to occur at the next iteration of the same experiment.\nLet \\(m\\) be the number of times the event has occurred. \\(E(\\frac{m}{N})=\\frac{E(m)}{N}=\\frac{N\\cdot P(event)}{N} = P(event)\\)\nRelative frequencies can be used to estimate the probability for an event as long as the observations are equally likely across the full outcome space.\n\n\n\n\n\n\nMake sure N is large\n\n\n\nThe more observations (i.e. larger N) the better estimate.\nThe more extreme event, i.e. very low or high probability of occurring, the more observations are needed.\nBe very skeptical to estimates of probabilities that are either 0 and 1, when the event is possible to occur.\n\n\n\n\nBelief\nTake one of the thumbtacks provided in the exercise and a cup. Put the thumbtack in the cup, shake and place the cup upside down on a table without revealing the outcome.\n\nWhat outcomes are possible?\n\nFocus on the outcome that the thumbtack is having its head down with the needle pointing upwards.\n\nLet everyone in the group state their personal probability of this event as a number between 0 and 1, where 0 means that it is impossible to occur and 1 means that it is certain to occur.\n\n\n\n\n\n\n\nCromwell’s rule\n\n\n\nProbabilities 1 (“the event will definitely occur”) or 0 (“the event will definitely not occur”) should be avoided, except when applied to statements that are logically true or false.\n\n\n\nDiscuss if and why the probabilities differ.\n\nThis is an example of probability as a subjective probability that is purely a personal judgement based on available evidence and assumptions.\nMore evidence ought to result in smaller divergence in judgements. One way to illustrate this is to lift the cup and let everyone revise their judgement.\n\nDo that!\n\nGiven that the evidence is revealing the outcome, the subjective probabilities held by the students in the group should now be either 1 or 0.\nIn risk assessment, we seldom have such full certainty as in this example. Probabilities are almost inevitably based on judgements and assumptions such as random sampling.\n\n\n\n\n\n\nA general advice\n\n\n\nProbability can be thought of as an expected frequency. Instead of saying that “the probability of the event is 0.20 (or 20%)”, you can say “out of 100 situations like this, we would expect the event to occur 20 times”.\nBy carefully stating the denominator (reference class), ambiguity about the meaning of probability can be avoided.\nThis advice applies to any of the interpretations."
+  },
+  {
     "objectID": "ex/ex4_report_template.html",
     "href": "ex/ex4_report_template.html",
     "title": "Exercise 4. Risk classification",
@@ -152,27 +327,6 @@
     "title": "Exercise 4. Risk classification",
     "section": "Model comparison using the ROC curve methodology",
     "text": "Model comparison using the ROC curve methodology\n\n\n\n\n\nWhich of the two binary classification models have the best performance according to the AUC measure?\n\nSuggest three things that could be done to build a better classification model?\n\nsuggestion 1\nsuggestion 2\nsuggestion 3"
-  },
-  {
-    "objectID": "ex/chance_belief_frequency.html",
-    "href": "ex/chance_belief_frequency.html",
-    "title": "Chance, belief and frequency",
-    "section": "",
-    "text": "Work in groups of 4-5\n\n\n\nProbability is a mathematical concept defined basic rules.\n\n\n\n\n\n\nThe basic rules of probability\n\n\n\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\n\n\nThere are different ways to interpret and use probability, sometimes within the same assessment. In this exercise you will be exposed to probability as a\n\nTheoretical probability: The number of outcomes favouring the event, divided by the total number of outcomes, assuming the outcomes are all equally likely.\nFrequency: The proportion of times, in the long run of identical circumstances that the event occurs.\nSubjective probability: A persons confidence that an event will occur, expressed as a number between 0 and 1.\n\n\n\n\n\nTo understand common interpretations of probability and for what they are used\n\n\n\n\n\nExperiment to illustrate the frequency interpretation of probability\nTheoretical probability vs Expected frequency\nSubjective probability\n\n\n\n\n30 minutes\n\n\n\nNo reporting required\n\n\n\nI have used examples and text from the book Teaching probability by Jenny Gage and David Spiegelhalter from 2016. Cambridge University Press."
-  },
-  {
-    "objectID": "ex/chance_belief_frequency.html#exercise-overview",
-    "href": "ex/chance_belief_frequency.html#exercise-overview",
-    "title": "Chance, belief and frequency",
-    "section": "",
-    "text": "Work in groups of 4-5\n\n\n\nProbability is a mathematical concept defined basic rules.\n\n\n\n\n\n\nThe basic rules of probability\n\n\n\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\n\n\nThere are different ways to interpret and use probability, sometimes within the same assessment. In this exercise you will be exposed to probability as a\n\nTheoretical probability: The number of outcomes favouring the event, divided by the total number of outcomes, assuming the outcomes are all equally likely.\nFrequency: The proportion of times, in the long run of identical circumstances that the event occurs.\nSubjective probability: A persons confidence that an event will occur, expressed as a number between 0 and 1.\n\n\n\n\n\nTo understand common interpretations of probability and for what they are used\n\n\n\n\n\nExperiment to illustrate the frequency interpretation of probability\nTheoretical probability vs Expected frequency\nSubjective probability\n\n\n\n\n30 minutes\n\n\n\nNo reporting required\n\n\n\nI have used examples and text from the book Teaching probability by Jenny Gage and David Spiegelhalter from 2016. Cambridge University Press."
-  },
-  {
-    "objectID": "ex/chance_belief_frequency.html#frequency",
-    "href": "ex/chance_belief_frequency.html#frequency",
-    "title": "Chance, belief and frequency",
-    "section": "Frequency",
-    "text": "Frequency\nThe experiment is setup as follows:\n\nAssign one student to flip the symmetric coin of the type Antoninus Pius - Bronze Sestertius - Roman Empire using the virtual coin flipper on random.org\nRecord if the outcome is heads or tails.\nAssign another student to throw a six sided dice using the virtual dice roller on random.org\nRecord if the outcome is a number in the range 1 to 5 or a six\nRepeat N=5 times\n\nAssign one student to record the outcomes in this frequency tree (replace N and # with numbers).\n\n\n\n\nflowchart LR\n  A(\"N\") --&gt;|heads|B(\"#\")\n  A(\"N\") --&gt;|tails|C(\"#\")\n  B(\"#\") --&gt;|1 to 5|D(\"#\")\n  B(\"#\") --&gt;|six|E(\"#\")\n  C(\"#\") --&gt;|1 to 5|F(\"#\")\n  C(\"#\") --&gt;|six|G(\"#\")\n\n\n\n\n\nAnswer the following questions:\n\nWhat is the observed frequency of the event “heads followed by a six”?\n\n\nExpected frequency\n\nIs this a reliable estimate of the expected frequency? If not, what can one do to make it more reliable?\nWhat do you expect the frequency to be if N would be a very large number?\n\n\n\n\n\n\n\nTip\n\n\n\nDefine the events A = “heads” and B = “six”.\nSpecify P(A) and P(B).\nCalculate P(A and B) using the multiplication rule for two independent events.\nDon’t forget to multiply by N to get the expected frequency.\n\n\nRepeat the experiment with N = 100 to verify if estimates of the expected frequencies become more reliable with a larger number of observations.\n\n\n\n\n\n\nTip\n\n\n\nYou can use the prepared spreadsheet in frequency_experiment.xlsx\n\n\n\n Download xlsx file\n\n\n\nFirst you have to figure out how to expand the formulas for 100 iterations.\n\n\n\n\nChance\nNow let us go back to the step where you specified the probabilities P(A) and P(B). How did you do that? One way to do it is to look at the outcome space, find the outcomes that correspond to the event and divide by the total number of outcomes.\nFor the coin the outcome space is “heads” and “tails”, i.e. n = 2. The event of a getting “heads” can occur in one of the outcomes, i.e. m = 1. Under the assumption that all outcomes are equally likely, the theoretical probability for “heads” is \\(\\frac{m}{n} = \\frac{1}{2}\\).\nFor the dice, the outcome space is 1, 2, 3, 4, 5, and 6, i.e. n = 6. The event of getting a “six” can occur in one way, i.e. m = 1. The theoretical probability for the event “six” is therefore \\(\\frac{1}{6}\\).\n\n\n\n\n\n\nNote\n\n\n\nNotice that theoretical probabilities can only be used in balanced situations such as dice, cards, or lottery tickets where it justified to assume symmetry (equal probability) for all possible outcomes.\n\n\n\n\nRelative frequency\nIf we divide the frequency of an event by the number of trials N, we get the relative frequency which is a good estimate of a probability for the event to occur at the next iteration of the same experiment.\nLet \\(m\\) be the number of times the event has occurred. \\(E(\\frac{m}{N})=\\frac{E(m)}{N}=\\frac{N\\cdot P(event)}{N} = P(event)\\)\nRelative frequencies can be used to estimate the probability for an event as long as the observations are equally likely across the full outcome space.\n\n\n\n\n\n\nMake sure N is large\n\n\n\nThe more observations (i.e. larger N) the better estimate.\nThe more extreme event, i.e. very low or high probability of occurring, the more observations are needed.\nBe very skeptical to estimates of probabilities that are either 0 and 1, when the event is possible to occur.\n\n\n\n\nBelief\nTake one of the thumbtacks provided in the exercise and a cup. Put the thumbtack in the cup, shake and place the cup upside down on a table without revealing the outcome.\n\nWhat outcomes are possible?\n\nFocus on the outcome that the thumbtack is having its head down with the needle pointing upwards.\n\nLet everyone in the group state their personal probability of this event as a number between 0 and 1, where 0 means that it is impossible to occur and 1 means that it is certain to occur.\n\n\n\n\n\n\n\nCromwell’s rule\n\n\n\nProbabilities 1 (“the event will definitely occur”) or 0 (“the event will definitely not occur”) should be avoided, except when applied to statements that are logically true or false.\n\n\n\nDiscuss if and why the probabilities differ.\n\nThis is an example of probability as a subjective probability that is purely a personal judgement based on available evidence and assumptions.\nMore evidence ought to result in smaller divergence in judgements. One way to illustrate this is to lift the cup and let everyone revise their judgement.\n\nDo that!\n\nGiven that the evidence is revealing the outcome, the subjective probabilities held by the students in the group should now be either 1 or 0.\nIn risk assessment, we seldom have such full certainty as in this example. Probabilities are almost inevitably based on judgements and assumptions such as random sampling.\n\n\n\n\n\n\nA general advice\n\n\n\nProbability can be thought of as an expected frequency. Instead of saying that “the probability of the event is 0.20 (or 20%)”, you can say “out of 100 situations like this, we would expect the event to occur 20 times”.\nBy carefully stating the denominator (reference class), ambiguity about the meaning of probability can be avoided.\nThis advice applies to any of the interpretations."
   },
   {
     "objectID": "ex/expressing_uncertainty.html",
@@ -238,6 +392,41 @@
     "text": "Content"
   },
   {
+    "objectID": "ex/observe_fit_simulate.html",
+    "href": "ex/observe_fit_simulate.html",
+    "title": "Observe, fit and simulate",
+    "section": "",
+    "text": "Each person is to produce and upload a report, but one can collaborate if desired.\n\n\n\nThis is a continuation from the previous exercise.\nAssessors often face the task to inform a model with data that is available.\nHere we want to find a suitable model for representing the data that we would have got if we had continued making more observations.\n\n\n\n\nTo find a suitable probability distribution for a random sample\nTo draw random numbers from the chosen probability distribution\n\n\n\n\n\nFunctions to fit a model to data\n\n\n\n\nminutes\n\n\n\nWrite a report using a qmd document and upload it on the assignment in canvas."
+  },
+  {
+    "objectID": "ex/observe_fit_simulate.html#exercise-overview",
+    "href": "ex/observe_fit_simulate.html#exercise-overview",
+    "title": "Observe, fit and simulate",
+    "section": "",
+    "text": "Each person is to produce and upload a report, but one can collaborate if desired.\n\n\n\nThis is a continuation from the previous exercise.\nAssessors often face the task to inform a model with data that is available.\nHere we want to find a suitable model for representing the data that we would have got if we had continued making more observations.\n\n\n\n\nTo find a suitable probability distribution for a random sample\nTo draw random numbers from the chosen probability distribution\n\n\n\n\n\nFunctions to fit a model to data\n\n\n\n\nminutes\n\n\n\nWrite a report using a qmd document and upload it on the assignment in canvas."
+  },
+  {
+    "objectID": "ex/observe_fit_simulate.html#load-data",
+    "href": "ex/observe_fit_simulate.html#load-data",
+    "title": "Observe, fit and simulate",
+    "section": "Load data",
+    "text": "Load data\nChoose a data set collected in the previous exercise. You can continue with the one you worked with before or take another one.\nLoad the data into R.\n\nlibrary(readxl)\n\nWarning: package 'readxl' was built under R version 4.3.1\n\ndf = read_excel(path=\"../files/ex7_yournames.xlsx\",sheet=\"data\")\ndf\n\n# A tibble: 19 × 1\n     obs\n   &lt;dbl&gt;\n 1   4  \n 2   2.2\n 3   8.1\n 4   9.2\n 5   9.9\n 6  10  \n 7  14  \n 8   1  \n 9   3  \n10   3.3\n11   4.1\n12   6  \n13   3.6\n14   5.7\n15   8.9\n16   2.2\n17   3.6\n18   8  \n19   5.1\n\n\nMake a histogram of data\n\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(ggplot2)\n\nggplot(df,aes(x=obs))+\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+  },
+  {
+    "objectID": "ex/observe_fit_simulate.html#find-a-suitable-model-for-data",
+    "href": "ex/observe_fit_simulate.html#find-a-suitable-model-for-data",
+    "title": "Observe, fit and simulate",
+    "section": "Find a suitable model for data",
+    "text": "Find a suitable model for data\nWe will find a suitable model for data by fiting a probability distribution to data.\nInstall the R-package fitdistrplus. This only needs to be done one time. Run the code below without the # in front.\n\n#install.packages(\"fitdistrplus\")\n\nLoad the R-package\n\nlibrary(fitdistrplus)\n\nWarning: package 'fitdistrplus' was built under R version 4.3.1\n\n\n\nContinuous quantity\nFit a normal, lognormal and exponential distribution to data.\n\nfitnorm = fitdist(df$obs, distr = \"norm\")\nfitlnorm = fitdist(df$obs, distr = \"lnorm\")\nfitexp = fitdist(df$obs, distr = \"exp\")\n\nStudy the comparison histogram and PDF and Empirical and theoretical CDF\n\nplot(fitnorm)\n\n\n\nplot(fitlnorm)\n\n\n\nplot(fitexp)\n\n\n\n\nCompare a goodness of fit measure - here we choose AIC. The lower AIC the better.\n\nfitnorm$aic\n\n[1] 103.7718\n\nfitlnorm$aic\n\n[1] 101.6119\n\nfitexp$aic\n\n[1] 107.3803\n\n\nChoose the best model!\n\n\nDiscrete quantity\nIf you have discrete data, fit a poisson and a binomial distribution to data. Note that in order to use the binomial you need to know the number of trials (parameter size).\n\nobsd = rbinom(20,16,0.2)\n\nfitpois = fitdist(obsd, distr = \"pois\", discrete=TRUE)\n\nfitbinom = fitdist(obsd, distr = \"binom\", discrete=TRUE, start= list(size = 16, prob = mean(obsd)/16), method = \"qme\", probs = c(0.25,0.75))\n\nStudy the comparison histogram and PDF and Empirical and theoretical CDF.\n\nplot(fitpois)\n\n\n\nplot(fitbinom)\n\n\n\n\nCompare a goodness of fit measure - here we choose AIC. The lower AIC the better.\n\nfitpois$aic\n\n[1] 71.81869\n\nfitbinom$aic\n\n[1] 72.42064\n\n\nChoose the best model"
+  },
+  {
+    "objectID": "ex/observe_fit_simulate.html#simulate",
+    "href": "ex/observe_fit_simulate.html#simulate",
+    "title": "Observe, fit and simulate",
+    "section": "Simulate",
+    "text": "Simulate\nGenerate a random sample from the chosen probability distribution and plot it.\n\nNormal\n\ndata.frame(x=rnorm(10^3,fitnorm$estimate[\"mean\"],fitnorm$estimate[\"sd\"])) %&gt;%\n  ggplot(aes(x=x)) +\n  geom_histogram()\n\n\n\n\n\n\nPoisson\n\ndata.frame(x=rpois(10^3,fitpois$estimate)) %&gt;%\n  ggplot(aes(x=x)) +\n  geom_histogram()"
+  },
+  {
     "objectID": "ex/risk_classification_ROC.html",
     "href": "ex/risk_classification_ROC.html",
     "title": "Risk classification",
@@ -285,5 +474,96 @@
     "title": "Risk classification",
     "section": "Instructions for reporting",
     "text": "Instructions for reporting\nDownload the template for the report, upload it to the folder named ex in your project in R Studio cloud and open it.\n\n\n\n Download template\n\n\n\nAll code in for the report is in the template. You are to\n\nadd text, such as the answers to questions\n\nRender the report as a html-file and upload it on the assignment for your E4 group on canvas."
+  },
+  {
+    "objectID": "ex/useful_functions.html",
+    "href": "ex/useful_functions.html",
+    "title": "Introduction to useful functions in Excel",
+    "section": "",
+    "text": "Work alone or in pairs. If you don’t have Excel on your computer, collaborate with someone that does.\n\n\n\nMicrosoft Excel is a common software in risk analysis. The primary use is to organise and extract data, but it is also possible to build models and perform analysis and simulations in Microsoft Excel.\nThere are several commercial add-on packages designed for specific purposes. One example is @RISK for probabilistic risk analysis in Excel. It includes functions such as fitting distributions to data and performing Monte Carlo simulation.\nWe are not teaching using @RISK at this course, but you are welcome to download a free demo and try it.\nThe purpose with this lecture is to refresh some functions in Excel that might be useful for the course.\nWe will later show how to do this in R\n\n\n\nTo learn\n\nthe basic functions to calculate the average, standard deviation, quantile and size of a sample\nhow to plot a histogram\nhow to plot a probability density function\nhow to sample from a probability distribution\nto illustrate the convergence of a sample statistics to the theoretical values, which is the fundamental behind Monte Carlo simulations\n\n\n\n\n\nThe students explore an excel file with prepared functions\n\n\n\n\n40 minutes\n\n\n\nBe prepared to report back at the end of the exercise."
+  },
+  {
+    "objectID": "ex/useful_functions.html#exercise-overview",
+    "href": "ex/useful_functions.html#exercise-overview",
+    "title": "Introduction to useful functions in Excel",
+    "section": "",
+    "text": "Work alone or in pairs. If you don’t have Excel on your computer, collaborate with someone that does.\n\n\n\nMicrosoft Excel is a common software in risk analysis. The primary use is to organise and extract data, but it is also possible to build models and perform analysis and simulations in Microsoft Excel.\nThere are several commercial add-on packages designed for specific purposes. One example is @RISK for probabilistic risk analysis in Excel. It includes functions such as fitting distributions to data and performing Monte Carlo simulation.\nWe are not teaching using @RISK at this course, but you are welcome to download a free demo and try it.\nThe purpose with this lecture is to refresh some functions in Excel that might be useful for the course.\nWe will later show how to do this in R\n\n\n\nTo learn\n\nthe basic functions to calculate the average, standard deviation, quantile and size of a sample\nhow to plot a histogram\nhow to plot a probability density function\nhow to sample from a probability distribution\nto illustrate the convergence of a sample statistics to the theoretical values, which is the fundamental behind Monte Carlo simulations\n\n\n\n\n\nThe students explore an excel file with prepared functions\n\n\n\n\n40 minutes\n\n\n\nBe prepared to report back at the end of the exercise."
+  },
+  {
+    "objectID": "ex/useful_functions.html#preparations",
+    "href": "ex/useful_functions.html#preparations",
+    "title": "Introduction to useful functions in Excel",
+    "section": "Preparations",
+    "text": "Preparations\n\nDownload the prepared Excel file and save on your computer.\n\n\n\n\n Download xlsx file\n\n\n\n\nMake sure you have activated the Excel Add-in Analysis ToolPak.\n\nGo to the Data tab.. It is active if you have an icon with Data Analysis in the header.\n\nIf it is not there. Go to File&gt;Options&gt;Add-ins and click Go on Manage Excel Add-ins\n\nTick the box for Analysis ToolPak and Solver Add-in (we will use it later on) and click OK."
+  },
+  {
+    "objectID": "ex/useful_functions.html#descriptive-statistics",
+    "href": "ex/useful_functions.html#descriptive-statistics",
+    "title": "Introduction to useful functions in Excel",
+    "section": "Descriptive statistics",
+    "text": "Descriptive statistics\n\nGo to the sheet data sample. This is the first three columns from the breast-cancer data set. We will use this to illustrate the functions for summary statistics.\nGo to the sheet sample summary. Here we show what you get out from running Data&gt;Data Analysis&gt;Descriptive Statistics. Try this!\n\nWe also show examples of functions to derive descriptive statistics from a data sample.\n\n\n\n\n\n\nTip\n\n\n\nClick on the name of the function in the editor to open it’s help text\n\n\n\n\nCalculate the three summary statistics described in the green area of the sheet.\n\n\nThe third quartile in the sample, P75, should be 15.78\nThe 5% quantile (or 5th percentile), P05, should be 9.52\nThe coefficient of variation is the ratio between the sample standard deviation and the sample mean, and should be 25%\n\n\n\n\n\n\n\nTip\n\n\n\nSolutions are found at the end of this document - but try first!"
+  },
+  {
+    "objectID": "ex/useful_functions.html#histogram",
+    "href": "ex/useful_functions.html#histogram",
+    "title": "Introduction to useful functions in Excel",
+    "section": "Histogram",
+    "text": "Histogram\n\nGo to the sheet plot a histogram and explore the two ways to create a histogram."
+  },
+  {
+    "objectID": "ex/useful_functions.html#probability-functions",
+    "href": "ex/useful_functions.html#probability-functions",
+    "title": "Introduction to useful functions in Excel",
+    "section": "Probability functions",
+    "text": "Probability functions\n\nGo to the sheet probability functions.\n\nHere we listed the functions available in a standard Excel. A density (PDF) and a probability (CDF) is calculated using the function ending with .DIST, but with different arguments. A quantile is calculated with the function ending with .INV. Different distributions are considered by using the name or short name before .DIST or .INV.\n\nCalculate the probability that a normally distributed variable with mean 14 and standard deviation 3.5 is less than 10\n\n\nAnswer should be 0.127\n\n\nFind the 95% quantile in the same distribution\n\n\nAnswer should be 19.8\n\n\nCalculate the probability that an exponentially distributed variable with mean 14 is less than 10\n\n\nAnswer should be 0.51"
+  },
+  {
+    "objectID": "ex/useful_functions.html#plot-probability-distributions",
+    "href": "ex/useful_functions.html#plot-probability-distributions",
+    "title": "Introduction to useful functions in Excel",
+    "section": "Plot probability distributions",
+    "text": "Plot probability distributions\nThe general principle to plot a function is to create pairs of x-y values that are connected by a line.\n\nGo to the sheet plot probability distribution and study the plotting of the probability density function for a normal distribution with mean 14 and standard deviation 3.5.\n\n\nColumn A: pp-values are probabilities going from 0.01 to 0.99 - this is a trick to avoid having to create new x-values every time we change the parameters of the distribution.\nColumn B: the x-values are generated by calculating the quantile for each pp-value\nColumn C: the y-values (probability density) is calculated for each x-value\n\n\nSee what happens when you change the values of the parameters mean and standard deviation (yellow cells)\n\n\n\n\n\n\n\nTip\n\n\n\nThe only thing you need to change are the parameters!\nLinking functions to each other will save a lot of time and reduce the risk for errors when you work with excel.\n\n\n\n\n\n\n\n\nExtra\n\n\n\nIf you feel you have the time or do another time:\nCopy the sheet and refine the grid by using pp-values from 0.001 to 0.999."
+  },
+  {
+    "objectID": "ex/useful_functions.html#random-sampling",
+    "href": "ex/useful_functions.html#random-sampling",
+    "title": "Introduction to useful functions in Excel",
+    "section": "Random sampling",
+    "text": "Random sampling\n\nGo to the sheet random sampling.\n\nAll sample generators start with a random number between 0 and 1. This is also a sample from a uniform distribution.\n\n\n\n\n\n\nTip\n\n\n\nPress F9 to make a new draw\n\n\n\nType into cell D4 a function that generates a uniform random number in the interval 1 to 6. Hint: check out the help text for RAND\n\nA random draw from a probability distribution can be generated by the inverse method. - Draws pp-values from a uniform distribution between 0 and 1 - Transform them into quantiles of the target distribution\n\nThe inverse method is demonstrated in cell D6 where it generates random draws from a normal distribution\nIn cell D8 we draw from a beta distribution\n\nThe inverse method is used for generating random values from probability distributions in Monte Carlo simulations."
+  },
+  {
+    "objectID": "ex/useful_functions.html#compare-descriptive-statistics-against-theoretical-values",
+    "href": "ex/useful_functions.html#compare-descriptive-statistics-against-theoretical-values",
+    "title": "Introduction to useful functions in Excel",
+    "section": "Compare descriptive statistics against theoretical values",
+    "text": "Compare descriptive statistics against theoretical values\nWow - now we can generate data where we know the true value on parameters and all theoretical probabilities and quantiles, and compare with what we get when deriving descriptive statistics from the random sample.\nNow we can explore the importance of large number of random numbers to gett good approximations when doing Monte Carlo simulations.\n\nGo to the final sheet compare\n\nThis sheet generates a random sample from a beta distribution.\nA beta distribution has two parameters \\(\\alpha\\) and \\(\\beta\\)\nThe expected value of a beta distributed variable is \\(\\frac{\\alpha}{\\alpha+\\beta}\\)\n\nCompare the calculated sample average to the theoretical expected value (green cells)\n\nWe can also derive the theoretical quantile, let us say the P95.\n\nCompare the quantile from the sample with the quantile calculated from the inverse probability distribution function (blue cells)\n\n\nWhich of them has the smallest difference? Why do you think it is like that?\n\n\n\n\n\n\n\nExtra\n\n\n\nIf you feel you have the time or do another time:\nExplore what happens with the difference between theoretical and statistical values when you increase sample size from 20 to a high number (close to 1000)?\nTip: Drag the formula in column B27 down to a row with a large number."
+  },
+  {
+    "objectID": "ex/useful_functions.html#solutions",
+    "href": "ex/useful_functions.html#solutions",
+    "title": "Introduction to useful functions in Excel",
+    "section": "Solutions",
+    "text": "Solutions\n\nFunctions in Excel\nQUARTILE.INC(‘data sample’!C:C,3)\nPERCENTILE.INC(‘data sample’!C:C,0.05)\nSTDEV.S(‘data sample’!C:C)/AVERAGE(‘data sample’!C:C)*100\nNORM.DIST(10,14,3.5,1)\nNORM.INV(0.95,14,3.5)\nEXPON.DIST(10,1/14,1)\nRAND()*(6-1)+1\n\n\nFunctions in R\nYou can find a reproduction of the calculations, visualisations and simulations using R. Look at them before doing the exercises on Sept 6th.\nUseful functions reproduced using R"
+  },
+  {
+    "objectID": "ex/wisdom_of_crowds.html#individual-judgements",
+    "href": "ex/wisdom_of_crowds.html#individual-judgements",
+    "title": "Wisdom of crowds",
+    "section": "Individual judgements",
+    "text": "Individual judgements\n\nJudgements shown as 80% probability intervals"
+  },
+  {
+    "objectID": "ex/wisdom_of_crowds.html#with-the-aggregated-judgement",
+    "href": "ex/wisdom_of_crowds.html#with-the-aggregated-judgement",
+    "title": "Wisdom of crowds",
+    "section": "With the aggregated judgement",
+    "text": "With the aggregated judgement\n\nAggregation made taking the linear pool"
+  },
+  {
+    "objectID": "ex/wisdom_of_crowds.html#with-the-true-value",
+    "href": "ex/wisdom_of_crowds.html#with-the-true-value",
+    "title": "Wisdom of crowds",
+    "section": "With the true value",
+    "text": "With the true value\n\nThe true value is the red line"
   }
 ]
