@@ -19,17 +19,19 @@ This is a website for the exercises on the course Risk Assessment in Environment
 
 [Ex 5. Expert judgement](ex/expert_judgement.qmd)
 
+[Test of Wisdom of Crowds](ex/wisdom_of_crowds.qmd)
+
 [Ex 6. Introduction to useful functions in Microsoft Excel](ex/useful_functions.qmd)
+
 
 ## Sept 6 13 - 16
 
 [Ex 7. Observe and summarise](ex/observe_summarise.qmd)
 
-<!-- [Ex 8. Observe, fit and simulate](ex/observe_fit_simulate.qmd) -->
+Make sure you finalise all exercises we have had up to this point. 
+
 
 ## Sept 11 13 - 16
-
-<!-- [Ex 9. The bus stop](ex/the_bus_stop.qmd) -->
 
 ## Sept 13 13 - 16
 

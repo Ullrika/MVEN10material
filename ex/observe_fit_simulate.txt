@@ -8,40 +8,39 @@ editor: visual
 
 ## Exercise overview
 
-- Each person is to produce and upload a report, but one can collaborate if desired. 
+-   Each person is to produce and upload a report, but one can collaborate if desired.
 
 ### Background
 
 This is a continuation from the previous exercise.
 
-Assessors often face the task to inform a model with data that is available. 
+Assessors often face the task to inform a model with data that is available.
 
-Here we want to find a suitable model for representing the data that we would have got if we had continued making more observations. 
+Here we want to find a suitable model for representing the data that we would have got if we had continued making more observations.
 
 ### Purpose
 
 -   To find a suitable probability distribution for a random sample
 
-- To draw random numbers from the chosen probability distribution
+-   To draw random numbers from the chosen probability distribution
 
 ### Content
 
-- Functions to fit a model to data  
-
+-   Functions to fit a model to data
 
 ### Duration
 
- minutes
+minutes
 
 ### Reporting
 
-Write a report using a qmd document and upload it on the assignment in canvas. 
+Write a report using a qmd document and upload it on the assignment in canvas.
 
 ## Load data
 
-Choose a data set collected in the previous exercise. You can continue with the one you worked with before or take another one. 
+Choose a data set collected in the previous exercise. You can continue with the one you worked with before or take another one.
 
-Load the data into R. 
+Load the data into R.
 
 ```{r}
 library(readxl)
@@ -59,12 +58,11 @@ ggplot(df,aes(x=obs))+
   geom_histogram()
 ```
 
-
 ## Find a suitable model for data
 
-We will find a suitable model for data by fiting a probability distribution to data. 
+We will find a suitable model for data by fiting a probability distribution to data.
 
-Install the R-package **fitdistrplus**. This only needs to be done one time. Run the code below without the # in front.
+Install the R-package **fitdistrplus**. This only needs to be done one time. Run the code below without the \# in front.
 
 ```{r}
 #install.packages("fitdistrplus")
@@ -78,7 +76,7 @@ Load the R-package
 library(fitdistrplus)
 ```
 
-### Continuous quantity 
+### Continuous quantity
 
 Fit a normal, lognormal and exponential distribution to data.
 
@@ -106,9 +104,9 @@ fitexp$aic
 
 Choose the best model!
 
-### Discrete quantity 
+### Discrete quantity
 
-If you have discrete data, fit a poisson and a binomial distribution to data. Note that in order to use the binomial you need to know the number of trials (parameter size). 
+If you have discrete data, fit a poisson and a binomial distribution to data. Note that in order to use the binomial you need to know the number of trials (parameter size).
 
 ```{r}
 #| warning: false 
@@ -140,7 +138,7 @@ Choose the best model
 
 ## Simulate
 
-Generate a random sample from the chosen probability distribution and plot it. 
+Generate a random sample from the chosen probability distribution and plot it.
 
 ### Normal
 
@@ -153,7 +151,6 @@ data.frame(x=rnorm(10^3,fitnorm$estimate["mean"],fitnorm$estimate["sd"])) %>%
   geom_histogram()
 ```
 
-
 ### Poisson
 
 ```{r}
@@ -165,8 +162,6 @@ data.frame(x=rpois(10^3,fitpois$estimate)) %>%
   geom_histogram()
 ```
 
-
 ```{r}
 
 ```
-

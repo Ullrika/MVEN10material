@@ -12,58 +12,33 @@ website:
         contents:
         - text: "Exercise 1 45 min"
           file: ex/expressing_uncertainty.qmd
+          target: "_blank"
         - text: "Exercise 2 45 min"
           file: ex/chance_belief_frequency.qmd
+          target: "_blank"
         - text: "Exercise 3 45 min"
           file: ex/introduction_to_quarto_and_R.qmd
+          target: "_blank"
       - section: "Sept 4"
         contents:
         - text: "Exercise 4 45 min"
           file: ex/risk_classification_ROC.qmd
+          target: "_blank"
         - text: "Exercise 5 45 min"
           file: ex/expert_judgement.qmd
+          target: "_blank"
+        - text: "Wisdom of Crowds Ex 6"
+          file: ex/wisdom_of_crowds.qmd
+          target: "_blank"
         - text: "Exercise 6 45 min"
           file: ex/useful_functions.qmd
+          target: "_blank"
       - section: "Sept 6"
         contents:  
         - text: "Exercise 7"
           file: ex/observe_summarise.qmd
-      #  - text: "Exercise 8"
-      #    file: ex/observe_fit_simulate.qmd
-      #  - text: "Exercise 9"
-      #    file: ex/the_bus_stop.qmd
-      # - section: "Sept 11"
-      #   contents:
-      #   - text: "Exercise 10"
-      #     file: ex/ex_temp.qmd
-      #   - text: "Exercise 11"
-      #     file: ex/ex_temp.qmd
-      #   - text: "Exercise 12"
-      #     file: ex/ex_temp.qmd
-      # - section: "Sept 11"
-      #   contents:
-      #   - text: "Exercise 13"
-      #     file: ex/ex_temp.qmd
-      # - section: "Sept 13"
-      #   contents:
-      #   - text: "Exercise 14"
-      #     file: ex/ex_temp.qmd
-      # - section: "Sept 18"
-      #   contents:
-      #   - text: "Exercise 15"
-      #     file: ex/ex_temp.qmd
-      # - section: "Oct 10"
-      #   contents:
-      #   - text: "Exercise 16"
-      #     file: ex/ex_temp.qmd
-      # - section: "Oct 16"
-      #   contents:
-      #   - text: "Exercise 18"
-      #     file: ex/ex_temp.qmd
-      # - section: "Oct 18"
-      #   contents:
-      #   - text: "Exercise 20"
-      #     file: ex/ex_temp.qmd
+          target: "_blank"
+      
 format:
   html:
     theme: cosmo

@@ -4,36 +4,93 @@ author: "Ullrika"
 format: revealjs
 ---
 
+
+```{r}
+#| eval: false
+install.packages('SHELF')
+```
+
+
+
 ```{r}
 #| echo: false
 #| message: false
 #| warning: false
 library(dplyr)
 library(ggplot2)
+library(SHELF)
+library(readxl)
 ```
 
-```{r}
-## add the calculated 80% prob from the linear pool
 
-lb_lp = 2
-ub_lp = 12
-```
+## Quantity to be elicited
 
-<!-- https://docs.google.com/spreadsheets/d/1HbFNHzYl8LTjbYIaxvbW77lGdZi7j4T0gRTCyY55Y_U/edit?usp=sharing -->
+The healthy life years for females in Norway 2003
+
+Healthy life years is defined as the number of remaining years that a person at birth is expected to live without any severe or moderate health problems. 
+
+[Link to definition on eurostat] (https://ec.europa.eu/eurostat/cache/metadata/en/hlth_hlye_h_esms.htm)
+
+## Procedure (1)
+
+- We discussed the quantity and enusured that it was well-defined 
+
+- The experts (students) made their judgements indpendent of each other 
+
+- Each student fitted a distribution to their judgements and extracted a 80% probability interval 
+
+- The judgements (five quantiles) and the probability interval was shared with the facilitator (Ullrika)
+
+## Procedure (2)
+
+- The facilitator uploaded the judgements into the SHELF app for multiple experts
 
 ```{r}
 #| eval: false
 
-# open excel file and copy the values to be pasted in here
-df <- read.delim("clipboard",header=FALSE)
-colnames(df) <- c("P10","P90","P")
-rownames(df) <- LETTERS[1:nrow(df)]
-save(df,file="df.Rdata")
+elicitMultiple()
 ```
 
+
+![](../img/shelf5.png)
+
+## Procedure (3)
+
+- Judgements shown by the quartiles
+
+![](../img/shelf6.png)
+
+## Procedure (3)
+
+- Judgements shown as "histograms"
+
+![](../img/shelf7.png)
+
+## Procedure (3)
+
+- Judgements shown by the best fitting probability distribution
+
+![](../img/shelf7.png)
+
+## The aggregated judgement - linear pool 
+
+![](../img/shelf8.png)
+
 ```{r}
-#| eval: true
-load("../data/df.Rdata")
+## add the calculated 80% prob from the linear pool - done after running the elicitMulitple app in SHELF
+
+lb_lp = 14
+ub_lp = 75
+```
+
+<!-- https://docs.google.com/spreadsheets/d/1HbFNHzYl8LTjbYIaxvbW77lGdZi7j4T0gRTCyY55Y_U/edit?usp=sharing -->
+
+
+```{r}
+df <- as.data.frame(read_excel('../data/Ex5 MVEN10 (Svar).xlsx', range = "G2:I9"))
+colnames(df) <- c("P10","P90","P")
+rownames(df) <- LETTERS[1:nrow(df)]
+
 ```
 
 ```{r}
@@ -80,7 +137,7 @@ df3 %>%
 
 ## With the true value 
 
-- The true value is the red line
+- The true value taken from eurostat is 64.2 years (red line)
 
 ```{r}
 df3 %>%
@@ -89,7 +146,20 @@ df3 %>%
   scale_fill_manual(values = c("#6A51A3","#E7E7E7"))+
   geom_rect(aes(ymin=lb_lp,ymax=ub_lp,xmin=0.75,xmax=1.25),colour='orange',linewidth = 1, alpha=0,inherit.aes=FALSE) +
  theme(legend.position = "none") +
-  geom_hline(aes(yintercept = 30, colour = "red"), linewidth = 1) +
+  geom_hline(aes(yintercept = 64.2, colour = "red"), linewidth = 1) +
   coord_flip() 
   
 ```
+
+## Comment
+
+- The average number of healthy years for females in Norway is likely to be below but close to the life expectancy, and unlikely to be close to 0 or above 100
+
+- Some probability distributions allows for negative values, which is problematic when calculating the probability intervals 
+
+- Take home message: 
+
+  - make sure the experts understand the quantity, e.g. by asking them to justify their judgements
+  
+  - the final probability distribution must be chosen with care
+  
