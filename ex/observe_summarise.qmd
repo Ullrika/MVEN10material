@@ -40,6 +40,10 @@ Observations of the real world are useful to inform (or with a fancy word - cali
 
 Write a report using a qmd document and upload it on the discussion forum in canvas.
 
+The report should contain the name of the authors, a boxplot, a histogram, the size, mean, median, min, max, and the quantiles: P5, P25, P75 and P95, of the data sample.
+
+There is no need to make the report look fancy, the important thing is that you produce a report. 
+
 ## Collect observations
 
 Collect 20 observations from one of these alternatives:

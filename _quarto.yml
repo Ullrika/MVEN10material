@@ -35,6 +35,9 @@ website:
           target: "_blank"
       - section: "Sept 6"
         contents:  
+        - text: "Useful functions in R"
+          file: ex/useful_functions_with_R.qmd
+          target: "_blank"
         - text: "Exercise 7"
           file: ex/observe_summarise.qmd
           target: "_blank"

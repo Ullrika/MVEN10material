@@ -26,6 +26,8 @@ This is a website for the exercises on the course Risk Assessment in Environment
 
 ## Sept 6 13 - 16
 
+[Useful functions reproduced using R](ex/useful_functions_with_R.qmd)
+
 [Ex 7. Observe and summarise](ex/observe_summarise.qmd)
 
 Make sure you finalise all exercises we have had up to this point. 
