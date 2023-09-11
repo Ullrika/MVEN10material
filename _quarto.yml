@@ -41,6 +41,14 @@ website:
         - text: "Exercise 7"
           file: ex/observe_summarise.qmd
           target: "_blank"
+      - section: "Sept 11"
+        contents:  
+        - text: "Exercise 8"
+          file: ex/observe_fit_simulate.qmd
+          target: "_blank"
+        - text: "Exercise 9"
+          file: ex/ex_environ_exposure_assessment.qmd
+          target: "_blank"
       
 format:
   html:

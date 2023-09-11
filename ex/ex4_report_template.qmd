@@ -10,6 +10,7 @@ format:
     echo: false
     message: false
     warning: false
+    embed-resources: true
 editor: visual
 ---
 

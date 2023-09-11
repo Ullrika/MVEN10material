@@ -5,7 +5,7 @@ author: "Ullrika Sahlin"
 
 This is a website for the exercises on the course Risk Assessment in Environment and Public Health MVEN10 Fall 2023.
 
-## August 30 13 - 16
+## August 30
 
 [Ex 1. Expressions of uncertainty - How probable is probable?](ex/expressing_uncertainty.qmd)
 
@@ -13,7 +13,7 @@ This is a website for the exercises on the course Risk Assessment in Environment
 
 [Ex 3. Introduction to Quarto and R](ex/introduction_to_quarto_and_R.qmd)
 
-## Sept 4 13 - 16
+## Sept 4 
 
 [Ex 4. Risk classification](ex/risk_classification_ROC.qmd)
 
@@ -24,7 +24,7 @@ This is a website for the exercises on the course Risk Assessment in Environment
 [Ex 6. Introduction to useful functions in Microsoft Excel](ex/useful_functions.qmd)
 
 
-## Sept 6 13 - 16
+## Sept 6 
 
 [Useful functions reproduced using R](ex/useful_functions_with_R.qmd)
 
@@ -32,8 +32,13 @@ This is a website for the exercises on the course Risk Assessment in Environment
 
 Make sure you finalise all exercises we have had up to this point. 
 
+## Sept 11
 
-## Sept 11 13 - 16
+[Ex 8. Observe, fit and simulate](ex/observe_fit_simulate.qmd)
+
+[Ex 9. Environmental exposure assessment](ex/ex_environ_exposure_assessment.qmd)
+
+If there is time, human exposure assessment
 
 ## Sept 13 13 - 16
 
