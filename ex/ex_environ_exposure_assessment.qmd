@@ -69,7 +69,7 @@ downloadthis::download_file(
 
 (@) Goto sheet **chembase** and note the **ID** number for hexachlorobenzene. 
 
-(@) Goto sheet **input** and write down the ID number in cell **I6**. 
+(@) Goto sheet **input** and write down the row number ID in cell **I44**. 
 
 The model will now use substance specific parameters for the calculations. 
 
