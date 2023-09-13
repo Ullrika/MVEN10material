@@ -44,7 +44,7 @@ Make sure you finalise all exercises we have had up to this point.
 
 [Ex 11. Hazard assessment using Benchmark Dose Modelling](ex/ex_benchmark_dose_modelling.qmd)
 
-Ex 12. Interval arithmetic on the daily intake equation 
+[Ex 12. Interval arithmetic and Monte Carlo simulation on the daily intake equation](ex/ex_daily_intake_equation.qmd)
 
 ## Sept 18 9 - 11
 

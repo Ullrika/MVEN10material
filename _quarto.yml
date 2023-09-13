@@ -57,10 +57,10 @@ website:
         - text: "Exercise 11"
           file: ex/ex_benchmark_dose_modelling.qmd
           target: "_blank"
-        # - text: "Exercise 12"
-        #   file: ex/ex_dietary_exposure_assessment.qmd
-        #   target: "_blank"  
-        #   
+        - text: "Exercise 12"
+          file: ex/ex_daily_intake_equation.qmd
+          target: "_blank"  
+          
           
           
           

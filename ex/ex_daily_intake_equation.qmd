@@ -1,0 +1,55 @@
+---
+title: "Exercise 12. Daily intake equation"
+subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
+author: "Ullrika Sahlin"
+---
+
+## Exercise overview
+
+Do individually
+
+### Background
+
+
+### Purpose
+
+- To apply interval arithmetic
+
+- To explore the principle of 1 dimensional Monte Carlo simulation
+
+### Content
+
+
+### Duration
+
+20 minutes
+
+### Reporting
+
+Be prepared to report back at the end of the exercise.
+
+### References
+
+The course book
+
+## The daily dose equation
+
+$$Dose = \frac{}{}$$
+
+## Interval artithmetic 
+
+![](../img/burg1.png)
+
+Replicate these calculations chapter 9.3.2
+
+![](../img/burg2.png)
+
+## Monte Carlo simulation
+
+Suggest how to set up (implement) a Monte Carlo simulation for the example provided in chapter 10.8.1. 
+
+The aim is that you should be able to do this in Excel and R. 
+
+![](../img/burg3.png)
+
+![](../img/burg4.png)
