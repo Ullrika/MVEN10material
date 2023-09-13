@@ -49,6 +49,21 @@ website:
         - text: "Exercise 9"
           file: ex/ex_environ_exposure_assessment.qmd
           target: "_blank"
+      - section: "Sept 13"
+        contents:  
+        - text: "Exercise 10"
+          file: ex/ex_exposure_assessment_databases.qmd
+          target: "_blank"
+        - text: "Exercise 11"
+          file: ex/ex_benchmark_dose_modelling.qmd
+          target: "_blank"
+        # - text: "Exercise 12"
+        #   file: ex/ex_dietary_exposure_assessment.qmd
+        #   target: "_blank"  
+        #   
+          
+          
+          
       
 format:
   html:

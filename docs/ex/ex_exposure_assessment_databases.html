@@ -8,7 +8,7 @@
 
 <meta name="author" content="Ullrika Sahlin">
 
-<title>MVEN10 - Expert judgement</title>
+<title>MVEN10 - Exercise 10. Exposure assessment from databases</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ex/risk_classification_ROC.html">Sept 4</a></li><li class="breadcrumb-item"><a href="../ex/expert_judgement.html">Exercise 5 45 min</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ex/ex_exposure_assessment_databases.html">Sept 13</a></li><li class="breadcrumb-item"><a href="../ex/ex_exposure_assessment_databases.html">Exercise 10</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -145,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ex/expert_judgement.html" class="sidebar-item-text sidebar-link active" target="&quot;_blank&quot;">
+  <a href="../ex/expert_judgement.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
  <span class="menu-text">Exercise 5 45 min</span></a>
   </div>
 </li>
@@ -220,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ex/ex_exposure_assessment_databases.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
+  <a href="../ex/ex_exposure_assessment_databases.html" class="sidebar-item-text sidebar-link active" target="&quot;_blank&quot;">
  <span class="menu-text">Exercise 10</span></a>
   </div>
 </li>
@@ -251,13 +251,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#reporting" id="toc-reporting" class="nav-link" data-scroll-target="#reporting">Reporting</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
-  <li><a href="#training-in-making-probabilistic-judgements" id="toc-training-in-making-probabilistic-judgements" class="nav-link" data-scroll-target="#training-in-making-probabilistic-judgements">Training in making probabilistic judgements</a></li>
-  <li><a href="#elicitation-of-a-continuous-quantity" id="toc-elicitation-of-a-continuous-quantity" class="nav-link" data-scroll-target="#elicitation-of-a-continuous-quantity">Elicitation of a continuous quantity</a>
-  <ul class="collapse">
-  <li><a href="#fit-single-distribution-to-judgements" id="toc-fit-single-distribution-to-judgements" class="nav-link" data-scroll-target="#fit-single-distribution-to-judgements">Fit single distribution to judgements</a></li>
-  <li><a href="#aggregation-of-expert-judgements" id="toc-aggregation-of-expert-judgements" class="nav-link" data-scroll-target="#aggregation-of-expert-judgements">Aggregation of expert judgements</a></li>
-  </ul></li>
-  <li><a href="#wisdom-of-the-crowds" id="toc-wisdom-of-the-crowds" class="nav-link" data-scroll-target="#wisdom-of-the-crowds">Wisdom of the crowds</a></li>
+  <li><a href="#exposure-facts" id="toc-exposure-facts" class="nav-link" data-scroll-target="#exposure-facts">Exposure facts</a></li>
+  <li><a href="#the-exposure-factors-handbook" id="toc-the-exposure-factors-handbook" class="nav-link" data-scroll-target="#the-exposure-factors-handbook">The exposure factors handbook</a></li>
+  <li><a href="#dietary-exposure-dietex-tool" id="toc-dietary-exposure-dietex-tool" class="nav-link" data-scroll-target="#dietary-exposure-dietex-tool">Dietary Exposure (DietEx) tool</a></li>
+  <li><a href="#the-efsa-comprehensive-european-food-consumption-database" id="toc-the-efsa-comprehensive-european-food-consumption-database" class="nav-link" data-scroll-target="#the-efsa-comprehensive-european-food-consumption-database">The EFSA Comprehensive European Food Consumption Database</a></li>
   </ul>
 </nav>
     </div>
@@ -266,7 +263,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Expert judgement</h1>
+<h1 class="title">Exercise 10. Exposure assessment from databases</h1>
 <p class="subtitle lead">MVEN10 Risk Assessment in Environment and Public Health</p>
 </div>
 
@@ -290,41 +287,23 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="exercise-overview" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-overview">Exercise overview</h2>
-<ul>
-<li>this is an exercise done jointly in class</li>
-</ul>
+<p>Do in groups of 1-3</p>
 <section id="background" class="level3">
 <h3 class="anchored" data-anchor-id="background">Background</h3>
-<p>Expert judgement are common in risk assessment. To ensure rigour of the assessment, these judgements should be collected in a structured way. Methods have been developed to <em>reduce linguistic uncertainty</em> and <em>cognitive biases</em> when experts make judgements, and to <em>aggregate judgements</em> by a group of experts.</p>
-<p>Quantitative judgements, e.g.&nbsp;judgements expressed by subjective probabilities are preferable over qualitative expressions of uncertainty. The reasons are that</p>
-<ul>
-<li>qualitative judgements have different meanings for different people, and</li>
-<li>quantitative judgements can be combined using probability rules (probability calculations)</li>
-</ul>
-<p>EFSA defines Expert Knowledge Elicitation as</p>
-<blockquote class="blockquote">
-<p>A systematic, documented and reviewable process to retrieve expert judgements from a group of experts, often in the form of a probability distribution.</p>
-</blockquote>
-<p>In general, it is possible to make a quantitative judgement when the question asked to an expert is <em>well-defined</em>.</p>
-<p>The expert should also feel that she has some basis to make his/her judgement.</p>
-<blockquote class="blockquote">
-<p>A good expert makes judgements where she has domain knowledge and is hesitant to make judgements for questions where she feels there is not enough basis for a judgement.</p>
-</blockquote>
-<p>It is also important that experts receive training in making probabilistic judgements to ensure they understand them.</p>
+<p>Exposure assessment uses data on food consumption and drinking water, analytical data on the presence of substances in food and statistics of behaviours and lifestyles of populations of interest.</p>
+<p>Data from studies and surveys have been collected into data bases that are availabe to be used in risk assessment.</p>
 </section>
 <section id="purpose" class="level3">
 <h3 class="anchored" data-anchor-id="purpose">Purpose</h3>
 <ul>
-<li><p>To get basic training in probability distributions</p></li>
-<li><p>To demonstrate how quantitative judgements can be elicited and aggregated from experts</p></li>
+<li><p>To explore some data bases to support exposure assessment</p></li>
+<li><p>To discuss how to derive exposure estimates</p></li>
 </ul>
 </section>
 <section id="content" class="level3">
 <h3 class="anchored" data-anchor-id="content">Content</h3>
 <ul>
-<li><p>The student receives training in making probabilistic judgements</p></li>
-<li><p>The teacher elicit student’s judgements on a binary outcome and a continuous quantity. Judgements are anonymous.</p></li>
-<li><p>We “test” the <em>Wisdom of crowds</em> by considering the aggregated judgement about an observable and compare to the <em>true</em> value.</p></li>
+<li>The <a href="https://joint-research-centre.ec.europa.eu/expofacts-european-exposure-factors-sourcebook_en">European exposure data base</a></li>
 </ul>
 </section>
 <section id="duration" class="level3">
@@ -333,139 +312,64 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="reporting" class="level3">
 <h3 class="anchored" data-anchor-id="reporting">Reporting</h3>
-<p>No need to report other than contributing with judgements</p>
+<p>Be prepared to report back at the end of the exercise.</p>
 </section>
 <section id="references" class="level3">
 <h3 class="anchored" data-anchor-id="references">References</h3>
-<p>EFSA (2014). Guidance on Expert Knowledge Elicitation in Food and Feed Safety Risk Assessment.</p>
-<p>Sheffield Elicitation Framework <a href="https://shelf.sites.sheffield.ac.uk/home">SHELF web page</a></p>
+<p>In text</p>
 </section>
 </section>
-<section id="training-in-making-probabilistic-judgements" class="level2">
-<h2 class="anchored" data-anchor-id="training-in-making-probabilistic-judgements">Training in making probabilistic judgements</h2>
-<p>Example of how a training text to experts can look like:</p>
-<ul>
-<li><p>As an expert you will be asked to express your uncertainty about the true value of a quantity by a probability distribution that quantifies the range and probability of possible values.</p></li>
-<li><p>The probabilities are interpreted as your subjective probability.</p></li>
-<li><p>Note that there is only one true value on the quantity – the distribution represents your uncertainty and not variability.</p></li>
-</ul>
-<div class="cell" data-warnings="false" data-messages="false">
-<div class="cell-output-display">
-<p><img src="expert_judgement_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<ul>
-<li><p>We generally use 5 judgements to elicit a full distribution</p>
-<ul>
-<li><p>First, the lower and upper plausible bounds (P01 and P99)</p></li>
-<li><p>then the median (P50)</p></li>
-<li><p>and finally the lower and upper quartiles (P25 and P75)</p></li>
-</ul></li>
-</ul>
-<p>This is done in this order to reduce the risk of bias</p>
-<div class="callout callout-style-simple callout-none no-icon callout-titled" title="Quartiles">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Quartiles
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><em>Quartiles</em> divide a probability distribution into four sections of equal probability. The first quartile is the 25% quantile (P25). The second quartile is the median (P50). The third quartile is the 75% quantile (P75), which means that it is 25% chance that the true value is above the P75.</p>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="expert_judgement_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<ul>
-<li>In some cases it may be sufficient to elicit a single probability, e.g.&nbsp;that the quantity is above 5</li>
-</ul>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="expert_judgement_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<ul>
-<li>or below 2</li>
-</ul>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="expert_judgement_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</section>
-<section id="elicitation-of-a-continuous-quantity" class="level2">
-<h2 class="anchored" data-anchor-id="elicitation-of-a-continuous-quantity">Elicitation of a continuous quantity</h2>
-<p>Now we will practice doing an elicitation where you are the experts.</p>
-<p>The elicitor (Ullrika) will introduce the quantity to be elicited in class and make sure the quantity is well defined. She will then ask you to make your judgements on a piece of paper.</p>
-<section id="fit-single-distribution-to-judgements" class="level3">
-<h3 class="anchored" data-anchor-id="fit-single-distribution-to-judgements">Fit single distribution to judgements</h3>
-<p>We will use an online app from the SHELF software to fit and explore the judgements. Go to <a href="https://shelf.sites.sheffield.ac.uk/software#h.n8yy6jrhk7">SHELF webpage</a> and open the app for a single expert.</p>
-<p><img src="../img/shelf1.png" class="img-fluid"></p>
+<section id="exposure-facts" class="level2">
+<h2 class="anchored" data-anchor-id="exposure-facts">Exposure facts</h2>
 <ol class="example" type="1">
-<li><p>Provide your lower and upper plausible bounds by replacing the values 0 and 100 in the box <strong>Parameter limits</strong></p></li>
-<li><p>Provide your judgements on the median, and the lower and upper quartiles by replacing the values 25, 50 and 75 in the box <strong>Parameter values</strong></p></li>
-<li><p>Click on the <strong>Quartiles</strong> tab to view a visualisation of your judgements</p></li>
-<li><p>Click on the <strong>CDF</strong> tab to view a visualisation of your judgements.</p></li>
-<li><p>Stay on the CDF tab and tick the box <strong>show fitted CDF</strong></p></li>
+<li><p>Go to the website at JRC and read about the <a href="https://joint-research-centre.ec.europa.eu/expofacts-european-exposure-factors-sourcebook_en">Exposure facts</a></p></li>
+<li><p>What does JRC stands for?</p></li>
+<li><p>What type of information are there in the ExpoFacts Database?</p></li>
 </ol>
-<p><img src="../img/shelf2.png" class="img-fluid" style="width:40.0%"></p>
-<p>Now you see a line added through the points. This “distribution” is here called a histogram (Note - it is not an actual distribution).</p>
-<p>The software will help the elicitor to “fit” a probability distribution that represents your judgements by finding one with a CDF that is in good agreement with the points on the CDF graph.</p>
-<ol start="6" class="example" type="1">
-<li>Click on the black triangle and select the <strong>Best fitting</strong> distribution</li>
+</section>
+<section id="the-exposure-factors-handbook" class="level2">
+<h2 class="anchored" data-anchor-id="the-exposure-factors-handbook">The exposure factors handbook</h2>
+<p>The US EPA <a href="https://www.epa.gov/expobox/about-exposure-factors-handbook">Exposure factors handbook</a> contains information for exposure assessment.</p>
+<ol start="4" class="example" type="1">
+<li><p>Go to chapter 5. Soil and dust ingestion and open the update from 2017</p></li>
+<li><p>What type of information is found in this chapter and what can it be used for?</p></li>
+<li><p>Discuss the difference between these three terms</p></li>
 </ol>
-<p><img src="../img/shelf2.png" class="img-fluid" style="width:40.0%"></p>
-<ul>
-<li><p>What type of distribution is it (name above the graph).</p></li>
-<li><p>Do you think the CDF of the fitted distribution corresponds well to your judgements?</p></li>
-</ul>
-<p>You can try other distributions and see how the fit looks like, but keep the best fitting when continuing.</p>
+<p><strong>Soil ingestion</strong> is the consumption of soil. This may result from various behaviors including, but not limited to, mouthing, contacting dirty hands, eating dropped food, or consuming soil directly.</p>
+<p><strong>Soil pica</strong> is the recurrent ingestion of unusually high amounts of soil (i.e., on the order of 1,000−5,000 mg/day or more).</p>
+<p><strong>Geophagy</strong> is the intentional ingestion of earths and is usually associated with cultural practices.</p>
 <ol start="7" class="example" type="1">
-<li>Now we want to see how the fitted probability distributions intended to represent your uncertainty about the quantity looks like. Tick <strong>show fitted PDF</strong> and go to the <strong>PDF</strong> tab.</li>
+<li><p>Discuss the difference between <strong>soil</strong> and <strong>dust</strong> (see definitions on Page 5-2 [10 in the PDF])</p></li>
+<li><p>Goto Table 5-3 and estract a high exposure to Aluminium via soil and dust combined for a child between 1 to 4 years old.</p></li>
+<li><p>Discuss if high exposure should be evaluated on the 95th Percentile or the Maximum.</p></li>
 </ol>
-<ul>
-<li><p>The PDF representation of a probability distribution can be easier to relate to.</p></li>
-<li><p>Do you think the PDF can be a representation of your uncertainty?</p></li>
-</ul>
-<ol start="8" class="example" type="1">
-<li>You are welcome to change your judgements until you accept the fitted distribution</li>
-</ol>
-<p>The tutor has provided an important threshold for the quantity on the board. Use the fitted probability distribution to calculate the probability that the quantity is below a value provided by the tutor!</p>
-<ul>
-<li>The quantiles P10 and P90 can be seen as bounds of a probability interval where you are 80% certain that the true value lies.</li>
-</ul>
-<p>Take note of the calculated quantiles in the table to the right in the section <strong>Fitted quantiles and cumulative probabilities</strong> below the PDF graph</p>
-<ol start="9" class="example" type="1">
-<li>Replace the 0 with the value for the critical threshold in the box <strong>Feedback probabilities</strong></li>
-</ol>
-<p><img src="../img/shelf4.png" class="img-fluid" style="width:40.0%"></p>
+<p>Be prepared to report back.</p>
+</section>
+<section id="dietary-exposure-dietex-tool" class="level2">
+<h2 class="anchored" data-anchor-id="dietary-exposure-dietex-tool">Dietary Exposure (DietEx) tool</h2>
+<p>The Dietary Exposure <a href="https://www.efsa.europa.eu/en/science/tools-and-resources/dietex">DietEx tool</a> is a user-friendly tool for estimating chronic dietary exposure to substances present in food (e.g.&nbsp;intentionally added or naturally present chemicals, contaminants, proteins, novel food ingredients).</p>
+<p>The DietEx tool is currently unavailable due to ongoing validation by EFSA. So we skip this.</p>
+</section>
+<section id="the-efsa-comprehensive-european-food-consumption-database" class="level2">
+<h2 class="anchored" data-anchor-id="the-efsa-comprehensive-european-food-consumption-database">The EFSA Comprehensive European Food Consumption Database</h2>
+<p>The <a href="https://www.efsa.europa.eu/en/data-report/food-consumption-data">Comprehensive Food Consumption Database</a> is a source of information on food consumption across the European Union (EU).</p>
 <ol start="10" class="example" type="1">
-<li><p>Take note of the calculated probability in the table to the right in the section <strong>Fitted quantiles and cumulative probabilities</strong> below the PDF graph</p></li>
-<li><p>To prepare for the next step, fill in your judgements and the calculated quantiles P10 and P90 and calculated probabilities in <a href="https://forms.gle/83chHkXJMzzyTpvf6">this google form</a></p></li>
+<li><p>Goto the site for the food consumption database.</p></li>
+<li><p>Enter the foodex2-level-1 window</p></li>
+<li><p>Filter the data according to Exposure hierarchy L1 - by deselecting (All) and then selecting <strong>Coffee, cocoa, tea and infusions</strong> only</p></li>
 </ol>
-</section>
-<section id="aggregation-of-expert-judgements" class="level3">
-<h3 class="anchored" data-anchor-id="aggregation-of-expert-judgements">Aggregation of expert judgements</h3>
-<p>This part of the exercise is led by the tutor (Ullrika)</p>
-<p>She will use the <a href="https://shelf.sites.sheffield.ac.uk/software#h.6a6o2k640h43">SHELF online tool for multiple experts</a></p>
-</section>
-</section>
-<section id="wisdom-of-the-crowds" class="level2">
-<h2 class="anchored" data-anchor-id="wisdom-of-the-crowds">Wisdom of the crowds</h2>
-<p>The wisdom of the crowds <a href="https://en.wikipedia.org/wiki/The_Wisdom_of_Crowds">interesting wiki page</a> states that pooling judgements using a trusted process from a diverse group of experts, that made their judgements independent of each other, is better than using one expert.</p>
-<p>The tutor has the true answer</p>
-<p>We will pool your judgments by making averages of the PDF over each point, also known as a <em>linear pool</em></p>
+<p><img src="../img/food1.png" class="img-fluid"></p>
+<ol start="13" class="example" type="1">
+<li><p>Discuss the difference between the four categories of data?</p></li>
+<li><p>Expand the data sheet for Chronic Food Consumption Grams per kilogram of body weight per day (g/kg bw per day) - Consumers only</p></li>
+<li><p>Your task is now to assess the consumption for a high consumer of Coffee, cocoa, tea and infusions for two population groups in the EU:</p></li>
+</ol>
 <ul>
-<li>Is the linear pool a better judgement?</li>
+<li>Adult and pregnant women</li>
 </ul>
-<!-- ::: {callout-tip} -->
-<!-- You can find examples of graphs together with code at [the R Graph Gallery](https://r-graph-gallery.com/index.html) -->
-<!-- ::: -->
+<ol start="16" class="example" type="1">
+<li>Discuss how to define a high consumer and how to derive the estimate. You are welcome to ask for advice. Be prepared to report back your suggestion and results.</li>
+</ol>
 
 
 </section>

@@ -38,9 +38,13 @@ Make sure you finalise all exercises we have had up to this point.
 
 [Ex 9. Environmental exposure assessment](ex/ex_environ_exposure_assessment.qmd)
 
-If there is time, human exposure assessment
-
 ## Sept 13 13 - 16
+
+[Ex 10. Exposure assessment from databases](ex/ex_exposure_assessment_databases.qmd)
+
+[Ex 11. Hazard assessment using Benchmark Dose Modelling](ex/ex_benchmark_dose_modelling.qmd)
+
+Ex 12. Interval arithmetic on the daily intake equation 
 
 ## Sept 18 9 - 11
 
