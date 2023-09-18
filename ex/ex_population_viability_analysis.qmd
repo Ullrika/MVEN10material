@@ -53,7 +53,7 @@ library(ggplot2)
 
 (@) Write a function that takes the starting population size $B_0$ and harvest $C_t$ as input arguments and returns the population biomass over time. Call it **simB**.
 
-We recommend you modify the code below. Ullrika will show how to write a function on the board. 
+We recommend you modify the code below. See also the info box about how to create a function in R. 
 
 ```{r}
 pi = 0.097
@@ -73,6 +73,24 @@ for(t in 2:years){
 }
 B
 ```
+
+:::{.callout-note}
+**function** is a function in R to create a function in R. 
+
+it is called by the following 
+
+"name of your function" = function(){}
+
+inside the ()-brackets you put the arguments of the function 
+
+inside the {}-brackets you put what the function is suppose to do
+
+the function returns what you do last inside the {}-brackets
+
+e.g. simB = function(B0,Ct){"the calcluations" ending with B}
+
+Solutions to functions can be found at the end of these instructions.
+:::
 
 ```{r}
 #| echo: false
