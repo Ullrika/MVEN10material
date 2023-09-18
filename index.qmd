@@ -55,6 +55,8 @@ Make sure you finalise all exercises we have had up to this point.
 
 ## Sept 19 9 - 12
 
+[Ex 15. Hazard assessment using Species Sensitivity Distributions](ex/ex_species_sensitivity_distribution.qmd)
+
 
 ## Oct 10 9 - 16 (obs all day)
 

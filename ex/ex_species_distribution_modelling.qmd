@@ -1,0 +1,35 @@
+---
+title: "Ex temp"
+subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
+author: "Ullrika Sahlin"
+---
+
+## Exercise overview
+
+### Background
+
+The use of species distribution modeling to predict the possible extent of suitable habitat for significant pests has been accepted as an efficient method for determining effective management and countermeasures. CLIMEX and MaxEnt are widely used software for creating species distribution models. CLIMEX predicts climatic suitability of a specific region for target species, whereas MaxEnt uses various environmental variables with presence-only data to assess potential distribution.
+
+### Purpose
+
+-   To 
+
+
+
+### Content
+
+-   
+
+### Duration
+
+ minutes
+
+### Reporting
+
+Be prepared to report back at the end of the exercise.
+Write a report using the template and upload it on the assignment in canvas. 
+
+### References
+
+## Content
+

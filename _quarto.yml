@@ -68,8 +68,14 @@ website:
         - text: "Exercise 14"
           file: ex/ex_population_viability_analysis.qmd
           target: "_blank"
-          
-            
+      - section: "Sept 19"
+        contents:  
+        - text: "Exercise 15"
+          file: ex/ex_species_sensitivity_distribution.qmd
+          target: "_blank"
+        # - text: "Exercise 14"
+        #   file: ex/ex_population_viability_analysis.qmd
+        #   target: "_blank"
       
 format:
   html:

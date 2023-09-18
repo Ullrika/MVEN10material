@@ -1,0 +1,5 @@
+Conc,Duration,Genus,Group,Life_stage,Notes,Phylum,Species,Test_endpoint,Toxicity_measure
+6528,4,Achnanthidium,Diatom,Exponential growth phase,Species that originated from/are distributed in Australia and/or New Zealand,Bacillariophyta,minutissimum,Cell density,Chronic EC10
+224,21,Daphnia,Macroinvertebrate,<24 hour old,NA,Arthropoda,magna,Young per female,Chronic EC10
+925,4,Cyclotella,Diatom,Exponential growth phase,Species that originated from/are distributed in Australia and/or New Zealand,Bacillariophyta,meneghiniana,Cell density,Chronic EC10
+640,35,Pimephales,Fish,Early life stage,NA,Chordata,promelas,Mortality,Chronic LOEC

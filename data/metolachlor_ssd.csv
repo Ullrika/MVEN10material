@@ -1,0 +1,7 @@
+Conc,Duration,Genus,Group,Life_stage,Notes,Phylum,Species,Test_endpoint,Toxicity_measure
+240,5,Anabaena,Bluegreen alga,Not stated,NA,Cyanobacteria,flosaquae,"Biomass yield, growth rate, AUC c",Chronic EC50
+0.53,2,Scenedesmus,Green alga,Exponential growth phase,NA,Chlorophyta,vacuolatus,Cell density,Chronic EC50
+27.4,3,Pseudokirchneriella,Green alga,Not stated,Also called Raphidocelis subcapitata and Selenastrum capricornutum.,Chlorophyta,subcapitata,Cell density,Chronic NOEC
+14,14,Ceratophyllum,Macrophyte,Not stated,Species that originated from/are distributed in Australia and/or New Zealand,Tracheophyta,demersum,Wet weight,Chronic EC50
+1,7,Gomphonema,Diatom,Exponential growth phase,Species that originated from/are distributed in Australia and/or New Zealand,Bacillariophyta,gracile,Live cell density,Chronic NOEC
+863,4,Mayamaea,Diatom,Exponential growth phase,NA,Bacillariophyta,fossalis,Chlorophyll-a content,Chronic EC10

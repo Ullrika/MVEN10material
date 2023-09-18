@@ -1,0 +1,163 @@
+---
+title: "Exercise 15. Hazard assessment using Species Sensitivity Distributions"
+subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
+author: "Ullrika Sahlin"
+---
+
+## Exercise overview
+
+### Background
+
+The Species Sensitivity Distribution methodology is a common way in hazard assessment for setting safe limits on chemical concentrations in surface waters. 
+The species sensitivity distribution (SSD) is a statistical approach that is used to estimate either the concentration of a chemical that is hazardous to no more than x% of all species (the HCx) or the proportion of species potentially affected by a given concentration of a chemical. 
+
+The SSD approach follows a three-step procedure:  
+
+First, compile results from separate toxicity tests on a given chemical for various aquatic animal species.  
+
+Second, fit candidate probability distribution(s) to the data.  
+
+Third, use the fitted distribution(s) to infer a concentration that will be protective of a desired proportion of species in a hypothetical aquatic community. 
+
+There are several SSDs tools available for risk assessors.
+
+### Purpose
+
+-  To apply the SSD approach to find a hazardous concentration 
+
+- To explore one of the many tools for SSD, namely the R-package **ssdtools**, in which the modelling can be done in an user friendly Shiny app
+
+### Content
+
+- Find hazardous concentration by SSD modelling bases on dose-response data on the chemical metolachlor
+
+### Duration
+
+60 minutes
+
+### Reporting
+
+Write a report using a quarto document and upload it on the assignment in canvas. 
+
+- Use the following information in the YAML (i.e. the top information in a .qmd document)
+
+title: "Exercise 15. Hazard assessment using Species Sensitivity Distributions"
+subtitle: "Report"
+author: "Your name"
+date: today
+format: 
+  html:
+    toc: true
+    code-fold: true
+    message: false
+    warning: false
+    embed-resources: true
+
+- You will explore the SSD approach using an app. Note that it is possible to get the full R-code for the SSD modelling. You can use this R-code to generate your report. 
+
+### References
+
+Fox, D.R., van Dam, R.A., Fisher, R., Batley, G.E., Tillmanns, A.R., Thorley, J., Schwarz, C.J., Spry, D.J. and McTavish, K. (2021), Recent Developments in Species Sensitivity Distribution Modeling. Environ Toxicol Chem, 40: 293-308. [https://doi.org/10.1002/etc.4925](https://doi.org/10.1002/etc.4925)
+
+The **shinyssdtools** developed for the British Columbia Ministry of Environment and Climate Change Strategy. [https://github.com/bcgov/shinyssdtools](https://github.com/bcgov/shinyssdtools)
+
+
+## Get SSD data
+
+Download a ssd data set 
+
+```{r}
+#| echo: false
+downloadthis::download_file(
+  path = "../data/metolachlor_ssd.csv",
+  button_label = "Download csv file",
+  button_type = "info",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+```
+
+## A tool for Species Sensitivity Distributions 
+
+(@) Install and open the SSD tool. 
+
+These commands will install a R-package, load it into R and then open a shinyapp. 
+
+```{r}
+#| warning: false
+#| message: false
+#| eval: false
+devtools::install_github("bcgov/shinyssdtools")
+library(shinyssdtools)
+shinyssdtools::run_app()
+```
+
+```{r}
+#| echo: false
+library(shinyssdtools)
+```
+
+(@) Choose to open the app in the browser. 
+
+:::{.callout-tip}
+Stop the shiny app by closing the webrower and click on the STOP-sign in the R-console
+
+![](../img/ssd3.png)
+
+Run the app by the command 
+
+```{r}
+#| eval: false
+shinyssdtools::run_app()
+```
+
+:::
+
+(@) Load the data **metolachlor_ssd.csv** to the app using option 2. Upload a csv file
+
+![](../img/ssd1.png)
+
+(@) Look at the data, what does it contain? 
+
+(@) Go to tab 2. Fit
+
+![](../img/ssd2.png)
+
+Study the goodness of fit measures and the visual fits between curves and data points, and select your top three best distributions. Write down the arguments why you choose these three distributions. 
+![](../img/ssdtools_distFitPlot.png)
+
+(@) Go to to the tab predict 
+
+![](../img/ssd4.png)
+
+(@) Set the threshold that defines the hazardous concentration, e.g. 5% defines HC5.
+
+![](../img/ssd5.png)
+
+(@) At this point you can read out HC5 for each model and the model average. 
+
+(@) If we want to consider statistical errors there is an option to derive an uncertainty interval for the hazardous concentration and select its lower bound. 
+
+Uncertainty intervals can be characterised by bootstrapping which is a method to sample with replacement from data, refit the model and do this many times. 
+
+(@) Click on the button CL to start the bootstrapping (this will take some time)
+
+![](../img/ssd6.png)
+
+(@) Take note of the lower bound (**lcl**)of the uncertainty interval for the hazardous concentration corresponding to protection of at least 95% of the population. 
+
+(@) Download the R-code for the analysis you did and put it into the report. 
+
+![](../img/ssd7.png)
+
+(@) Render the document. Note that you might have to change the path to data. 
+
+Write in the report: 
+
+- The three distributions that were chosen and the justification for this choice.
+
+- A lower bound for the concentration of metolachlor that is hazardous to no more than 5% of all species in an aquatic system. 
+
+(@) Submit on the assignment in canvas
+
