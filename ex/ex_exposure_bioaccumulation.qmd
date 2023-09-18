@@ -1,0 +1,115 @@
+---
+title: "Ex Exposure"
+author: "Ullrika Sahlin"
+---
+
+## Exercise overview
+
+Work together in groups of 1 to 3
+
+### Background
+
+### Purpose
+
+-   To apply Monte Carlo simulation on an equation impelemented in R
+
+-   To perform sensitivity analysis towards
+
+### Content
+
+### Duration
+
+45 minutes
+
+### Reporting
+
+Be prepared to report back at the end of the exercise.
+
+### References
+
+## 
+
+Detta är en övning om hur flundror ackumulerar det PCB som finns i havsvattnet där de bor. Modellen som används är någorlunda invecklad, men bör ändå inte vara svår att skriva in i R.
+
+Övningen innehåller några olika moment. Ni ska göra känslighetsanalys av er modell; ni ska anta att några av de ingående variablerna är korrelerade (vilket kan påverka känslighetsanalysen); och slutligen ska ni studera hur ackumulationen förändras över tiden, genom att lägga in en tidsserie i modellen.
+
+Ekvationen som modellen bygger på är:
+
+$$ V_t = V_0 e^{-(K+G)t} \, \frac{U_{conc}\,\alpha C_jW_j}{K\,+\,G}\left( 1 - e^{-(K+G)t}\right)$$ och vad de olika variablerna betyder kan ni se i tabellen här.
+
+| Parameter                                                                           | Description | Distribution |
+|-------------------------------------------------------------------------------------|:------------|-------------:|
+| $V_0$ \| Belastning av PCB vid tiden 0 ($\mu$ g PCB's / g) \| N(10, 2) \|           |             |              |
+| $K$ \| Utsöndringshastighet av PCB (1/d) \| U(0.045, 0.095)\|                       |             |              |
+| $G$ \| Tillväxtkoefficient (g/g/d) \| U(0.012, 0.014)\|                             |             |              |
+| $U$ \| Upptagskoefficient over gälarna (L/g/d) \| N(0.005, 0.0002)\|                |             |              |
+| $conc$ \| Koncentration av PCB i vattnet ($\mu$g / L) \| N(4,1)\|                   |             |              |
+| $\alpha$ \| Assimilation av PCB (dimensionslös) \| T(0.05, 0.18, 0.5)\|             |             |              |
+| $C_j$ \| Konsumtionshastighet av bytestyp j (g/g/d) \| logN(2.4, 0.5)\|             |             |              |
+| $W_j$ \| Belastning av PCB hos byten av typ j ($\mu$g PCB / g) \| logN(1.95, 0.3)\| |             |              |
+| $t$ \| tid i dagar \| 1\|                                                           |             |              |
+| $V_t$ \| Belastning av PCB vid tiden t ($\mu$g PCBs /g) \|\|                        |             |              |
+
+Fundera gärna lite grann, men bara lagom mycket, på vad ekvationen egentligen säger.
+
+-   Ekvationen gäller för en viss åldersklass när dessa fiskar äter bytesarterna $j$. Vi bryr oss bara om en åldersklass (oklart vilken), men däremot så antar vi att de äter flera olika byten, vilket beskrivs av fördelningarna för $C_j$ och $W_j$.
+
+-   Ekvationen räknar ut ackumulationen efter den tid man stoppar in i $t$. Till att börja med låter vi detta vara 1 dag, dvs $t = 1$.
+
+### Sensitivity analysis
+
+-   Gör en funktion som slumpar $N$ värden från sannolikhetsfördelningarna för modellens ingångsvärden och beräknar $V_t$. Funktionen ska skapa en $N x 8$ matris av slumptalen från ingångvärdena, och en vektor med $N$ värden på $V_t$.
+
+return( list( input = "N x 8 matris", output ="N slumptal av Vt") )
+
+-   Kör modellen med 10 000 slumptal och uppskatta risken att flundror har ackumulerat mer än 7.5 g per gram kroppsvikt efter en dag. Beräkna även medelvärdet av $V_t$.
+-   Nu ska ni göra en enkel känslighetsanalys av variablerna i er modell. Detta gör ni enklast genom att beräkna en korrelation mellan $V_t$ och alla de ingående variablerna i analysen. Ni ska använda funktionen $cor$ som beräknar alla parvisa korrelationer mellan olika variabler. Variablerna måste finnas som kolumner i en matris. Denna matris är
+
+mat = cbind(output,input)
+
+Alla parvisa korrelationer är
+
+cor(mat)
+
+Vi är bara intresserade av korrelation mellan ingående och den utgående variabeln. Därför kan vi välja att titta på den första kolumnen
+
+cor(mat)\[,1\]
+
+Varför är det första talet 1?
+
+Bäst är att göra en rank-korrelation, som inte antar ett linjärt samband mellan variablerna. Ett exempel på en sådan här korrelationsanalys kan då se ut så här:
+
+cor(mat, method="spearman")\[-1,1\]
+
+-   Gör också figurer som visar hur $V_t$ beror av samtliga variabler.
+-   För vilken, eller vilka, variabler är belastning av PCB vid tiden t (dvs modellens utgående variabel) mest känslig?
+
+### Känslighet mot korrelation i ingångsvärden}
+
+-   Man kan tänka sig att bytesdjur med högt PCB-innehåll är lätta för flundrorna att fånga, och att det därför blir en korrelation mellan $C_j$ och $W_j$. Skapa en ganska kraftig korrelation mellan dessa parametrar. Använd funktionen "cornode" i mc2d-paketet i R.
+
+-   Hur påverkar korrelationen risken att de ackumulerar mer än 7.5 g?
+
+-   Hur påverkar korrelationen modellens känslighet för olika variabler?
+
+-   Man kan också tänka sig, att flundror med mycket PCB i sig från början, blir slöa och därmed har en lägre konsumtionshastighet. Hur blir det då?
+
+### Känslighet mot val av fördelning för osäkerhet i ingångsvärden
+
+-   Ta bort korrelationerna och utgå ifrån grundvärdena på parametrarna. Ändra fördelningen för $C_j$ till en likformig inom intervallet 0 till 25. Det är ungefär samma intervall som normalfördelningen skulle ha. Kör om simuleringen.
+
+-   Hur känslig verkar modellen för förändring i denna parameters fördelning?
+
+### Känslighet mot tidperspektiv i riskbedömningen
+
+-   Hittills har vi bara studerat hur ackumulationen ser ut efter en dags exponering för giftet. Ändra tiden till 15 dagar, dvs. två veckor senare. Hur mycket har medelvärdet för ackumulationen ändrats? Har känsligheten för någon av parametrarna ändrats? Varför då, då? (Använd alla grundvärden för parametrarna och ingen korrelation).
+
+-   Kör modellen för olika tidpunkter, säg var 14:e dag i ett helt år.
+
+-   Vad är sannolikheten att de har ackumulerat mer än 7.5 g efter 1 dag, 15 dagar, 29 dagar etc upp till ett år? Plotta den beräknande sannolikheten mot tid.
+
+-   Vad är sannolikheten att de ackumulerat mer än 0.75 g efter samma tid? Plotta sannolikheten mot tid i samma bild som föregående.
+
+-   Vad beror det på att bioackumulationen inte bara fortsätter att öka, ju längre tiden går?
+
+-   Hur ändras känsligheten för de olika variablerna ju längre tid man tittar på? Kan ni förklara det?

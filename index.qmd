@@ -1,6 +1,7 @@
 ---
 title: "Home"
 author: "Ullrika Sahlin"
+date: today
 ---
 
 This is a website for the exercises on the course Risk Assessment in Environment and Public Health MVEN10 Fall 2023.
@@ -47,6 +48,13 @@ Make sure you finalise all exercises we have had up to this point.
 [Ex 12. Interval arithmetic and Monte Carlo simulation on the daily intake equation](ex/ex_daily_intake_equation.qmd)
 
 ## Sept 18 9 - 11
+
+[Ex 13. Daily intake equation - Solutions for the Monte Carlo simulation](ex/ex_daily_intake_equation_MC.qmd)
+
+[Ex 14. Population Viability Analysis - Baltic Cod](ex/ex_population_viability_analysis.qmd)
+
+## Sept 19 9 - 12
+
 
 ## Oct 10 9 - 16 (obs all day)
 

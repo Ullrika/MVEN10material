@@ -1,0 +1,129 @@
+---
+title: "Exercise 4. Risk classification"
+subtitle: "Report"
+author: "Your name"
+date: today
+format: 
+  html:
+    toc: true
+    code-fold: true
+    echo: false
+    message: false
+    warning: false
+    embed-resources: true
+editor: visual
+---
+
+```{r}
+library(readr)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(pROC)
+```
+
+## Data visualisation and initial comparison of predictors
+
+Which of the two predictors do you think is the better indicator to classify cancers into malignant or benign?
+
+Answer: <!-- TYPE YOUR ANSWER HERE -->
+
+```{r}
+
+## Load data
+df <- as_tibble(read_csv("../data/breast-cancer.csv"))
+```
+
+```{r, out.width = "50%"}
+df %>% select(c(diagnosis, radius_mean, compactness_mean)) %>% 
+ggplot(aes(x=radius_mean, fill=diagnosis)) +
+  geom_density(alpha=0.5)
+
+df %>% select(c(diagnosis, radius_mean, compactness_mean)) %>% 
+ggplot(aes(x=compactness_mean, fill=diagnosis)) +
+  geom_density(alpha=0.5)
+```
+
+## Frequency of errors for the binary classification model with mean radius as predictor and cutoff 15
+
+```{r}
+#| output: false
+
+# output from the function table. You can hide the output by typing #| output: false
+
+table(df %>% select(c(diagnosis, radius_mean, compactness_mean)) %>%
+  mutate(pred_rad=case_when(radius_mean>15 ~ "pos", .default = 'neg')) %>% 
+  select(c(diagnosis,pred_rad)))
+```
+
+For the binary classification model using mean radius as predictor:
+
+Frequency of False positives (FP) is 
+```{r}
+12
+```
+
+Frequency of False negatives (FN) is 
+```{r}
+51
+```
+
+
+Which of these two errors do you think is worse? Motivate your answer.
+
+
+
+## Sensitivity and specificity for the binary classification model with mean radius as predictor and cutoff 15
+
+For the binary classification model using mean radius as predictor:
+
+Frequency of True Positives (TP) is 
+```{r}
+161
+```
+
+Frequency of True Negatives (TN) is 
+```{r}
+345
+```
+
+Sensitivity, i.e. $\frac{TP}{TP + FN}$ is 
+```{r}
+161/(161+51)
+```
+
+
+Specificity $\frac{TN}{FP + TN}$ is 
+```{r}
+345/(345+12)
+```
+
+
+## Model comparison using the ROC curve methodology
+
+```{r}
+r = roc(diagnosis ~ radius_mean, data=df)
+ssc = coords(r, "best", best.method = "closest.topleft")
+
+r2 = roc(diagnosis ~ compactness_mean, data=df)
+ssc2 = coords(r2,"best", best.method = "closest.topleft")
+```
+
+```{r}
+list(radius=r,compactness=r2) %>% ggroc +
+  annotate("text", x = 0.3, y = 0.105, label = paste0("AUC radius = ", round(auc(r), 2))) +
+  annotate("text", x = 0.3, y = 0.05, label = paste0("AUC compactness = ", round(auc(r2), 2))) +
+  ggtitle("ROC curves")
+```
+
+Which of the two binary classification models have the best performance according to the AUC measure?
+
+<!-- TYPE YOUR ANSWER HERE -->
+
+Suggest three things that could be done to build a better classification model?
+
+-   suggestion 1
+
+-   suggestion 2
+
+-   suggestion 3

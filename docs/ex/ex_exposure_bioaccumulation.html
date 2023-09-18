@@ -8,7 +8,7 @@
 
 <meta name="author" content="Ullrika Sahlin">
 
-<title>MVEN10 - Ex temp</title>
+<title>MVEN10 - Ex Exposure</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -61,6 +61,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -282,7 +284,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#reporting" id="toc-reporting" class="nav-link" data-scroll-target="#reporting">Reporting</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
-  <li><a href="#content-1" id="toc-content-1" class="nav-link" data-scroll-target="#content-1">Content</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a>
+  <ul class="collapse">
+  <li><a href="#sensitivity-analysis" id="toc-sensitivity-analysis" class="nav-link" data-scroll-target="#sensitivity-analysis">Sensitivity analysis</a></li>
+  <li><a href="#känslighet-mot-korrelation-i-ingångsvärden" id="toc-känslighet-mot-korrelation-i-ingångsvärden" class="nav-link" data-scroll-target="#känslighet-mot-korrelation-i-ingångsvärden">Känslighet mot korrelation i ingångsvärden}</a></li>
+  <li><a href="#känslighet-mot-val-av-fördelning-för-osäkerhet-i-ingångsvärden" id="toc-känslighet-mot-val-av-fördelning-för-osäkerhet-i-ingångsvärden" class="nav-link" data-scroll-target="#känslighet-mot-val-av-fördelning-för-osäkerhet-i-ingångsvärden">Känslighet mot val av fördelning för osäkerhet i ingångsvärden</a></li>
+  <li><a href="#känslighet-mot-tidperspektiv-i-riskbedömningen" id="toc-känslighet-mot-tidperspektiv-i-riskbedömningen" class="nav-link" data-scroll-target="#känslighet-mot-tidperspektiv-i-riskbedömningen">Känslighet mot tidperspektiv i riskbedömningen</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -291,8 +299,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Ex temp</h1>
-<p class="subtitle lead">MVEN10 Risk Assessment in Environment and Public Health</p>
+<h1 class="title">Ex Exposure</h1>
 </div>
 
 
@@ -315,37 +322,161 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="exercise-overview" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-overview">Exercise overview</h2>
+<p>Work together in groups of 1 to 3</p>
 <section id="background" class="level3">
 <h3 class="anchored" data-anchor-id="background">Background</h3>
 </section>
 <section id="purpose" class="level3">
 <h3 class="anchored" data-anchor-id="purpose">Purpose</h3>
 <ul>
-<li>To</li>
+<li><p>To apply Monte Carlo simulation on an equation impelemented in R</p></li>
+<li><p>To perform sensitivity analysis towards</p></li>
 </ul>
 </section>
 <section id="content" class="level3">
 <h3 class="anchored" data-anchor-id="content">Content</h3>
-<ul>
-<li></li>
-</ul>
 </section>
 <section id="duration" class="level3">
 <h3 class="anchored" data-anchor-id="duration">Duration</h3>
-<p>minutes</p>
+<p>45 minutes</p>
 </section>
 <section id="reporting" class="level3">
 <h3 class="anchored" data-anchor-id="reporting">Reporting</h3>
-<p>Be prepared to report back at the end of the exercise. Write a report using the template and upload it on the assignment in canvas.</p>
+<p>Be prepared to report back at the end of the exercise.</p>
 </section>
 <section id="references" class="level3">
 <h3 class="anchored" data-anchor-id="references">References</h3>
 </section>
 </section>
-<section id="content-1" class="level2">
-<h2 class="anchored" data-anchor-id="content-1">Content</h2>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p>Detta är en övning om hur flundror ackumulerar det PCB som finns i havsvattnet där de bor. Modellen som används är någorlunda invecklad, men bör ändå inte vara svår att skriva in i R.</p>
+<p>Övningen innehåller några olika moment. Ni ska göra känslighetsanalys av er modell; ni ska anta att några av de ingående variablerna är korrelerade (vilket kan påverka känslighetsanalysen); och slutligen ska ni studera hur ackumulationen förändras över tiden, genom att lägga in en tidsserie i modellen.</p>
+<p>Ekvationen som modellen bygger på är:</p>
+<p><span class="math display">\[ V_t = V_0 e^{-(K+G)t} \, \frac{U_{conc}\,\alpha C_jW_j}{K\,+\,G}\left( 1 - e^{-(K+G)t}\right)\]</span> och vad de olika variablerna betyder kan ni se i tabellen här.</p>
+<table class="table">
+<colgroup>
+<col style="width: 75%">
+<col style="width: 11%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: right;">Distribution</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(V_0\)</span> | Belastning av PCB vid tiden 0 (<span class="math inline">\(\mu\)</span> g PCB’s / g) | N(10, 2) |</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(K\)</span> | Utsöndringshastighet av PCB (1/d) | U(0.045, 0.095)|</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(G\)</span> | Tillväxtkoefficient (g/g/d) | U(0.012, 0.014)|</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(U\)</span> | Upptagskoefficient over gälarna (L/g/d) | N(0.005, 0.0002)|</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(conc\)</span> | Koncentration av PCB i vattnet (<span class="math inline">\(\mu\)</span>g / L) | N(4,1)|</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\alpha\)</span> | Assimilation av PCB (dimensionslös) | T(0.05, 0.18, 0.5)|</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(C_j\)</span> | Konsumtionshastighet av bytestyp j (g/g/d) | logN(2.4, 0.5)|</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(W_j\)</span> | Belastning av PCB hos byten av typ j (<span class="math inline">\(\mu\)</span>g PCB / g) | logN(1.95, 0.3)|</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(t\)</span> | tid i dagar | 1|</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(V_t\)</span> | Belastning av PCB vid tiden t (<span class="math inline">\(\mu\)</span>g PCBs /g) ||</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<p>Fundera gärna lite grann, men bara lagom mycket, på vad ekvationen egentligen säger.</p>
+<ul>
+<li><p>Ekvationen gäller för en viss åldersklass när dessa fiskar äter bytesarterna <span class="math inline">\(j\)</span>. Vi bryr oss bara om en åldersklass (oklart vilken), men däremot så antar vi att de äter flera olika byten, vilket beskrivs av fördelningarna för <span class="math inline">\(C_j\)</span> och <span class="math inline">\(W_j\)</span>.</p></li>
+<li><p>Ekvationen räknar ut ackumulationen efter den tid man stoppar in i <span class="math inline">\(t\)</span>. Till att börja med låter vi detta vara 1 dag, dvs <span class="math inline">\(t = 1\)</span>.</p></li>
+</ul>
+<section id="sensitivity-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="sensitivity-analysis">Sensitivity analysis</h3>
+<ul>
+<li>Gör en funktion som slumpar <span class="math inline">\(N\)</span> värden från sannolikhetsfördelningarna för modellens ingångsvärden och beräknar <span class="math inline">\(V_t\)</span>. Funktionen ska skapa en <span class="math inline">\(N x 8\)</span> matris av slumptalen från ingångvärdena, och en vektor med <span class="math inline">\(N\)</span> värden på <span class="math inline">\(V_t\)</span>.</li>
+</ul>
+<p>return( list( input = “N x 8 matris”, output =“N slumptal av Vt”) )</p>
+<ul>
+<li>Kör modellen med 10 000 slumptal och uppskatta risken att flundror har ackumulerat mer än 7.5 g per gram kroppsvikt efter en dag. Beräkna även medelvärdet av <span class="math inline">\(V_t\)</span>.</li>
+<li>Nu ska ni göra en enkel känslighetsanalys av variablerna i er modell. Detta gör ni enklast genom att beräkna en korrelation mellan <span class="math inline">\(V_t\)</span> och alla de ingående variablerna i analysen. Ni ska använda funktionen <span class="math inline">\(cor\)</span> som beräknar alla parvisa korrelationer mellan olika variabler. Variablerna måste finnas som kolumner i en matris. Denna matris är</li>
+</ul>
+<p>mat = cbind(output,input)</p>
+<p>Alla parvisa korrelationer är</p>
+<p>cor(mat)</p>
+<p>Vi är bara intresserade av korrelation mellan ingående och den utgående variabeln. Därför kan vi välja att titta på den första kolumnen</p>
+<p>cor(mat)[,1]</p>
+<p>Varför är det första talet 1?</p>
+<p>Bäst är att göra en rank-korrelation, som inte antar ett linjärt samband mellan variablerna. Ett exempel på en sådan här korrelationsanalys kan då se ut så här:</p>
+<p>cor(mat, method=“spearman”)[-1,1]</p>
+<ul>
+<li>Gör också figurer som visar hur <span class="math inline">\(V_t\)</span> beror av samtliga variabler.</li>
+<li>För vilken, eller vilka, variabler är belastning av PCB vid tiden t (dvs modellens utgående variabel) mest känslig?</li>
+</ul>
+</section>
+<section id="känslighet-mot-korrelation-i-ingångsvärden" class="level3">
+<h3 class="anchored" data-anchor-id="känslighet-mot-korrelation-i-ingångsvärden">Känslighet mot korrelation i ingångsvärden}</h3>
+<ul>
+<li><p>Man kan tänka sig att bytesdjur med högt PCB-innehåll är lätta för flundrorna att fånga, och att det därför blir en korrelation mellan <span class="math inline">\(C_j\)</span> och <span class="math inline">\(W_j\)</span>. Skapa en ganska kraftig korrelation mellan dessa parametrar. Använd funktionen “cornode” i mc2d-paketet i R.</p></li>
+<li><p>Hur påverkar korrelationen risken att de ackumulerar mer än 7.5 g?</p></li>
+<li><p>Hur påverkar korrelationen modellens känslighet för olika variabler?</p></li>
+<li><p>Man kan också tänka sig, att flundror med mycket PCB i sig från början, blir slöa och därmed har en lägre konsumtionshastighet. Hur blir det då?</p></li>
+</ul>
+</section>
+<section id="känslighet-mot-val-av-fördelning-för-osäkerhet-i-ingångsvärden" class="level3">
+<h3 class="anchored" data-anchor-id="känslighet-mot-val-av-fördelning-för-osäkerhet-i-ingångsvärden">Känslighet mot val av fördelning för osäkerhet i ingångsvärden</h3>
+<ul>
+<li><p>Ta bort korrelationerna och utgå ifrån grundvärdena på parametrarna. Ändra fördelningen för <span class="math inline">\(C_j\)</span> till en likformig inom intervallet 0 till 25. Det är ungefär samma intervall som normalfördelningen skulle ha. Kör om simuleringen.</p></li>
+<li><p>Hur känslig verkar modellen för förändring i denna parameters fördelning?</p></li>
+</ul>
+</section>
+<section id="känslighet-mot-tidperspektiv-i-riskbedömningen" class="level3">
+<h3 class="anchored" data-anchor-id="känslighet-mot-tidperspektiv-i-riskbedömningen">Känslighet mot tidperspektiv i riskbedömningen</h3>
+<ul>
+<li><p>Hittills har vi bara studerat hur ackumulationen ser ut efter en dags exponering för giftet. Ändra tiden till 15 dagar, dvs. två veckor senare. Hur mycket har medelvärdet för ackumulationen ändrats? Har känsligheten för någon av parametrarna ändrats? Varför då, då? (Använd alla grundvärden för parametrarna och ingen korrelation).</p></li>
+<li><p>Kör modellen för olika tidpunkter, säg var 14:e dag i ett helt år.</p></li>
+<li><p>Vad är sannolikheten att de har ackumulerat mer än 7.5 g efter 1 dag, 15 dagar, 29 dagar etc upp till ett år? Plotta den beräknande sannolikheten mot tid.</p></li>
+<li><p>Vad är sannolikheten att de ackumulerat mer än 0.75 g efter samma tid? Plotta sannolikheten mot tid i samma bild som föregående.</p></li>
+<li><p>Vad beror det på att bioackumulationen inte bara fortsätter att öka, ju längre tiden går?</p></li>
+<li><p>Hur ändras känsligheten för de olika variablerna ju längre tid man tittar på? Kan ni förklara det?</p></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

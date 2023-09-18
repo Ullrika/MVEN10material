@@ -34,7 +34,7 @@ The course book
 
 ## The daily dose equation
 
-$$Dose = \frac{}{}$$
+$$Dose = \frac{C \cdot IR \cdot EF}{bw}$$
 
 ## Interval artithmetic 
 
