@@ -312,9 +312,9 @@ A 2-dimensional Monte Carlo-simulation with one loop for variability and one for
 ## Solutions
 
 ```{r}
-simBu <- function(B0,Ct){
-pi = rnorm(1,0.097,0.003)
-delta = runif(1,min=-2*10^-5,max=5*10^-5)
+simB <- function(B0,Ct){
+pi = 0.097
+delta = 3.5*10^-5
 sigma = 2.5
 
 years = 15
@@ -325,9 +325,9 @@ B = rep(B0,years)
 for(t in 2:years){
   B[t] = (B[t-1]*exp(pi-delta*B[t-1]) - C[t-1])+rnorm(1,0,sigma)
 }
-
 B
 }
+
 ```
 
 
@@ -348,5 +348,25 @@ for(t in 2:years){
 
 #B
 sum(B<Q)>0 # TRUE if quasi extinct
+}
+```
+
+```{r}
+
+simBu <- function(B0,Ct){
+pi = rnorm(1,0.097,0.003)
+delta = runif(1,min=-2*10^-5,max=5*10^-5)
+sigma = 2.5
+
+years = 15
+Q = 10 # quasi extinction threshold 
+
+C = rep(Ct,years)
+B = rep(B0,years)
+for(t in 2:years){
+  B[t] = (B[t-1]*exp(pi-delta*B[t-1]) - C[t-1])+rnorm(1,0,sigma)
+}
+
+B
 }
 ```
