@@ -311,6 +311,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Exercise 15</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/ex_species_distribution_modelling.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
+ <span class="menu-text">Exercise 16</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -514,18 +520,20 @@ Tip
 </ol>
 <p><img src="../img/ssd5.png" class="img-fluid"></p>
 <ol start="8" class="example" type="1">
-<li><p>At this point you can read out HC5 for each model and the model average.</p></li>
-<li><p>If we want to consider statistical errors there is an option to derive an uncertainty interval for the hazardous concentration and select its lower bound. Uncertainty intervals can be characterised by bootstrapping which is a method to sample with replacement from data, refit the model and do this many times.</p></li>
+<li>At this point you can read out HC5 for each model and the model average.</li>
+</ol>
+<p>If we want to consider statistical errors there is an option to derive an uncertainty interval for the hazardous concentration and select its lower bound. Uncertainty intervals can be characterised by bootstrapping which is a method to sample with replacement from data, refit the model and do this many times.</p>
+<ol start="9" class="example" type="1">
 <li><p>Set the number of bootstrap samples. Use 1000 to avoid it taking too long time.</p></li>
 <li><p>Click on the button CL to start the bootstrapping (this will take some time)</p></li>
 </ol>
 <p><img src="../img/ssd6.png" class="img-fluid"></p>
-<ol start="12" class="example" type="1">
+<ol start="11" class="example" type="1">
 <li><p>Take note of the lower bound (<strong>lcl</strong>)of the uncertainty interval for the hazardous concentration corresponding to protection of at least 95% of the population.</p></li>
 <li><p>Download the R-code for the analysis you did and put it into the report.</p></li>
 </ol>
 <p><img src="../img/ssd7.png" class="img-fluid"></p>
-<ol start="14" class="example" type="1">
+<ol start="13" class="example" type="1">
 <li>Render the document. Note that you might have to change the path to data.</li>
 </ol>
 <p>Write in the report:</p>
@@ -535,7 +543,7 @@ Tip
 <li><p>Compare to the numbers 0.72 and 0.107 - this is the model average and lower uncertainty bound from a SSD using the full data set of 21 species</p></li>
 <li><p>Compare to a hazardous concentration derived from two species and an appropriate assessment factor. Select two species from your data and select the assessment factor from the table in the beginning of this document.</p></li>
 </ul>
-<ol start="15" class="example" type="1">
+<ol start="14" class="example" type="1">
 <li>Submit on the assignment in canvas</li>
 </ol>
 

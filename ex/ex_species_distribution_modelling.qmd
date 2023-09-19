@@ -1,5 +1,5 @@
 ---
-title: "Exercise 16. Species Distribution Modelling CLIMEX"
+title: "Exercise 16. Species Distribution Modelling Climate matching"
 subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Ullrika Sahlin"
 ---
@@ -25,11 +25,10 @@ The Global Biodiversity Information Facility [https://www.gbif.org/](https://www
 
 - To perform climate matching to assess establisment potential for a potentially invasive species
 
-
+- To extract species occurrence data from a global database 
 
 ### Content
 
--   
 
 The group that are to do CLIMEX will get a licence for CLIMEX for a personal computer - it costs 10 US dollars [https://www.hearne.software/Software/CLIMEX-DYMEX/Editions](https://www.hearne.software/Software/CLIMEX-DYMEX/Editions)
 
@@ -47,5 +46,89 @@ Be prepared to report back at the end of the exercise.
 
 Steven J. Phillips, Miroslav Dudík, Robert E. Schapire. [Internet] Maxent software for modeling species niches and distributions (Version 3.4.1). Available from url: [http://biodiversityinformatics.amnh.org/open_source/maxent/](http://biodiversityinformatics.amnh.org/open_source/maxent/). Accessed on 2023-9-19.
 
-## Content
+## The Climate Matching Tool
+
+### NZ - World ximilarities
+
+(@) Go to the [Climate Matching Tool](https://climate.b3nz.org.nz/) and Access the tool
+
+NZ - World similarities shows the climate similarities between New Zealand and the world 
+
+CMI stands for Climate Matching Index and is a value between 0 and 1, where 1 means perfect match and 0 no match. 
+
+- A CMI greater than 0.7 corresponds to a high climate match.
+
+(@) Scroll over the map and derive the match between New Zealand and Lund (southern Sweden). 
+
+## Upload species occurrences
+
+(@) Download the example file and view it, e.g. in Excel or as text file 
+
+The file has three columns: the first is an identifier from the data base, the second column is latitude and the third column is longitude. 
+
+This is species occurrence data for Spotted lanternfly *lycorma delicatula* which is an invasive species in some parts of the words. The latitude and longitude point out reported places where the species occurs today. 
+
+(@) Upload the occurrences for lycorma delicatula to the online tool 
+
+The points on the map show occurrences. The species is found in the US and Eastern Asia. From this you cannot see its native range. On wiki it is states that the Spotted lanternfly is a planthopper indigenous to parts of China and Vietnam. It has spread invasively to Japan, South Korea, and the United States. 
+
+(@) Go to the tab CMI Cells. 
+
+The graph represents the distribution of the CMI in cells overlapping with unique occurrences. 
+
+If multiple occurrences coincided with a CMI cell, they were counted only once. 
+
+This graph can be used when the user wants to eliminate the effects of spatial correlation/sampling bias on occurrences.
+
+The proportion of the occurrences with a CMI greater or equal to 0.7. 
+
+The online tool shows that the proportion of the 51 cells with CMIs >= 0.7 is 86.3%. One way to interpret this is that there is a high overlap between the current climate of a species and the climate on New Zealand. If introduced to New Zealand, there is a high risk that the species will be able to establish taking into consideration the climate requirements. 
+
+## Perform climate matching for another species 
+
+(@) Go to [GBIF](https://www.gbif.org/) and prepare to download species occurrence data for the brown bear *ursus arctos*
+
+You have to create an account to download. If you don't want to do that, you can get the file here 
+
+```{r}
+#| echo: false
+downloadthis::download_file(
+  path = "../data/0000890-230918134249559.csv",
+  button_label = "Download csv file",
+  button_type = "info",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+```
+
+Citation for the data file: GBIF.org (19 September 2023) GBIF Occurrence Download  https://doi.org/10.15468/dl.ccxnby
+
+This file must be cleaned before entering the tool. You can download a cleaned version of the file containing the ID, latitude and longtitude. 
+
+```{r}
+#| echo: false
+downloadthis::download_file(
+  path = "../data/ursus_arctos_cleaned.csv",
+  button_label = "Download csv file",
+  button_type = "warning",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+```
+
+(@) Upload the occurrence data to the online tool and perform climate matching 
+
+## Solutions
+
+The match between NZ and Lund is 0.84 under the climate from 1985. 
+
+The map showing occurrences for the brown bear looks like this 
+
+![](../img/bear1.png)
+
+The proportion of the 104 cells with CMIs >= 0.7 is 92.3%. This means that an introduced brown bear would find the climate on New Zealand highly suitable and would be able to establish. Note that this doesn't take into account biological facts, such as natural enemies, the possibility to reproduce, spread, habitat needs and specific dietary requirements. 
+
+![](../img/bear2.png)
 

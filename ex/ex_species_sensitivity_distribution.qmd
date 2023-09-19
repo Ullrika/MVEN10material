@@ -160,7 +160,7 @@ Study the goodness of fit measures and the visual fits between curves and data p
 
 (@) At this point you can read out HC5 for each model and the model average. 
 
-(@) If we want to consider statistical errors there is an option to derive an uncertainty interval for the hazardous concentration and select its lower bound. 
+If we want to consider statistical errors there is an option to derive an uncertainty interval for the hazardous concentration and select its lower bound. 
 Uncertainty intervals can be characterised by bootstrapping which is a method to sample with replacement from data, refit the model and do this many times. 
 
 (@) Set the number of bootstrap samples. Use 1000 to avoid it taking too long time. 
