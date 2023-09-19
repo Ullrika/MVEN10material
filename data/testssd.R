@@ -1,4 +1,4 @@
-install.packages('ssdtools')
+#install.packages('ssdtools')
 library(ssdtools)
 library(ggplot2)
 library(dplyr)
@@ -50,16 +50,27 @@ devtools::install_github("bcgov/shinyssdtools")
 library(shinyssdtools)
 shinyssdtools::run_app()
 
-
+library(ssddata)
 data <- ssddata::anzg_metolachlor_fresh
-
+readr::write_csv(data,file="data/full_metolachlor_ssd.csv")
 data <- data[sample.int(nrow(data),6),]
+readr::write_csv(data,file="data/metolachlor_ssd.csv")
 
-write_csv(data,file="data/metolachlor_ssd.csv")
+readr::read_csv(data,file="data/metolachlor_ssd.csv")
 
+# fix unacceptable column names
 colnames(data) <- make.names(colnames(data))
-
 # fit distributions
 dist <- ssd_fit_dists(data, left = 'Conc', dists = c('gamma', 'lgumbel', 'llogis', 'lnorm', 'lnorm_lnorm', 'weibull'), silent = TRUE, reweight = FALSE, min_pmix = 0, nrow = 6L, computable = TRUE, at_boundary_ok = FALSE, rescale = TRUE)
 # plot distributions
 ssd_plot_cdf(dist, delta = Inf)
+# save plot
+# width and height are in inches, dpi (dots per inch) sets resolution
+ggsave('fit_dist_plot.png', width = 8 , height = 6 , dpi = 300)
+
+# plot model average
+# to add confidence intervals set ci = TRUE in predict and ssd_plot
+# we recommend using nboot = 10000 in predict, although this may take several minutes to run
+pred <- predict(dist, nboot = 10L, ci = TRUE)
+
+shinyssdtools::run_app()

@@ -1,5 +1,5 @@
 ---
-title: "Ex temp"
+title: "Exercise 16. Species Distribution Modelling CLIMEX"
 subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Ullrika Sahlin"
 ---
@@ -9,6 +9,16 @@ author: "Ullrika Sahlin"
 ### Background
 
 The use of species distribution modeling to predict the possible extent of suitable habitat for significant pests has been accepted as an efficient method for determining effective management and countermeasures. CLIMEX and MaxEnt are widely used software for creating species distribution models. CLIMEX predicts climatic suitability of a specific region for target species, whereas MaxEnt uses various environmental variables with presence-only data to assess potential distribution.
+
+The group that are to do CLIMEX will get a licence for CLIMEX for a personal computer - it costs 10 US dollars [https://www.hearne.software/Software/CLIMEX-DYMEX/Editions](https://www.hearne.software/Software/CLIMEX-DYMEX/Editions)
+
+Here in the exercise, we will use an online implementation of CLIMEX for New Zealand
+
+<!-- https://rpubs.com/fidele98/sdm -->
+
+https://damariszurell.github.io/SDM-Intro/
+
+https://www.climond.org/Default.aspx
 
 ### Purpose
 

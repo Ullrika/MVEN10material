@@ -57,6 +57,9 @@ Make sure you finalise all exercises we have had up to this point.
 
 [Ex 15. Hazard assessment using Species Sensitivity Distributions](ex/ex_species_sensitivity_distribution.qmd)
 
+Ex 16. Species Distribution Modelling [Climate Matching Tool](https://climate.b3nz.org.nz/#!/)
+
+Assessment of overall uncertainty - rehearsal
 
 ## Oct 10 9 - 16 (obs all day)
 

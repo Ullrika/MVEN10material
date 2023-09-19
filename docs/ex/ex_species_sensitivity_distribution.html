@@ -368,18 +368,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="exercise-overview">Exercise overview</h2>
 <section id="background" class="level3">
 <h3 class="anchored" data-anchor-id="background">Background</h3>
-<p>The Species Sensitivity Distribution methodology is a common way in hazard assessment for setting safe limits on chemical concentrations in surface waters. The species sensitivity distribution (SSD) is a statistical approach that is used to estimate either the concentration of a chemical that is hazardous to no more than x% of all species (the HCx) or the proportion of species potentially affected by a given concentration of a chemical.</p>
+<p>The Species Sensitivity Distribution methodology is a common way in hazard assessment for setting safe limits on chemical concentrations in freshwaters. It usually require experimentally determined NOEC values for a number of species from different taxonomic groups.</p>
+<p>The species sensitivity distribution (SSD) is a statistical approach that is used to estimate either the concentration of a chemical that is hazardous to no more than x% of all species (the HCx) or the proportion of species potentially affected by a given concentration of a chemical.</p>
 <p>The SSD approach follows a three-step procedure:</p>
 <p>First, compile results from separate toxicity tests on a given chemical for various aquatic animal species.</p>
 <p>Second, fit candidate probability distribution(s) to the data.</p>
 <p>Third, use the fitted distribution(s) to infer a concentration that will be protective of a desired proportion of species in a hypothetical aquatic community.</p>
 <p>There are several SSDs tools available for risk assessors.</p>
+<p>If a SSD cannot be applied (which is usually the case), the hazard assessment is performed using assessment factors, where the general principle is to divide the result from a laboratory test by an appropriate assessment factor. The table below is taken from ECHAs dose response guidance, go to the original document to read more about this.</p>
+<p><img src="../img/ssd8.png" class="img-fluid"></p>
 </section>
 <section id="purpose" class="level3">
 <h3 class="anchored" data-anchor-id="purpose">Purpose</h3>
 <ul>
 <li><p>To apply the SSD approach to find a hazardous concentration</p></li>
 <li><p>To explore one of the many tools for SSD, namely the R-package <strong>ssdtools</strong>, in which the modelling can be done in an user friendly Shiny app</p></li>
+<li><p>To compare with a situation of a SSD with more data, and with a situation of less data and the use of assessment factors</p></li>
 </ul>
 </section>
 <section id="content" class="level3">
@@ -405,6 +409,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="references" class="level3">
 <h3 class="anchored" data-anchor-id="references">References</h3>
+<p><a href="https://echa.europa.eu/documents/10162/13632/information_requirements_r10_en.pdf/bb902be7-a503-4ab7-9036-d866b8ddce69">ECHA Guidance on dose response modelling</a></p>
 <p>Fox, D.R., van Dam, R.A., Fisher, R., Batley, G.E., Tillmanns, A.R., Thorley, J., Schwarz, C.J., Spry, D.J. and McTavish, K. (2021), Recent Developments in Species Sensitivity Distribution Modeling. Environ Toxicol Chem, 40: 293-308. <a href="https://doi.org/10.1002/etc.4925">https://doi.org/10.1002/etc.4925</a></p>
 <p>The <strong>shinyssdtools</strong> developed for the British Columbia Ministry of Environment and Climate Change Strategy. <a href="https://github.com/bcgov/shinyssdtools">https://github.com/bcgov/shinyssdtools</a></p>
 </section>
@@ -414,7 +419,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Download a ssd data set</p>
 <div class="cell">
 <div class="cell-output-display">
-<a onclick="fetch('data:text/csv;base64,Q29uYyxEdXJhdGlvbixHZW51cyxHcm91cCxMaWZlX3N0YWdlLE5vdGVzLFBoeWx1bSxTcGVjaWVzLFRlc3RfZW5kcG9pbnQsVG94aWNpdHlfbWVhc3VyZQoyNDAsNSxBbmFiYWVuYSxCbHVlZ3JlZW4gYWxnYSxOb3Qgc3RhdGVkLE5BLEN5YW5vYmFjdGVyaWEsZmxvc2FxdWFlLCJCaW9tYXNzIHlpZWxkLCBncm93dGggcmF0ZSwgQVVDIGMiLENocm9uaWMgRUM1MAowLjUzLDIsU2NlbmVkZXNtdXMsR3JlZW4gYWxnYSxFeHBvbmVudGlhbCBncm93dGggcGhhc2UsTkEsQ2hsb3JvcGh5dGEsdmFjdW9sYXR1cyxDZWxsIGRlbnNpdHksQ2hyb25pYyBFQzUwCjI3LjQsMyxQc2V1ZG9raXJjaG5lcmllbGxhLEdyZWVuIGFsZ2EsTm90IHN0YXRlZCxBbHNvIGNhbGxlZCBSYXBoaWRvY2VsaXMgc3ViY2FwaXRhdGEgYW5kIFNlbGVuYXN0cnVtIGNhcHJpY29ybnV0dW0uLENobG9yb3BoeXRhLHN1YmNhcGl0YXRhLENlbGwgZGVuc2l0eSxDaHJvbmljIE5PRUMKMTQsMTQsQ2VyYXRvcGh5bGx1bSxNYWNyb3BoeXRlLE5vdCBzdGF0ZWQsU3BlY2llcyB0aGF0IG9yaWdpbmF0ZWQgZnJvbS9hcmUgZGlzdHJpYnV0ZWQgaW4gQXVzdHJhbGlhIGFuZC9vciBOZXcgWmVhbGFuZCxUcmFjaGVvcGh5dGEsZGVtZXJzdW0sV2V0IHdlaWdodCxDaHJvbmljIEVDNTAKMSw3LEdvbXBob25lbWEsRGlhdG9tLEV4cG9uZW50aWFsIGdyb3d0aCBwaGFzZSxTcGVjaWVzIHRoYXQgb3JpZ2luYXRlZCBmcm9tL2FyZSBkaXN0cmlidXRlZCBpbiBBdXN0cmFsaWEgYW5kL29yIE5ldyBaZWFsYW5kLEJhY2lsbGFyaW9waHl0YSxncmFjaWxlLExpdmUgY2VsbCBkZW5zaXR5LENocm9uaWMgTk9FQwo4NjMsNCxNYXlhbWFlYSxEaWF0b20sRXhwb25lbnRpYWwgZ3Jvd3RoIHBoYXNlLE5BLEJhY2lsbGFyaW9waHl0YSxmb3NzYWxpcyxDaGxvcm9waHlsbC1hIGNvbnRlbnQsQ2hyb25pYyBFQzEwCg==').then(res => res.blob()).then(blob => {
+<a onclick="fetch('data:text/csv;base64,Q29uYyxEdXJhdGlvbixHZW51cyxHcm91cCxMaWZlX3N0YWdlLE5vdGVzLFBoeWx1bSxTcGVjaWVzLFRlc3RfZW5kcG9pbnQsVG94aWNpdHlfbWVhc3VyZQoyMjQsMjEsRGFwaG5pYSxNYWNyb2ludmVydGVicmF0ZSw8MjQgaG91ciBvbGQsTkEsQXJ0aHJvcG9kYSxtYWduYSxZb3VuZyBwZXIgZmVtYWxlLENocm9uaWMgRUMxMAoyNyw0LFVsbmFyaWEsRGlhdG9tLEV4cG9uZW50aWFsIGdyb3d0aCBwaGFzZSxTcGVjaWVzIHRoYXQgb3JpZ2luYXRlZCBmcm9tL2FyZSBkaXN0cmlidXRlZCBpbiBBdXN0cmFsaWEgYW5kL29yIE5ldyBaZWFsYW5kLEJhY2lsbGFyaW9waHl0YSx1bG5hLENobG9yb3BoeWxsLWEgY29udGVudCxDaHJvbmljIEVDMTAKMTA0OCw0LEVuY3lvbmVtYSxEaWF0b20sRXhwb25lbnRpYWwgZ3Jvd3RoIHBoYXNlLFNwZWNpZXMgdGhhdCBvcmlnaW5hdGVkIGZyb20vYXJlIGRpc3RyaWJ1dGVkIGluIEF1c3RyYWxpYSBhbmQvb3IgTmV3IFplYWxhbmQsQmFjaWxsYXJpb3BoeXRhLHNpbGVzaWFjdW0sQ2hsb3JvcGh5bGwtYSBjb250ZW50LENocm9uaWMgRUMxMAo2NTI4LDQsQWNobmFudGhpZGl1bSxEaWF0b20sRXhwb25lbnRpYWwgZ3Jvd3RoIHBoYXNlLFNwZWNpZXMgdGhhdCBvcmlnaW5hdGVkIGZyb20vYXJlIGRpc3RyaWJ1dGVkIGluIEF1c3RyYWxpYSBhbmQvb3IgTmV3IFplYWxhbmQsQmFjaWxsYXJpb3BoeXRhLG1pbnV0aXNzaW11bSxDZWxsIGRlbnNpdHksQ2hyb25pYyBFQzEwCjkyNSw0LEN5Y2xvdGVsbGEsRGlhdG9tLEV4cG9uZW50aWFsIGdyb3d0aCBwaGFzZSxTcGVjaWVzIHRoYXQgb3JpZ2luYXRlZCBmcm9tL2FyZSBkaXN0cmlidXRlZCBpbiBBdXN0cmFsaWEgYW5kL29yIE5ldyBaZWFsYW5kLEJhY2lsbGFyaW9waHl0YSxtZW5lZ2hpbmlhbmEsQ2VsbCBkZW5zaXR5LENocm9uaWMgRUMxMAo2NDAsMzUsUGltZXBoYWxlcyxGaXNoLEVhcmx5IGxpZmUgc3RhZ2UsTkEsQ2hvcmRhdGEscHJvbWVsYXMsTW9ydGFsaXR5LENocm9uaWMgTE9FQwo=').then(res => res.blob()).then(blob => {
       const downloadURL = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       document.body.appendChild(a);
@@ -488,32 +493,32 @@ Tip
 </ol>
 <p><img src="../img/ssd4.png" class="img-fluid"></p>
 <ol start="7" class="example" type="1">
-<li>Set the threshold that defines the hazardous concentration, e.g.&nbsp;5% defines HC5.</li>
+<li>Set the threshold that defines the hazardous concentration, e.g.&nbsp;5% defines HC5. Use 5%!</li>
 </ol>
 <p><img src="../img/ssd5.png" class="img-fluid"></p>
 <ol start="8" class="example" type="1">
 <li><p>At this point you can read out HC5 for each model and the model average.</p></li>
-<li><p>If we want to consider statistical errors there is an option to derive an uncertainty interval for the hazardous concentration and select its lower bound.</p></li>
-</ol>
-<p>Uncertainty intervals can be characterised by bootstrapping which is a method to sample with replacement from data, refit the model and do this many times.</p>
-<ol start="10" class="example" type="1">
-<li>Click on the button CL to start the bootstrapping (this will take some time)</li>
+<li><p>If we want to consider statistical errors there is an option to derive an uncertainty interval for the hazardous concentration and select its lower bound. Uncertainty intervals can be characterised by bootstrapping which is a method to sample with replacement from data, refit the model and do this many times.</p></li>
+<li><p>Set the number of bootstrap samples. Use 1000 to avoid it taking too long time.</p></li>
+<li><p>Click on the button CL to start the bootstrapping (this will take some time)</p></li>
 </ol>
 <p><img src="../img/ssd6.png" class="img-fluid"></p>
-<ol start="11" class="example" type="1">
+<ol start="12" class="example" type="1">
 <li><p>Take note of the lower bound (<strong>lcl</strong>)of the uncertainty interval for the hazardous concentration corresponding to protection of at least 95% of the population.</p></li>
 <li><p>Download the R-code for the analysis you did and put it into the report.</p></li>
 </ol>
 <p><img src="../img/ssd7.png" class="img-fluid"></p>
-<ol start="13" class="example" type="1">
+<ol start="14" class="example" type="1">
 <li>Render the document. Note that you might have to change the path to data.</li>
 </ol>
 <p>Write in the report:</p>
 <ul>
 <li><p>The three distributions that were chosen and the justification for this choice.</p></li>
 <li><p>A lower bound for the concentration of metolachlor that is hazardous to no more than 5% of all species in an aquatic system.</p></li>
+<li><p>Compare to the numbers 0.72 and 0.107 - this is the model average and lower uncertainty bound from a SSD using the full data set</p></li>
+<li><p>Compare to a hazardous concentration derived from two species and an approripriate assessment factor. Here you shall look at your data and select two data points. Select assessment factor from the table in the beginning of this document.</p></li>
 </ul>
-<ol start="14" class="example" type="1">
+<ol start="15" class="example" type="1">
 <li>Submit on the assignment in canvas</li>
 </ol>
 
