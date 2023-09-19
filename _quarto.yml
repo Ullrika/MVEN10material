@@ -63,7 +63,7 @@ website:
       - section: "Sept 18"
         contents:  
         - text: "Exercise 13"
-          file: ex/ex_exposure_assessment_databases.qmd
+          file: ex/ex_daily_intake_equation_MC.qmd
           target: "_blank"
         - text: "Exercise 14"
           file: ex/ex_population_viability_analysis.qmd

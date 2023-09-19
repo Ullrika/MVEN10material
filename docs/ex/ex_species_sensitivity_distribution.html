@@ -256,7 +256,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ex/ex_exposure_assessment_databases.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
- <span class="menu-text">Exercise 13</span></a>
+ <span class="menu-text">Exercise 10</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -284,7 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ex/ex_exposure_assessment_databases.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
+  <a href="../ex/ex_daily_intake_equation_MC.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
  <span class="menu-text">Exercise 13</span></a>
   </div>
 </li>
@@ -394,7 +394,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="duration" class="level3">
 <h3 class="anchored" data-anchor-id="duration">Duration</h3>
-<p>60 minutes</p>
+<p>90 minutes</p>
 </section>
 <section id="reporting" class="level3">
 <h3 class="anchored" data-anchor-id="reporting">Reporting</h3>
@@ -406,6 +406,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>You will explore the SSD approach using an app. Note that it is possible to get the full R-code for the SSD modelling. You can use this R-code to generate your report.</li>
 </ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I recommend you copy on the whole code into an R-chunk and then divide the chunk into multiple chunks. This allows you to have better control of the output from each chunk.</p>
+<p>Note that you cannot open the shinyapp in a qmd that is being rendered. An alternative to remove it is to put a # in front of the command</p>
+<p>Sometimes you get messages or warnings when running a code. These might or might not be important. I judge the messages Ive seen on your computer as not important. You can suppress a message or warning by typing #| warning: false and #| message: false in the first row directly after the curly bracket in the R-chunk.</p>
+<p>If you just want to look at your data you can e.g.&nbsp;open it in Excel. When your data is a csv-file, I recommend you open an empty Excel-file, got to Data&gt;Get data&gt;From File&gt;From Text/CSV and follow the instructions.</p>
+</div>
+</div>
 </section>
 <section id="references" class="level3">
 <h3 class="anchored" data-anchor-id="references">References</h3>
@@ -416,7 +432,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="get-ssd-data" class="level2">
 <h2 class="anchored" data-anchor-id="get-ssd-data">Get SSD data</h2>
-<p>Download a ssd data set</p>
+<p>Download a ssd data set.</p>
+<p>This data set consists of cronic EC10 or LOEC values from exposure to the substance metolachlor for six different species in an aquatic system. This data is a selection from a bigger data set on 21 species.</p>
 <div class="cell">
 <div class="cell-output-display">
 <a onclick="fetch('data:text/csv;base64,Q29uYyxEdXJhdGlvbixHZW51cyxHcm91cCxMaWZlX3N0YWdlLE5vdGVzLFBoeWx1bSxTcGVjaWVzLFRlc3RfZW5kcG9pbnQsVG94aWNpdHlfbWVhc3VyZQoyMjQsMjEsRGFwaG5pYSxNYWNyb2ludmVydGVicmF0ZSw8MjQgaG91ciBvbGQsTkEsQXJ0aHJvcG9kYSxtYWduYSxZb3VuZyBwZXIgZmVtYWxlLENocm9uaWMgRUMxMAoyNyw0LFVsbmFyaWEsRGlhdG9tLEV4cG9uZW50aWFsIGdyb3d0aCBwaGFzZSxTcGVjaWVzIHRoYXQgb3JpZ2luYXRlZCBmcm9tL2FyZSBkaXN0cmlidXRlZCBpbiBBdXN0cmFsaWEgYW5kL29yIE5ldyBaZWFsYW5kLEJhY2lsbGFyaW9waHl0YSx1bG5hLENobG9yb3BoeWxsLWEgY29udGVudCxDaHJvbmljIEVDMTAKMTA0OCw0LEVuY3lvbmVtYSxEaWF0b20sRXhwb25lbnRpYWwgZ3Jvd3RoIHBoYXNlLFNwZWNpZXMgdGhhdCBvcmlnaW5hdGVkIGZyb20vYXJlIGRpc3RyaWJ1dGVkIGluIEF1c3RyYWxpYSBhbmQvb3IgTmV3IFplYWxhbmQsQmFjaWxsYXJpb3BoeXRhLHNpbGVzaWFjdW0sQ2hsb3JvcGh5bGwtYSBjb250ZW50LENocm9uaWMgRUMxMAo2NTI4LDQsQWNobmFudGhpZGl1bSxEaWF0b20sRXhwb25lbnRpYWwgZ3Jvd3RoIHBoYXNlLFNwZWNpZXMgdGhhdCBvcmlnaW5hdGVkIGZyb20vYXJlIGRpc3RyaWJ1dGVkIGluIEF1c3RyYWxpYSBhbmQvb3IgTmV3IFplYWxhbmQsQmFjaWxsYXJpb3BoeXRhLG1pbnV0aXNzaW11bSxDZWxsIGRlbnNpdHksQ2hyb25pYyBFQzEwCjkyNSw0LEN5Y2xvdGVsbGEsRGlhdG9tLEV4cG9uZW50aWFsIGdyb3d0aCBwaGFzZSxTcGVjaWVzIHRoYXQgb3JpZ2luYXRlZCBmcm9tL2FyZSBkaXN0cmlidXRlZCBpbiBBdXN0cmFsaWEgYW5kL29yIE5ldyBaZWFsYW5kLEJhY2lsbGFyaW9waHl0YSxtZW5lZ2hpbmlhbmEsQ2VsbCBkZW5zaXR5LENocm9uaWMgRUMxMAo2NDAsMzUsUGltZXBoYWxlcyxGaXNoLEVhcmx5IGxpZmUgc3RhZ2UsTkEsQ2hvcmRhdGEscHJvbWVsYXMsTW9ydGFsaXR5LENocm9uaWMgTE9FQwo=').then(res => res.blob()).then(blob => {
@@ -515,8 +532,8 @@ Tip
 <ul>
 <li><p>The three distributions that were chosen and the justification for this choice.</p></li>
 <li><p>A lower bound for the concentration of metolachlor that is hazardous to no more than 5% of all species in an aquatic system.</p></li>
-<li><p>Compare to the numbers 0.72 and 0.107 - this is the model average and lower uncertainty bound from a SSD using the full data set</p></li>
-<li><p>Compare to a hazardous concentration derived from two species and an approripriate assessment factor. Here you shall look at your data and select two data points. Select assessment factor from the table in the beginning of this document.</p></li>
+<li><p>Compare to the numbers 0.72 and 0.107 - this is the model average and lower uncertainty bound from a SSD using the full data set of 21 species</p></li>
+<li><p>Compare to a hazardous concentration derived from two species and an appropriate assessment factor. Select two species from your data and select the assessment factor from the table in the beginning of this document.</p></li>
 </ul>
 <ol start="15" class="example" type="1">
 <li>Submit on the assignment in canvas</li>

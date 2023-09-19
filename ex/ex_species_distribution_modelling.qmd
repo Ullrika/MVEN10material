@@ -8,21 +8,22 @@ author: "Ullrika Sahlin"
 
 ### Background
 
-The use of species distribution modeling to predict the possible extent of suitable habitat for significant pests has been accepted as an efficient method for determining effective management and countermeasures. CLIMEX and MaxEnt are widely used software for creating species distribution models. CLIMEX predicts climatic suitability of a specific region for target species, whereas MaxEnt uses various environmental variables with presence-only data to assess potential distribution.
+The use of species distribution modeling to predict the possible extent of suitable habitat for significant pests has been accepted as an efficient method for determining effective management and countermeasures. [CLIMEX](https://www.hearne.software/Software/CLIMEX-DYMEX/Editions) and [MaxEnt](https://biodiversityinformatics.amnh.org/open_source/maxent/) are widely used software for creating species distribution models. CLIMEX predicts climatic suitability of a specific region for target species, whereas MaxEnt uses various environmental variables with presence-only data to assess potential distribution.
 
-The group that are to do CLIMEX will get a licence for CLIMEX for a personal computer - it costs 10 US dollars [https://www.hearne.software/Software/CLIMEX-DYMEX/Editions](https://www.hearne.software/Software/CLIMEX-DYMEX/Editions)
+Bioclimatic modelling use species occurrence data to model distribution or perform climate matching. 
 
-Here in the exercise, we will use an online implementation of CLIMEX for New Zealand
+The Global Biodiversity Information Facility [https://www.gbif.org/](https://www.gbif.org/) is an database for species occurrence data. 
 
 <!-- https://rpubs.com/fidele98/sdm -->
 
-https://damariszurell.github.io/SDM-Intro/
+<!-- https://damariszurell.github.io/SDM-Intro/ -->
 
-https://www.climond.org/Default.aspx
+<!-- https://www.climond.org/Default.aspx -->
+
 
 ### Purpose
 
--   To 
+- To perform climate matching to assess establisment potential for a potentially invasive species
 
 
 
@@ -30,16 +31,21 @@ https://www.climond.org/Default.aspx
 
 -   
 
+The group that are to do CLIMEX will get a licence for CLIMEX for a personal computer - it costs 10 US dollars [https://www.hearne.software/Software/CLIMEX-DYMEX/Editions](https://www.hearne.software/Software/CLIMEX-DYMEX/Editions)
+
+Here in the exercise, we will use an online implementation of CLIMEX for New Zealand [https://climate.b3nz.org.nz/](https://climate.b3nz.org.nz/)
+
 ### Duration
 
- minutes
+45 minutes
 
 ### Reporting
 
 Be prepared to report back at the end of the exercise.
-Write a report using the template and upload it on the assignment in canvas. 
 
 ### References
+
+Steven J. Phillips, Miroslav Dudík, Robert E. Schapire. [Internet] Maxent software for modeling species niches and distributions (Version 3.4.1). Available from url: [http://biodiversityinformatics.amnh.org/open_source/maxent/](http://biodiversityinformatics.amnh.org/open_source/maxent/). Accessed on 2023-9-19.
 
 ## Content
 

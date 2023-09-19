@@ -111,9 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      MVEN10
-      </li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ex/ex_daily_intake_equation_MC.html">Sept 18</a></li><li class="breadcrumb-item"><a href="../ex/ex_daily_intake_equation_MC.html">Exercise 13</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -260,7 +258,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ex/ex_exposure_assessment_databases.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
- <span class="menu-text">Exercise 13</span></a>
+ <span class="menu-text">Exercise 10</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -288,7 +286,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ex/ex_exposure_assessment_databases.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
+  <a href="../ex/ex_daily_intake_equation_MC.html" class="sidebar-item-text sidebar-link active" target="&quot;_blank&quot;">
  <span class="menu-text">Exercise 13</span></a>
   </div>
 </li>
@@ -433,15 +431,15 @@ Attaching package: 'dplyr'</code></pre>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>threshold <span class="ot">=</span> <span class="fl">0.00003</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>dose <span class="sc">&gt;</span> threshold)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0077</code></pre>
+<pre><code>[1] 0.0096</code></pre>
 </div>
 </div>
 <p>Calculate the 95th percentile for the dose</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(df<span class="sc">$</span>dose, <span class="at">probs =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>        95% 
-2.61162e-05 </code></pre>
+<pre><code>         95% 
+2.620379e-05 </code></pre>
 </div>
 </div>
 <p>Visualise the distribution of dose in a histogram</p>
@@ -496,14 +494,14 @@ Attaching package: 'dplyr'</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df2<span class="sc">$</span>dose <span class="sc">&gt;</span> threshold)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3e-04</code></pre>
+<pre><code>[1] 5e-04</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(df2<span class="sc">$</span>dose, <span class="at">probs =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         95% 
-2.408623e-05 </code></pre>
+2.404822e-05 </code></pre>
 </div>
 </div>
 
