@@ -39,7 +39,7 @@ Make sure you finalise all exercises we have had up to this point.
 
 [Ex 9. Environmental exposure assessment](ex/ex_environ_exposure_assessment.qmd)
 
-## Sept 13 13 - 16
+## Sept 13
 
 [Ex 10. Exposure assessment from databases](ex/ex_exposure_assessment_databases.qmd)
 
@@ -47,22 +47,30 @@ Make sure you finalise all exercises we have had up to this point.
 
 [Ex 12. Interval arithmetic and Monte Carlo simulation on the daily intake equation](ex/ex_daily_intake_equation.qmd)
 
-## Sept 18 9 - 11
+## Sept 18
 
 [Ex 13. Daily intake equation - Solutions for the Monte Carlo simulation](ex/ex_daily_intake_equation_MC.qmd)
 
 [Ex 14. Population Viability Analysis - Baltic Cod](ex/ex_population_viability_analysis.qmd)
 
-## Sept 19 9 - 12
+## Sept 19
 
 [Ex 15. Hazard assessment using Species Sensitivity Distributions](ex/ex_species_sensitivity_distribution.qmd)
 
 [Ex 16. Species Distribution Modelling - climate matching](ex/ex_species_distribution_modelling.qmd)
 
-Assessment of overall uncertainty - rehearsal on Monday
+Ex 17. Assessment of overall uncertainty - video
 
-## Oct 10 9 - 16 (obs all day)
+## Oct 10 
 
-## Oct 16 9 - 12
+Cancelled
 
-## Oct 18 13 - 15
+## Oct 17 
+
+Ex 18. Environmental health risk assessment (on canvas) 
+
+## Oct 18
+
+[Ex 19. Food safety assessment with uncertainty analysis](ex/ex_uncertainty_analysis.qmd)
+
+[Ex 20. Exposure assessment using a model for bioaccumulation]

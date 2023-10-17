@@ -76,6 +76,18 @@ website:
         - text: "Exercise 16"
           file: ex/ex_species_distribution_modelling.qmd
           target: "_blank"
+        - text: "Exercise 17. Assessment of overall uncertainty (video)"
+      - section: "Oct 17"
+        contents:  
+        - text: "Exercise 18 Environmental health risk assessment (canvas)"
+      - section: "Oct 18"
+        contents: 
+        - text: "Exercise 19"
+          file: ex/ex_uncertainty_analysis.qmd
+          target: "_blank"
+        - text: "Exercise 20"
+          #file: ex/ex_bioaccumulation.qmd
+          #target: "_blank"
       
 format:
   html:

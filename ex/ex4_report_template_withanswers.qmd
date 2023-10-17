@@ -58,46 +58,47 @@ table(df %>% select(c(diagnosis, radius_mean, compactness_mean)) %>%
 
 For the binary classification model using mean radius as predictor:
 
-Frequency of False positives (FP) is 
+Frequency of False positives (FP) is
+
 ```{r}
 12
 ```
 
-Frequency of False negatives (FN) is 
+Frequency of False negatives (FN) is
+
 ```{r}
 51
 ```
 
-
 Which of these two errors do you think is worse? Motivate your answer.
-
-
 
 ## Sensitivity and specificity for the binary classification model with mean radius as predictor and cutoff 15
 
 For the binary classification model using mean radius as predictor:
 
-Frequency of True Positives (TP) is 
+Frequency of True Positives (TP) is
+
 ```{r}
 161
 ```
 
-Frequency of True Negatives (TN) is 
+Frequency of True Negatives (TN) is
+
 ```{r}
 345
 ```
 
-Sensitivity, i.e. $\frac{TP}{TP + FN}$ is 
+Sensitivity, i.e. $\frac{TP}{TP + FN}$ is
+
 ```{r}
 161/(161+51)
 ```
 
+Specificity $\frac{TN}{FP + TN}$ is
 
-Specificity $\frac{TN}{FP + TN}$ is 
 ```{r}
 345/(345+12)
 ```
-
 
 ## Model comparison using the ROC curve methodology
 
