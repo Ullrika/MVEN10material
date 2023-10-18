@@ -598,7 +598,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p>Then we use probability bounds analysis (and the rule of “lost probabilities” as described in the third video) to calculate that it is at least <span class="math display">\[ (100-95)+(100-90)=85\%\]</span> probable that the ratio of the highest estimate of High Exposure to the Reference Point is less than or equal than 0.33/0.062 = 5.32</p>
+<p>Then we use probability bounds analysis (and the rule of “lost probabilities” as described in the third video) to calculate that it is at least <span class="math display">\[ 100 - [(100-95)+(100-90)]=85\%\]</span> probable that the ratio of the highest estimate of High Exposure to the Reference Point is less than or equal than 0.33/0.062 = 5.32</p>
 <p><span class="math display">\[P(\frac{HE}{RP} &lt; 5.32) \geq 85\%\]</span></p>
 <table class="table">
 <thead>
@@ -660,8 +660,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.23</span> <span class="sc">*</span> <span class="fu">rbeta</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">shape1 =</span> <span class="fl">3.15</span>, <span class="at">shape2 =</span> <span class="fl">1.92</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.15582338 0.05935671 0.07979335 0.05596130 0.16381648 0.11224114
- [7] 0.12436416 0.19606322 0.12724538 0.14801163</code></pre>
+<pre><code> [1] 0.11503939 0.08618704 0.09883869 0.14276720 0.06329315 0.12390761
+ [7] 0.17024319 0.13713553 0.07967821 0.10691376</code></pre>
 </div>
 </div>
 <p>This beta-distribution is defined as</p>
@@ -713,7 +713,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>One choice could be to use a normal distribution to represent uncertainty in a High Exposure. A normal distribution has two parameters, the mean (<span class="math inline">\(\mu\)</span>) and the standard deviation (<span class="math inline">\(\sigma\)</span>).</p>
 <p><span class="math display">\[HE \sim N(\mu,\sigma)\]</span></p>
 <p>We derive the mean by taking the mid value in the range</p>
-<p><span class="math display">\[ \mu = \frac{0.33-0.07}{2}= 0.13\]</span> The standard deviation is specified by considering the formula for a 90% quantile in the normal distributions as a function of the parameters.</p>
+<p><span class="math display">\[ \mu = \frac{0.33+0.07}{2}= 0.2\]</span> The standard deviation is specified by considering the formula for a 90% quantile in the normal distributions as a function of the parameters.</p>
 <p><span class="math display">\[ P90 = \mu + 1.28\cdot \sigma\]</span></p>
 <p>and rearranging it to be a function of <span class="math inline">\(\sigma\)</span></p>
 <p><span class="math display">\[ \sigma = \frac{P90 - \mu}{1.28} =  \frac{0.33-0.13}{1.28}=0.1\]</span></p>
@@ -737,7 +737,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="ex_uncertainty_analysis_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>The calculated probability that the MOE is above 1 is 30 %.</p>
+<p>The calculated probability that the MOE is above 1 is 31 %.</p>
 <ol start="8" class="example" type="1">
 <li>Calculate the proportion of random samples in your Monte Carlo simulation that corresponds to a MOE &gt; 1.</li>
 </ol>
@@ -755,6 +755,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Consider, revising the visualisation but for 1/MOE using the code below.</li>
 </ol>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">density</span>(he<span class="sc">/</span>rp, <span class="at">from=</span><span class="dv">0</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span>df<span class="sc">$</span>x,<span class="at">y=</span>df<span class="sc">$</span>y)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">x=</span>df<span class="sc">$</span>x,<span class="at">y=</span>df<span class="sc">$</span>y),<span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>y)) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="at">data=</span><span class="fu">subset</span>(df,x<span class="sc">&lt;</span><span class="dv">1</span>),  <span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">ymax=</span>y),<span class="at">ymin=</span><span class="dv">0</span>,<span class="at">fill=</span><span class="st">"red"</span>, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"1/MOE"</span>) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"density"</span>) <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Uncertainty in 1/MOE"</span>, <span class="at">subtitle=</span><span class="fu">paste0</span>(<span class="st">"P(MOE&gt;1)="</span>,<span class="fu">round</span>(<span class="fu">mean</span>(rp<span class="sc">/</span>he<span class="sc">&gt;</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span>),<span class="st">"%"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="ex_uncertainty_analysis_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -767,7 +775,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>In my analysis, the attempts to arrive at a high certainty that the MOE is acceptable (i.e.&nbsp;above 1) has failed. This is because the level of certainty for the outcome of interest is 30 % which is not in the region of practical certainty (i.e.&nbsp;&lt;10% or &gt;90%).</p>
+<p>In my analysis, the attempts to arrive at a high certainty that the MOE is acceptable (i.e.&nbsp;above 1) has failed. This is because the level of certainty for the outcome of interest is 31 % which is not in the region of practical certainty (i.e.&nbsp;&lt;10% or &gt;90%).</p>
 <table class="table">
 <thead>
 <tr class="header">
