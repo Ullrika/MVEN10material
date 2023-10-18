@@ -87,7 +87,7 @@ th = 1
 
 ### Hazard assessment
 
-A Reference Point of `r bmdl` μg iAs/kg bw per day was identified by the CONTAM Panel for skin cancer. This value is the BMDL from a model average of BMD modelling on skin cancer. 
+A Reference Point $RP$ of `r bmdl` μg iAs/kg bw per day was identified by the CONTAM Panel for skin cancer. This value is the BMDL from a model average of BMD modelling on skin cancer. 
 
 Model Averaged BMD model
 
@@ -135,7 +135,7 @@ In this case it the outcome of interest is if the MOE is above the threshold of 
 
 A quantitative uncertainty analysis can be specified to result in an expression of the expert's certainty in the outcome of interest as a % probability, i.e. $P(MOE > `r th`)$. 
 
-The risk managers has informed the risk managers that they find a certainty of 90% or more as acceptable for decision making. 
+The risk managers has informed the risk assessors that they find a certainty of 90% or more as acceptable for decision making. 
 
 (@) Confirm to yourself that the following expressions are the same 
 
@@ -296,21 +296,6 @@ A probability distribution representing uncertainty in the estimates of High Exp
 |`r hel` |`r heu` |
 
 
-```{r}
-#| eval: false
-#| echo: false
-
-obj <- function(par){
-  (qweibull(0.1,shape=exp(par[1]), scale=exp(par[2]))-hel)^2 +
-  (qweibull(0.9,shape=exp(par[1]), scale=exp(par[2]))-heu)^2
-}
-
-val <- optim(par=c(1,0),fn = obj)
-
-he = rweibull(n = niter, shape=exp(val$par[1]), scale=exp(val$par[2]))
-
-```
-
 
 One choice could be to use a normal distribution to represent uncertainty in a High Exposure. A normal distribution has two parameters, the mean ($\mu$) and the standard deviation ($\sigma$). 
 
@@ -344,8 +329,6 @@ he[he<0] = 0 # truncate
 The distributions for High Exposure and the Reference Point overlap. 
 
 ```{r}
-#| echo: true 
-
 ggplot(data.frame(dose = c(rp,he), quantity = rep(c("Reference Point", "High Exposure"),each = niter)),aes(x=dose, fill = quantity)) +
   geom_density(alpha=0.2) +
   ggtitle("Uncertainty in a High Exposure and the Reference Point")
@@ -356,7 +339,7 @@ The calculated probability that the MOE is above 1 is `r round(mean(rp/he>1)*100
 (@) Calculate the proportion of random samples in your Monte Carlo simulation that corresponds to a MOE > 1.
 
 ```{r}
-#| eval: false
+#| eval: true
 
 moe = rp/he
 mean(moe>1)
@@ -378,7 +361,8 @@ polygon(c(den$x[den$x <= 1 ], 1),
         border = 1)
 ```
 
-(@) Visualise the resulting distribution for uncertainty in MOE with your choice of distributions
+(@) Visualise the resulting distribution for uncertainty in MOE with your choice of distributions.
+
 
 ```{r}
 df <- density(rp/he, from=0)
@@ -386,15 +370,16 @@ df <- data.frame(x=df$x,y=df$y)
 ggplot(data.frame(x=df$x,y=df$y),aes(x=x, y=y)) +
   geom_line() +
   geom_ribbon(data=subset(df,x>1),  aes(x=x,ymax=y),ymin=0,fill="red", alpha=0.5) +
-  xlab("1/MOE") +
+  xlab("MOE") +
   ylab("density") +
   ggtitle("Uncertainty in MOE", subtitle=paste0("P(MOE>1)=",round(mean(rp/he>1)*100),"%"))
 ```
 
-In my analysis, uncertainty in the ratio HE over RP (i.e. 1/MOE) offers a better visualisation of the generated distribution. 
+In my analysis, the distribution for MOE looks weird. The reason is that the probability distribution for exposure generates values that are zero or close to zero, and when we divide by that the MOE is extremly large. 
+
+Uncertainty in the ratio HE over RP (i.e. 1/MOE) offers a better visualisation of the generated distribution. 
 
 (@) Consider, revising the visualisation but for 1/MOE using the code below.
-
 
 ```{r}
 #| echo: true
@@ -418,7 +403,7 @@ For the purpose of this exercise we assume that the experts agreed to not adjust
 
 ## Conclusion
 
-In my analysis, the attempts to arrive at a high certainty that the MOE is acceptable (i.e. above 1) has failed. This is because the level of certainty for the outcome of interest is `r round(mean(rp/he>1)*100)` % which is not in the region of practical certainty (i.e. <10% or >90%). 
+In my analysis, the attempts to arrive at a high certainty that the MOE is acceptable (i.e. above `r th`) has failed. This is because the level of certainty for the outcome of interest is `r round(mean(rp/he>1)*100)`% which is not in the region of practical certainty (i.e. <10% or >90%). 
 
 |Health concern|Inconclusive|No health concern|
 |--------------|------------|-----------------|
@@ -455,3 +440,55 @@ The risk managers can decide to support generation of new studies to fill data g
 
 View the third tutorial video [Refined options for assessing uncertainty](https://www.youtube.com/watch?v=wqNBBOeH7WQ) (30 minutes).
 
+## Post note
+
+An alternative choice for a probability distribution to represent uncertainty in a High Exposure would be a distribution that resonates properties of percentiles. 
+tbc 
+
+<!-- Consider the following simulation experiment where we draw samples from a lognormal distribution and derive the 95th percentile.  -->
+
+<!-- ```{r} -->
+<!-- #| warning: false -->
+<!-- #| message: false -->
+
+<!-- N = 10^4 -->
+<!-- n = 20 -->
+<!-- sim = replicate(N,quantile(rlnorm(n), probs=0.95)) -->
+
+<!-- summary(sim) -->
+
+<!-- ggplot(data.frame(sim=sim),aes(x=sim)) + -->
+<!--   geom_histogram() -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- #| echo: false -->
+
+<!-- obj <- function(par){ -->
+<!--   (qweibull(0.1,shape=exp(par[1]), scale=exp(par[2]))-hel)^2 + -->
+<!--   (qweibull(0.9,shape=exp(par[1]), scale=exp(par[2]))-heu)^2 -->
+<!-- } -->
+
+<!-- val <- optim(par=c(1,0),fn = obj) -->
+
+<!-- he = rweibull(n = niter, shape=exp(val$par[1]), scale=exp(val$par[2])) -->
+
+<!-- ``` -->
+
+
+
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- #| echo: false -->
+
+<!-- obj <- function(par){ -->
+<!--   (qweibull(0.1,shape=exp(par[1]), scale=exp(par[2]))-hel)^2 + -->
+<!--   (qweibull(0.9,shape=exp(par[1]), scale=exp(par[2]))-heu)^2 -->
+<!-- } -->
+
+<!-- val <- optim(par=c(1,0),fn = obj) -->
+
+<!-- he = rweibull(n = niter, shape=exp(val$par[1]), scale=exp(val$par[2])) -->
+
+<!-- ``` -->

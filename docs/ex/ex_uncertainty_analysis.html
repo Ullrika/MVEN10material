@@ -394,6 +394,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   <li><a href="#post-exercise" id="toc-post-exercise" class="nav-link" data-scroll-target="#post-exercise">Post exercise</a></li>
+  <li><a href="#post-note" id="toc-post-note" class="nav-link" data-scroll-target="#post-note">Post note</a></li>
   </ul>
 </nav>
     </div>
@@ -475,7 +476,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The example is taken from the human health risk assessment of inorganic arsenic in food by EFSA that constituted one of the case studies.</p>
 <section id="hazard-assessment" class="level3">
 <h3 class="anchored" data-anchor-id="hazard-assessment">Hazard assessment</h3>
-<p>A Reference Point of 0.062 μg iAs/kg bw per day was identified by the CONTAM Panel for skin cancer. This value is the BMDL from a model average of BMD modelling on skin cancer.</p>
+<p>A Reference Point <span class="math inline">\(RP\)</span> of 0.062 μg iAs/kg bw per day was identified by the CONTAM Panel for skin cancer. This value is the BMDL from a model average of BMD modelling on skin cancer.</p>
 <p>Model Averaged BMD model</p>
 <table class="table">
 <thead>
@@ -524,7 +525,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="outcome-of-interest">Outcome of interest</h3>
 <p>In this case it the outcome of interest is if the MOE is above the threshold of 1.</p>
 <p>A quantitative uncertainty analysis can be specified to result in an expression of the expert’s certainty in the outcome of interest as a % probability, i.e.&nbsp;<span class="math inline">\(P(MOE &gt; 1)\)</span>.</p>
-<p>The risk managers has informed the risk managers that they find a certainty of 90% or more as acceptable for decision making.</p>
+<p>The risk managers has informed the risk assessors that they find a certainty of 90% or more as acceptable for decision making.</p>
 <ol class="example" type="1">
 <li>Confirm to yourself that the following expressions are the same</li>
 </ol>
@@ -660,8 +661,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.23</span> <span class="sc">*</span> <span class="fu">rbeta</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">shape1 =</span> <span class="fl">3.15</span>, <span class="at">shape2 =</span> <span class="fl">1.92</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.11503939 0.08618704 0.09883869 0.14276720 0.06329315 0.12390761
- [7] 0.17024319 0.13713553 0.07967821 0.10691376</code></pre>
+<pre><code> [1] 0.16176508 0.03705588 0.16966304 0.15301458 0.12287381 0.14569558
+ [7] 0.10530518 0.17415160 0.18684853 0.20381942</code></pre>
 </div>
 </div>
 <p>This beta-distribution is defined as</p>
@@ -730,27 +731,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p>The distributions for High Exposure and the Reference Point overlap.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">dose =</span> <span class="fu">c</span>(rp,he), <span class="at">quantity =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Reference Point"</span>, <span class="st">"High Exposure"</span>),<span class="at">each =</span> niter)),<span class="fu">aes</span>(<span class="at">x=</span>dose, <span class="at">fill =</span> quantity)) <span class="sc">+</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Uncertainty in a High Exposure and the Reference Point"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="ex_uncertainty_analysis_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<p><img src="ex_uncertainty_analysis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>The calculated probability that the MOE is above 1 is 31 %.</p>
 <ol start="8" class="example" type="1">
 <li>Calculate the proportion of random samples in your Monte Carlo simulation that corresponds to a MOE &gt; 1.</li>
 </ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.306</code></pre>
+</div>
+</div>
 <!-- https://r-charts.com/distribution/fill-area-density/?utm_content=cmp-true -->
 <ol start="9" class="example" type="1">
-<li>Visualise the resulting distribution for uncertainty in MOE with your choice of distributions</li>
+<li>Visualise the resulting distribution for uncertainty in MOE with your choice of distributions.</li>
 </ol>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="ex_uncertainty_analysis_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="ex_uncertainty_analysis_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>In my analysis, uncertainty in the ratio HE over RP (i.e.&nbsp;1/MOE) offers a better visualisation of the generated distribution.</p>
+<p>In my analysis, the distribution for MOE looks weird. The reason is that the probability distribution for exposure generates values that are zero or close to zero, and when we divide by that the MOE is extremly large.</p>
+<p>Uncertainty in the ratio HE over RP (i.e.&nbsp;1/MOE) offers a better visualisation of the generated distribution.</p>
 <ol start="10" class="example" type="1">
 <li>Consider, revising the visualisation but for 1/MOE using the code below.</li>
 </ol>
@@ -764,7 +768,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"density"</span>) <span class="sc">+</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Uncertainty in 1/MOE"</span>, <span class="at">subtitle=</span><span class="fu">paste0</span>(<span class="st">"P(MOE&gt;1)="</span>,<span class="fu">round</span>(<span class="fu">mean</span>(rp<span class="sc">/</span>he<span class="sc">&gt;</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span>),<span class="st">"%"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="ex_uncertainty_analysis_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<p><img src="ex_uncertainty_analysis_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>The red area corresponds to a MOE greater than 1.</p>
@@ -775,7 +779,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>In my analysis, the attempts to arrive at a high certainty that the MOE is acceptable (i.e.&nbsp;above 1) has failed. This is because the level of certainty for the outcome of interest is 31 % which is not in the region of practical certainty (i.e.&nbsp;&lt;10% or &gt;90%).</p>
+<p>In my analysis, the attempts to arrive at a high certainty that the MOE is acceptable (i.e.&nbsp;above 1) has failed. This is because the level of certainty for the outcome of interest is 31% which is not in the region of practical certainty (i.e.&nbsp;&lt;10% or &gt;90%).</p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -816,6 +820,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="post-exercise" class="level2">
 <h2 class="anchored" data-anchor-id="post-exercise">Post exercise</h2>
 <p>View the third tutorial video <a href="https://www.youtube.com/watch?v=wqNBBOeH7WQ">Refined options for assessing uncertainty</a> (30 minutes).</p>
+</section>
+<section id="post-note" class="level2">
+<h2 class="anchored" data-anchor-id="post-note">Post note</h2>
+<p>An alternative choice for a probability distribution to represent uncertainty in a High Exposure would be a distribution that resonates properties of percentiles. tbc</p>
+<!-- Consider the following simulation experiment where we draw samples from a lognormal distribution and derive the 95th percentile.  -->
+<!-- ```{r} -->
+<!-- #| warning: false -->
+<!-- #| message: false -->
+<!-- N = 10^4 -->
+<!-- n = 20 -->
+<!-- sim = replicate(N,quantile(rlnorm(n), probs=0.95)) -->
+<!-- summary(sim) -->
+<!-- ggplot(data.frame(sim=sim),aes(x=sim)) + -->
+<!--   geom_histogram() -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- #| echo: false -->
+<!-- obj <- function(par){ -->
+<!--   (qweibull(0.1,shape=exp(par[1]), scale=exp(par[2]))-hel)^2 + -->
+<!--   (qweibull(0.9,shape=exp(par[1]), scale=exp(par[2]))-heu)^2 -->
+<!-- } -->
+<!-- val <- optim(par=c(1,0),fn = obj) -->
+<!-- he = rweibull(n = niter, shape=exp(val$par[1]), scale=exp(val$par[2])) -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- #| echo: false -->
+<!-- obj <- function(par){ -->
+<!--   (qweibull(0.1,shape=exp(par[1]), scale=exp(par[2]))-hel)^2 + -->
+<!--   (qweibull(0.9,shape=exp(par[1]), scale=exp(par[2]))-heu)^2 -->
+<!-- } -->
+<!-- val <- optim(par=c(1,0),fn = obj) -->
+<!-- he = rweibull(n = niter, shape=exp(val$par[1]), scale=exp(val$par[2])) -->
+<!-- ``` -->
 
 
 </section>
