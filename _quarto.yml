@@ -86,8 +86,8 @@ website:
           file: ex/ex_uncertainty_analysis.qmd
           target: "_blank"
         - text: "Exercise 20"
-          #file: ex/ex_bioaccumulation.qmd
-          #target: "_blank"
+          file: ex/ex_bioaccumulation.qmd
+          target: "_blank"
       
 format:
   html:

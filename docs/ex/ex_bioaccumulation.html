@@ -110,9 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      MVEN10
-      </li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ex/ex_uncertainty_analysis.html">Oct 18</a></li><li class="breadcrumb-item"><a href="../ex/ex_bioaccumulation.html">Exercise 20</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -355,8 +353,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">Exercise 20</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../ex/ex_bioaccumulation.html" class="sidebar-item-text sidebar-link active" target="&quot;_blank&quot;">
+ <span class="menu-text">Exercise 20</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -378,14 +379,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#reporting" id="toc-reporting" class="nav-link" data-scroll-target="#reporting">Reporting</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  <li><a href="#problem" id="toc-problem" class="nav-link" data-scroll-target="#problem">Problem</a>
+  <li><a href="#bioaccumulation-model" id="toc-bioaccumulation-model" class="nav-link" data-scroll-target="#bioaccumulation-model">Bioaccumulation model</a>
   <ul class="collapse">
-  <li><a href="#sensitivity-analysis" id="toc-sensitivity-analysis" class="nav-link" data-scroll-target="#sensitivity-analysis">Sensitivity analysis</a></li>
-  <li><a href="#känslighet-mot-korrelation-i-ingångsvärden" id="toc-känslighet-mot-korrelation-i-ingångsvärden" class="nav-link" data-scroll-target="#känslighet-mot-korrelation-i-ingångsvärden">Känslighet mot korrelation i ingångsvärden}</a></li>
-  <li><a href="#känslighet-mot-val-av-fördelning-för-osäkerhet-i-ingångsvärden" id="toc-känslighet-mot-val-av-fördelning-för-osäkerhet-i-ingångsvärden" class="nav-link" data-scroll-target="#känslighet-mot-val-av-fördelning-för-osäkerhet-i-ingångsvärden">Känslighet mot val av fördelning för osäkerhet i ingångsvärden</a></li>
-  <li><a href="#känslighet-mot-tidperspektiv-i-riskbedömningen" id="toc-känslighet-mot-tidperspektiv-i-riskbedömningen" class="nav-link" data-scroll-target="#känslighet-mot-tidperspektiv-i-riskbedömningen">Känslighet mot tidperspektiv i riskbedömningen</a></li>
+  <li><a href="#useful-model-terminology" id="toc-useful-model-terminology" class="nav-link" data-scroll-target="#useful-model-terminology">Useful model terminology</a></li>
   </ul></li>
-  <li><a href="#dependencies" id="toc-dependencies" class="nav-link" data-scroll-target="#dependencies">Dependencies</a></li>
+  <li><a href="#uncertainty-analysis" id="toc-uncertainty-analysis" class="nav-link" data-scroll-target="#uncertainty-analysis">Uncertainty analysis</a>
+  <ul class="collapse">
+  <li><a href="#plan" id="toc-plan" class="nav-link" data-scroll-target="#plan">Plan</a></li>
+  </ul></li>
+  <li><a href="#sensitivity-analysis" id="toc-sensitivity-analysis" class="nav-link" data-scroll-target="#sensitivity-analysis">Sensitivity analysis</a>
+  <ul class="collapse">
+  <li><a href="#a-model" id="toc-a-model" class="nav-link" data-scroll-target="#a-model">A model</a></li>
+  <li><a href="#graphical-visualisation-of-the-influence-of-parameters-on-a-quantity-of-interest" id="toc-graphical-visualisation-of-the-influence-of-parameters-on-a-quantity-of-interest" class="nav-link" data-scroll-target="#graphical-visualisation-of-the-influence-of-parameters-on-a-quantity-of-interest">Graphical visualisation of the influence of parameters on a quantity of interest</a></li>
+  <li><a href="#derivation-of-metrics-for-sensitivity" id="toc-derivation-of-metrics-for-sensitivity" class="nav-link" data-scroll-target="#derivation-of-metrics-for-sensitivity">Derivation of metrics for sensitivity</a></li>
+  </ul></li>
+  <li><a href="#execute-monte-carlo-simulation-and-perform-sensitivity-analysis" id="toc-execute-monte-carlo-simulation-and-perform-sensitivity-analysis" class="nav-link" data-scroll-target="#execute-monte-carlo-simulation-and-perform-sensitivity-analysis">Execute Monte Carlo simulation and perform sensitivity analysis</a></li>
   </ul>
 </nav>
     </div>
@@ -418,268 +426,223 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="exercise-overview" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-overview">Exercise overview</h2>
-<ul>
-<li><p>We encourage collaboration</p></li>
-<li><p>Reporting is individual</p></li>
-</ul>
+<p>Do in groups of 1-3</p>
 <section id="background" class="level3">
 <h3 class="anchored" data-anchor-id="background">Background</h3>
-<p>Att göra osäkerhetsanalys med en kvantitativ modell som beskriver något över tid. Känna på att göra en känslighetsanalys</p>
+<p>Models are often used in risk assessments, and to allow for critical evaluation of a model including methods associated with the model, or reproduction of the modelling, they should be described in a clear way.</p>
+<p>Monte Carlo simulation is a method that can be used to propagate uncertainty in a mathematical model. A careful description of a Monte Carlo simulation is not only needed for transparency and reliability of the results, but it is often a opportunity to resolve uncertainties associated to a description of a model.</p>
+<p>Sensitivity analysis is applied to evaluate the influence of sources to uncertainty on the quantity of interest. It is recommended for use in uncertainty analysis to identify what information to collect to reduce uncertainty.</p>
+<p>Methods for sensitivity analysis range from qualitative to quantitative, and from local (considering the influence from sources of uncertainty one at a time) and global (considering the influence of sources of uncertainty in combination). A quantitative sensitivity analysis can be to change a parameter value up and down 10% from its nominal value and see how much it changes the quantity of interest.</p>
+<p>Given a quantitative uncertainty analysis where parameter uncertainty is described by probability distributions, their influence on the quantity of interest can e.g.&nbsp;be explored</p>
+<ul>
+<li><p>graphically using scatter plots, and</p></li>
+<li><p>by calculating sensitivity metrics and compare them.</p></li>
+</ul>
+<p>It is recommended to combine a graphical visualisation with sensitivity metrics.</p>
+<p><strong>Bioaccumulation</strong> is the increase in the concentration of a chemical in a biological organism over time. Both human and ecological/environmental risk assessments consider bioaccumulation processes for exposure assessment.</p>
 </section>
 <section id="purpose" class="level3">
 <h3 class="anchored" data-anchor-id="purpose">Purpose</h3>
+<ul>
+<li><p>To practice describing a Monte Carlo simulation used to propagate uncertainty in parameters of a mathematical model.</p></li>
+<li><p>To apply sensitivity analysis to evaluate the influence of parameters on uncertainty in a quantity of interest.</p></li>
+<li><p>To explore common models for bioaccumulation.</p></li>
+</ul>
 </section>
 <section id="content" class="level3">
 <h3 class="anchored" data-anchor-id="content">Content</h3>
+<ul>
+<li>Printed table</li>
+</ul>
 </section>
 <section id="duration" class="level3">
 <h3 class="anchored" data-anchor-id="duration">Duration</h3>
-<p>60 minutes</p>
+<p>45 minutes</p>
 </section>
 <section id="reporting" class="level3">
 <h3 class="anchored" data-anchor-id="reporting">Reporting</h3>
-<p>Write a report using a qmd document and upload it on the assignment in canvas. Instructions at the end of this page.</p>
+<p>Be prepared to report back at the end of the exercise.</p>
 </section>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
-<p>US EPA <a href="https://www.epa.gov/pesticide-science-and-assessing-pesticide-risks/kabam-version-10-users-guide-and-technical-7">Description of Bioaccumulation Model</a></p>
+<p>US EPA, KABAM Version 1.0 User’s Guide and Technical Documentation - Appendix A - Description of Bioaccumulation Model https://www.epa.gov/pesticide-science-and-assessing-pesticide-risks/kabam-version-10-users-guide-and-technical-7</p>
+<p>Information about <a href="https://multimedia.efsa.europa.eu/uncertainty-tutorial/principles-and-methods/methods.html">Monte Carlo simulation and sensitivity analysis at the EFSA Tutorial on Uncertainty</a></p>
 </section>
-<section id="problem" class="level2">
-<h2 class="anchored" data-anchor-id="problem">Problem</h2>
-<p>Detta är en övning om hur flundror ackumulerar det PCB som finns i havsvattnet där de bor. Modellen som används är någorlunda invecklad, men bör ändå inte vara svår att skriva in i R.</p>
-<p>Övningen innehåller några olika moment. Ni ska göra känslighetsanalys av er modell; ni ska anta att några av de ingående variablerna är korrelerade (vilket kan påverka känslighetsanalysen); och slutligen ska ni studera hur ackumulationen förändras över tiden, genom att lägga in en tidsserie i modellen.</p>
-<p>Ekvationen som modellen bygger på är:</p>
-<p><span class="math display">\[ V_t = V_0 e^{-(K+G) \cdot t} \, \frac{U\cdot C,\alpha \cdot C_j \cdot W_j}{K\,+\,G}\left( 1 - e^{-(K+G) \cdot t}\right)\]</span> och vad de olika variablerna betyder kan ni se i tabellen här.</p>
+<section id="bioaccumulation-model" class="level2">
+<h2 class="anchored" data-anchor-id="bioaccumulation-model">Bioaccumulation model</h2>
+<p>Go to the US EPA’s page with a description of <a href="https://www.epa.gov/pesticide-science-and-assessing-pesticide-risks/kabam-version-10-users-guide-and-technical-7">Bioaccumulation a model.</a></p>
+<p>The model presented can be used to assess various quantities of interest related to bioaccumulation at different trophic levels.</p>
+<p>The recommended approach is to first calculate the concentration in organisms at the lowest level of the aquatic food chain (i.e.&nbsp;phytoplankton) before calculating concentrations at higher levels.</p>
+<p>The page describes several equations to calculate different quantities of interest.</p>
+<section id="useful-model-terminology" class="level3">
+<h3 class="anchored" data-anchor-id="useful-model-terminology">Useful model terminology</h3>
+<ol class="example" type="1">
+<li>Go to the part of the Bioaccumulation model referred to as <strong>A.1 Calculation of Fraction of Chemical in the Water Column That Is Freely Dissolved</strong> and identify the following:</li>
+</ol>
+<ul>
+<li><p>The mathematical model</p></li>
+<li><p>The parameters within the model</p></li>
+<li><p>Input variables or arguments to the model</p></li>
+<li><p>The output from the model</p></li>
+<li><p>The quantity of interest</p></li>
+</ul>
+<p><img src="../img/bioacc.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="uncertainty-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="uncertainty-analysis">Uncertainty analysis</h2>
+<section id="plan" class="level3">
+<h3 class="anchored" data-anchor-id="plan">Plan</h3>
+<p>Your boss has given you the tasks to perform a quantitative uncertainty analysis (using Monte Carlo simulation) of this model and to identify the parameter with the highest influence to uncertainty in the quantity of interest.</p>
+<ol start="2" class="example" type="1">
+<li><p>Make a plan on how to perform the Monte Carlo simulation. Describe the setting for the Monte Carlo simulation, in particular for which model components you will specify probability distributions (you do not have to come up with the distributions now). Create a new table similar to Table A4 that can be used when you report back to your boss.</p></li>
+<li><p>Discuss you plan with the tutor for feedback</p></li>
+</ol>
+<p>If there is time, you have <strong>at the end of, or after, the exercise</strong>, the possibility to execute the Monte Carlo simulation using e.g.&nbsp;R or Excel.</p>
+</section>
+</section>
+<section id="sensitivity-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="sensitivity-analysis">Sensitivity analysis</h2>
+<p>We will start exploring two quantitative methods for sensitivity analysis using a simple model. Then, if there is time, you will be asked to apply it on the selected part of the US EPA Bioaccumulation model.</p>
+<section id="a-model" class="level3">
+<h3 class="anchored" data-anchor-id="a-model">A model</h3>
+<ol start="4" class="example" type="1">
+<li>Define a model with two parameters (<span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>) calculating <span class="math inline">\(y\)</span> given the input variable <span class="math inline">\(z\)</span></li>
+</ol>
+<p><span class="math display">\[y = \frac{1}{z\cdot\alpha\cdot\beta}\]</span></p>
+<p>We have the following information</p>
 <table class="table">
-<colgroup>
-<col style="width: 29%">
-<col style="width: 34%">
-<col style="width: 36%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Parameter</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: right;">Distribution</th>
+<th>Symbol</th>
+<th>Definition</th>
+<th>Value</th>
+<th>Unit</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(V_0\)</span></td>
-<td style="text-align: left;">Belastning av PCB vid tiden 0 (<span class="math inline">\(\mu\)</span> g PCB’s / g)</td>
-<td style="text-align: right;">N(10, 2)</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(K\)</span></td>
-<td style="text-align: left;">Utsöndringshastighet av PCB (1/d)</td>
-<td style="text-align: right;">U(0.045, 0.095)</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(G\)</span></td>
-<td style="text-align: left;">Tillväxtkoefficient (g/g/d)</td>
-<td style="text-align: right;">U(0.012, 0.014)</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(U\)</span></td>
-<td style="text-align: left;">Upptagskoefficient over gälarna (L/g/d)</td>
-<td style="text-align: right;">N(0.005, 0.0002)</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(C\)</span></td>
-<td style="text-align: left;">Koncentration av PCB i vattnet (<span class="math inline">\(\mu\)</span>g / L)</td>
-<td style="text-align: right;">N(4,1)</td>
+<td><span class="math inline">\(z\)</span></td>
+<td>input variable</td>
+<td>user defined</td>
+<td>kg/L</td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(\alpha\)</span></td>
-<td style="text-align: left;">Assimilation av PCB (dimensionslös)</td>
-<td style="text-align: right;">T(0.05, 0.18, 0.5)</td>
+<td>parameter</td>
+<td>3</td>
+<td>none</td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(C_j\)</span></td>
-<td style="text-align: left;">Konsumtionshastighet av bytestyp j (g/g/d)</td>
-<td style="text-align: right;">logN(2.4, 0.5)</td>
+<td><span class="math inline">\(\beta\)</span></td>
+<td>parameter</td>
+<td>0.2</td>
+<td>none</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(W_j\)</span></td>
-<td style="text-align: left;">Belastning av PCB hos byten av typ j (<span class="math inline">\(\mu\)</span>g PCB / g)</td>
-<td style="text-align: right;">logN(1.95, 0.3)</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(t\)</span></td>
-<td style="text-align: left;">tid i dagar</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(V_t\)</span></td>
-<td style="text-align: left;">Belastning av PCB vid tiden t (<span class="math inline">\(\mu\)</span>g PCBs /g)</td>
-<td style="text-align: right;"></td>
+<td><span class="math inline">\(y\)</span></td>
+<td>quantity of interest</td>
+<td>calculated</td>
+<td>kg/L</td>
 </tr>
 </tbody>
 </table>
-<p>Fundera gärna lite grann, men bara lagom mycket, på vad ekvationen egentligen säger.</p>
-<ul>
-<li><p>Ekvationen gäller för en viss åldersklass när dessa fiskar äter bytesarterna <span class="math inline">\(j\)</span>. Vi bryr oss bara om en åldersklass (oklart vilken), men däremot så antar vi att de äter flera olika byten, vilket beskrivs av fördelningarna för <span class="math inline">\(C_j\)</span> och <span class="math inline">\(W_j\)</span>.</p></li>
-<li><p>Ekvationen räknar ut ackumulationen efter den tid man stoppar in i <span class="math inline">\(t\)</span>. Till att börja med låter vi detta vara 1 dag, dvs <span class="math inline">\(t = 1\)</span>.</p></li>
-</ul>
-<p><span class="math display">\[C_B =  \frac{k_1 * (m_0 * \Phi * C_{WTO} + m_P * C_{WDP}) + k_D \sum_{i=1}^n (P_i * C_{Di})}{(k_2 + k_E + k_G + k_M)}\]</span></p>
-<p>Load useful packages</p>
+<p>Uncertainty in parameters are specified to be</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Probability distribution</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\alpha\)</span></td>
+<td>N(3,0.1)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\beta\)</span></td>
+<td>U(0.1,0.2)</td>
+</tr>
+</tbody>
+</table>
+<p>We set up a Monte Carlo simulation sampling from the parameter distributions and propagating this uncertainty to the quantity of interest for a given value on the input variable <span class="math inline">\(z\)</span>. Here we set <span class="math inline">\(z = 1\)</span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>niter <span class="ot">=</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">3</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">=</span> <span class="fu">rnorm</span>(niter,<span class="dv">3</span>,<span class="fl">0.1</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">=</span> <span class="fu">runif</span>(niter,<span class="fl">0.1</span>,<span class="fl">0.2</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span>(z<span class="sc">*</span>alpha<span class="sc">*</span>beta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Draw <strong>niter</strong> random numbers from the input distributions</p>
+</section>
+<section id="graphical-visualisation-of-the-influence-of-parameters-on-a-quantity-of-interest" class="level3">
+<h3 class="anchored" data-anchor-id="graphical-visualisation-of-the-influence-of-parameters-on-a-quantity-of-interest">Graphical visualisation of the influence of parameters on a quantity of interest</h3>
+<ol start="5" class="example" type="1">
+<li>Make scatter plots with the sampled parameters values on the x-axis and the simulated values of the quantity of interest on the y-axis</li>
+</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>niter <span class="ot">=</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">4</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">C =</span> <span class="fu">rnorm</span>(niter,<span class="fl">0.00063</span>,<span class="fl">0.000063</span>),</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">IR =</span> <span class="fu">rnorm</span>(niter,<span class="dv">5</span>,<span class="fl">0.5</span>),</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">EF =</span> <span class="fu">runif</span>(niter,<span class="at">min=</span><span class="fl">0.12</span>,<span class="at">max=</span><span class="fl">0.18</span>),</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">bw =</span> <span class="fu">rnorm</span>(niter,<span class="fl">25.11</span>,<span class="fl">2.51</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dose =</span> C<span class="sc">*</span>IR<span class="sc">*</span>EF<span class="sc">/</span>bw)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Calculate the probability that the dose exceeds <span class="math inline">\(3 \cdot 10^-5\)</span></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>threshold <span class="ot">=</span> <span class="fl">0.00003</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>dose <span class="sc">&gt;</span> threshold)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0084</code></pre>
-</div>
-</div>
-<p>Calculate the 95th percentile for the dose</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(df<span class="sc">$</span>dose, <span class="at">probs =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>         95% 
-2.622374e-05 </code></pre>
-</div>
-</div>
-<p>Visualise the distribution of dose in a histogram</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> dose)) <span class="sc">+</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.000001</span>) <span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span>threshold,<span class="at">col=</span><span class="st">'red'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(y<span class="sc">~</span>alpha)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="ex_bioaccumulation_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="ex_bioaccumulation_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<section id="sensitivity-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="sensitivity-analysis">Sensitivity analysis</h3>
-<ul>
-<li>Gör en funktion som slumpar <span class="math inline">\(N\)</span> värden från sannolikhetsfördelningarna för modellens ingångsvärden och beräknar <span class="math inline">\(V_t\)</span>. Funktionen ska skapa en <span class="math inline">\(N x 8\)</span> matris av slumptalen från ingångvärdena, och en vektor med <span class="math inline">\(N\)</span> värden på <span class="math inline">\(V_t\)</span>.</li>
-</ul>
-<p>return( list( input = “N x 8 matris”, output =“N slumptal av Vt”) )</p>
-<ul>
-<li>Kör modellen med 10 000 slumptal och uppskatta risken att flundror har ackumulerat mer än 7.5 g per gram kroppsvikt efter en dag. Beräkna även medelvärdet av <span class="math inline">\(V_t\)</span>.</li>
-<li>Nu ska ni göra en enkel känslighetsanalys av variablerna i er modell. Detta gör ni enklast genom att beräkna en korrelation mellan <span class="math inline">\(V_t\)</span> och alla de ingående variablerna i analysen. Ni ska använda funktionen <span class="math inline">\(cor\)</span> som beräknar alla parvisa korrelationer mellan olika variabler. Variablerna måste finnas som kolumner i en matris. Denna matris är</li>
-</ul>
-<p>mat = cbind(output,input)</p>
-<p>Alla parvisa korrelationer är</p>
-<p>cor(mat)</p>
-<p>Vi är bara intresserade av korrelation mellan ingående och den utgående variabeln. Därför kan vi välja att titta på den första kolumnen</p>
-<p>cor(mat)[,1]</p>
-<p>Varför är det första talet 1?</p>
-<p>Bäst är att göra en rank-korrelation, som inte antar ett linjärt samband mellan variablerna. Ett exempel på en sådan här korrelationsanalys kan då se ut så här:</p>
-<p>cor(mat, method=“spearman”)[-1,1]</p>
-<ul>
-<li>Gör också figurer som visar hur <span class="math inline">\(V_t\)</span> beror av samtliga variabler.</li>
-<li>För vilken, eller vilka, variabler är belastning av PCB vid tiden t (dvs modellens utgående variabel) mest känslig?</li>
-</ul>
-</section>
-<section id="känslighet-mot-korrelation-i-ingångsvärden" class="level3">
-<h3 class="anchored" data-anchor-id="känslighet-mot-korrelation-i-ingångsvärden">Känslighet mot korrelation i ingångsvärden}</h3>
-<ul>
-<li><p>Man kan tänka sig att bytesdjur med högt PCB-innehåll är lätta för flundrorna att fånga, och att det därför blir en korrelation mellan <span class="math inline">\(C_j\)</span> och <span class="math inline">\(W_j\)</span>. Skapa en ganska kraftig korrelation mellan dessa parametrar. Använd funktionen “cornode” i mc2d-paketet i R.</p></li>
-<li><p>Hur påverkar korrelationen risken att de ackumulerar mer än 7.5 g?</p></li>
-<li><p>Hur påverkar korrelationen modellens känslighet för olika variabler?</p></li>
-<li><p>Man kan också tänka sig, att flundror med mycket PCB i sig från början, blir slöa och därmed har en lägre konsumtionshastighet. Hur blir det då?</p></li>
-</ul>
-</section>
-<section id="känslighet-mot-val-av-fördelning-för-osäkerhet-i-ingångsvärden" class="level3">
-<h3 class="anchored" data-anchor-id="känslighet-mot-val-av-fördelning-för-osäkerhet-i-ingångsvärden">Känslighet mot val av fördelning för osäkerhet i ingångsvärden</h3>
-<ul>
-<li><p>Ta bort korrelationerna och utgå ifrån grundvärdena på parametrarna. Ändra fördelningen för <span class="math inline">\(C_j\)</span> till en likformig inom intervallet 0 till 25. Det är ungefär samma intervall som normalfördelningen skulle ha. Kör om simuleringen.</p></li>
-<li><p>Hur känslig verkar modellen för förändring i denna parameters fördelning?</p></li>
-</ul>
-</section>
-<section id="känslighet-mot-tidperspektiv-i-riskbedömningen" class="level3">
-<h3 class="anchored" data-anchor-id="känslighet-mot-tidperspektiv-i-riskbedömningen">Känslighet mot tidperspektiv i riskbedömningen</h3>
-<ul>
-<li><p>Hittills har vi bara studerat hur ackumulationen ser ut efter en dags exponering för giftet. Ändra tiden till 15 dagar, dvs. två veckor senare. Hur mycket har medelvärdet för ackumulationen ändrats? Har känsligheten för någon av parametrarna ändrats? Varför då, då? (Använd alla grundvärden för parametrarna och ingen korrelation).</p></li>
-<li><p>Kör modellen för olika tidpunkter, säg var 14:e dag i ett helt år.</p></li>
-<li><p>Vad är sannolikheten att de har ackumulerat mer än 7.5 g efter 1 dag, 15 dagar, 29 dagar etc upp till ett år? Plotta den beräknande sannolikheten mot tid.</p></li>
-<li><p>Vad är sannolikheten att de ackumulerat mer än 0.75 g efter samma tid? Plotta sannolikheten mot tid i samma bild som föregående.</p></li>
-<li><p>Vad beror det på att bioackumulationen inte bara fortsätter att öka, ju längre tiden går?</p></li>
-<li><p>Hur ändras känsligheten för de olika variablerna ju längre tid man tittar på? Kan ni förklara det?</p></li>
-</ul>
-</section>
-</section>
-<section id="dependencies" class="level2">
-<h2 class="anchored" data-anchor-id="dependencies">Dependencies</h2>
-<p>Add dependency between intake rate and body weight using the formula presented in Box 10.4 of the book where you assume a correlation of <span class="math inline">\(r = 0.9\)</span></p>
-<p><img src="../img/mc2.png" class="img-fluid"></p>
-<p>For solution in Excel - study sheet 2 of the previously downloaded file</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>niter <span class="ot">=</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">4</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">=</span> <span class="fl">0.9</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">=</span> <span class="fu">rnorm</span>(niter)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">=</span> <span class="fu">rnorm</span>(niter)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">=</span> <span class="dv">5</span> <span class="sc">+</span> <span class="fl">0.5</span><span class="sc">*</span>x1</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>y2 <span class="ot">=</span> <span class="fl">25.11</span> <span class="sc">+</span> <span class="fl">2.51</span><span class="sc">*</span>(r<span class="sc">*</span>x1 <span class="sc">+</span> x2<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span>r<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(y1,y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(y<span class="sc">~</span>beta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="ex_bioaccumulation_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<p><img src="ex_bioaccumulation_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<ol start="6" class="example" type="1">
+<li>From looking at these graphs, which of the parameters do you think have the most contribution to uncertainty in the quantity of interest? influential?</li>
+</ol>
+<p>To get a better overview one can produce a matrix of scatter plots</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">C =</span> <span class="fu">rnorm</span>(niter,<span class="fl">0.00063</span>,<span class="fl">0.000063</span>),</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x1 =</span> <span class="fu">rnorm</span>(niter),</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">x2 =</span> <span class="fu">rnorm</span>(niter),</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">EF =</span> <span class="fu">runif</span>(niter,<span class="at">min=</span><span class="fl">0.12</span>,<span class="at">max=</span><span class="fl">0.18</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">IR =</span> <span class="dv">5</span> <span class="sc">+</span> <span class="fl">0.5</span><span class="sc">*</span>x1) <span class="sc">%&gt;%</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bw =</span> <span class="fl">25.11</span> <span class="sc">+</span> <span class="fl">2.51</span><span class="sc">*</span>(r<span class="sc">*</span>x1 <span class="sc">+</span> x2<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span>r<span class="sc">^</span><span class="dv">2</span>))) <span class="sc">%&gt;%</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dose =</span> C<span class="sc">*</span>IR<span class="sc">*</span>EF<span class="sc">/</span>bw)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="sc">%&gt;%</span> </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> dose)) <span class="sc">+</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="fl">0.000001</span>) <span class="sc">+</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span>threshold,<span class="at">col=</span><span class="st">'red'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">alpha =</span> alpha, <span class="at">beta =</span> beta, <span class="at">y =</span> y)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="ex_bioaccumulation_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<p><img src="ex_bioaccumulation_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="derivation-of-metrics-for-sensitivity" class="level3">
+<h3 class="anchored" data-anchor-id="derivation-of-metrics-for-sensitivity">Derivation of metrics for sensitivity</h3>
+<p>Sensitivity can be measured in several ways. One option is to calculate the correlation between the sampled values for the parameter and the simulated values for the quantity of interest</p>
+<ol start="7" class="example" type="1">
+<li>Calculate the correlation</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(alpha,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.1199605</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df2<span class="sc">$</span>dose <span class="sc">&gt;</span> threshold)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(beta,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0</code></pre>
+<pre><code>[1] -0.9739952</code></pre>
 </div>
 </div>
+<p>Or do it in one go</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(df2<span class="sc">$</span>dose, <span class="at">probs =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>         95% 
-2.403976e-05 </code></pre>
+<pre><code>            alpha        beta          y
+alpha  1.00000000 -0.02536261 -0.1199605
+beta  -0.02536261  1.00000000 -0.9739952
+y     -0.11996047 -0.97399520  1.0000000</code></pre>
 </div>
 </div>
+<ol start="8" class="example" type="1">
+<li>Considering the correlation, which parameter contributes most to uncertainty in the quantity of interest?</li>
+</ol>
+</section>
+</section>
+<section id="execute-monte-carlo-simulation-and-perform-sensitivity-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="execute-monte-carlo-simulation-and-perform-sensitivity-analysis">Execute Monte Carlo simulation and perform sensitivity analysis</h2>
+<p>If you have the time, implement your Monte Carlo simulation and identify the most influential parameter.</p>
+<p><strong>Ullrika will share a solution after the exercise</strong></p>
 
 
 </section>

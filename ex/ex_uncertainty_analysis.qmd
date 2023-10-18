@@ -19,7 +19,7 @@ library(ggplot2)
 
 ## Exercise overview
 
-- No reporting required 
+We do this jointly in class. 
 
 ### Background
 
@@ -50,6 +50,8 @@ The reason is that uncertainty of scientific conclusions has important implicati
 45 minutes (+ tutorial videos)
 
 ### Reporting
+
+Be prepared to report back during and at the end of the exercise.
 
 ### References
 
