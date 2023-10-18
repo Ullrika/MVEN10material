@@ -475,8 +475,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 250.0000 249.7576 253.0268 250.6304 246.2147 242.3555 240.0824 238.6732
- [9] 238.0220 235.9532 234.7614 228.6474 228.0289 226.5674 223.3086</code></pre>
+<pre><code> [1] 250.0000 244.8077 244.0891 237.3274 237.0081 233.9290 231.6039 228.9098
+ [9] 227.2138 227.3042 225.2380 220.9398 215.3926 211.2385 200.8937</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -588,7 +588,7 @@ Note
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>niter <span class="ot">=</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">4</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">replicate</span>(niter,<span class="fu">simQE</span>(<span class="at">B0 =</span> <span class="dv">200</span>, <span class="at">Ct =</span> <span class="dv">25</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0549</code></pre>
+<pre><code>[1] 0.053</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">replicate</span>(niter,<span class="fu">simQE</span>(<span class="at">B0 =</span> <span class="dv">200</span>, <span class="at">Ct =</span> <span class="dv">35</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -604,7 +604,7 @@ Note
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">replicate</span>(niter,<span class="fu">simQE</span>(<span class="at">B0 =</span> <span class="dv">250</span>, <span class="at">Ct =</span> <span class="dv">35</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9997</code></pre>
+<pre><code>[1] 0.9999</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">replicate</span>(niter,<span class="fu">simQE</span>(<span class="at">B0 =</span> <span class="dv">250</span>, <span class="at">Ct =</span> <span class="dv">45</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -643,7 +643,7 @@ Note
 <span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"biomass"</span>) <span class="sc">+</span></span>
 <span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"year"</span>) <span class="co"># + ggtitle()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 7 rows containing missing values (`geom_line()`).</code></pre>
+<pre><code>Warning: Removed 1 row containing missing values (`geom_line()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="ex_population_viability_analysis_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
@@ -677,7 +677,7 @@ Note
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>niter <span class="ot">=</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">4</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">replicate</span>(niter,<span class="fu">simQEu</span>(<span class="at">B0 =</span> <span class="dv">200</span>, <span class="at">Ct =</span> <span class="dv">25</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0504</code></pre>
+<pre><code>[1] 0.0484</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">replicate</span>(niter,<span class="fu">simQEu</span>(<span class="at">B0 =</span> <span class="dv">200</span>, <span class="at">Ct =</span> <span class="dv">35</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -693,7 +693,7 @@ Note
 </div>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">replicate</span>(niter,<span class="fu">simQEu</span>(<span class="at">B0 =</span> <span class="dv">250</span>, <span class="at">Ct =</span> <span class="dv">35</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9065</code></pre>
+<pre><code>[1] 0.905</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">replicate</span>(niter,<span class="fu">simQEu</span>(<span class="at">B0 =</span> <span class="dv">250</span>, <span class="at">Ct =</span> <span class="dv">45</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -705,11 +705,11 @@ Note
 </div>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">replicate</span>(niter,<span class="fu">simQEu</span>(<span class="at">B0 =</span> <span class="dv">300</span>, <span class="at">Ct =</span> <span class="dv">35</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2e-04</code></pre>
+<pre><code>[1] 1e-04</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">replicate</span>(niter,<span class="fu">simQEu</span>(<span class="at">B0 =</span> <span class="dv">300</span>, <span class="at">Ct =</span> <span class="dv">45</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9995</code></pre>
+<pre><code>[1] 0.9998</code></pre>
 </div>
 </div>
 <ol start="9" class="example" type="1">

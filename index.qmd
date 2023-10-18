@@ -73,4 +73,4 @@ Ex 18. Environmental health risk assessment (on canvas)
 
 [Ex 19. Food safety assessment with uncertainty analysis](ex/ex_uncertainty_analysis.qmd)
 
-[Ex 20. Exposure assessment using a model for bioaccumulation]
+[Ex 20. Exposure assessment using a model for bioaccumulation](https://www.epa.gov/pesticide-science-and-assessing-pesticide-risks/kabam-version-10-users-guide-and-technical-7)
