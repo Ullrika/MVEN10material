@@ -837,8 +837,8 @@ Tip
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(niter,fitnorm<span class="sc">$</span>estimate[<span class="st">"mean"</span>],fitnorm<span class="sc">$</span>estimate[<span class="st">"sd"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 64.92278 62.26137 59.47101 58.21210 61.06581 59.58589 61.96251 60.73047
- [9] 60.55423 64.34562</code></pre>
+<pre><code> [1] 64.90777 65.94953 66.93545 71.38392 57.21718 62.17332 59.70880 61.52001
+ [9] 59.24404 62.22711</code></pre>
 </div>
 </div>
 <ul>
@@ -874,7 +874,7 @@ Tip
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rpois</span>(niter,fitpois<span class="sc">$</span>estimate[<span class="st">"lambda"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 10  1  6  6  8  4  7  5  7  5</code></pre>
+<pre><code> [1]  9  6  5  7  6  5  5 10 11  4</code></pre>
 </div>
 </div>
 <ul>
@@ -911,7 +911,7 @@ Tip
 <p>Use this template for the report</p>
 <div class="cell">
 <div class="cell-output-display">
-<a onclick="fetch('data:application/octet-stream;base64,LS0tDQp0aXRsZTogIkV4ZXJjaXNlIDguIE9ic2VydmUsIGZpdCBhbmQgc2ltdWxhdGUiDQpzdWJ0aXRsZTogIlJlcG9ydCINCmF1dGhvcjogIlBVVCBZT1VSIE5BTUUgSEVSRSINCmRhdGU6IHRvZGF5DQpmb3JtYXQ6IA0KICBodG1sOg0KICAgIHRvYzogdHJ1ZQ0KICAgIGNvZGUtZm9sZDogdHJ1ZQ0KICAgIGVjaG86IGZhbHNlDQogICAgbWVzc2FnZTogZmFsc2UNCiAgICB3YXJuaW5nOiBmYWxzZQ0KICAgIGVtYmVkLXJlc291cmNlczogdHJ1ZQ0KZWRpdG9yOiB2aXN1YWwNCi0tLQ0KDQpgYGB7cn0NCiN8IHdhcm5pbmc6IGZhbHNlDQojfCBtZXNzYWdlOiBmYWxzZQ0KDQpsaWJyYXJ5KHJlYWR4bCkNCmxpYnJhcnkoZHBseXIpDQpsaWJyYXJ5KGdncGxvdDIpDQoNCmxpYnJhcnkoZml0ZGlzdHJwbHVzKQ0KYGBgDQoNCiMjIERhdGENCg0KIyMgTW9kZWwgDQoNCiMjIyBEZXNjcmlwdGlvbg0KDQojIyMgSnVzdGlmaWNhdGlvbg0KDQojIyMgU2ltdWxhdGlvbiBmcm9tIHRoZSBtb2RlbA0KDQo=').then(res => res.blob()).then(blob => {
+<a onclick="fetch('data:application/octet-stream;base64,LS0tDQp0aXRsZTogIkV4ZXJjaXNlIDguIE9ic2VydmUsIGZpdCBhbmQgc2ltdWxhdGUiDQpzdWJ0aXRsZTogIlJlcG9ydCINCmF1dGhvcjogIlBVVCBZT1VSIE5BTUUgSEVSRSINCmRhdGU6IHRvZGF5DQpmb3JtYXQ6IA0KICBodG1sOg0KICAgIHRvYzogdHJ1ZQ0KICAgIGNvZGUtZm9sZDogdHJ1ZQ0KICAgIGVjaG86IGZhbHNlDQogICAgbWVzc2FnZTogZmFsc2UNCiAgICB3YXJuaW5nOiBmYWxzZQ0KICAgIGVtYmVkLXJlc291cmNlczogdHJ1ZQ0KZWRpdG9yOiB2aXN1YWwNCi0tLQ0KDQpgYGB7cn0NCiN8IHdhcm5pbmc6IGZhbHNlDQojfCBtZXNzYWdlOiBmYWxzZQ0KDQpsaWJyYXJ5KHJlYWR4bCkNCmxpYnJhcnkoZHBseXIpDQpsaWJyYXJ5KGdncGxvdDIpDQoNCmxpYnJhcnkoZml0ZGlzdHJwbHVzKQ0KYGBgDQoNCiMjIERhdGENCg0KIyMgTW9kZWwNCg0KIyMjIERlc2NyaXB0aW9uDQoNCiMjIyBKdXN0aWZpY2F0aW9uDQoNCiMjIyBTaW11bGF0aW9uIGZyb20gdGhlIG1vZGVsDQo=').then(res => res.blob()).then(blob => {
       const downloadURL = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       document.body.appendChild(a);

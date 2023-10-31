@@ -515,6 +515,12 @@ Tip
 <pre><code>Warning: package 'ssdtools' was built under R version 4.3.1</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
+<pre><code>Warning in checkMatrixPackageVersion(): Package version inconsistency detected.
+TMB was built with Matrix version 1.5.4
+Current Matrix version is 1.6.1.1
+Please re-install 'TMB' from source using install.packages('TMB', type = 'source') or ask CRAN for a binary version of 'TMB' matching CRAN's 'Matrix' package</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
 <pre><code>Please replace the following in your scripts:
 - `ssdtools::boron_data` with `ssddata::ccme_boron`
 - `ssdtools::ccme_data` with `ssddata::ccme_data`</code></pre>
@@ -537,7 +543,7 @@ Tip
 <p><img src="../img/ssd3.png" class="img-fluid"></p>
 <p>Run the app by the command</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>shinyssdtools<span class="sc">::</span><span class="fu">run_app</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>shinyssdtools<span class="sc">::</span><span class="fu">run_app</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>

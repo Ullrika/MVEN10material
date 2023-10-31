@@ -512,11 +512,11 @@ This means that the assessment is conclusive when the experts are at least 90% c
 
 1) Subtract the probability threshold from 100% to set an upper bound for the the sum of the lost probabilities. 
 
-E.g. $100\% - 90\% = 80\%$
+E.g. $100\% - 90\% = 10\%$
 
 2) Divide this into two parts, one for exposure and one for hazard. 
 
-E.g. $5\%$ and $15\%$
+E.g. $5\%$ and $5\%$
 
 3) Subtract the lost probability for exposure from 100, to set the probability required for a conservative estimate of a High Exposure.
 
@@ -528,11 +528,11 @@ E.g. $P(HE < x) = 95\%$
 
 5) Subtract the lost probability for hazard from 100, to set the probability required for a conservative estimate of the Reference Point.
 
-E.g. $100\% - 15\% = 85\%$
+E.g. $100\% - 5\% = 95\%$
 
-6) Elicit a conservative estimate of the Reference Point from the toxicology experts (asking them to consider the identified sources of uncertainty for the hazard assessment).
+6) Elicit a conservative estimate of the Reference Point (or RP/UF) from the toxicology experts (asking them to consider the identified sources of uncertainty for the hazard assessment).
 
-E.g. $P(\frac{RP}{UF} < y) = 85\%$
+E.g. $P(\frac{RP}{UF} < y) = 95\%$
 
 7) Divide the conservative estimate for the exposure with the conservative estimate for the hazard
 
