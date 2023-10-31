@@ -378,7 +378,7 @@ ggplot(data.frame(x=df$x,y=df$y),aes(x=x, y=y)) +
   ggtitle("Uncertainty in MOE", subtitle=paste0("P(MOE>1)=",round(mean(rp/he>1)*100),"%"))
 ```
 
-In my analysis, the distribution for MOE looks weird. The reason is that the probability distribution for exposure generates values that are zero or close to zero, and when we divide by that the MOE is extremly large. 
+In my analysis, the distribution for MOE looks weird. The reason is that the probability distribution for exposure generates values that are zero or close to zero, and when we divide by that the MOE is extremely large. 
 
 Uncertainty in the ratio HE over RP (i.e. 1/MOE) offers a better visualisation of the generated distribution. 
 
