@@ -212,7 +212,7 @@ $$P(\frac{HE}{RP} < `r round(heu/bmdl,2)`) \geq 85\%$$
 
 (@) Go through the calculations for the lost probability rule and try to understand what it does. 
 
-Unfortunately, this result is not enough to reach a conclusion whether a High Exposure is below the Reference Point (i.e. that the MOE is greater than `r th`). See Post scriptum 3 for how the refined option with probability bounds can be designed to cosnider what level of certainty that is required. 
+Unfortunately, this result is not enough to reach a conclusion whether a High Exposure is below the Reference Point (i.e. that the MOE is greater than `r th`). See Post scriptum 3 for how the refined option with probability bounds can be designed to consider what level of certainty that is required. 
 
 Therefore we move on to a refined option for uncertainty analysis with probability distributions.  
 

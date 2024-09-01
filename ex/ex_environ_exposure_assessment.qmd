@@ -1,5 +1,5 @@
 ---
-title: "Exercise 9. Environmental exposure assessment"
+title: "Exercise Environmental exposure assessment"
 subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Ullrika Sahlin"
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Exercise 11. Benchmark Dose Modelling"
+title: "Exercise Benchmark Dose Modelling"
 subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Ullrika Sahlin"
 ---

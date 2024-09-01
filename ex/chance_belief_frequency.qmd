@@ -159,7 +159,7 @@ The more extreme event, i.e. very low or high probability of occurring, the more
 Be very skeptical to estimates of probabilities that are either 0 and 1, when the event is possible to occur.
 :::
 
-### Belief
+### Belief (Personal probability)
 
 Take one of the thumbtacks provided in the exercise and a cup. Put the thumbtack in the cup, shake and place the cup upside down on a table without revealing the outcome.
 

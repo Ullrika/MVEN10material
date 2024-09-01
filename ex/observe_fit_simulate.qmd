@@ -48,115 +48,115 @@ Write a report using a qmd document and upload it on the assignment in canvas. I
 
 (@) Choose a data set collected in the previous exercise. You can continue with the one you worked with before or take another one. Download the data and upload it in your project in the folder named **data**
 
-```{r}
-#| echo: false
-downloadthis::download_file(
-  path = "../files/ex7_blocks1.xlsx",
-  button_label = "lengths of blocks 1",
-  button_type = "info",
-  has_icon = TRUE,
-  icon = "fa fa-save",
-  self_contained = FALSE
-)
-```
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- downloadthis::download_file( -->
+<!--   path = "../files/ex7_blocks1.xlsx", -->
+<!--   button_label = "lengths of blocks 1", -->
+<!--   button_type = "info", -->
+<!--   has_icon = TRUE, -->
+<!--   icon = "fa fa-save", -->
+<!--   self_contained = FALSE -->
+<!-- ) -->
+<!-- ``` -->
 
-```{r}
-#| echo: false
-downloadthis::download_file(
-  path = "../files/ex7_blocks2.xlsx",
-  button_label = "lengths of blocks 2",
-  button_type = "info",
-  has_icon = TRUE,
-  icon = "fa fa-save",
-  self_contained = FALSE
-)
-```
-
-
-```{r}
-#| echo: false
-downloadthis::download_file(
-  path = "../files/ex7_weight.xlsx",
-  button_label = "weights of apples",
-  button_type = "info",
-  has_icon = TRUE,
-  icon = "fa fa-save",
-  self_contained = FALSE
-)
-```
-
-```{r}
-#| echo: false
-downloadthis::download_file(
-  path = "../files/ex7_timecars.xlsx",
-  button_label = "time betwen cars",
-  button_type = "info",
-  has_icon = TRUE,
-  icon = "fa fa-save",
-  self_contained = FALSE
-)
-```
-
-```{r}
-#| echo: false
-downloadthis::download_file(
-  path = "../files/ex7_cars1.xlsx",
-  button_label = "cars passing 1",
-  button_type = "info",
-  has_icon = TRUE,
-  icon = "fa fa-save",
-  self_contained = FALSE
-)
-```
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- downloadthis::download_file( -->
+<!--   path = "../files/ex7_blocks2.xlsx", -->
+<!--   button_label = "lengths of blocks 2", -->
+<!--   button_type = "info", -->
+<!--   has_icon = TRUE, -->
+<!--   icon = "fa fa-save", -->
+<!--   self_contained = FALSE -->
+<!-- ) -->
+<!-- ``` -->
 
 
-```{r}
-#| echo: false
-downloadthis::download_file(
-  path = "../files/ex7_cars2.xlsx",
-  button_label = "cars passing 2",
-  button_type = "info",
-  has_icon = TRUE,
-  icon = "fa fa-save",
-  self_contained = FALSE
-)
-```
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- downloadthis::download_file( -->
+<!--   path = "../files/ex7_weight.xlsx", -->
+<!--   button_label = "weights of apples", -->
+<!--   button_type = "info", -->
+<!--   has_icon = TRUE, -->
+<!--   icon = "fa fa-save", -->
+<!--   self_contained = FALSE -->
+<!-- ) -->
+<!-- ``` -->
 
-```{r}
-#| echo: false
-downloadthis::download_file(
-  path = "../files/ex7_cars3.xlsx",
-  button_label = "cars passing 3",
-  button_type = "info",
-  has_icon = TRUE,
-  icon = "fa fa-save",
-  self_contained = FALSE
-)
-```
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- downloadthis::download_file( -->
+<!--   path = "../files/ex7_timecars.xlsx", -->
+<!--   button_label = "time betwen cars", -->
+<!--   button_type = "info", -->
+<!--   has_icon = TRUE, -->
+<!--   icon = "fa fa-save", -->
+<!--   self_contained = FALSE -->
+<!-- ) -->
+<!-- ``` -->
 
-```{r}
-#| echo: false
-downloadthis::download_file(
-  path = "../files/ex7_cars4.xlsx",
-  button_label = "cars passing 4",
-  button_type = "info",
-  has_icon = TRUE,
-  icon = "fa fa-save",
-  self_contained = FALSE
-)
-```
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- downloadthis::download_file( -->
+<!--   path = "../files/ex7_cars1.xlsx", -->
+<!--   button_label = "cars passing 1", -->
+<!--   button_type = "info", -->
+<!--   has_icon = TRUE, -->
+<!--   icon = "fa fa-save", -->
+<!--   self_contained = FALSE -->
+<!-- ) -->
+<!-- ``` -->
 
-```{r}
-#| echo: false
-downloadthis::download_file(
-  path = "../files/ex7_cars5.xlsx",
-  button_label = "cars passing 5",
-  button_type = "info",
-  has_icon = TRUE,
-  icon = "fa fa-save",
-  self_contained = FALSE
-)
-```
+
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- downloadthis::download_file( -->
+<!--   path = "../files/ex7_cars2.xlsx", -->
+<!--   button_label = "cars passing 2", -->
+<!--   button_type = "info", -->
+<!--   has_icon = TRUE, -->
+<!--   icon = "fa fa-save", -->
+<!--   self_contained = FALSE -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- downloadthis::download_file( -->
+<!--   path = "../files/ex7_cars3.xlsx", -->
+<!--   button_label = "cars passing 3", -->
+<!--   button_type = "info", -->
+<!--   has_icon = TRUE, -->
+<!--   icon = "fa fa-save", -->
+<!--   self_contained = FALSE -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- downloadthis::download_file( -->
+<!--   path = "../files/ex7_cars4.xlsx", -->
+<!--   button_label = "cars passing 4", -->
+<!--   button_type = "info", -->
+<!--   has_icon = TRUE, -->
+<!--   icon = "fa fa-save", -->
+<!--   self_contained = FALSE -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- downloadthis::download_file( -->
+<!--   path = "../files/ex7_cars5.xlsx", -->
+<!--   button_label = "cars passing 5", -->
+<!--   button_type = "info", -->
+<!--   has_icon = TRUE, -->
+<!--   icon = "fa fa-save", -->
+<!--   self_contained = FALSE -->
+<!-- ) -->
+<!-- ``` -->
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Exercise 15. Hazard assessment using Species Sensitivity Distributions"
+title: "Exercise Hazard assessment using Species Sensitivity Distributions"
 subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Ullrika Sahlin"
 ---
@@ -49,16 +49,26 @@ Write a report using a quarto document and upload it on the assignment in canvas
 
 - Use the following information in the YAML (i.e. the top information in a .qmd document)
 
-title: "Exercise 15. Hazard assessment using Species Sensitivity Distributions"
+title: "Hazard assessment using Species Sensitivity Distributions"
+
 subtitle: "Report"
+
 author: "Your name"
+
 date: today
+
 format: 
+
   html:
+
     toc: true
+
     code-fold: true
+
     message: false
+
     warning: false
+
     embed-resources: true
 
 - You will explore the SSD approach using an app. Note that it is possible to get the full R-code for the SSD modelling. You can use this R-code to generate your report. 

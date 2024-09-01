@@ -1,5 +1,5 @@
 ---
-title: "Exercise 12. Daily intake equation"
+title: "Exercise Daily intake equation"
 subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Ullrika Sahlin"
 ---

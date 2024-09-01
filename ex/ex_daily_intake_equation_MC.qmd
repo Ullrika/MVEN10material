@@ -1,5 +1,5 @@
 ---
-title: "Exercise 13. Daily intake equation - solutions for Monte Carlo simulations"
+title: "Exercise Daily intake equation - solutions for Monte Carlo simulations"
 subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Ullrika Sahlin"
 ---
@@ -7,7 +7,7 @@ author: "Ullrika Sahlin"
 
 ## Problem
 
-In excercise 12 you got the task to suggest how to set up (implement) a Monte Carlo simulation for the dose equation provided in chapter 10.8.1. 
+In this exercise you got the task to suggest how to set up (implement) a Monte Carlo simulation for the dose equation provided in chapter 10.8.1. 
 
 $$Dose = \frac{C \cdot IR \cdot EF}{bw}$$
 where 

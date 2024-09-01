@@ -1,5 +1,5 @@
 ---
-title: "Exercise 20. Exposure assessment using a model for bioaccumulation"
+title: "Exercise. Exposure assessment using a model for bioaccumulation"
 subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Ullrika Sahlin"
 ---
@@ -116,8 +116,8 @@ Uncertainty in parameters are specified to be
 
 |Parameter| Probability distribution|
 |---------|-------------------------|
-|$\alpha$| N(3,0.1)                   |
-|$\beta$ |U(0.1,0.2)                |
+|$\alpha$ | N(3,0.1)                |
+|$\beta$  |U(0.1,0.2)               |
 
 We set up a Monte Carlo simulation sampling from the parameter distributions and propagating this uncertainty to the quantity of interest for a given value on the input variable $z$. Here we set $z = 1$.
 
