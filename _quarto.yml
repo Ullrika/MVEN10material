@@ -13,6 +13,9 @@ website:
         - text: "Exercise Uncertainty"
           file: ex/expressing_uncertainty.qmd
           target: "_blank"
+        - text: "Useful functions in Excel"
+          file: ex/useful_functions.qmd
+          target: "_blank"
       - section: "Sept 9"
         contents:
         - text: "Exercise Probability"
@@ -20,9 +23,6 @@ website:
           target: "_blank"
         - text: "Intro to Quarto and R"
           file: ex/introduction_to_quarto_and_R.qmd
-          target: "_blank"
-        - text: "Useful functions in Excel"
-          file: ex/useful_functions.qmd
           target: "_blank"
         - text: "Useful functions in R"
           file: ex/useful_functions_with_R.qmd
@@ -52,7 +52,10 @@ website:
       - section: "Sept 23"
         contents:
         - text: "Exercise Benchmark Dose Modelling"
-          file: ex/ex_benchmark_dose_modelling.qmd
+          file: ex/ex_benchmark_dose_modelling_zz.qmd
+          target: "_blank"
+        - text: "Exercise Causal inference"
+          file: ex/ex_causal_inference.qmd
           target: "_blank"
       - section: "Sept 30"
         contents:
