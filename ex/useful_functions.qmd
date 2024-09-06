@@ -16,7 +16,9 @@ There are several commercial add-on packages designed for specific purposes. One
 
 We are not teaching using @RISK at this course, but you are welcome to download a free demo and try it. 
 
-The purpose with this lecture is to refresh some functions in Excel that might be useful for the course. 
+Another example is the [Monte Carlo Risk Assessment platform](https://mcra.rivm.nl/mcra/#/) that has been developed by several projects and is accepted by EFSA for use in assessment. 
+
+The purpose with this exercise is to refresh some functions in Excel that might be useful for the course. 
 
 We will later show how to do this in R
 
