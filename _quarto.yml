@@ -33,18 +33,18 @@ website:
       - section: "Sept 13"
         contents:
         - text: "Exercise Exposure assessment"
-          file: ex/ex_environ_exposure_assessment.qmd
+          #file: ex/ex_environ_exposure_assessment.qmd
           target: "_blank"
         - text: "Exercise Exposure databases"
-          file: ex/ex_exposure_assessment_databases.qmd
+          #file: ex/ex_exposure_assessment_databases.qmd
           target: "_blank"
       - section: "Sept 16"
         contents:
         - text: "Exercise Hazard assessment"
-          file: ex/ex_species_sensitivity_distribution.qmd
+          #file: ex/ex_species_sensitivity_distribution.qmd
           target: "_blank"
         - text: "Exercise Observe, fit model and simulate"
-          file: ex/observe_fit_simulate.qmd
+          #file: ex/observe_fit_simulate.qmd
           target: "_blank"
       - section: "Sept 18"
         contents:
@@ -52,18 +52,18 @@ website:
       - section: "Sept 23"
         contents:
         - text: "Exercise Benchmark Dose Modelling"
-          file: ex/ex_benchmark_dose_modelling_zz.qmd
+          #file: ex/ex_benchmark_dose_modelling_zz.qmd
           target: "_blank"
         - text: "Exercise Causal inference"
-          file: ex/ex_causal_inference.qmd
+          #file: ex/ex_causal_inference.qmd
           target: "_blank"
       - section: "Sept 30"
         contents:
         - text: "Exercise Uncertainty Interval analysis"
-          file: ex/ex_daily_intake_equation.qmd
+          #file: ex/ex_daily_intake_equation.qmd
           target: "_blank"
         - text: "Exercise Uncertainty Monte Carlo simulation"
-          file: ex/ex_daily_intake_equation_MC.qmd
+          #file: ex/ex_daily_intake_equation_MC.qmd
           target: "_blank"
       - section: "Oct 1"
         contents:
@@ -72,15 +72,15 @@ website:
       - section: "Oct 2"
         contents:
         - text: "Exposure assessment using a model for bioaccumulation"
-          file: ex/ex_bioaccumulation.qmd
+          #file: ex/ex_bioaccumulation.qmd
           target: "_blank"
         - text: "Exercise Risk classification"    
-          file: ex/risk_classification_ROC.qmd
+          #file: ex/risk_classification_ROC.qmd
           target: "_blank"
       - section: "Oct 7"
         contents:  
         - text: "Exercise Expert Elicitation"
-          file: ex/expert_judgement.qmd
+          #file: ex/expert_judgement.qmd
           target: "_blank"
 #        - text: "Wisdom of Crowds"
 #          file: ex/wisdom_of_crowds.qmd

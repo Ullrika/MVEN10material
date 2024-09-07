@@ -222,7 +222,7 @@ RAND()*(6-1)+1
 
 ### Functions in R
 
-You can find a reproduction of the calculations, visualisations and simulations using R. Look at them before doing the exercises on Sept 6th.
+You can find a reproduction of the calculations, visualisations and simulations using R. 
 
 [Useful functions reproduced using R]((../ex/useful_functions_with_R.qmd))
 
