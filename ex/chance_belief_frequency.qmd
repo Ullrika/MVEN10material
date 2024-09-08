@@ -8,7 +8,7 @@ editor: visual
 
 ## Exercise overview
 
--   Work in groups of 4-5
+-   Work in groups of 3-4
 
 ### Background
 

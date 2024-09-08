@@ -8,7 +8,7 @@ editor: visual
 
 ## Exercise overview
 
--   Work in groups of 2-4
+-   Work in groups of 2-3
 
 ### Background
 
@@ -46,27 +46,23 @@ There is no need to make the report look fancy, the important thing is that you 
 
 ## Collect observations
 
-Collect 20 observations from one of these alternatives:
+Collect 20 observations from the alternative assigned to your group, which can e.g. be:
 
--   Measure the length of wooden bricks in the box placed in the lecture room.
+-   Measure the distance between the cutted edges of randomly chosen wooden bricks in the box placed in the lecture room.
 
 -   Weight fallen apples. There are lots around the Ecology building.
 
--   Count the number of cars passing in one direction during 30 seconds intervals. Do it on Tunavägen by the bridge over the tram.
+-   Count the number of cars passing in one direction during 30 seconds intervals. Do it on Tornavägen by the bridge over the tram.
 
--   Same as above, but measure instead the time between cars passing.
+-   Same as above, but measure instead the time between cars passing in one direction until you have 20 cars.
 
--   Something you suggest yourself, as long as it is discrete or continuous data. Check if OK with Ullrika first. Send her an email.
-
-Open a new spreadsheet and call it "ex7_yournames.xlsx", where "yournames" is altered to your names.
+Open a new spreadsheet and call it "ex_obs_yournames.xlsx", where "yournames" is altered to your names.
 
 Call the first sheet **metadata** and the second sheet one **data**.
 
 Feed in the observations in the data sheet. Give them a name on the top of the column. I call mine "obs".
 
 In the metadata sheet, add information on how and when data was collected and by whom. If the data is discrete or continuous. If applicable, what unit used. Any other relevant information.
-
-Post the spreadsheet on the [discussion forum for exercises](https://canvas.education.lu.se/courses/23481/discussion_topics/331809).
 
 ## Descriptive statistics
 
@@ -78,7 +74,7 @@ The function read_excel directs to the Excel file and which sheet to read from.
 
 ```{r}
 library(readxl)
-df = read_excel(path="../files/ex7_yournames.xlsx",sheet="data")
+df = read_excel(path="../files/ex_obs_yournames.xlsx",sheet="data")
 df
 ```
 

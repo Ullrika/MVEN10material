@@ -381,7 +381,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exercise-overview" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-overview">Exercise overview</h2>
 <ul>
-<li>Work in groups of 2-4</li>
+<li>Work in groups of 2-3</li>
 </ul>
 <section id="background" class="level3">
 <h3 class="anchored" data-anchor-id="background">Background</h3>
@@ -417,19 +417,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="collect-observations" class="level2">
 <h2 class="anchored" data-anchor-id="collect-observations">Collect observations</h2>
-<p>Collect 20 observations from one of these alternatives:</p>
+<p>Collect 20 observations from the alternative assigned to your group, which can e.g.&nbsp;be:</p>
 <ul>
-<li><p>Measure the length of wooden bricks in the box placed in the lecture room.</p></li>
+<li><p>Measure the distance between the cutted edges of randomly chosen wooden bricks in the box placed in the lecture room.</p></li>
 <li><p>Weight fallen apples. There are lots around the Ecology building.</p></li>
-<li><p>Count the number of cars passing in one direction during 30 seconds intervals. Do it on Tunavägen by the bridge over the tram.</p></li>
-<li><p>Same as above, but measure instead the time between cars passing.</p></li>
-<li><p>Something you suggest yourself, as long as it is discrete or continuous data. Check if OK with Ullrika first. Send her an email.</p></li>
+<li><p>Count the number of cars passing in one direction during 30 seconds intervals. Do it on Tornavägen by the bridge over the tram.</p></li>
+<li><p>Same as above, but measure instead the time between cars passing in one direction until you have 20 cars.</p></li>
 </ul>
-<p>Open a new spreadsheet and call it “ex7_yournames.xlsx”, where “yournames” is altered to your names.</p>
+<p>Open a new spreadsheet and call it “ex_obs_yournames.xlsx”, where “yournames” is altered to your names.</p>
 <p>Call the first sheet <strong>metadata</strong> and the second sheet one <strong>data</strong>.</p>
 <p>Feed in the observations in the data sheet. Give them a name on the top of the column. I call mine “obs”.</p>
 <p>In the metadata sheet, add information on how and when data was collected and by whom. If the data is discrete or continuous. If applicable, what unit used. Any other relevant information.</p>
-<p>Post the spreadsheet on the <a href="https://canvas.education.lu.se/courses/23481/discussion_topics/331809">discussion forum for exercises</a>.</p>
 </section>
 <section id="descriptive-statistics" class="level2">
 <h2 class="anchored" data-anchor-id="descriptive-statistics">Descriptive statistics</h2>
@@ -438,7 +436,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The function read_excel directs to the Excel file and which sheet to read from.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="at">path=</span><span class="st">"../files/ex7_yournames.xlsx"</span>,<span class="at">sheet=</span><span class="st">"data"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="at">path=</span><span class="st">"../files/ex_obs_yournames.xlsx"</span>,<span class="at">sheet=</span><span class="st">"data"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 19 × 1
