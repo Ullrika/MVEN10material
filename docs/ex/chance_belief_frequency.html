@@ -60,9 +60,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <script src="../site_libs/font-awesome-5.13.0/js/script.js"></script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -422,22 +419,7 @@ The basic rules of probability
 <li><p>Repeat N=5 times</p></li>
 </ul>
 <p>Assign one student to record the outcomes in this frequency tree (replace N and # with numbers).</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
-  A("N") --&gt;|heads|B("#")
-  A("N") --&gt;|tails|C("#")
-  B("#") --&gt;|1 to 5|D("#")
-  B("#") --&gt;|six|E("#")
-  C("#") --&gt;|1 to 5|F("#")
-  C("#") --&gt;|six|G("#")
-</pre>
-</div>
-</div>
-</div>
-</div>
+<p><img src="../img/flowchart.png" class="img-fluid"> <!-- ```{mermaid} --> <!-- flowchart LR --> <!--   A("N") -->|heads|B(“#”) –&gt; <!--   A("N") -->|tails|C(“#”) –&gt; <!--   B("#") -->|1 to 5|D(“#”) –&gt; <!--   B("#") -->|six|E(“#”) –&gt; <!--   C("#") -->|1 to 5|F(“#”) –&gt; <!--   C("#") -->|six|G(“#”) –&gt; <!-- ``` --></p>
 <p>Answer the following questions:</p>
 <ul>
 <li>What is the observed frequency of the event “heads followed by a six”?</li>
