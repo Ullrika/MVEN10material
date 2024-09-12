@@ -68,11 +68,11 @@ The US EPA [Exposure factors handbook](https://www.epa.gov/expobox/about-exposur
 
 Be prepared to report back. 
 
-## Dietary Exposure (DietEx) tool
+<!-- ## Dietary Exposure (DietEx) tool -->
 
-The Dietary Exposure [DietEx tool](https://www.efsa.europa.eu/en/science/tools-and-resources/dietex) is a user-friendly tool for estimating chronic dietary exposure to substances present in food (e.g. intentionally added or naturally present chemicals, contaminants, proteins, novel food ingredients).
+<!-- The Dietary Exposure [DietEx tool](https://www.efsa.europa.eu/en/science/tools-and-resources/dietex) is a user-friendly tool for estimating chronic dietary exposure to substances present in food (e.g. intentionally added or naturally present chemicals, contaminants, proteins, novel food ingredients). -->
 
-The DietEx tool is currently unavailable due to ongoing validation by EFSA. So we skip this.  
+<!-- The DietEx tool is currently unavailable due to ongoing validation by EFSA. So we skip this.   -->
 
 ## The EFSA Comprehensive European Food Consumption Database
 

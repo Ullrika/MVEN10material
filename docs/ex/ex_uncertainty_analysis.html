@@ -205,11 +205,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">Exercise Exposure assessment</span>
-  </li>
-          <li class="sidebar-item">
- <span class="menu-text">Exercise Exposure databases</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../ex/ex_exposure_assessment_databases.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
+ <span class="menu-text">Exercise Exposure databases</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -632,8 +632,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.23</span> <span class="sc">*</span> <span class="fu">rbeta</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">shape1 =</span> <span class="fl">3.15</span>, <span class="at">shape2 =</span> <span class="fl">1.92</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.18340256 0.20885596 0.12122989 0.12270689 0.20159444 0.05938052
- [7] 0.13644204 0.21971918 0.14850278 0.19513619</code></pre>
+<pre><code> [1] 0.12298882 0.05212738 0.16834334 0.06929078 0.16618729 0.12047618
+ [7] 0.18891293 0.16301654 0.14725907 0.18892809</code></pre>
 </div>
 </div>
 <p>This beta-distribution is defined as</p>
@@ -706,7 +706,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="ex_uncertainty_analysis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>The calculated probability that the MOE is above 1 is 30 %.</p>
+<p>The calculated probability that the MOE is above 1 is 31 %.</p>
 <ol start="8" class="example" type="1">
 <li>Calculate the proportion of random samples in your Monte Carlo simulation that corresponds to a MOE &gt; 1.</li>
 </ol>
@@ -750,7 +750,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="uncertainty-in-the-conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="uncertainty-in-the-conclusion">Uncertainty in the conclusion</h2>
-<p>In my analysis, the attempts to arrive at a high certainty that the MOE is acceptable (i.e.&nbsp;above 1) has failed. This is because the level of certainty for the outcome of interest is 30% which is not in the region of practical certainty (i.e.&nbsp;&lt;10% or &gt;90%).</p>
+<p>In my analysis, the attempts to arrive at a high certainty that the MOE is acceptable (i.e.&nbsp;above 1) has failed. This is because the level of certainty for the outcome of interest is 31% which is not in the region of practical certainty (i.e.&nbsp;&lt;10% or &gt;90%).</p>
 <table class="table">
 <thead>
 <tr class="header">
