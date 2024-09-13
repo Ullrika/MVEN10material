@@ -1,5 +1,5 @@
 ---
-title: "Exercise 10. Exposure assessment from databases"
+title: "Exercise Exposure assessment from databases"
 subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Ullrika Sahlin"
 ---
