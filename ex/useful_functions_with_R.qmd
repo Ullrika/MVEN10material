@@ -77,7 +77,7 @@ hist(x)
 #| message: false
  
 df %>% 
-  ggplot(aes(x=x))+
+  ggplot(aes(x=radius_mean))+
   geom_histogram()
 ```
 
@@ -85,7 +85,7 @@ df %>%
 #| message: false
  
 df %>% 
-  ggplot(aes(x=x))+
+  ggplot(aes(x=radius_mean))+
   geom_histogram(binwidth = 2.5)
 ```
 
@@ -93,7 +93,7 @@ df %>%
 #| message: false
  
 df %>% 
-  ggplot(aes(x=x))+
+  ggplot(aes(x=radius_mean))+
   geom_density()
 ```
 
