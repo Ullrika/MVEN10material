@@ -16,7 +16,7 @@ Data from studies and surveys have been collected into data bases that are avail
 
 ### Purpose
 
-- To explore some data bases to support exposure assessment 
+- To explore some databases to support exposure assessment 
 
 - To discuss how to derive exposure estimates 
 

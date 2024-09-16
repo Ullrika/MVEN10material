@@ -33,9 +33,9 @@ Sample size, or rather the number of independent observations, should be large e
 
 ### Content
 
-- Data set to choose between
+- Data sets collected by the students
 
-- Functions to fit a model to data
+- Functions to fit a model to data and evaluate goodness of fit
 
 
 ### Duration
@@ -48,19 +48,19 @@ Write a report using a qmd document and upload it on the assignment in canvas. I
 
 ## Choose data set
 
-(@) Choose a data set collected in the previous exercise. You can continue with the one you worked with before or take another one. Download the data and upload it in your project in the folder named **data**
+(@) Download the fill with all data sets and upload it in your project in the folder named **data**
 
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- downloadthis::download_file( -->
-<!--   path = "../files/ex7_blocks1.xlsx", -->
-<!--   button_label = "lengths of blocks 1", -->
-<!--   button_type = "info", -->
-<!--   has_icon = TRUE, -->
-<!--   icon = "fa fa-save", -->
-<!--   self_contained = FALSE -->
-<!-- ) -->
-<!-- ``` -->
+```{r}
+#| echo: false
+downloadthis::download_file(
+  path = "../data/ex_obs_all.xlsx",
+  button_label = "lengths of blocks 1",
+  button_type = "info",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+```
 
 <!-- ```{r} -->
 <!-- #| echo: false -->
@@ -160,6 +160,7 @@ Write a report using a qmd document and upload it on the assignment in canvas. I
 <!-- ) -->
 <!-- ``` -->
 
+(@) Open the excel-file and see what it contains. 
 
 
 (@) Load useful libraries for reading and plotting data
@@ -173,42 +174,31 @@ library(dplyr)
 library(ggplot2)
 ```
 
-(@) View meta-data in R (replace *xxx* with the missing part in the chosen filename) and decide if the data is continuous or discrete. 
-
-```{r}
-#| eval: false
-#| echo: false
-
-fnam <- c("ex7_blocks1.xlsx","ex7_blocks2.xlsx","ex7_cars1.xlsx",
-          "ex7_cars2.xlsx","ex7_cars3.xlsx","ex7_cars4.xlsx",
-          "ex7_cars5.xlsx","ex7_weight.xlsx")
-```
-
-```{r}
-#| eval: false
-
-read_excel(path="data/ex7_xxx.xlsx",sheet="metadata")
-```
-
-```{r}
-#| echo: false
-read_excel(path=paste0("../data/ex7_cont.xlsx"),sheet="metadata")
-```
-
 (@) Read in data into a data frame named **df**.
-
-The data will be stored in the variable **obs**
 
 ```{r}
 #| eval: false
 df <- read_excel(path="data/ex7_xxx.xlsx",sheet="data")
+```
+
+You are to use R to fit a probability distribution to the observations from all four groups. 
+
+(@) Choose one of the columns to start with.
+
+(@) Decide if the data you have selected is continuous or discrete. 
+
+Here I refer to the column name for the chosen observations as **obs**
+
+```{r}
+#| eval: false
 df$obs
 ```
 
 
 ```{r}
 #| echo: false
-df <- read_excel(path=paste0("../data/ex7_cont.xlsx"),sheet="data")
+df <- read_excel(path=paste0("../data/ex_obs_all.xlsx"),sheet="data")
+df$obs <- rlnorm(40,3,2)
 ```
 
 
@@ -219,7 +209,7 @@ Change *binwidth* to modify the smoothness of the histogram.
 ```{r}
 
 ggplot(df,aes(x=obs))+
-  geom_histogram(binwidth=2)
+  geom_histogram()
 ```
 
 ## Find a suitable model for data
@@ -259,7 +249,7 @@ We will use a *normal*, *lognormal* and an *exponential* distribution as candida
 - Fit a normal distribution to data using the function *fitdist*
 
 :::{.callout-tip}
-Note that you can type a question mark in front of a function in the Console to view the help
+Note that you can type a question mark in front of a function in the Console to view the help for the function
 :::
 
 ```{r}
@@ -314,9 +304,9 @@ fitexp$aic
 
 ```{r}
 #| echo: false
-df <- read_excel(path=paste0("../data/ex7_disc.xlsx"),sheet="data")
-
+df$obs <- rbinom(40,10,0.2)
 ```
+
 
 
 We will use *negative binomial*, *binomial*  and *poisson* as candidate distributions for the discrete quantity.

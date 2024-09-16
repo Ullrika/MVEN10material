@@ -412,8 +412,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="content" class="level3">
 <h3 class="anchored" data-anchor-id="content">Content</h3>
 <ul>
-<li><p>Data set to choose between</p></li>
-<li><p>Functions to fit a model to data</p></li>
+<li><p>Data sets collected by the students</p></li>
+<li><p>Functions to fit a model to data and evaluate goodness of fit</p></li>
 </ul>
 </section>
 <section id="duration" class="level3">
@@ -428,19 +428,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="choose-data-set" class="level2">
 <h2 class="anchored" data-anchor-id="choose-data-set">Choose data set</h2>
 <ol class="example" type="1">
-<li>Choose a data set collected in the previous exercise. You can continue with the one you worked with before or take another one. Download the data and upload it in your project in the folder named <strong>data</strong></li>
+<li>Download the fill with all data sets and upload it in your project in the folder named <strong>data</strong></li>
 </ol>
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- downloadthis::download_file( -->
-<!--   path = "../files/ex7_blocks1.xlsx", -->
-<!--   button_label = "lengths of blocks 1", -->
-<!--   button_type = "info", -->
-<!--   has_icon = TRUE, -->
-<!--   icon = "fa fa-save", -->
-<!--   self_contained = FALSE -->
-<!-- ) -->
-<!-- ``` -->
+<div class="cell">
+<div class="cell-output-display">
+<button class="btn btn-info" onclick="fetch('data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,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').then(res => res.blob()).then(blob => {
+      const downloadURL = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.style.display = 'none'; // Hide the link
+      document.body.appendChild(a);
+      a.href = downloadURL;
+      a.download = 'ex_obs_all.xlsx';
+      a.click();
+      window.URL.revokeObjectURL(downloadURL);
+      document.body.removeChild(a);
+      return false;
+    });"><i class="fa fa-save"></i> lengths of blocks 1</button>
+</div>
+</div>
 <!-- ```{r} -->
 <!-- #| echo: false -->
 <!-- downloadthis::download_file( -->
@@ -530,48 +535,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- ) -->
 <!-- ``` -->
 <ol start="2" class="example" type="1">
-<li>Load useful libraries for reading and plotting data</li>
+<li><p>Open the excel-file and see what it contains.</p></li>
+<li><p>Load useful libraries for reading and plotting data</p></li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ol start="3" class="example" type="1">
-<li>View meta-data in R (replace <em>xxx</em> with the missing part in the chosen filename) and decide if the data is continuous or discrete.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_excel</span>(<span class="at">path=</span><span class="st">"data/ex7_xxx.xlsx"</span>,<span class="at">sheet=</span><span class="st">"metadata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5 × 2
-  info          specification   
-  &lt;chr&gt;         &lt;chr&gt;           
-1 collected by: Ullrika         
-2 date:         September       
-3 quantity      quantity made up
-4 data type     continuous      
-5 unit          na              </code></pre>
-</div>
-</div>
 <ol start="4" class="example" type="1">
 <li>Read in data into a data frame named <strong>df</strong>.</li>
 </ol>
-<p>The data will be stored in the variable <strong>obs</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="at">path=</span><span class="st">"data/ex7_xxx.xlsx"</span>,<span class="at">sheet=</span><span class="st">"data"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>obs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="at">path=</span><span class="st">"data/ex7_xxx.xlsx"</span>,<span class="at">sheet=</span><span class="st">"data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>You are to use R to fit a probability distribution to the observations from all four groups.</p>
 <ol start="5" class="example" type="1">
+<li><p>Choose one of the columns to start with.</p></li>
+<li><p>Decide if the data you have selected is continuous or discrete.</p></li>
+</ol>
+<p>Here I refer to the column name for the chosen observations as <strong>obs</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>obs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="7" class="example" type="1">
 <li>Make a histogram of data.</li>
 </ol>
 <p>Change <em>binwidth</em> to modify the smoothness of the histogram.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df,<span class="fu">aes</span>(<span class="at">x=</span>obs))<span class="sc">+</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df,<span class="fu">aes</span>(<span class="at">x=</span>obs))<span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
 <div class="cell-output-display">
-<p><img src="observe_fit_simulate_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="observe_fit_simulate_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -581,14 +579,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <blockquote class="blockquote">
 <p>A distribution that fits well to data AND that seems reasonable for that quantity can be seen as a suitable model to describe variability for the quantity and/or measurement error for observations of the quantity.</p>
 </blockquote>
-<ol start="6" class="example" type="1">
+<ol start="8" class="example" type="1">
 <li>Install the R-package <strong>fitdistrplus</strong>.</li>
 </ol>
 <p>Note that this only needs to be done one time and you can do it in the Console.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"fitdistrplus"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ol start="7" class="example" type="1">
+<ol start="9" class="example" type="1">
 <li>Load the R-package <strong>fitdistrplus</strong></li>
 </ol>
 <div class="cell">
@@ -615,7 +613,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Note that you can type a question mark in front of a function in the Console to view the help</p>
+<p>Note that you can type a question mark in front of a function in the Console to view the help for the function</p>
 </div>
 </div>
 <div class="cell">
@@ -627,7 +625,7 @@ Tip
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitnorm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="observe_fit_simulate_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="observe_fit_simulate_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <ul>
@@ -637,7 +635,7 @@ Tip
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fitlnorm <span class="ot">=</span> <span class="fu">fitdist</span>(df<span class="sc">$</span>obs, <span class="at">distr =</span> <span class="st">"lnorm"</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitlnorm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="observe_fit_simulate_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<p><img src="observe_fit_simulate_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <ul>
@@ -647,7 +645,7 @@ Tip
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fitexp <span class="ot">=</span> <span class="fu">fitdist</span>(df<span class="sc">$</span>obs, <span class="at">distr =</span> <span class="st">"exp"</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitexp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="observe_fit_simulate_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<p><img src="observe_fit_simulate_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>In addition to studying graphs, one can compare a measures of goodness-of-fit.</p>
@@ -657,15 +655,15 @@ Tip
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fitnorm<span class="sc">$</span>aic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 576.1772</code></pre>
+<pre><code>[1] 499.5837</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fitlnorm<span class="sc">$</span>aic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 576.86</code></pre>
+<pre><code>[1] 405.523</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fitexp<span class="sc">$</span>aic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1021.93</code></pre>
+<pre><code>[1] 427.0598</code></pre>
 </div>
 </div>
 </div>
@@ -693,7 +691,7 @@ Tip
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitnbinom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="observe_fit_simulate_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+<p><img src="observe_fit_simulate_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <ul>
@@ -706,7 +704,7 @@ Tip
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitbinom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="observe_fit_simulate_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+<p><img src="observe_fit_simulate_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <ul>
@@ -717,7 +715,7 @@ Tip
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fitpois)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="observe_fit_simulate_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+<p><img src="observe_fit_simulate_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>In addition to studying graphs, one can compare a measures of goodness-of-fit.</p>
@@ -727,21 +725,21 @@ Tip
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>fitnbinom<span class="sc">$</span>aic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 426.7706</code></pre>
+<pre><code>[1] 128.8018</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>fitbinom<span class="sc">$</span>aic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 417.4536</code></pre>
+<pre><code>[1] 127.6455</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>fitpois<span class="sc">$</span>aic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 424.7696</code></pre>
+<pre><code>[1] 126.8017</code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<ol start="8" class="example" type="1">
+<ol start="10" class="example" type="1">
 <li>Choose the best model and justify your decision</li>
 </ol>
 </section>
@@ -750,7 +748,7 @@ Tip
 <h2 class="anchored" data-anchor-id="simulate">Simulate</h2>
 <p>At this point you have a model for a quantity that is either a continuous or a discrete probability distribution.</p>
 <p>Now you are to simulate this model and visualise the results. Simulation is done by generating random numbers from the chosen probability distribution.</p>
-<ol start="9" class="example" type="1">
+<ol start="11" class="example" type="1">
 <li>Sample 10 000 random values from your choice of the best model.</li>
 </ol>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -765,7 +763,7 @@ Tip
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>fitnorm<span class="sc">$</span>estimate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     mean        sd 
-60.319213  4.228923 </code></pre>
+ 74.68262 118.61196 </code></pre>
 </div>
 </div>
 <ul>
@@ -776,8 +774,8 @@ Tip
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(niter,fitnorm<span class="sc">$</span>estimate[<span class="st">"mean"</span>],fitnorm<span class="sc">$</span>estimate[<span class="st">"sd"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 66.80359 57.42491 65.35548 62.56802 53.80169 65.00621 57.71645 68.15229
- [9] 56.15085 54.62982</code></pre>
+<pre><code> [1]   33.33976   32.51222  -14.51698   61.50272 -232.99306  -29.18937
+ [7]  -77.47106  197.51891   28.99764  -44.42557</code></pre>
 </div>
 </div>
 <ul>
@@ -789,7 +787,7 @@ Tip
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>x)) <span class="sc">+</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="observe_fit_simulate_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+<p><img src="observe_fit_simulate_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
@@ -802,7 +800,7 @@ Tip
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>fitpois<span class="sc">$</span>estimate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>lambda 
-     6 </code></pre>
+   1.9 </code></pre>
 </div>
 </div>
 <ul>
@@ -813,7 +811,7 @@ Tip
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rpois</span>(niter,fitpois<span class="sc">$</span>estimate[<span class="st">"lambda"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 11  6  9  6  9  6  2 10  7  6</code></pre>
+<pre><code> [1] 2 1 4 1 3 2 3 1 3 3</code></pre>
 </div>
 </div>
 <ul>
@@ -825,7 +823,7 @@ Tip
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>x)) <span class="sc">+</span></span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="observe_fit_simulate_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
+<p><img src="observe_fit_simulate_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>

@@ -116,8 +116,7 @@ shinyssdtools::run_app()
 library(shinyssdtools)
 ```
 
-(ii) Choose to open the app in the browser. 
-
+(ii) Choose to open the app in the browser.
 
 Stop the shiny app by closing the webb-browser and click on the STOP-sign in the R-console
 
