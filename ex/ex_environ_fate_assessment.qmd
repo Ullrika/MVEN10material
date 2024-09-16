@@ -41,9 +41,8 @@ r/simplebox)
 
 (@) Who has developed SimpleBox? 
 
-## Assess exposure from emissions of hexachlorobenzene to agricultural soil
+## Assess exposure from emissions of Caffeine to agricultural soil
 
-You will use the version of SimpleBox that comes with the Targeted Risk Assessment tool from ECETOC
 
 (@) Go to the [git-repository for SimpleBox](https://github.com/rivm-syso/SimpleBox) and download the **Spreadsheet xl_version of SimpleBox** (click xl-version and download the file named "SimpleBox4.04_20240405.xlsm"). 
 
