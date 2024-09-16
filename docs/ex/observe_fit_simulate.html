@@ -180,6 +180,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Intro to Quarto and R</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Sept 13</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ex/useful_functions_with_R.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
@@ -196,23 +207,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">Sept 13</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../ex/ex_exposure_assessment_databases.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
- <span class="menu-text">Exercise Exposure databases</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
  <span class="menu-text">Sept 16</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
@@ -221,11 +215,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">Exercise Hazard assessment</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../ex/ex_exposure_assessment_databases.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
+ <span class="menu-text">Exercise Exposure databases</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/ex_environ_fate_assessment.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
+ <span class="menu-text">Exercise Exposure assessment</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
  <span class="menu-text">Exercise Observe, fit model and simulate</span>
   </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/ex_env_hazard_assessment.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
+ <span class="menu-text">Exercise Hazard assessment</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -394,9 +403,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="purpose" class="level3">
 <h3 class="anchored" data-anchor-id="purpose">Purpose</h3>
 <ul>
-<li><p>To find a suitable model (a probability distribution) for variability or measurement errors of a given random sample,</p></li>
-<li><p>inform the model with the random sample, and</p></li>
-<li><p>draw random numbers from the chosen probability distribution</p></li>
+<li><p>To find a suitable probability model (a probability distribution) for variability or measurement errors of a given random sample (repeated observations of he same thing), by</p></li>
+<li><p>Estimating the model parameters using the information in the sample, and</p></li>
+<li><p>Evaluate the goodness of fit of the model, and then</p></li>
+<li><p>draw random numbers from the probability model (a probability distribution)</p></li>
 </ul>
 </section>
 <section id="content" class="level3">
@@ -766,8 +776,8 @@ Tip
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(niter,fitnorm<span class="sc">$</span>estimate[<span class="st">"mean"</span>],fitnorm<span class="sc">$</span>estimate[<span class="st">"sd"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 63.35331 62.59559 63.21637 56.44515 57.66766 62.00238 63.72097 55.56086
- [9] 55.48810 60.73103</code></pre>
+<pre><code> [1] 54.84998 57.79740 63.92047 60.07280 56.59442 61.13107 61.29341 64.14645
+ [9] 63.78509 62.90253</code></pre>
 </div>
 </div>
 <ul>
@@ -803,7 +813,7 @@ Tip
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rpois</span>(niter,fitpois<span class="sc">$</span>estimate[<span class="st">"lambda"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 6 2 6 4 8 5 2 7 6 3</code></pre>
+<pre><code> [1]  2  2  6  2  2  2  7 11  8  9</code></pre>
 </div>
 </div>
 <ul>

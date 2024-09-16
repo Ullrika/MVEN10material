@@ -24,27 +24,27 @@ website:
         - text: "Intro to Quarto and R"
           file: ex/introduction_to_quarto_and_R.qmd
           target: "_blank"
+      - section: "Sept 13"
+        contents:
         - text: "Useful functions in R"
           file: ex/useful_functions_with_R.qmd
           target: "_blank"
         - text: "Exercise Observe and summarise"
           file: ex/observe_summarise.qmd
           target: "_blank"
-      - section: "Sept 13"
+      - section: "Sept 16"
         contents:
-        #- text: "Exercise Exposure assessment"
-          #file: ex/ex_environ_exposure_assessment.qmd
-        #  target: "_blank"
         - text: "Exercise Exposure databases"
           file: ex/ex_exposure_assessment_databases.qmd
           target: "_blank"
-      - section: "Sept 16"
-        contents:
-        - text: "Exercise Hazard assessment"
-          #file: ex/ex_species_sensitivity_distribution.qmd
+        - text: "Exercise Exposure assessment"
+          file: ex/ex_environ_fate_assessment.qmd
           target: "_blank"
         - text: "Exercise Observe, fit model and simulate"
           #file: ex/observe_fit_simulate.qmd
+          target: "_blank"
+        - text: "Exercise Hazard assessment"
+          file: ex/ex_env_hazard_assessment.qmd
           target: "_blank"
       - section: "Sept 18"
         contents:

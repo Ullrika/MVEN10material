@@ -23,11 +23,13 @@ Sample size, or rather the number of independent observations, should be large e
 
 ### Purpose
 
--   To find a suitable model (a probability distribution) for variability or measurement errors of a given random sample, 
+-   To find a suitable probability model (a probability distribution) for variability or measurement errors of a given random sample (repeated observations of he same thing), by 
 
-- inform the model with the random sample, and
+  - Estimating the model parameters using the information in the sample, and
 
-- draw random numbers from the chosen probability distribution
+  - Evaluate the goodness of fit of the model, and then
+
+- draw random numbers from the probability model (a probability distribution)
 
 ### Content
 

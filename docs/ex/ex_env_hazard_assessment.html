@@ -8,7 +8,7 @@
 
 <meta name="author" content="Ullrika Sahlin">
 
-<title>MVEN10 - Chance, belief and frequency</title>
+<title>MVEN10 - Exercise Environmental Hazard assessment and Species Sensitivity Distributions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -62,8 +96,6 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <script src="../site_libs/font-awesome-5.13.0/js/script.js"></script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -77,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ex/chance_belief_frequency.html">Sept 9</a></li><li class="breadcrumb-item"><a href="../ex/chance_belief_frequency.html">Exercise Probability</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ex/ex_exposure_assessment_databases.html">Sept 16</a></li><li class="breadcrumb-item"><a href="../ex/ex_env_hazard_assessment.html">Exercise Hazard assessment</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -136,7 +168,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ex/chance_belief_frequency.html" class="sidebar-item-text sidebar-link active" target="&quot;_blank&quot;">
+  <a href="../ex/chance_belief_frequency.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
  <span class="menu-text">Exercise Probability</span></a>
   </div>
 </li>
@@ -197,7 +229,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ex/ex_env_hazard_assessment.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
+  <a href="../ex/ex_env_hazard_assessment.html" class="sidebar-item-text sidebar-link active" target="&quot;_blank&quot;">
  <span class="menu-text">Exercise Hazard assessment</span></a>
   </div>
 </li>
@@ -318,13 +350,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#reporting" id="toc-reporting" class="nav-link" data-scroll-target="#reporting">Reporting</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
-  <li><a href="#frequency" id="toc-frequency" class="nav-link" data-scroll-target="#frequency">Frequency</a>
-  <ul class="collapse">
-  <li><a href="#expected-frequency" id="toc-expected-frequency" class="nav-link" data-scroll-target="#expected-frequency">Expected frequency</a></li>
-  <li><a href="#chance" id="toc-chance" class="nav-link" data-scroll-target="#chance">Chance</a></li>
-  <li><a href="#relative-frequency" id="toc-relative-frequency" class="nav-link" data-scroll-target="#relative-frequency">Relative frequency</a></li>
-  <li><a href="#belief-personal-probability" id="toc-belief-personal-probability" class="nav-link" data-scroll-target="#belief-personal-probability">Belief (Personal probability)</a></li>
-  </ul></li>
+  <li><a href="#get-species-toxicity-data" id="toc-get-species-toxicity-data" class="nav-link" data-scroll-target="#get-species-toxicity-data">Get species toxicity data</a></li>
+  <li><a href="#hazardous-concentration-with-the-species-sensitivity-distribution-approach" id="toc-hazardous-concentration-with-the-species-sensitivity-distribution-approach" class="nav-link" data-scroll-target="#hazardous-concentration-with-the-species-sensitivity-distribution-approach">Hazardous concentration with the Species Sensitivity Distribution approach</a></li>
+  <li><a href="#hazardous-concentration-without-the-ssd-approach" id="toc-hazardous-concentration-without-the-ssd-approach" class="nav-link" data-scroll-target="#hazardous-concentration-without-the-ssd-approach">Hazardous concentration without the SSD approach</a></li>
+  <li><a href="#discuss" id="toc-discuss" class="nav-link" data-scroll-target="#discuss">Discuss</a></li>
+  <li><a href="#the-larger-species-toxicity-data-set" id="toc-the-larger-species-toxicity-data-set" class="nav-link" data-scroll-target="#the-larger-species-toxicity-data-set">The larger species toxicity data set</a></li>
   </ul>
 </nav>
     </div>
@@ -333,7 +363,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chance, belief and frequency</h1>
+<h1 class="title">Exercise Environmental Hazard assessment and Species Sensitivity Distributions</h1>
 <p class="subtitle lead">MVEN10 Risk Assessment in Environment and Public Health</p>
 </div>
 
@@ -357,227 +387,208 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="exercise-overview" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-overview">Exercise overview</h2>
-<ul>
-<li>Work in groups of 3-4</li>
-</ul>
 <section id="background" class="level3">
 <h3 class="anchored" data-anchor-id="background">Background</h3>
-<p>Probability is a mathematical concept defined basic rules.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="The basic rules of probability">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-The basic rules of probability
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Definition:</strong> The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.</p>
-<p><strong>Complement rule:</strong> P(<em>not</em> A) = 1 - P(A)</p>
-<p><strong>Addition rule:</strong></p>
-<p>for mutually exclusive events A, B: P(A <em>or</em> B) = P(A) + P(B)</p>
-<p>for non-mutually exclusive events A, B: P(A <em>or</em> B) = P(A) + P(B) - P(A <em>and</em> B)</p>
-<p><strong>Multiplication rule:</strong></p>
-<p>for independent events A, B: P(A <em>and</em> B) = P(A) x P(B)</p>
-<p>for dependent events A, B: P(A <em>and</em> B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B</p>
-</div>
-</div>
-<p>There are different ways to interpret and use probability, sometimes within the same assessment. In this exercise you will be exposed to probability as a</p>
-<ul>
-<li><p><strong>Theoretical probability:</strong> The number of outcomes favouring the event, divided by the total number of outcomes, assuming the outcomes are all equally likely.</p></li>
-<li><p><strong>Frequency:</strong> The proportion of times, in the long run of identical circumstances that the event occurs.</p></li>
-<li><p><strong>Subjective probability:</strong> A persons confidence that an event will occur, expressed as a number between 0 and 1.</p></li>
-</ul>
+<p>The Species Sensitivity Distribution methodology is a common way in hazard assessment for setting safe limits on chemical concentrations in freshwater. It usually require experimentally determined NOEC values for a number of species from different taxonomic groups.</p>
+<p>The species sensitivity distribution (SSD) is a statistical approach that is used to estimate either the concentration of a chemical that is hazardous to no more than x% of all species (the HCx) or the proportion of species potentially affected by a given concentration of a chemical.</p>
+<p>The SSD approach follows a three-step procedure:</p>
+<p>First, compile results from separate toxicity tests on a given chemical for various aquatic animal species.</p>
+<p>Second, fit candidate probability distribution(s) to the data.</p>
+<p>Third, use the fitted distribution(s) to infer a concentration that will be protective of a desired proportion of species in a hypothetical aquatic community.</p>
+<p>There are several SSDs tools available for risk assessors.</p>
+<p>If a SSD cannot be applied (which is usually the case), the hazard assessment is performed using assessment factors, where the general principle is to divide the result from a laboratory test by an appropriate assessment factor. The table below is taken from ECHAs dose response guidance, go to the original document to read more about this.</p>
+<p><img src="../img/ssd8.png" class="img-fluid"></p>
 </section>
 <section id="purpose" class="level3">
 <h3 class="anchored" data-anchor-id="purpose">Purpose</h3>
 <ul>
-<li>To understand common interpretations of probability and for what they are used</li>
+<li><p>To apply the SSD approach to find a hazardous concentration</p></li>
+<li><p>To explore one of the many tools for SSD, namely the R-package <strong>ssdtools</strong>, in which the modelling can be done in an user friendly Shiny app</p></li>
+<li><p>To compare with a situation of a SSD with more data, and with a situation of less data and the use of assessment factors</p></li>
 </ul>
 </section>
 <section id="content" class="level3">
 <h3 class="anchored" data-anchor-id="content">Content</h3>
 <ul>
-<li><p>Experiment to illustrate the frequency interpretation of probability</p></li>
-<li><p>Theoretical probability vs Expected frequency</p></li>
-<li><p>Subjective probability</p></li>
+<li>Find hazardous concentration by the SSD approach and the non-SSD appraoch based on species toxicity data for the chemical <strong>metolachlor</strong></li>
 </ul>
 </section>
 <section id="duration" class="level3">
 <h3 class="anchored" data-anchor-id="duration">Duration</h3>
-<p>30 minutes</p>
+<p>45 minutes</p>
 </section>
 <section id="reporting" class="level3">
 <h3 class="anchored" data-anchor-id="reporting">Reporting</h3>
-<p>No reporting required</p>
+<p>Be prepared to report back</p>
+<ul>
+<li>You will explore the SSD approach using an online app. Note that it is possible to get the full R-code for the SSD modelling.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I recommend you copy on the whole code into an R-chunk and then divide the chunk into multiple chunks. This allows you to have better control of the output from each chunk.</p>
+<p>Note that you cannot open the shinyapp in a qmd that is being rendered. An alternative to remove it is to put a # in front of the command</p>
+<p>Sometimes you get messages or warnings when running a code. These might or might not be important. I judge the messages Ive seen on your computer as not important. You can suppress a message or warning by typing #| warning: false and #| message: false in the first row directly after the curly bracket in the R-chunk.</p>
+<p>If you just want to look at your data you can e.g.&nbsp;open it in Excel. When your data is a csv-file, I recommend you open an empty Excel-file, got to Data&gt;Get data&gt;From File&gt;From Text/CSV and follow the instructions.</p>
+</div>
+</div>
 </section>
 <section id="references" class="level3">
 <h3 class="anchored" data-anchor-id="references">References</h3>
-<p>I have used examples and text from the book Teaching probability by Jenny Gage and David Spiegelhalter from 2016. Cambridge University Press.</p>
+<p><a href="https://echa.europa.eu/documents/10162/13632/information_requirements_r10_en.pdf/bb902be7-a503-4ab7-9036-d866b8ddce69">ECHA Guidance on dose response modelling</a></p>
+<p>Fox, D.R., van Dam, R.A., Fisher, R., Batley, G.E., Tillmanns, A.R., Thorley, J., Schwarz, C.J., Spry, D.J. and McTavish, K. (2021), Recent Developments in Species Sensitivity Distribution Modeling. Environ Toxicol Chem, 40: 293-308. <a href="https://doi.org/10.1002/etc.4925">https://doi.org/10.1002/etc.4925</a></p>
+<p>The <strong>shinyssdtools</strong> developed for the British Columbia Ministry of Environment and Climate Change Strategy. <a href="https://github.com/bcgov/shinyssdtools">https://github.com/bcgov/shinyssdtools</a></p>
 </section>
 </section>
-<section id="frequency" class="level2">
-<h2 class="anchored" data-anchor-id="frequency">Frequency</h2>
-<p>The experiment is setup as follows:</p>
-<ul>
-<li><p>Assign one student to flip the symmetric coin of the type Antoninus Pius - Bronze Sestertius - Roman Empire <a href="https://www.random.org/coins/?num=1&amp;cur=40-antique.antonius-pius">using the virtual coin flipper on random.org</a></p></li>
-<li><p>Record if the outcome is <strong>heads</strong> or <strong>tails</strong>.</p></li>
-<li><p>Assign another student to throw a six sided dice <a href="https://www.random.org/dice/?num=1">using the virtual dice roller on random.org</a></p></li>
-<li><p>Record if the outcome is a number in the range <strong>1 to 5</strong> or a <strong>six</strong></p></li>
-<li><p>Repeat N=5 times</p></li>
-</ul>
-<p>Assign one student to record the outcomes in this frequency tree (replace N and # with numbers).</p>
-<p><img src="../img/flowchart.png" class="img-fluid"> <!-- ```{mermaid} --> <!-- flowchart LR --> <!--   A("N") -->|heads|B(“#”) –&gt; <!--   A("N") -->|tails|C(“#”) –&gt; <!--   B("#") -->|1 to 5|D(“#”) –&gt; <!--   B("#") -->|six|E(“#”) –&gt; <!--   C("#") -->|1 to 5|F(“#”) –&gt; <!--   C("#") -->|six|G(“#”) –&gt; <!-- ``` --></p>
-<p>Answer the following questions:</p>
-<ul>
-<li>What is the observed frequency of the event “heads followed by a six”?</li>
-</ul>
-<section id="expected-frequency" class="level3">
-<h3 class="anchored" data-anchor-id="expected-frequency">Expected frequency</h3>
-<ul>
-<li><p>Is this a reliable estimate of the expected frequency? If not, what can one do to make it more reliable?</p></li>
-<li><p>What do you expect the frequency to be if N would be a very large number?</p></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Define the events A = “heads” and B = “six”.</p>
-<p>Specify P(A) and P(B).</p>
-<p>Calculate P(A <em>and</em> B) using the multiplication rule for two independent events.</p>
-<p>Don’t forget to multiply by N to get the expected frequency.</p>
-</div>
-</div>
-<p>Repeat the experiment with N = 100 to verify if estimates of the expected frequencies become more reliable with a larger number of observations.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You can use the prepared spreadsheet in frequency_experiment.xlsx</p>
+<section id="get-species-toxicity-data" class="level2">
+<h2 class="anchored" data-anchor-id="get-species-toxicity-data">Get species toxicity data</h2>
+<p>Download a species toxicity data set.</p>
+<p>This data set consists of cronic EC10 or LOEC values from exposure to the substance <strong>metolachlor</strong> for six different species in an aquatic system. This data is a selection from a bigger data set on 21 species.</p>
 <div class="cell">
 <div class="cell-output-display">
-<button class="btn btn-info" onclick="fetch('data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,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').then(res => res.blob()).then(blob => {
+<button class="btn btn-info" onclick="fetch('data:text/csv;base64,Q29uYyxEdXJhdGlvbixHZW51cyxHcm91cCxMaWZlX3N0YWdlLE5vdGVzLFBoeWx1bSxTcGVjaWVzLFRlc3RfZW5kcG9pbnQsVG94aWNpdHlfbWVhc3VyZQoyMjQsMjEsRGFwaG5pYSxNYWNyb2ludmVydGVicmF0ZSw8MjQgaG91ciBvbGQsTkEsQXJ0aHJvcG9kYSxtYWduYSxZb3VuZyBwZXIgZmVtYWxlLENocm9uaWMgRUMxMAoyNyw0LFVsbmFyaWEsRGlhdG9tLEV4cG9uZW50aWFsIGdyb3d0aCBwaGFzZSxTcGVjaWVzIHRoYXQgb3JpZ2luYXRlZCBmcm9tL2FyZSBkaXN0cmlidXRlZCBpbiBBdXN0cmFsaWEgYW5kL29yIE5ldyBaZWFsYW5kLEJhY2lsbGFyaW9waHl0YSx1bG5hLENobG9yb3BoeWxsLWEgY29udGVudCxDaHJvbmljIEVDMTAKMTA0OCw0LEVuY3lvbmVtYSxEaWF0b20sRXhwb25lbnRpYWwgZ3Jvd3RoIHBoYXNlLFNwZWNpZXMgdGhhdCBvcmlnaW5hdGVkIGZyb20vYXJlIGRpc3RyaWJ1dGVkIGluIEF1c3RyYWxpYSBhbmQvb3IgTmV3IFplYWxhbmQsQmFjaWxsYXJpb3BoeXRhLHNpbGVzaWFjdW0sQ2hsb3JvcGh5bGwtYSBjb250ZW50LENocm9uaWMgRUMxMAo2NTI4LDQsQWNobmFudGhpZGl1bSxEaWF0b20sRXhwb25lbnRpYWwgZ3Jvd3RoIHBoYXNlLFNwZWNpZXMgdGhhdCBvcmlnaW5hdGVkIGZyb20vYXJlIGRpc3RyaWJ1dGVkIGluIEF1c3RyYWxpYSBhbmQvb3IgTmV3IFplYWxhbmQsQmFjaWxsYXJpb3BoeXRhLG1pbnV0aXNzaW11bSxDZWxsIGRlbnNpdHksQ2hyb25pYyBFQzEwCjkyNSw0LEN5Y2xvdGVsbGEsRGlhdG9tLEV4cG9uZW50aWFsIGdyb3d0aCBwaGFzZSxTcGVjaWVzIHRoYXQgb3JpZ2luYXRlZCBmcm9tL2FyZSBkaXN0cmlidXRlZCBpbiBBdXN0cmFsaWEgYW5kL29yIE5ldyBaZWFsYW5kLEJhY2lsbGFyaW9waHl0YSxtZW5lZ2hpbmlhbmEsQ2VsbCBkZW5zaXR5LENocm9uaWMgRUMxMAo2NDAsMzUsUGltZXBoYWxlcyxGaXNoLEVhcmx5IGxpZmUgc3RhZ2UsTkEsQ2hvcmRhdGEscHJvbWVsYXMsTW9ydGFsaXR5LENocm9uaWMgTE9FQwo=').then(res => res.blob()).then(blob => {
       const downloadURL = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.style.display = 'none'; // Hide the link
       document.body.appendChild(a);
       a.href = downloadURL;
-      a.download = 'frequency_experiment.xlsx';
+      a.download = 'metolachlor_ssd.csv';
       a.click();
       window.URL.revokeObjectURL(downloadURL);
       document.body.removeChild(a);
       return false;
-    });"><i class="fa fa-save"></i> Download xlsx file</button>
-</div>
-</div>
-<p>First you have to figure out how to expand the formulas for 100 iterations.</p>
+    });"><i class="fa fa-save"></i> Download csv file</button>
 </div>
 </div>
 </section>
-<section id="chance" class="level3">
-<h3 class="anchored" data-anchor-id="chance">Chance</h3>
-<p>Now let us go back to the step where you specified the probabilities P(A) and P(B). How did you do that? One way to do it is to look at the outcome space, find the outcomes that correspond to the event and divide by the total number of outcomes.</p>
-<p>For the coin the outcome space is “heads” and “tails”, i.e.&nbsp;n = 2. The event of a getting “heads” can occur in one of the outcomes, i.e.&nbsp;m = 1. Under the assumption that all outcomes are equally likely, the <strong>theoretical probability</strong> for “heads” is <span class="math inline">\(\frac{m}{n} = \frac{1}{2}\)</span>.</p>
-<p>For the dice, the outcome space is 1, 2, 3, 4, 5, and 6, i.e.&nbsp;n = 6. The event of getting a “six” can occur in one way, i.e.&nbsp;m = 1. The theoretical probability for the event “six” is therefore <span class="math inline">\(\frac{1}{6}\)</span>.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<section id="hazardous-concentration-with-the-species-sensitivity-distribution-approach" class="level2">
+<h2 class="anchored" data-anchor-id="hazardous-concentration-with-the-species-sensitivity-distribution-approach">Hazardous concentration with the Species Sensitivity Distribution approach</h2>
+<ol class="example" type="1">
+<li>Access tool to model a Species Sensitivity Distribution</li>
+</ol>
+<p>Go to the online app <a href="https://bcgov-env.shinyapps.io/ssdtools/">https://bcgov-env.shinyapps.io/ssdtools/</a></p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Not required: Instructions to download the app">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Not required: Instructions to download the app
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Notice that theoretical probabilities can only be used in balanced situations such as dice, cards, or lottery tickets where it justified to assume symmetry (equal probability) for all possible outcomes.</p>
+<ol type="i">
+<li>Install and open the SSD tool.</li>
+</ol>
+<p>These commands will install a R-package, load it into R and then open a shinyapp.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"bcgov/shinyssdtools"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shinyssdtools)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>shinyssdtools<span class="sc">::</span><span class="fu">run_app</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="i">
+<li>Choose to open the app in the browser.</li>
+</ol>
+<p>Stop the shiny app by closing the webb-browser and click on the STOP-sign in the R-console</p>
+<p><img src="../img/ssd3.png" class="img-fluid" style="width:25.0%"></p>
+<ol start="3" type="i">
+<li>Run the app by the command</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>shinyssdtools<span class="sc">::</span><span class="fu">run_app</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<ol start="2" class="example" type="1">
+<li>Load the data <strong>metolachlor_ssd.csv</strong> to the app using option 2. Upload a csv file</li>
+</ol>
+<p><img src="../img/ssd1.png" class="img-fluid" style="width:75.0%"></p>
+<ol start="3" class="example" type="1">
+<li><p>Look at the data, what does it contain?</p></li>
+<li><p>Go to tab 2. Fit</p></li>
+</ol>
+<p><img src="../img/ssd2.png" class="img-fluid"></p>
+<ol start="5" class="example" type="1">
+<li><p>Study the goodness of fit measures and the visual fits between curves and data points, and select your top three best distributions. Write down the arguments why you choose these three distributions. <img src="../img/ssdtools_distFitPlot.png" class="img-fluid"></p></li>
+<li><p>Go to to the tab predict</p></li>
+</ol>
+<p><img src="../img/ssd4.png" class="img-fluid"></p>
+<ol start="7" class="example" type="1">
+<li>Set the threshold that defines the hazardous concentration, e.g.&nbsp;5% defines HC5. Use 5%!</li>
+</ol>
+<p><img src="../img/ssd5.png" class="img-fluid" style="width:40.0%"></p>
+<ol start="8" class="example" type="1">
+<li>At this point you can read out HC5 for each model and the model average.</li>
+</ol>
+<p>If we want to consider statistical errors there is an option to derive an uncertainty interval for the hazardous concentration and select its lower bound. Uncertainty intervals can be characterised by bootstrapping which is a method to sample with replacement from data, refit the model and do this many times.</p>
+<ol start="9" class="example" type="1">
+<li><p>Set the number of bootstrap samples. Use 1000 to avoid it taking too long time.</p></li>
+<li><p>Click on the button CL to start the bootstrapping (this will take some time)</p></li>
+</ol>
+<p><img src="../img/ssd6.png" class="img-fluid"></p>
+<ol start="11" class="example" type="1">
+<li>Take note of the lower bound (<strong>lcl</strong>) of the uncertainty interval for the hazardous concentration corresponding to protection of at least 95% of the population.</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled" title="Not required: Download the R-code">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Not required: Download the R-code
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Download the R-code for the analysis you did and put it into the report.</p>
+<p><img src="../img/ssd7.png" class="img-fluid"></p>
+<p>A tip is to divide the chunk into multiple chunks.</p>
+<p>Render the document. Note that you might have to change the path to data.</p>
 </div>
 </div>
 </section>
-<section id="relative-frequency" class="level3">
-<h3 class="anchored" data-anchor-id="relative-frequency">Relative frequency</h3>
-<p>If we divide the frequency of an event by the number of trials N, we get the relative frequency which is a good estimate of a probability for the event to occur at the next iteration of the same experiment.</p>
-<p>Let <span class="math inline">\(m\)</span> be the number of times the event has occurred. <span class="math inline">\(E(\frac{m}{N})=\frac{E(m)}{N}=\frac{N\cdot P(event)}{N} = P(event)\)</span></p>
-<p>Relative frequencies can be used to estimate the probability for an event as long as the observations are equally likely across the full outcome space.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Make sure N is large">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Make sure N is large
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The more observations (i.e.&nbsp;larger N) the better estimate.</p>
-<p>The more extreme event, i.e.&nbsp;very low or high probability of occurring, the more observations are needed.</p>
-<p>Be very skeptical to estimates of probabilities that are either 0 and 1, when the event is possible to occur.</p>
-</div>
-</div>
+<section id="hazardous-concentration-without-the-ssd-approach" class="level2">
+<h2 class="anchored" data-anchor-id="hazardous-concentration-without-the-ssd-approach">Hazardous concentration without the SSD approach</h2>
+<ol start="12" class="example" type="1">
+<li>Derive a hazardous concentration without using the SSD approach. Use the most conservative hazardous concentration that you can get from the table in ECHAs guidance.</li>
+</ol>
+<p><img src="../img/ssd8.png" class="img-fluid"></p>
 </section>
-<section id="belief-personal-probability" class="level3">
-<h3 class="anchored" data-anchor-id="belief-personal-probability">Belief (Personal probability)</h3>
-<p>Take one of the thumbtacks provided in the exercise and a cup. Put the thumbtack in the cup, shake and place the cup upside down on a table without revealing the outcome.</p>
+<section id="discuss" class="level2">
+<h2 class="anchored" data-anchor-id="discuss">Discuss</h2>
 <ul>
-<li>What outcomes are possible?</li>
+<li><p>What is the lower bound for the concentration of metolachlor that is hazardous to no more than 5% of all species in an aquatic system?</p></li>
+<li><p>The toxicity data you had were a selection from a larger data set. An SSD on all 21 species generated a lower bound of 0.107. In this case, what happened with the hazardous concentration when we went from basing the SSD model on six to 21 species, and what consequences does this mean for the risk characterisation?</p></li>
+<li><p>How to choose distributions and justify them in an SSD.</p></li>
 </ul>
-<p>Focus on the outcome that the thumbtack is having its head down with the needle pointing upwards.</p>
-<ul>
-<li>Let everyone in the group state their personal probability of this event as a number between 0 and 1, where 0 means that it is impossible to occur and 1 means that it is certain to occur.</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="Cromwell's rule">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Cromwell’s rule
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Probabilities 1 (“the event will definitely occur”) or 0 (“the event will definitely not occur”) should be avoided, except when applied to statements that are logically true or false.</p>
-</div>
-</div>
-<ul>
-<li>Discuss if and why the probabilities differ.</li>
-</ul>
-<p>This is an example of probability as a subjective probability that is purely a personal judgement based on available evidence and assumptions.</p>
-<p>More evidence ought to result in smaller divergence in judgements. One way to illustrate this is to lift the cup and let everyone revise their judgement.</p>
-<ul>
-<li>Do that!</li>
-</ul>
-<p>Given that the evidence is revealing the outcome, the subjective probabilities held by the students in the group should now be either 1 or 0.</p>
-<p>In risk assessment, we seldom have such full certainty as in this example. Probabilities are almost inevitably based on judgements and assumptions such as random sampling.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="A general advice">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-A general advice
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Probability can be thought of as an expected frequency. Instead of saying that “the probability of the event is 0.20 (or 20%)”, you can say “out of 100 situations like this, we would expect the event to occur 20 times”.</p>
-<p>By carefully stating the denominator (reference class), ambiguity about the meaning of probability can be avoided.</p>
-<p>This advice applies to any of the interpretations.</p>
+</section>
+<section id="the-larger-species-toxicity-data-set" class="level2">
+<h2 class="anchored" data-anchor-id="the-larger-species-toxicity-data-set">The larger species toxicity data set</h2>
+<p>The larger species toxicity data set can be downloaded here if you are interested in running the SSD modelling with all 21 species.</p>
+<div class="cell">
+<div class="cell-output-display">
+<button class="btn btn-info" onclick="fetch('data:text/csv;base64,H4sIAAAAAAAABgGUDGvzQ29uYyxEdXJhdGlvbixHZW51cyxHcm91cCxMaWZlX3N0YWdlLE5vdGVzLFBoeWx1bSxTcGVjaWVzLFRlc3RfZW5kcG9pbnQsVG94aWNpdHlfbWVhc3VyZQo2NTI4LDQsQWNobmFudGhpZGl1bSxEaWF0b20sRXhwb25lbnRpYWwgZ3Jvd3RoIHBoYXNlLFNwZWNpZXMgdGhhdCBvcmlnaW5hdGVkIGZyb20vYXJlIGRpc3RyaWJ1dGVkIGluIEF1c3RyYWxpYSBhbmQvb3IgTmV3IFplYWxhbmQsQmFjaWxsYXJpb3BoeXRhLG1pbnV0aXNzaW11bSxDZWxsIGRlbnNpdHksQ2hyb25pYyBFQzEwCjI0MCw1LEFuYWJhZW5hLEJsdWVncmVlbiBhbGdhLE5vdCBzdGF0ZWQsTkEsQ3lhbm9iYWN0ZXJpYSxmbG9zYXF1YWUsIkJpb21hc3MgeWllbGQsIGdyb3d0aCByYXRlLCBBVUMgYyIsQ2hyb25pYyBFQzUwCjE0LDE0LENlcmF0b3BoeWxsdW0sTWFjcm9waHl0ZSxOb3Qgc3RhdGVkLFNwZWNpZXMgdGhhdCBvcmlnaW5hdGVkIGZyb20vYXJlIGRpc3RyaWJ1dGVkIGluIEF1c3RyYWxpYSBhbmQvb3IgTmV3IFplYWxhbmQsVHJhY2hlb3BoeXRhLGRlbWVyc3VtLFdldCB3ZWlnaHQsQ2hyb25pYyBFQzUwCjIyOCw0LENobGFteWRvbW9uYXMsR3JlZW4gYWxnYSxOb3Qgc3RhdGVkLFNwZWNpZXMgdGhhdCBvcmlnaW5hdGVkIGZyb20vYXJlIGRpc3RyaWJ1dGVkIGluIEF1c3RyYWxpYSBhbmQvb3IgTmV3IFplYWxhbmQsQ2hsb3JvcGh5dGEscmVpbmhhcmR0aWksQ2hsb3JvcGh5bGwtYSBjb250ZW50LENocm9uaWMgRUM1MAoxLDQsQ2hsb3JlbGxhLEdyZWVuIGFsZ2EsRXhwb25lbnRpYWwgZ3Jvd3RoIHBoYXNlLFNwZWNpZXMgdGhhdCBvcmlnaW5hdGVkIGZyb20vYXJlIGRpc3RyaWJ1dGVkIGluIEF1c3RyYWxpYSBhbmQvb3IgTmV3IFplYWxhbmQsQ2hsb3JvcGh5dGEscHlyZW5vaWRvc2EsQ2hsb3JvcGh5bGwtYSBjb250ZW50LENocm9uaWMgTk9FQwo0MDE2LDQsQ3JhdGljdWxhLERpYXRvbSxFeHBvbmVudGlhbCBncm93dGggcGhhc2UsU3BlY2llcyB0aGF0IG9yaWdpbmF0ZWQgZnJvbS9hcmUgZGlzdHJpYnV0ZWQgaW4gQXVzdHJhbGlhIGFuZC9vciBOZXcgWmVhbGFuZCxCYWNpbGxhcmlvcGh5dGEsYWNjb21vZGEsQ2hsb3JvcGh5bGwtYSBjb250ZW50LENocm9uaWMgRUMxMAo5MjUsNCxDeWNsb3RlbGxhLERpYXRvbSxFeHBvbmVudGlhbCBncm93dGggcGhhc2UsU3BlY2llcyB0aGF0IG9yaWdpbmF0ZWQgZnJvbS9hcmUgZGlzdHJpYnV0ZWQgaW4gQXVzdHJhbGlhIGFuZC9vciBOZXcgWmVhbGFuZCxCYWNpbGxhcmlvcGh5dGEsbWVuZWdoaW5pYW5hLENlbGwgZGVuc2l0eSxDaHJvbmljIEVDMTAKMjI0LDIxLERhcGhuaWEsTWFjcm9pbnZlcnRlYnJhdGUsPDI0IGhvdXIgb2xkLE5BLEFydGhyb3BvZGEsbWFnbmEsWW91bmcgcGVyIGZlbWFsZSxDaHJvbmljIEVDMTAKNDcxLDE0LEVsb2RlYSxNYWNyb3BoeXRlLE5vdCBzdGF0ZWQsU3BlY2llcyB0aGF0IG9yaWdpbmF0ZWQgZnJvbS9hcmUgZGlzdHJpYnV0ZWQgaW4gQXVzdHJhbGlhIGFuZC9vciBOZXcgWmVhbGFuZCxUcmFjaGVvcGh5dGEsY2FuYWRlbnNpcyxXZXQgd2VpZ2h0LENocm9uaWMgRUM1MAoxMDQ4LDQsRW5jeW9uZW1hLERpYXRvbSxFeHBvbmVudGlhbCBncm93dGggcGhhc2UsU3BlY2llcyB0aGF0IG9yaWdpbmF0ZWQgZnJvbS9hcmUgZGlzdHJpYnV0ZWQgaW4gQXVzdHJhbGlhIGFuZC9vciBOZXcgWmVhbGFuZCxCYWNpbGxhcmlvcGh5dGEsc2lsZXNpYWN1bSxDaGxvcm9waHlsbC1hIGNvbnRlbnQsQ2hyb25pYyBFQzEwCjkwLDQsRnJhZ2lsYXJpYSxEaWF0b20sTm90IHN0YXRlZCxTcGVjaWVzIHRoYXQgb3JpZ2luYXRlZCBmcm9tL2FyZSBkaXN0cmlidXRlZCBpbiBBdXN0cmFsaWEgYW5kL29yIE5ldyBaZWFsYW5kLEJhY2lsbGFyaW9waHl0YSxjYXB1Y2luYSB2YXIgdmF1Y2hlcmlhZSxDaGxvcm9waHlsbC1hIGNvbnRlbnQsQ2hyb25pYyBFQzEwCjEsNyxHb21waG9uZW1hLERpYXRvbSxFeHBvbmVudGlhbCBncm93dGggcGhhc2UsU3BlY2llcyB0aGF0IG9yaWdpbmF0ZWQgZnJvbS9hcmUgZGlzdHJpYnV0ZWQgaW4gQXVzdHJhbGlhIGFuZC9vciBOZXcgWmVhbGFuZCxCYWNpbGxhcmlvcGh5dGEsZ3JhY2lsZSxMaXZlIGNlbGwgZGVuc2l0eSxDaHJvbmljIE5PRUMKNjM4NCw0LEdvbXBob25lbWEsRGlhdG9tLEV4cG9uZW50aWFsIGdyb3d0aCBwaGFzZSxOQSxCYWNpbGxhcmlvcGh5dGEscGFydnVsdW0sQ2hsb3JvcGh5bGwtYSBjb250ZW50LENocm9uaWMgRUMxMAo4LjQsMTQsTGVtbmEsTWFjcm9waHl0ZSxTdGFnZSAzICgzIGZyb25kcy9wbGFudHMpLE5BLFRyYWNoZW9waHl0YSxnaWJiYSxGcm9uZCBudW1iZXIsQ2hyb25pYyBOT0VMCjg2Myw0LE1heWFtYWVhLERpYXRvbSxFeHBvbmVudGlhbCBncm93dGggcGhhc2UsTkEsQmFjaWxsYXJpb3BoeXRhLGZvc3NhbGlzLENobG9yb3BoeWxsLWEgY29udGVudCxDaHJvbmljIEVDMTAKNDguNCwxNCxOYWphcyxNYWNyb3BoeXRlLE5vdCBzdGF0ZWQsTkEsVHJhY2hlb3BoeXRhLHNwLixXZXQgd2VpZ2h0LENocm9uaWMgRUM1MAo3Niw1LE5hdmljdWxhLERpYXRvbSxOb3Qgc3RhdGVkLFNwZWNpZXMgdGhhdCBvcmlnaW5hdGVkIGZyb20vYXJlIGRpc3RyaWJ1dGVkIGluIEF1c3RyYWxpYSBhbmQvb3IgTmV3IFplYWxhbmQsQmFjaWxsYXJpb3BoeXRhLHBlbGxpY3Vsb3NhLCJCaW9tYXNzIHlpZWxkLCBncm93dGggcmF0ZSwgQVVDIGMiLENocm9uaWMgRUM1MAo2NDAsMzUsUGltZXBoYWxlcyxGaXNoLEVhcmx5IGxpZmUgc3RhZ2UsTkEsQ2hvcmRhdGEscHJvbWVsYXMsTW9ydGFsaXR5LENocm9uaWMgTE9FQwoyNy40LDMsUHNldWRva2lyY2huZXJpZWxsYSxHcmVlbiBhbGdhLE5vdCBzdGF0ZWQsQWxzbyBjYWxsZWQgUmFwaGlkb2NlbGlzIHN1YmNhcGl0YXRhIGFuZCBTZWxlbmFzdHJ1bSBjYXByaWNvcm51dHVtLixDaGxvcm9waHl0YSxzdWJjYXBpdGF0YSxDZWxsIGRlbnNpdHksQ2hyb25pYyBOT0VDCjAuNTMsMixTY2VuZWRlc211cyxHcmVlbiBhbGdhLEV4cG9uZW50aWFsIGdyb3d0aCBwaGFzZSxOQSxDaGxvcm9waHl0YSx2YWN1b2xhdHVzLENlbGwgZGVuc2l0eSxDaHJvbmljIEVDNTAKMjcsNCxVbG5hcmlhLERpYXRvbSxFeHBvbmVudGlhbCBncm93dGggcGhhc2UsU3BlY2llcyB0aGF0IG9yaWdpbmF0ZWQgZnJvbS9hcmUgZGlzdHJpYnV0ZWQgaW4gQXVzdHJhbGlhIGFuZC9vciBOZXcgWmVhbGFuZCxCYWNpbGxhcmlvcGh5dGEsdWxuYSxDaGxvcm9waHlsbC1hIGNvbnRlbnQsQ2hyb25pYyBFQzEwCsCi7nmUDAAA').then(res => res.blob()).then(blob => {
+      const downloadURL = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.style.display = 'none'; // Hide the link
+      document.body.appendChild(a);
+      a.href = downloadURL;
+      a.download = 'full_metolachlor_ssd.csv';
+      a.click();
+      window.URL.revokeObjectURL(downloadURL);
+      document.body.removeChild(a);
+      return false;
+    });"><i class="fa fa-save"></i> Download csv file with 21 species</button>
 </div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
