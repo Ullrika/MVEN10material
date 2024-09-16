@@ -228,8 +228,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">Exercise Observe, fit model and simulate</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../ex/observe_fit_simulate.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
+ <span class="menu-text">Exercise Observe, fit model (and simulate)</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ex/ex_env_hazard_assessment.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
@@ -589,13 +592,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(alpha,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.1877597</code></pre>
+<pre><code>[1] -0.1406727</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(beta,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.9699833</code></pre>
+<pre><code>[1] -0.9687601</code></pre>
 </div>
 </div>
 <p>Or do it in one go</p>
@@ -603,9 +606,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            alpha        beta          y
-alpha  1.00000000  0.02278246 -0.1877597
-beta   0.02278246  1.00000000 -0.9699833
-y     -0.18775966 -0.96998331  1.0000000</code></pre>
+alpha  1.00000000 -0.03583655 -0.1406727
+beta  -0.03583655  1.00000000 -0.9687601
+y     -0.14067266 -0.96876007  1.0000000</code></pre>
 </div>
 </div>
 <ol start="8" class="example" type="1">

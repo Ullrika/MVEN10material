@@ -34,14 +34,13 @@ The environment is modelled as consisting of well-mixed environmental compartmen
 
 The SimpleBox model simulates the environmental fates of different substances in different landscape settings, of which the characteristics are provided with the model database. In its default settings, SimpleBox returns results for a typical chemical, given a typical emission, to a typical environment.
 
-(@) Go to the website at RIVM and read about the [SimpleBox model](https://www.rivm.nl/en/soil-and-wate
-r/simplebox)
+(@) Go to the website at RIVM and read about the [SimpleBox model](https://www.rivm.nl/en/soil-and-water/simplebox)
 
 (@) What does RIVM stands for?
 
 (@) Who has developed SimpleBox? 
 
-## Assess exposure from emissions of Caffeine to agricultural soil
+## Assess exposure from emissions of Caffeine to agricultural soil and freshwater
 
 
 (@) Go to the [git-repository for SimpleBox](https://github.com/rivm-syso/SimpleBox) and download the **Spreadsheet xl_version of SimpleBox** (click xl-version and download the file named "SimpleBox4.04_20240405.xlsm"). 
@@ -54,7 +53,7 @@ If it doesn't work then use this to download the file
 #| echo: false
 downloadthis::download_file(
   path = "../files/SimpleBox4.04_20240405.xlsm",
-  button_label = "SimpleBox-TRAM",
+  button_label = "SimpleBox",
   button_type = "warning",
   has_icon = TRUE,
   icon = "fa fa-save",
@@ -74,9 +73,17 @@ The model will now use substance specific parameters for the calculations.
 
 (@) Set the value on **EMISSION to agricultural soil** at REGIONAL SCALE to 1 in **cell I85** 
 
-(@) Goto sheet **output** and note the concentration at REGIONAL SCALE in Fresh water sediments (**cell C23**) or look at the **Graphic output: steady-state mass flows**)
+(@) Goto sheet **output** and note the concentration at REGIONAL SCALE in Fresh water sediments (mass in **cell C23**, concentration in **cell M23**) or look at the **Graphic output: steady-state mass flows**)
 
-(@) Study the  **Graphic output: steady-state mass flows** in the same sheet but further to the right. Identify the concentration in fresh water sediment in the graph. 
+I get mass 6.7 kg and concentration 1.4e-7 g.kg(w)-1
 
-We will talk more about this model during a seminar/lecture. 
+(@) Study the  **Graphic output: steady-state mass flows** in the same sheet but further to the right. Identify the mass/concentration in fresh water sediment in the graph. 
+
+I see that the mass in freshwater sediment is 0.7% of the total concentration in the system.
+
+(@) Were do the majority of the caffeine end up at steady state? 
+
+I see that 81.1% of the mass of caffeine is in open freshwater. 
+
+>We will talk more about this model during a seminar/lecture. 
 

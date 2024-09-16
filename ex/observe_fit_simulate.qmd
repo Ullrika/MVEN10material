@@ -3,7 +3,7 @@ title: "Observe, fit and simulate"
 subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Ullrika Sahlin"
 format: html
-editor: visual
+editor: source
 ---
 
 ## Exercise overview
@@ -62,103 +62,7 @@ downloadthis::download_file(
 )
 ```
 
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- downloadthis::download_file( -->
-<!--   path = "../files/ex7_blocks2.xlsx", -->
-<!--   button_label = "lengths of blocks 2", -->
-<!--   button_type = "info", -->
-<!--   has_icon = TRUE, -->
-<!--   icon = "fa fa-save", -->
-<!--   self_contained = FALSE -->
-<!-- ) -->
-<!-- ``` -->
 
-
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- downloadthis::download_file( -->
-<!--   path = "../files/ex7_weight.xlsx", -->
-<!--   button_label = "weights of apples", -->
-<!--   button_type = "info", -->
-<!--   has_icon = TRUE, -->
-<!--   icon = "fa fa-save", -->
-<!--   self_contained = FALSE -->
-<!-- ) -->
-<!-- ``` -->
-
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- downloadthis::download_file( -->
-<!--   path = "../files/ex7_timecars.xlsx", -->
-<!--   button_label = "time betwen cars", -->
-<!--   button_type = "info", -->
-<!--   has_icon = TRUE, -->
-<!--   icon = "fa fa-save", -->
-<!--   self_contained = FALSE -->
-<!-- ) -->
-<!-- ``` -->
-
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- downloadthis::download_file( -->
-<!--   path = "../files/ex7_cars1.xlsx", -->
-<!--   button_label = "cars passing 1", -->
-<!--   button_type = "info", -->
-<!--   has_icon = TRUE, -->
-<!--   icon = "fa fa-save", -->
-<!--   self_contained = FALSE -->
-<!-- ) -->
-<!-- ``` -->
-
-
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- downloadthis::download_file( -->
-<!--   path = "../files/ex7_cars2.xlsx", -->
-<!--   button_label = "cars passing 2", -->
-<!--   button_type = "info", -->
-<!--   has_icon = TRUE, -->
-<!--   icon = "fa fa-save", -->
-<!--   self_contained = FALSE -->
-<!-- ) -->
-<!-- ``` -->
-
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- downloadthis::download_file( -->
-<!--   path = "../files/ex7_cars3.xlsx", -->
-<!--   button_label = "cars passing 3", -->
-<!--   button_type = "info", -->
-<!--   has_icon = TRUE, -->
-<!--   icon = "fa fa-save", -->
-<!--   self_contained = FALSE -->
-<!-- ) -->
-<!-- ``` -->
-
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- downloadthis::download_file( -->
-<!--   path = "../files/ex7_cars4.xlsx", -->
-<!--   button_label = "cars passing 4", -->
-<!--   button_type = "info", -->
-<!--   has_icon = TRUE, -->
-<!--   icon = "fa fa-save", -->
-<!--   self_contained = FALSE -->
-<!-- ) -->
-<!-- ``` -->
-
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- downloadthis::download_file( -->
-<!--   path = "../files/ex7_cars5.xlsx", -->
-<!--   button_label = "cars passing 5", -->
-<!--   button_type = "info", -->
-<!--   has_icon = TRUE, -->
-<!--   icon = "fa fa-save", -->
-<!--   self_contained = FALSE -->
-<!-- ) -->
-<!-- ``` -->
 
 (@) Open the excel-file and see what it contains. 
 
@@ -178,7 +82,7 @@ library(ggplot2)
 
 ```{r}
 #| eval: false
-df <- read_excel(path="data/ex7_xxx.xlsx",sheet="data")
+df <- read_excel(path="data/ex_obs_all.xlsx",sheet="data")
 ```
 
 You are to use R to fit a probability distribution to the observations from all four groups. 
@@ -187,7 +91,9 @@ You are to use R to fit a probability distribution to the observations from all 
 
 (@) Decide if the data you have selected is continuous or discrete. 
 
-Here I refer to the column name for the chosen observations as **obs**
+Below I refer to the column name for the chosen observations as **obs**. Note that I demonstrate the code on a different data set than yours.
+
+This is my set of observations 
 
 ```{r}
 #| eval: false
@@ -209,7 +115,7 @@ Change *binwidth* to modify the smoothness of the histogram.
 ```{r}
 
 ggplot(df,aes(x=obs))+
-  geom_histogram()
+  geom_histogram(binwidth = 60)
 ```
 
 ## Find a suitable model for data
@@ -227,7 +133,7 @@ Note that this only needs to be done one time and you can do it in the Console.
 install.packages("fitdistrplus")
 ```
 
-(@) Load the R-package **fitdistrplus**
+(@) Load the R-package **fitdistrplus** and ignore warnings
 
 ```{r}
 #| message: false
@@ -246,6 +152,7 @@ We will find a model by fitting alternative reasonable probability distributions
 
 We will use a *normal*, *lognormal* and an *exponential* distribution as candidate models for the continuous quantity. 
 
+
 - Fit a normal distribution to data using the function *fitdist*
 
 :::{.callout-tip}
@@ -257,9 +164,10 @@ Note that you can type a question mark in front of a function in the Console to 
 #| message: false
 
 fitnorm = fitdist(df$obs, distr = "norm")
+fitnorm
 ```
 
-- Study goodness of fit by comparing the histogram and fitted PDF and Empirical and theoretical CDFs
+- Study goodness of fit by comparing the histogram and fitted PDF and Empirical and theoretical CDFs. Note that if your plotting window is too small, then use zoom to enlarge it. 
 
 ```{r}
 #| warning: false
@@ -275,6 +183,11 @@ plot(fitnorm)
 
 
 fitlnorm = fitdist(df$obs, distr = "lnorm")
+fitlnorm
+```
+
+
+```{r}
 plot(fitlnorm)
 ```
 
@@ -285,6 +198,11 @@ plot(fitlnorm)
 
 
 fitexp = fitdist(df$obs, distr = "exp")
+fitexp
+```
+
+
+```{r}
 plot(fitexp)
 ```
 
@@ -323,7 +241,11 @@ Note that you can type a question mark in front of a function in the Console to 
 #| message: false
 
 fitnbinom = fitdist(df$obs, distr = "nbinom", discrete=TRUE)
+fitnbinom
 ```
+
+
+- Plot the fitted distribution and compare to data. Note that the plotting looks different from discrete data. 
 
 ```{r}
 #| warning: false
@@ -336,14 +258,18 @@ plot(fitnbinom)
 
 Note that in order to use the binomial you need to fix the number of trials and suggest a starting value for the probability to succeed in one trial.
 
-In the code below, the binomial model is fitted using *quantile matching estimation*, and that is why we also provide two quantiles (*probs*) as input arguments to the function. 
+In the code below, the binomial model is fitted using *quantile matching estimation*, and that is why we also provide two quantiles (*probs*) as input arguments to the function. The size parameter corresonds to the number of indpendent trials, and you can modify that to be smaller och larger integer.
 
 ```{r}
 #| warning: false
 #| message: false
 
 fitbinom = fitdist(df$obs, distr = "binom", discrete=TRUE, start= list(size = 20, prob = mean(df$obs)/20), method = "qme", probs = c(0.25,0.75))
+fitbinom
+```
 
+
+```{r}
 plot(fitbinom)
 ```
 
@@ -354,7 +280,11 @@ plot(fitbinom)
 #| message: false
 
 fitpois = fitdist(df$obs, distr = "pois", discrete=TRUE)
+fitpois
+```
 
+
+```{r}
 plot(fitpois)
 ```
 
@@ -373,107 +303,111 @@ fitpois$aic
 
 (@) Choose the best model and justify your decision
 
-
 ## Simulate
 
-At this point you have a model for a quantity that is either a continuous or a discrete probability distribution. 
+We have previously looked how to generate random samples from a probability distribution. Next time we will simulate from your fitted distributions. 
 
-Now you are to simulate this model and visualise the results. Simulation is done by generating random numbers from the chosen probability distribution.
 
-(@) Sample 10 000 random values from your choice of the best model. 
+<!-- ## Simulate -->
 
-:::: {.panel-tabset}
-### Simulate Normal
+<!-- At this point you have a model for a quantity that is either a continuous or a discrete probability distribution.  -->
 
-Here is a code how to sample ten values from a fitted normal distribution. 
+<!-- Now you are to simulate this model and visualise the results. Simulation is done by generating random numbers from the chosen probability distribution. -->
 
-- The parameters of the fitted distribution is found by typing **$estimate** after the fitted object. For a normal it is:
+<!-- (@) Sample 10 000 random values from your choice of the best model.  -->
 
-```{r}
-fitnorm$estimate
-```
+<!-- :::: {.panel-tabset} -->
+<!-- ### Simulate Normal -->
 
-- use the function *rnorm* to sample *niter = 10* values
+<!-- Here is a code how to sample ten values from a fitted normal distribution.  -->
 
-```{r}
-niter = 10
+<!-- - The parameters of the fitted distribution is found by typing **$estimate** after the fitted object. For a normal it is: -->
 
-rnorm(niter,fitnorm$estimate["mean"],fitnorm$estimate["sd"])
-```
+<!-- ```{r} -->
+<!-- fitnorm$estimate -->
+<!-- ``` -->
 
-- sample and plot as a histogram. 
+<!-- - use the function *rnorm* to sample *niter = 10* values -->
 
-Here is a code how to do it for the normal distribution. 
+<!-- ```{r} -->
+<!-- niter = 10 -->
 
-```{r}
-#| warning: false
-#| message: false
+<!-- rnorm(niter,fitnorm$estimate["mean"],fitnorm$estimate["sd"]) -->
+<!-- ``` -->
 
-data.frame(x=rnorm(niter,fitnorm$estimate["mean"],fitnorm$estimate["sd"])) %>%
-  ggplot(aes(x=x)) +
-  geom_histogram()
-```
+<!-- - sample and plot as a histogram.  -->
 
-### Simulate Poisson
+<!-- Here is a code how to do it for the normal distribution.  -->
 
-Here is a code how to sample ten values from a fitted poisson distribution. 
+<!-- ```{r} -->
+<!-- #| warning: false -->
+<!-- #| message: false -->
 
-- The parameters of the fitted distribution is found by typing **$estimate** after the fitted object. For a poisson it is:
+<!-- data.frame(x=rnorm(niter,fitnorm$estimate["mean"],fitnorm$estimate["sd"])) %>% -->
+<!--   ggplot(aes(x=x)) + -->
+<!--   geom_histogram() -->
+<!-- ``` -->
 
-```{r}
-fitpois$estimate
-```
+<!-- ### Simulate Poisson -->
 
-- use the function *rpois* to sample *niter = 10* values
+<!-- Here is a code how to sample ten values from a fitted poisson distribution.  -->
 
-```{r}
-niter = 10
+<!-- - The parameters of the fitted distribution is found by typing **$estimate** after the fitted object. For a poisson it is: -->
 
-rpois(niter,fitpois$estimate["lambda"])
-```
+<!-- ```{r} -->
+<!-- fitpois$estimate -->
+<!-- ``` -->
 
-- sample and plot as a histogram. 
+<!-- - use the function *rpois* to sample *niter = 10* values -->
 
-Here is a code how to do it for the normal distribution. 
+<!-- ```{r} -->
+<!-- niter = 10 -->
 
-```{r}
-#| warning: false
-#| message: false
+<!-- rpois(niter,fitpois$estimate["lambda"]) -->
+<!-- ``` -->
 
-data.frame(x=rpois(niter,fitpois$estimate["lambda"])) %>%
-  ggplot(aes(x=x)) +
-  geom_histogram()
-```
+<!-- - sample and plot as a histogram.  -->
 
-::::
+<!-- Here is a code how to do it for the normal distribution.  -->
 
-## Report
+<!-- ```{r} -->
+<!-- #| warning: false -->
+<!-- #| message: false -->
 
-Prepare a report including: 
+<!-- data.frame(x=rpois(niter,fitpois$estimate["lambda"])) %>% -->
+<!--   ggplot(aes(x=x)) + -->
+<!--   geom_histogram() -->
+<!-- ``` -->
 
-- your name
+<!-- :::: -->
 
-- your choice of data set
+<!-- ## Report -->
 
-- your chosen model
+<!-- Prepare a report including:  -->
 
-- include your justification 
-  - refer to if the data is for a continuous or discrete quantity
-  - the goodness-of-fit measured by AIC in comparison to alternative models
-  - a graph comparing the histogram with the PDF of the fitted model and the empirical and theoretical CDFs
+<!-- - your name -->
 
-- a histogram visualising a random sample of 10 000 values from the quantity
+<!-- - your choice of data set -->
 
-Use this template for the report
+<!-- - your chosen model -->
 
-```{r}
-#| echo: false
-downloadthis::download_file(
-  path = "../ex/ex8_report_template.qmd",
-  button_label = "template for report ex 8",
-  button_type = "warning",
-  has_icon = TRUE,
-  icon = "fa fa-save",
-  self_contained = FALSE
-)
-```
+<!-- - include your justification  -->
+<!--   - refer to if the data is for a continuous or discrete quantity -->
+<!--   - the goodness-of-fit measured by AIC in comparison to alternative models -->
+<!--   - a graph comparing the histogram with the PDF of the fitted model and the empirical and theoretical CDFs -->
+
+<!-- - a histogram visualising a random sample of 10 000 values from the quantity -->
+
+<!-- Use this template for the report -->
+
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- downloadthis::download_file( -->
+<!--   path = "../ex/ex8_report_template.qmd", -->
+<!--   button_label = "template for report ex 8", -->
+<!--   button_type = "warning", -->
+<!--   has_icon = TRUE, -->
+<!--   icon = "fa fa-save", -->
+<!--   self_contained = FALSE -->
+<!-- ) -->
+<!-- ``` -->

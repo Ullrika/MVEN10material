@@ -40,8 +40,8 @@ website:
         - text: "Exercise Exposure assessment"
           file: ex/ex_environ_fate_assessment.qmd
           target: "_blank"
-        - text: "Exercise Observe, fit model and simulate"
-          #file: ex/observe_fit_simulate.qmd
+        - text: "Exercise Observe, fit model (and simulate)"
+          file: ex/observe_fit_simulate.qmd
           target: "_blank"
         - text: "Exercise Hazard assessment"
           file: ex/ex_env_hazard_assessment.qmd

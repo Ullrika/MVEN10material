@@ -191,8 +191,11 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">Exercise Observe, fit model and simulate</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../ex/observe_fit_simulate.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
+ <span class="menu-text">Exercise Observe, fit model (and simulate)</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../ex/ex_env_hazard_assessment.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
@@ -317,7 +320,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   <li><a href="#simplebox" id="toc-simplebox" class="nav-link" data-scroll-target="#simplebox">SimpleBox</a></li>
-  <li><a href="#assess-exposure-from-emissions-of-caffeine-to-agricultural-soil" id="toc-assess-exposure-from-emissions-of-caffeine-to-agricultural-soil" class="nav-link" data-scroll-target="#assess-exposure-from-emissions-of-caffeine-to-agricultural-soil">Assess exposure from emissions of Caffeine to agricultural soil</a></li>
+  <li><a href="#assess-exposure-from-emissions-of-caffeine-to-agricultural-soil-and-freshwater" id="toc-assess-exposure-from-emissions-of-caffeine-to-agricultural-soil-and-freshwater" class="nav-link" data-scroll-target="#assess-exposure-from-emissions-of-caffeine-to-agricultural-soil-and-freshwater">Assess exposure from emissions of Caffeine to agricultural soil and freshwater</a></li>
   </ul>
 </nav>
     </div>
@@ -379,13 +382,13 @@ ul.task-list li input[type="checkbox"] {
 <p>The environment is modelled as consisting of well-mixed environmental compartments (air, water, sediment, soil), at three spatial scales. Emissions to the compartments, transfer and partitioning between the compartments, and removal from the compartments are used to compute the steady state and quasi-dynamic masses of chemical substance in the environment.</p>
 <p>The SimpleBox model simulates the environmental fates of different substances in different landscape settings, of which the characteristics are provided with the model database. In its default settings, SimpleBox returns results for a typical chemical, given a typical emission, to a typical environment.</p>
 <ol class="example" type="1">
-<li><p>Go to the website at RIVM and read about the <a href="https://www.rivm.nl/en/soil-and-wate%20r/simplebox">SimpleBox model</a></p></li>
+<li><p>Go to the website at RIVM and read about the <a href="https://www.rivm.nl/en/soil-and-water/simplebox">SimpleBox model</a></p></li>
 <li><p>What does RIVM stands for?</p></li>
 <li><p>Who has developed SimpleBox?</p></li>
 </ol>
 </section>
-<section id="assess-exposure-from-emissions-of-caffeine-to-agricultural-soil" class="level2">
-<h2 class="anchored" data-anchor-id="assess-exposure-from-emissions-of-caffeine-to-agricultural-soil">Assess exposure from emissions of Caffeine to agricultural soil</h2>
+<section id="assess-exposure-from-emissions-of-caffeine-to-agricultural-soil-and-freshwater" class="level2">
+<h2 class="anchored" data-anchor-id="assess-exposure-from-emissions-of-caffeine-to-agricultural-soil-and-freshwater">Assess exposure from emissions of Caffeine to agricultural soil and freshwater</h2>
 <ol start="4" class="example" type="1">
 <li><p>Go to the <a href="https://github.com/rivm-syso/SimpleBox">git-repository for SimpleBox</a> and download the <strong>Spreadsheet xl_version of SimpleBox</strong> (click xl-version and download the file named “SimpleBox4.04_20240405.xlsm”).</p></li>
 <li><p>Open the xlsm-file and <em>enable content!</em></p></li>
@@ -404,7 +407,7 @@ ul.task-list li input[type="checkbox"] {
       window.URL.revokeObjectURL(downloadURL);
       document.body.removeChild(a);
       return false;
-    });"><i class="fa fa-save"></i> SimpleBox-TRAM</button>
+    });"><i class="fa fa-save"></i> SimpleBox</button>
 </div>
 </div>
 <ol start="6" class="example" type="1">
@@ -416,10 +419,20 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Select <strong>EUSES settings</strong> as Exposure Scenario</p></li>
 <li><p>Set the value on <strong>EMISSION to fresh water</strong> at REGIONAL SCALE to 1 in <strong>cell I82</strong></p></li>
 <li><p>Set the value on <strong>EMISSION to agricultural soil</strong> at REGIONAL SCALE to 1 in <strong>cell I85</strong></p></li>
-<li><p>Goto sheet <strong>output</strong> and note the concentration at REGIONAL SCALE in Fresh water sediments (<strong>cell C23</strong>) or look at the <strong>Graphic output: steady-state mass flows</strong>)</p></li>
-<li><p>Study the <strong>Graphic output: steady-state mass flows</strong> in the same sheet but further to the right. Identify the concentration in fresh water sediment in the graph.</p></li>
+<li><p>Goto sheet <strong>output</strong> and note the concentration at REGIONAL SCALE in Fresh water sediments (mass in <strong>cell C23</strong>, concentration in <strong>cell M23</strong>) or look at the <strong>Graphic output: steady-state mass flows</strong>)</p></li>
 </ol>
+<p>I get mass 6.7 kg and concentration 1.4e-7 g.kg(w)-1</p>
+<ol start="12" class="example" type="1">
+<li>Study the <strong>Graphic output: steady-state mass flows</strong> in the same sheet but further to the right. Identify the mass/concentration in fresh water sediment in the graph.</li>
+</ol>
+<p>I see that the mass in freshwater sediment is 0.7% of the total concentration in the system.</p>
+<ol start="13" class="example" type="1">
+<li>Were do the majority of the caffeine end up at steady state?</li>
+</ol>
+<p>I see that 81.1% of the mass of caffeine is in open freshwater.</p>
+<blockquote class="blockquote">
 <p>We will talk more about this model during a seminar/lecture.</p>
+</blockquote>
 
 
 </section>
