@@ -80,16 +80,7 @@ The experiment is setup as follows:
 
 Assign one student to record the outcomes in this frequency tree (replace N and \# with numbers).
 
-![](../img/flowchart.png)
-<!-- ```{mermaid} -->
-<!-- flowchart LR -->
-<!--   A("N") -->|heads|B("#") -->
-<!--   A("N") -->|tails|C("#") -->
-<!--   B("#") -->|1 to 5|D("#") -->
-<!--   B("#") -->|six|E("#") -->
-<!--   C("#") -->|1 to 5|F("#") -->
-<!--   C("#") -->|six|G("#") -->
-<!-- ``` -->
+![](../img/flowchart.png) <!-- ```{mermaid} --> <!-- flowchart LR --> <!--   A("N") -->\|heads\|B("\#") --\> <!--   A("N") -->\|tails\|C("\#") --\> <!--   B("#") -->\|1 to 5\|D("\#") --\> <!--   B("#") -->\|six\|E("\#") --\> <!--   C("#") -->\|1 to 5\|F("\#") --\> <!--   C("#") -->\|six\|G("\#") --\> <!-- ``` -->
 
 Answer the following questions:
 

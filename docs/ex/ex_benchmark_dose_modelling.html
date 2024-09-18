@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ullrika Sahlin">
+<meta name="author" content="Zheng Zhou">
 
 <title>MVEN10 - Exercise Benchmark Dose Modelling</title>
 <style>
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -94,7 +60,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="../site_libs/font-awesome-5.13.0/js/script.js"></script>
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -109,9 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      MVEN10
-      </li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ex/ex_benchmark_dose_modelling.html">Sept 23</a></li><li class="breadcrumb-item"><a href="../ex/ex_benchmark_dose_modelling.html">Exercise Benchmark Dose Modelling</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -264,11 +227,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">Exercise Benchmark Dose Modelling</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../ex/ex_benchmark_dose_modelling.html" class="sidebar-item-text sidebar-link active" target="&quot;_blank&quot;">
+ <span class="menu-text">Exercise Benchmark Dose Modelling</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">Exercise Causal inference</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../ex/ex_causal_inference.html" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
+ <span class="menu-text">Exercise Causal inference</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -346,18 +315,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exercise-overview" id="toc-exercise-overview" class="nav-link active" data-scroll-target="#exercise-overview">Exercise overview</a>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a>
   <ul class="collapse">
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
+  <li><a href="#exercise-details" id="toc-exercise-details" class="nav-link" data-scroll-target="#exercise-details">Exercise Details</a></li>
+  <li><a href="#knowledge-points-covered" id="toc-knowledge-points-covered" class="nav-link" data-scroll-target="#knowledge-points-covered">Knowledge Points Covered</a></li>
   </ul></li>
-  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose">Purpose</a>
+  <li><a href="#exercise-questions" id="toc-exercise-questions" class="nav-link" data-scroll-target="#exercise-questions">Exercise Questions</a>
   <ul class="collapse">
-  <li><a href="#content" id="toc-content" class="nav-link" data-scroll-target="#content">Content</a></li>
-  <li><a href="#duration" id="toc-duration" class="nav-link" data-scroll-target="#duration">Duration</a></li>
-  <li><a href="#reporting" id="toc-reporting" class="nav-link" data-scroll-target="#reporting">Reporting</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#question-1-noaelloael" id="toc-question-1-noaelloael" class="nav-link" data-scroll-target="#question-1-noaelloael">Question 1: NOAEL/LOAEL</a>
+  <ul class="collapse">
+  <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks">Tasks</a></li>
   </ul></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#question-2-bmd-modeling" id="toc-question-2-bmd-modeling" class="nav-link" data-scroll-target="#question-2-bmd-modeling">Question 2: BMD modeling</a>
+  <ul class="collapse">
+  <li><a href="#tasks-1" id="toc-tasks-1" class="nav-link" data-scroll-target="#tasks-1">Tasks</a></li>
+  </ul></li>
+  <li><a href="#question-3-evaluate-dose-response-models-between-noael-loael-and-the-bmds-from-different-tools" id="toc-question-3-evaluate-dose-response-models-between-noael-loael-and-the-bmds-from-different-tools" class="nav-link" data-scroll-target="#question-3-evaluate-dose-response-models-between-noael-loael-and-the-bmds-from-different-tools">Question 3: Evaluate dose-response models between NOAEL, LOAEL and the BMDs from different tools</a>
+  <ul class="collapse">
+  <li><a href="#tasks-2" id="toc-tasks-2" class="nav-link" data-scroll-target="#tasks-2">Tasks</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -377,7 +354,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Ullrika Sahlin </p>
+             <p>Zheng Zhou </p>
           </div>
   </div>
     
@@ -388,180 +365,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="exercise-overview" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-overview">Exercise overview</h2>
-<p>Do in groups of 2-3</p>
-<section id="background" class="level3">
-<h3 class="anchored" data-anchor-id="background">Background</h3>
-<p>Risk from chemical exposure on environment and human health is commonly assessed by comparing assessments of exposure and effects. Conservative estimates of exposures resulting in adverse effects can be derived from observed concentrations where there is no observed effect or lowest observed effect. Another approach is to find a suitable model for the dose-response relationship and use the model (or models) to derive the highest dose that corresponds with a benchmark response of interest.</p>
-<p>An example: Data from an epidemiological study consists of the incidence of a disease for groups of the population with different levels of lifetime exposure to a chemical. A dose-response curve is fitted through the data points. The benchmark response (BMR) is set to 5%. The benchmark dose (BMD) is the dose which corresponds to the BMR.</p>
-<p>It is recommended to use a lower bound for the BMD resulting from consideration of the influence from uncertainty in the shape of the dose-response curve (including the parameters for the curve). This bound is referred to as the BMDL.</p>
-<p>The width between the lower and upper bound of the BMD tells something about the reliability of the model.</p>
-<p>Methods have been developed to choose between alternative models using the AIC as goodness-of-fit, or to derive the BMDL by model averaging.</p>
-<p>There are several software for BMD modelling. The PROAST fits models using maximum likelihood and derives the lower and upper bounds on the BMD using bootstrapping. The US EPA BMDS software uses maximum likelihood for fitting models and Bayesian inference for model averaging. EFSA has a software for BMD modelling using Bayesian inference to fit and derive a probability distribution for the BMD. There are more software as well as R-packages for BMD modelling.</p>
-</section>
-</section>
-<section id="purpose" class="level2">
-<h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
+<section id="instructions" class="level1">
+<h1>Instructions</h1>
+<p>Welcome to the <strong>Exercise</strong> for the course <em>MVEN10</em>. This exercise is designed to help you self-assess your understanding and application of key concepts discussed in the lectures. Please read the instructions and the description of each knowledge point carefully before beginning the exercise.</p>
+<section id="exercise-details" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-details">Exercise Details</h2>
 <ul>
-<li>To perform a simple BMD modelling the dataset to derive the BMDL</li>
-</ul>
-<section id="content" class="level3">
-<h3 class="anchored" data-anchor-id="content">Content</h3>
-<p>We have chosen two online BMD tools that does not require any login.</p>
-<ul>
-<li><p>The BMD modelling software PROAST developed by RIVM <a href="https://www.rivm.nl/en/proast">https://www.rivm.nl/en/proast</a>. We ask you to open the RIVM web application <a href="https://proastweb.rivm.nl/">PROAST online no account</a></p></li>
-<li><p>The BMD online tool from US EPA<a href="https://bmdsonline.epa.gov/">https://bmdsonline.epa.gov/</a></p></li>
-<li><p>Data from an epidemiological study on the effect of Arsenic on the incidence of lung cancer in a population.</p></li>
+<li><strong>Time Limit</strong>: 60 minutes</li>
+<li><strong>Total Questions</strong>: 2</li>
+<li><strong>Purpose</strong>: To evaluate your comprehension and practical application of benchmark dose (BMD) modeling through software application.</li>
 </ul>
 </section>
-<section id="duration" class="level3">
-<h3 class="anchored" data-anchor-id="duration">Duration</h3>
-<p>60 minutes</p>
-</section>
-<section id="reporting" class="level3">
-<h3 class="anchored" data-anchor-id="reporting">Reporting</h3>
-<p>Submit the reports from the BMD tool and be prepared to report back in class.</p>
-</section>
-<section id="references" class="level3">
-<h3 class="anchored" data-anchor-id="references">References</h3>
-<p>US EPA <a href="https://www.epa.gov/bmds/about-benchmark-dose-tools">page about benchmark tools</a></p>
-<p>EFSA (2022) <a href="https://efsa.onlinelibrary.wiley.com/doi/full/10.2903/j.efsa.2022.7584">Guidance on the use of the benchmark dose approach in risk assessment</a></p>
-<!-- A software from a company [Bayesian benchmark dose modeling](https://benchmarkdose.com/) -->
-<!-- [US EPA Benchmark dose modelling tools](https://www.epa.gov/bmds) -->
-</section>
-</section>
-<section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>In this exercise we will use epidemiological data on the incidence of lung cancer from Steinmaus et al.&nbsp;(2013). Exposure is estimated as lifetime average, all years, based on arsenic daily intakes. This data is one of the studies used in the Arsenic case study.</p>
-<p>Data consists of three variables:</p>
-<p><strong>Exposure.µg.kg.bw.per.day</strong> is the average life time exposure to Arsenic for groups of the population.</p>
-<p><strong>N</strong> is the total number of persons in each group</p>
-<p><strong>Adj.cases</strong> is the number of cases of lung cancer in each group</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 3
-  Exposure.µg.kg.bw.per.day      N Adj.cases
-                      &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
-1                      0.58 138516        70
-2                      1.55 136406        60
-3                      3.46 108281        68
-4                      4.67  66797       107</code></pre>
-</div>
-</div>
-<p>Below you can see the code to load data and generate new variables for plotting. It is shown here to examplify how to generate the plot below. You do not have to do it yourself.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">read_delim</span>(<span class="st">"../data/lung_cancer.txt"</span>,<span class="at">show_col_types=</span><span class="cn">FALSE</span>, <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">dose =</span> Exposure.µg.kg.bw.per.day) <span class="sc">%&gt;%</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> Adj.cases<span class="sc">/</span>N) <span class="sc">%&gt;%</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">SE =</span> <span class="fu">sqrt</span>((Adj.cases<span class="sc">/</span>N)<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>Adj.cases<span class="sc">/</span>N)<span class="sc">/</span>N)) <span class="sc">%&gt;%</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lower =</span> response<span class="dv">-2</span><span class="sc">*</span>SE) <span class="sc">%&gt;%</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">upper =</span> response<span class="sc">+</span><span class="dv">2</span><span class="sc">*</span>SE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The assessment used a value of 0.0005 as the BMR. This is plotted as a red dashed line in the graph below.</p>
-<p>Statistical estimation errors are indiced by error bars for each group.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>value_for_CES <span class="ot">=</span> <span class="fl">0.0005</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>dose, <span class="at">y =</span> response)) <span class="sc">+</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>lower,<span class="at">ymax=</span>upper)) <span class="sc">+</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> value_for_CES, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="ex_benchmark_dose_modelling_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<ol class="example" type="1">
-<li>Download and view the lung cancer data in a text editor (you can for example use Notepad).</li>
+<section id="knowledge-points-covered" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="knowledge-points-covered">Knowledge Points Covered</h2>
+<ol type="1">
+<li><p><strong>Dose</strong>: Understand the concept of dose and its role in risks to human health and the environment; Understand the purpose of dose-response modeling.</p></li>
+<li><p><strong>NOAEL/LOAEL</strong>: Understand the concept of the NOAEL/LOAEL approach and how to derive a NOAEL/LOAEL given data; Understand the weaknesses of the NOAEL/LOAEL approach.</p></li>
+<li><p><strong>BMD modeling</strong>: Understand how the BMD approach addresses the weaknesses of the NOAEL/LOAEL approach and the three steps of BMD modeling and the strengths and weaknesses of BMD modeling</p></li>
+<li><p><strong>BMD tools</strong>: Become familiar with established BMD tools; Be able to run a BMD analysis with different tools.</p></li>
 </ol>
-<div class="cell">
-<div class="cell-output-display">
-<button class="btn btn-info" onclick="fetch('data:text/plain;base64,RXhwb3N1cmUuwrVnLmtnLmJ3LnBlci5kYXkJTglBZGouY2FzZXMNCjAuNTgJMTM4NTE2CTcwDQoxLjU1CTEzNjQwNgk2MA0KMy40NgkxMDgyODEJNjgNCjQuNjcJNjY3OTcJMTA3DQoJDQo=').then(res => res.blob()).then(blob => {
-      const downloadURL = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.style.display = 'none'; // Hide the link
-      document.body.appendChild(a);
-      a.href = downloadURL;
-      a.download = 'lung_cancer.txt';
-      a.click();
-      window.URL.revokeObjectURL(downloadURL);
-      document.body.removeChild(a);
-      return false;
-    });"><i class="fa fa-save"></i> lung cancer</button>
-</div>
-</div>
-<ol start="2" class="example" type="1">
-<li><p>Choose one of the online BMD tools listed above and open a new session. We recommend you do both. We will report back in class when all groups have done at least one module.</p></li>
-<li><p>Load data into the software</p></li>
-</ol>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">PROAST</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">BMDS</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>Choose File and press Upload</p>
-<p>Provide an Analysis name</p>
-<p>Press “Next: Specify”</p>
-<p>Select the correct variable for the Dose column</p>
-<p>Select the correct variable for the Response column</p>
-<p>Tick Quantal as Type of response data</p>
-<p>Select the N for the Group size column</p>
-<p>Set BMR (CES) to 0.0005</p>
-<p>Run the analysis without ticking Model averaging</p>
-<p>When the State of the analysis is Finished, click on the icon for the Report Analysis results.</p>
-<p>Graphical ouptut - the graphs are not that interesting since the limits on the y-axis are too big.</p>
-<p>Go back to the Overview on PROASTweb and click the icon for Advanced plotting</p>
-<p>Change <strong>X axis scaling</strong> to None</p>
-<p>Change <strong>Y axis to</strong> 0.002 and press Apply</p>
-<p>Open the Report Analysis results again. Now the graphs of the dose-response curve per model should be better.</p>
-<p>Fitted models - here you can see the goodness of fit (AIC) for alternative models and the corresponding BMD with lower and upper bounds. <strong>conv</strong> tells you if the model has converged. Only converged models should be used.</p>
-<p>Discuss the meaning of converged. Is it possible to see any difference in the visualisation for the converged and non-converged models?</p>
-<p>Take note of the lowest BMDL and highest BMDU over the six models that has converged.</p>
-<p>Save the report from the webpage (e.g.&nbsp;by printing it to a PDF) into <strong>NN_lung_cancer.pdf</strong> where NN is your name.</p>
-<p>Go back to the previous page (https://proastweb.rivm.nl/) and click on the icon named Specify.</p>
-<p>Tick the box for Model averaging, use 200 for the Number of bootstrap runs and Run the analysis.</p>
-<p>This might take some time.</p>
-<p>When the State of the analysis is Finished, click on the icon for the Report Analysis results.</p>
-<p>Model weights - this shows the weights for models used in the model averaging.</p>
-<p>Discuss the meaning of the weights.</p>
-<p>Which models are included in the model averaging?</p>
-<p>Which model has the highest weight?</p>
-<p>Note the BMDL and BMDU based on model averaging.</p>
-<p>Save the report from the webpage (e.g.&nbsp;by printing it to a PDF) into <strong>NN_lung_cancer_MA.pdf</strong> where NN is your name</p>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>In Settings, provide an Analysis Name</p>
-<p>Choose model Type to be Dichotomous</p>
-<p>Goto Data, select Dichotomous as New dataset and click on <strong>+New</strong></p>
-<p>You can type in the Doses, N and Incidences by hand. You can also paste it in by first opening the lung_cancer.txt file in a text editor, select and copy data (no headers). Then you open the table button and paste the data in there and press load.</p>
-<p>You can zoom in the graph so the y-axis range up to 0.003 (I have not figured out how to zoom out).</p>
-<p>Goto Settings and set the BMR (bottom of the page) to 0.0005.</p>
-<p>Click on Save Analysis</p>
-<p>Click on Run Analysis</p>
-<p>When it is done, you will be taken to Output</p>
-<p>Zoom in on the graph to the right until it looks something like this</p>
-<p><img src="../img/bmd1.png" class="img-fluid"></p>
-<p>Scroll over the models in the table. You will see the curve plotted in the right graph.</p>
-<p>Discuss the meaning of restricted and unrestricted</p>
-<p>Discuss the meaning of questionable, viable and recommended.</p>
-<p>Select a best-fitting model and save model selection</p>
-<p>Take note of the BMDL and BMDU for the selected model.</p>
-<p>Click on Actions and download a report and save it as <strong>NN_lung_cancer_BDMS</strong> where NN is your name.</p>
-<p>Go back to Settings and select gamma, loglogistic, LogProbit and Weibull under Alternatives/Bayesian Model Averaging</p>
-<p>Discuss why these models were selected</p>
-<p>Click on Save Analysis</p>
-<p>Click on Run Analysis</p>
-<p>In Outputs, there is a new table called Bayesian Model Results. Discuss the meaning of prior and posterior weights</p>
-<p>Which model has the highest weight in the Bayesian model averaging?</p>
-<p>Note the BMDL and BMDU based on model averaging.</p>
-<p>Save the report into <strong>NN_lung_cancer_BDMS_MA</strong> where NN is your name</p>
-</div>
-</div>
-</div>
-<ol start="4" class="example" type="1">
-<li>We will discuss the BMD modelling from both software in class. You are welcome to try out the other software.</li>
+</section>
+</section>
+<section id="exercise-questions" class="level1">
+<h1>Exercise Questions</h1>
+<section id="question-1-noaelloael" class="level2">
+<h2 class="anchored" data-anchor-id="question-1-noaelloael">Question 1: NOAEL/LOAEL</h2>
+<p>You are provided with a dose-response data set. The study has a control group and three dose groups. For each group, the following data is measured: number of subjects, group average response, group standard deviation, and the p value of the difference in average response compared with the control group. You can find the data by the file “example_data_dose_response.txt”.</p>
+<section id="tasks" class="level3">
+<h3 class="anchored" data-anchor-id="tasks">Tasks</h3>
+<p><strong>(a)</strong> <em>Explain</em> if this data can derive a NOAEL. If yes, what is it? If no, why?</p>
+<p><strong>(b)</strong> <em>Explain</em> if this data can derive a LOAEL. If yes, what is it? If no, why?</p>
+</section>
+</section>
+<section id="question-2-bmd-modeling" class="level2">
+<h2 class="anchored" data-anchor-id="question-2-bmd-modeling">Question 2: BMD modeling</h2>
+<p>Using the same dose-response data provided in question. Recall the three steps of BMD modeling. Perform the three steps in the existing BMD tools and generate reports.</p>
+<section id="tasks-1" class="level3">
+<h3 class="anchored" data-anchor-id="tasks-1">Tasks</h3>
+<p><strong>(a)</strong> <em>Use</em> EFSA PROAST for BMD modeling. You can use the web version: <a href="https://proastweb.rivm.nl/">https://proastweb.rivm.nl/</a> or the R-package version: <a href="https://www.rivm.nl/en/proast">https://www.rivm.nl/en/proast</a>. Generate a report.</p>
+<p><strong>(b)</strong> Based on the report from <strong>(a)</strong>, <em>find</em> the following information: 1) number of models fitted, 2) AIC of each model, 3) CED, CEDL and CEDU of each model</p>
+<p><strong>(c)</strong> <em>Use</em> US EPA BMDS for BMD modeling: <a href="https://www.epa.gov/bmds/bmds-online">https://www.epa.gov/bmds/bmds-online</a>. Generate a report.</p>
+<p><strong>(d)</strong> Based on the report from <strong>(c)</strong>, <em>find</em> the following information: 1) number of models fitted, 2) P-value, AIC and reason of recommendation of each model, 3) BMD, BMDL and BMDU of each model</p>
+</section>
+</section>
+<section id="question-3-evaluate-dose-response-models-between-noael-loael-and-the-bmds-from-different-tools" class="level2">
+<h2 class="anchored" data-anchor-id="question-3-evaluate-dose-response-models-between-noael-loael-and-the-bmds-from-different-tools">Question 3: Evaluate dose-response models between NOAEL, LOAEL and the BMDs from different tools</h2>
+<p>Gather your results of NOAEL/LOAEL (Question 1) and BMDs from different tools (Question 2).</p>
+<section id="tasks-2" class="level3">
+<h3 class="anchored" data-anchor-id="tasks-2">Tasks</h3>
+<p><em>Discuss</em> one strengths and one weaknesses of the NOAEL/LOAEL approach and the BMD approach, respectively.</p>
+<p>You may consider the following hints:</p>
+<ol type="1">
+<li><p>What information is needed for each approach?</p></li>
+<li><p>If there are changes in study design, e.g., dose level setup, how will each approach be affected?</p></li>
+<li><p>How difficult it is to implement each approach?</p></li>
+<li><p>Does the sample size have impacts on the estimates from the two approaches?</p></li>
+<li><p>Can a NOAEL be derived from a LOAEL? from a BMD?</p></li>
+<li><p>What is a benchmark response and how it is chosen?</p></li>
+<li><p>What are the differences between BMD models?</p></li>
+<li><p>How are uncertainty in the data considered in the two approaches?</p></li>
 </ol>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

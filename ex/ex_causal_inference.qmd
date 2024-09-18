@@ -1,7 +1,9 @@
 ---
-title: "Introduction to Causal Inference- Exercise"
+title: "Exercise Introduction to Causal Inference"
+subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Zheng Zhou"
-format: revealjs
+format: html
+editor: source
 ---
 
 # Instructions
@@ -10,13 +12,16 @@ Welcome to the **Exercise** for the course *MVEN10*.
 This exercise is designed to help you self-assess your understanding and application of key concepts discussed in the lectures.
 Please read the instructions and the description of each knowledge point carefully before beginning the exercise.
 
+:::{.callout-warning title="Note"} 
+Data analysis questions (1c, 2b, 3c, 4b & 4c) are optional in this class.
+:::
 ## Exercise Details
 
 - **Time Limit**: 60 minutes
 - **Total Questions**: 4
 - **Purpose**: To evaluate your comprehension and practical application of causal inference methodologies through both theoretical questions and data analysis tasks.
 
-## Knowledge Points Covered
+## Knowledge Points Covered {.smaller}
 
 1. **Correlation is not Causation**: Understanding the difference between correlation and causation and why correlation alone does not imply a causal relationship.
 2. **Observational Designs**: Understanding different observational study designs, including simple comparison, one-group pre-post comparison, and multi-group pre-post comparison.
@@ -25,55 +30,67 @@ Please read the instructions and the description of each knowledge point careful
 5. **Confounding**: Identifying confounders and understanding how they affect causal inference.
 6. **Randomized Controlled Trial (RCT) and Causal Effect Estimation**: The importance of RCTs in estimating causal effects and understanding how randomization helps in causal inference.
 
-# Exam Questions
+# Exercise Questions
 
-## Question 1: Correlation is Not Causation, and Causal Diagrams
+## Question 1: Correlation is Not Causation, and Causal Diagrams {.smaller}
 
 You are provided with a dataset containing information on individuals' coffee consumption, smoking status, and the incidence of heart disease. The data shows a positive correlation between coffee consumption and heart disease.
 
 ### Tasks:
 
-1. **(a)** **Explain** why correlation does not imply causation in this context. What other factors might be influencing this observed correlation?
+**(a)** **Explain** why correlation does not imply causation in this context. What other factors might be influencing this observed correlation?
 
-2. **(b)** **Draw** a causal diagram (Directed Acyclic Graph) to represent the relationship between coffee consumption, heart disease, and smoking status. Identify and explain the role of the confounder in this diagram.
+**(b)** **Draw** a causal diagram (Directed Acyclic Graph) to represent the relationship between coffee consumption, heart disease, and smoking status. Identify and explain the role of the confounder in this diagram.
 
-3. **(c)** **Using the provided dataset**, **perform** a logistic regression analysis to estimate the effect of coffee consumption on heart disease without controlling for smoking status. **Repeat** the analysis controlling for smoking status and **compare** the results. What do the differences in the estimates tell you about the importance of confounders?
-
-## Question 2: Observational Designs and Confounding
+:::{.callout-warning title="Optional"} 
+**(c)** **Using the provided dataset**, **perform** a logistic regression analysis to estimate the effect of coffee consumption on heart disease without controlling for smoking status. **Repeat** the analysis controlling for smoking status and **compare** the results. What do the differences in the estimates tell you about the importance of confounders?
+:::
+## Question 2: Observational Designs and Confounding {.smaller}
 
 Consider a study that aims to evaluate the impact of a new training program on employee productivity. The dataset includes pre-training and post-training productivity scores for two groups: one that received the training and one that did not.
 
 ### Tasks:
 
-1. **(a)** **Draw** treatment-time plots, **explain** the difference between a simple comparison, a one-group pre-post comparison, and a multi-group pre-post comparison design in observational studies. Discuss the strengths and limitations of each design.
+**(a)** **Draw** treatment-time plots, **explain** the difference between a simple comparison, a one-group pre-post comparison, and a multi-group pre-post comparison design in observational studies. Discuss the strengths and limitations of each design.
 
-2. **(b)** **Analyze** the provided dataset using a multi-group pre-post comparison design to estimate the effect of the training program on productivity. Specifically, use a difference-in-differences (DiD) approach to estimate the causal effect of the training program. **Interpret** your findings.
+:::{.callout-warning title="Optional"}
 
-3. **(c)** **Discuss** potential confounders in this study. How could they bias the results of your analysis, and how might you address these confounders in your design or analysis?
+**(b)** **Analyze** the provided dataset using a multi-group pre-post comparison design to estimate the effect of the training program on productivity. Specifically, use a difference-in-differences (DiD) approach to estimate the causal effect of the training program. **Interpret** your findings.
 
-## Question 3: Counterfactuals and Threats to Internal Validity
+:::
+
+**(c)** **Discuss** potential confounders in this study. How could they bias the results of your analysis, and how might you address these confounders in your design or analysis?
+
+## Question 3: Counterfactuals and Threats to Internal Validity {.smaller}
 
 A study investigates the effect of a new medication on blood pressure. The dataset includes a group of patients who received the medication and a control group that did not.
 
 ### Tasks:
 
-1. **(a)** **Define** the concept of a counterfactual in the context of this study. What would the counterfactual scenario represent for a patient in the treatment group?
+**(a)** **Define** the concept of a counterfactual in the context of this study. What would the counterfactual scenario represent for a patient in the treatment group?
 
-2. **(b)** **Identify** and discuss at least two potential threats to internal validity in this study. How could these threats affect the estimation of the causal effect of the medication on blood pressure?
+**(b)** **Identify** and discuss at least two potential threats to internal validity in this study. How could these threats affect the estimation of the causal effect of the medication on blood pressure?
 
-3. **(c)** **Using the provided dataset**, **estimate** the average treatment effect (ATE) of the medication on blood pressure using a regression model. **Discuss** any assumptions you made in your analysis and how they might affect the validity of your findings.
+:::{.callout-warning title="Optional"} 
+**(c)** **Using the provided dataset**, **estimate** the average treatment effect (ATE) of the medication on blood pressure using a regression model. **Discuss** any assumptions you made in your analysis and how they might affect the validity of your findings.
+:::
 
-## Question 4: Randomized Controlled Trials and Causal Effect Estimation
+## Question 4: Randomized Controlled Trials and Causal Effect Estimation {.smaller}
 
 You are given data from a randomized controlled trial (RCT) designed to assess the effectiveness of a new diet program in reducing cholesterol levels. Participants were randomly assigned to either the diet program or a control group.
 
 ### Tasks:
 
-1. **(a)** **Explain** the importance of randomization in this study and how it helps in making causal inferences.
+**(a)** **Explain** the importance of randomization in this study and how it helps in making causal inferences.
 
-2. **(b)** **Analyze** the provided RCT dataset to estimate the causal effect of the diet program on cholesterol levels. Use a t-test or regression analysis to estimate the average treatment effect (ATE).
+:::{.callout-warning title="Optional"} 
 
-3. **(c)** **Discuss** how non-compliance (i.e., participants not adhering to their assigned group) could affect the results of the RCT. How might you address non-compliance in your analysis?
+**(b)** **Analyze** the provided RCT dataset to estimate the causal effect of the diet program on cholesterol levels. Use a t-test or regression analysis to estimate the average treatment effect (ATE).
 
+
+**(c)** **Discuss** how non-compliance (i.e., participants not adhering to their assigned group) could affect the results of the RCT. How might you address non-compliance in your analysis?
+
+:::
 ---
+
 

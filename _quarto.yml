@@ -52,10 +52,10 @@ website:
       - section: "Sept 23"
         contents:
         - text: "Exercise Benchmark Dose Modelling"
-          #file: ex/ex_benchmark_dose_modelling_zz.qmd
+          file: ex/ex_benchmark_dose_modelling.qmd
           target: "_blank"
         - text: "Exercise Causal inference"
-          #file: ex/ex_causal_inference.qmd
+          file: ex/ex_causal_inference.qmd
           target: "_blank"
       - section: "Sept 30"
         contents:

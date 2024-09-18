@@ -8,7 +8,7 @@
 
 <meta name="author" content="Ullrika Sahlin">
 
-<title>MVEN10 - Exercise. Exposure assessment using a model for bioaccumulation</title>
+<title>MVEN10 - Exercise Benchmark Dose Modelling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -94,9 +94,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/font-awesome-5.13.0/js/script.js"></script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -356,27 +355,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#exercise-overview" id="toc-exercise-overview" class="nav-link active" data-scroll-target="#exercise-overview">Exercise overview</a>
   <ul class="collapse">
   <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
-  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose">Purpose</a></li>
+  </ul></li>
+  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose">Purpose</a>
+  <ul class="collapse">
   <li><a href="#content" id="toc-content" class="nav-link" data-scroll-target="#content">Content</a></li>
   <li><a href="#duration" id="toc-duration" class="nav-link" data-scroll-target="#duration">Duration</a></li>
   <li><a href="#reporting" id="toc-reporting" class="nav-link" data-scroll-target="#reporting">Reporting</a></li>
-  </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  <li><a href="#bioaccumulation-model" id="toc-bioaccumulation-model" class="nav-link" data-scroll-target="#bioaccumulation-model">Bioaccumulation model</a>
-  <ul class="collapse">
-  <li><a href="#useful-model-terminology" id="toc-useful-model-terminology" class="nav-link" data-scroll-target="#useful-model-terminology">Useful model terminology</a></li>
   </ul></li>
-  <li><a href="#uncertainty-analysis" id="toc-uncertainty-analysis" class="nav-link" data-scroll-target="#uncertainty-analysis">Uncertainty analysis</a>
-  <ul class="collapse">
-  <li><a href="#plan" id="toc-plan" class="nav-link" data-scroll-target="#plan">Plan</a></li>
-  </ul></li>
-  <li><a href="#sensitivity-analysis" id="toc-sensitivity-analysis" class="nav-link" data-scroll-target="#sensitivity-analysis">Sensitivity analysis</a>
-  <ul class="collapse">
-  <li><a href="#a-model" id="toc-a-model" class="nav-link" data-scroll-target="#a-model">A model</a></li>
-  <li><a href="#graphical-visualisation-of-the-influence-of-parameters-on-a-quantity-of-interest" id="toc-graphical-visualisation-of-the-influence-of-parameters-on-a-quantity-of-interest" class="nav-link" data-scroll-target="#graphical-visualisation-of-the-influence-of-parameters-on-a-quantity-of-interest">Graphical visualisation of the influence of parameters on a quantity of interest</a></li>
-  <li><a href="#derivation-of-metrics-for-sensitivity" id="toc-derivation-of-metrics-for-sensitivity" class="nav-link" data-scroll-target="#derivation-of-metrics-for-sensitivity">Derivation of metrics for sensitivity</a></li>
-  </ul></li>
-  <li><a href="#execute-monte-carlo-simulation-and-perform-sensitivity-analysis" id="toc-execute-monte-carlo-simulation-and-perform-sensitivity-analysis" class="nav-link" data-scroll-target="#execute-monte-carlo-simulation-and-perform-sensitivity-analysis">Execute Monte Carlo simulation and perform sensitivity analysis</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
   </ul>
 </nav>
     </div>
@@ -385,7 +372,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Exercise. Exposure assessment using a model for bioaccumulation</h1>
+<h1 class="title">Exercise Benchmark Dose Modelling</h1>
 <p class="subtitle lead">MVEN10 Risk Assessment in Environment and Public Health</p>
 </div>
 
@@ -409,223 +396,176 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="exercise-overview" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-overview">Exercise overview</h2>
-<p>Do in groups of 1-3</p>
+<p>Do in groups of 2-3</p>
 <section id="background" class="level3">
 <h3 class="anchored" data-anchor-id="background">Background</h3>
-<p>Models are often used in risk assessments, and to allow for critical evaluation of a model including methods associated with the model, or reproduction of the modelling, they should be described in a clear way.</p>
-<p>Monte Carlo simulation is a method that can be used to propagate uncertainty in a mathematical model. A careful description of a Monte Carlo simulation is not only needed for transparency and reliability of the results, but it is often a opportunity to resolve uncertainties associated to a description of a model.</p>
-<p>Sensitivity analysis is applied to evaluate the influence of sources to uncertainty on the quantity of interest. It is recommended for use in uncertainty analysis to identify what information to collect to reduce uncertainty.</p>
-<p>Methods for sensitivity analysis range from qualitative to quantitative, and from local (considering the influence from sources of uncertainty one at a time) and global (considering the influence of sources of uncertainty in combination). A quantitative sensitivity analysis can be to change a parameter value up and down 10% from its nominal value and see how much it changes the quantity of interest.</p>
-<p>Given a quantitative uncertainty analysis where parameter uncertainty is described by probability distributions, their influence on the quantity of interest can e.g.&nbsp;be explored</p>
-<ul>
-<li><p>graphically using scatter plots, and</p></li>
-<li><p>by calculating sensitivity metrics and compare them.</p></li>
-</ul>
-<p>It is recommended to combine a graphical visualisation with sensitivity metrics.</p>
-<p><strong>Bioaccumulation</strong> is the increase in the concentration of a chemical in a biological organism over time. Both human and ecological/environmental risk assessments consider bioaccumulation processes for exposure assessment.</p>
+<p>Risk from chemical exposure on environment and human health is commonly assessed by comparing assessments of exposure and effects. Conservative estimates of exposures resulting in adverse effects can be derived from observed concentrations where there is no observed effect or lowest observed effect. Another approach is to find a suitable model for the dose-response relationship and use the model (or models) to derive the highest dose that corresponds with a benchmark response of interest.</p>
+<p>An example: Data from an epidemiological study consists of the incidence of a disease for groups of the population with different levels of lifetime exposure to a chemical. A dose-response curve is fitted through the data points. The benchmark response (BMR) is set to 5%. The benchmark dose (BMD) is the dose which corresponds to the BMR.</p>
+<p>It is recommended to use a lower bound for the BMD resulting from consideration of the influence from uncertainty in the shape of the dose-response curve (including the parameters for the curve). This bound is referred to as the BMDL.</p>
+<p>The width between the lower and upper bound of the BMD tells something about the reliability of the model.</p>
+<p>Methods have been developed to choose between alternative models using the AIC as goodness-of-fit, or to derive the BMDL by model averaging.</p>
+<p>There are several software for BMD modelling. The PROAST fits models using maximum likelihood and derives the lower and upper bounds on the BMD using bootstrapping. The US EPA BMDS software uses maximum likelihood for fitting models and Bayesian inference for model averaging. EFSA has a software for BMD modelling using Bayesian inference to fit and derive a probability distribution for the BMD. There are more software as well as R-packages for BMD modelling.</p>
 </section>
-<section id="purpose" class="level3">
-<h3 class="anchored" data-anchor-id="purpose">Purpose</h3>
-<ul>
-<li><p>To practice describing a Monte Carlo simulation used to propagate uncertainty in parameters of a mathematical model.</p></li>
-<li><p>To apply sensitivity analysis to evaluate the influence of parameters on uncertainty in a quantity of interest.</p></li>
-<li><p>To explore common models for bioaccumulation.</p></li>
-</ul>
 </section>
+<section id="purpose" class="level2">
+<h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
+<ul>
+<li>To perform a simple BMD modelling the dataset to derive the BMDL</li>
+</ul>
 <section id="content" class="level3">
 <h3 class="anchored" data-anchor-id="content">Content</h3>
+<p>We have chosen two online BMD tools that does not require any login.</p>
 <ul>
-<li>Printed table</li>
+<li><p>The BMD modelling software PROAST developed by RIVM <a href="https://www.rivm.nl/en/proast">https://www.rivm.nl/en/proast</a>. We ask you to open the RIVM web application <a href="https://proastweb.rivm.nl/">PROAST online no account</a></p></li>
+<li><p>The BMD online tool from US EPA<a href="https://bmdsonline.epa.gov/">https://bmdsonline.epa.gov/</a></p></li>
+<li><p>Data from an epidemiological study on the effect of Arsenic on the incidence of lung cancer in a population.</p></li>
 </ul>
 </section>
 <section id="duration" class="level3">
 <h3 class="anchored" data-anchor-id="duration">Duration</h3>
-<p>45 minutes</p>
+<p>60 minutes</p>
 </section>
 <section id="reporting" class="level3">
 <h3 class="anchored" data-anchor-id="reporting">Reporting</h3>
-<p>Be prepared to report back at the end of the exercise.</p>
+<p>Submit the reports from the BMD tool and be prepared to report back in class.</p>
+</section>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
+<p>US EPA <a href="https://www.epa.gov/bmds/about-benchmark-dose-tools">page about benchmark tools</a></p>
+<p>EFSA (2022) <a href="https://efsa.onlinelibrary.wiley.com/doi/full/10.2903/j.efsa.2022.7584">Guidance on the use of the benchmark dose approach in risk assessment</a></p>
+<!-- A software from a company [Bayesian benchmark dose modeling](https://benchmarkdose.com/) -->
+<!-- [US EPA Benchmark dose modelling tools](https://www.epa.gov/bmds) -->
 </section>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p>US EPA, KABAM Version 1.0 User’s Guide and Technical Documentation - Appendix A - Description of Bioaccumulation Model https://www.epa.gov/pesticide-science-and-assessing-pesticide-risks/kabam-version-10-users-guide-and-technical-7</p>
-<p>Information about <a href="https://multimedia.efsa.europa.eu/uncertainty-tutorial/principles-and-methods/methods.html">Monte Carlo simulation and sensitivity analysis at the EFSA Tutorial on Uncertainty</a></p>
-</section>
-<section id="bioaccumulation-model" class="level2">
-<h2 class="anchored" data-anchor-id="bioaccumulation-model">Bioaccumulation model</h2>
-<p>Go to the US EPA’s page with a description of <a href="https://www.epa.gov/pesticide-science-and-assessing-pesticide-risks/kabam-version-10-users-guide-and-technical-7">Bioaccumulation a model.</a></p>
-<p>The model presented can be used to assess various quantities of interest related to bioaccumulation at different trophic levels.</p>
-<p>The recommended approach is to first calculate the concentration in organisms at the lowest level of the aquatic food chain (i.e.&nbsp;phytoplankton) before calculating concentrations at higher levels.</p>
-<p>The page describes several equations to calculate different quantities of interest.</p>
-<section id="useful-model-terminology" class="level3">
-<h3 class="anchored" data-anchor-id="useful-model-terminology">Useful model terminology</h3>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>In this exercise we will use epidemiological data on the incidence of lung cancer from Steinmaus et al.&nbsp;(2013). Exposure is estimated as lifetime average, all years, based on arsenic daily intakes. This data is one of the studies used in the Arsenic case study.</p>
+<p>Data consists of three variables:</p>
+<p><strong>Exposure.µg.kg.bw.per.day</strong> is the average life time exposure to Arsenic for groups of the population.</p>
+<p><strong>N</strong> is the total number of persons in each group</p>
+<p><strong>Adj.cases</strong> is the number of cases of lung cancer in each group</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+  Exposure.µg.kg.bw.per.day      N Adj.cases
+                      &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
+1                      0.58 138516        70
+2                      1.55 136406        60
+3                      3.46 108281        68
+4                      4.67  66797       107</code></pre>
+</div>
+</div>
+<p>Below you can see the code to load data and generate new variables for plotting. It is shown here to examplify how to generate the plot below. You do not have to do it yourself.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">read_delim</span>(<span class="st">"../data/lung_cancer.txt"</span>,<span class="at">show_col_types=</span><span class="cn">FALSE</span>, <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">dose =</span> Exposure.µg.kg.bw.per.day) <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> Adj.cases<span class="sc">/</span>N) <span class="sc">%&gt;%</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">SE =</span> <span class="fu">sqrt</span>((Adj.cases<span class="sc">/</span>N)<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>Adj.cases<span class="sc">/</span>N)<span class="sc">/</span>N)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lower =</span> response<span class="dv">-2</span><span class="sc">*</span>SE) <span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">upper =</span> response<span class="sc">+</span><span class="dv">2</span><span class="sc">*</span>SE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The assessment used a value of 0.0005 as the BMR. This is plotted as a red dashed line in the graph below.</p>
+<p>Statistical estimation errors are indiced by error bars for each group.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>value_for_CES <span class="ot">=</span> <span class="fl">0.0005</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>dose, <span class="at">y =</span> response)) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>lower,<span class="at">ymax=</span>upper)) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> value_for_CES, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="ex_benchmark_dose_modelling_old_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 <ol class="example" type="1">
-<li>Go to the part of the Bioaccumulation model referred to as <strong>A.1 Calculation of Fraction of Chemical in the Water Column That Is Freely Dissolved</strong> and identify the following:</li>
+<li>Download and view the lung cancer data in a text editor (you can for example use Notepad).</li>
 </ol>
-<ul>
-<li><p>The mathematical model</p></li>
-<li><p>The parameters within the model</p></li>
-<li><p>Input variables or arguments to the model</p></li>
-<li><p>The output from the model</p></li>
-<li><p>The quantity of interest</p></li>
-</ul>
-<p><img src="../img/bioacc.png" class="img-fluid"></p>
-</section>
-</section>
-<section id="uncertainty-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="uncertainty-analysis">Uncertainty analysis</h2>
-<section id="plan" class="level3">
-<h3 class="anchored" data-anchor-id="plan">Plan</h3>
-<p>Your boss has given you the tasks to perform a quantitative uncertainty analysis (using Monte Carlo simulation) of this model and to identify the parameter with the highest influence to uncertainty in the quantity of interest.</p>
+<div class="cell">
+<div class="cell-output-display">
+<button class="btn btn-info" onclick="fetch('data:text/plain;base64,RXhwb3N1cmUuwrVnLmtnLmJ3LnBlci5kYXkJTglBZGouY2FzZXMNCjAuNTgJMTM4NTE2CTcwDQoxLjU1CTEzNjQwNgk2MA0KMy40NgkxMDgyODEJNjgNCjQuNjcJNjY3OTcJMTA3DQoJDQo=').then(res => res.blob()).then(blob => {
+      const downloadURL = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.style.display = 'none'; // Hide the link
+      document.body.appendChild(a);
+      a.href = downloadURL;
+      a.download = 'lung_cancer.txt';
+      a.click();
+      window.URL.revokeObjectURL(downloadURL);
+      document.body.removeChild(a);
+      return false;
+    });"><i class="fa fa-save"></i> lung cancer</button>
+</div>
+</div>
 <ol start="2" class="example" type="1">
-<li><p>Make a plan on how to perform the Monte Carlo simulation. Describe the setting for the Monte Carlo simulation, in particular for which model components you will specify probability distributions (you do not have to come up with the distributions now). Create a new table similar to Table A4 that can be used when you report back to your boss.</p></li>
-<li><p>Discuss you plan with the tutor for feedback</p></li>
+<li><p>Choose one of the online BMD tools listed above and open a new session. We recommend you do both. We will report back in class when all groups have done at least one module.</p></li>
+<li><p>Load data into the software</p></li>
 </ol>
-<p>If there is time, you have <strong>at the end of, or after, the exercise</strong>, the possibility to execute the Monte Carlo simulation using e.g.&nbsp;R or Excel.</p>
-</section>
-</section>
-<section id="sensitivity-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="sensitivity-analysis">Sensitivity analysis</h2>
-<p>We will start exploring two quantitative methods for sensitivity analysis using a simple model. Then, if there is time, you will be asked to apply it on the selected part of the US EPA Bioaccumulation model.</p>
-<section id="a-model" class="level3">
-<h3 class="anchored" data-anchor-id="a-model">A model</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">PROAST</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">BMDS</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Choose File and press Upload</p>
+<p>Provide an Analysis name</p>
+<p>Press “Next: Specify”</p>
+<p>Select the correct variable for the Dose column</p>
+<p>Select the correct variable for the Response column</p>
+<p>Tick Quantal as Type of response data</p>
+<p>Select the N for the Group size column</p>
+<p>Set BMR (CES) to 0.0005</p>
+<p>Run the analysis without ticking Model averaging</p>
+<p>When the State of the analysis is Finished, click on the icon for the Report Analysis results.</p>
+<p>Graphical ouptut - the graphs are not that interesting since the limits on the y-axis are too big.</p>
+<p>Go back to the Overview on PROASTweb and click the icon for Advanced plotting</p>
+<p>Change <strong>X axis scaling</strong> to None</p>
+<p>Change <strong>Y axis to</strong> 0.002 and press Apply</p>
+<p>Open the Report Analysis results again. Now the graphs of the dose-response curve per model should be better.</p>
+<p>Fitted models - here you can see the goodness of fit (AIC) for alternative models and the corresponding BMD with lower and upper bounds. <strong>conv</strong> tells you if the model has converged. Only converged models should be used.</p>
+<p>Discuss the meaning of converged. Is it possible to see any difference in the visualisation for the converged and non-converged models?</p>
+<p>Take note of the lowest BMDL and highest BMDU over the six models that has converged.</p>
+<p>Save the report from the webpage (e.g.&nbsp;by printing it to a PDF) into <strong>NN_lung_cancer.pdf</strong> where NN is your name.</p>
+<p>Go back to the previous page (https://proastweb.rivm.nl/) and click on the icon named Specify.</p>
+<p>Tick the box for Model averaging, use 200 for the Number of bootstrap runs and Run the analysis.</p>
+<p>This might take some time.</p>
+<p>When the State of the analysis is Finished, click on the icon for the Report Analysis results.</p>
+<p>Model weights - this shows the weights for models used in the model averaging.</p>
+<p>Discuss the meaning of the weights.</p>
+<p>Which models are included in the model averaging?</p>
+<p>Which model has the highest weight?</p>
+<p>Note the BMDL and BMDU based on model averaging.</p>
+<p>Save the report from the webpage (e.g.&nbsp;by printing it to a PDF) into <strong>NN_lung_cancer_MA.pdf</strong> where NN is your name</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>In Settings, provide an Analysis Name</p>
+<p>Choose model Type to be Dichotomous</p>
+<p>Goto Data, select Dichotomous as New dataset and click on <strong>+New</strong></p>
+<p>You can type in the Doses, N and Incidences by hand. You can also paste it in by first opening the lung_cancer.txt file in a text editor, select and copy data (no headers). Then you open the table button and paste the data in there and press load.</p>
+<p>You can zoom in the graph so the y-axis range up to 0.003 (I have not figured out how to zoom out).</p>
+<p>Goto Settings and set the BMR (bottom of the page) to 0.0005.</p>
+<p>Click on Save Analysis</p>
+<p>Click on Run Analysis</p>
+<p>When it is done, you will be taken to Output</p>
+<p>Zoom in on the graph to the right until it looks something like this</p>
+<p><img src="../img/bmd1.png" class="img-fluid"></p>
+<p>Scroll over the models in the table. You will see the curve plotted in the right graph.</p>
+<p>Discuss the meaning of restricted and unrestricted</p>
+<p>Discuss the meaning of questionable, viable and recommended.</p>
+<p>Select a best-fitting model and save model selection</p>
+<p>Take note of the BMDL and BMDU for the selected model.</p>
+<p>Click on Actions and download a report and save it as <strong>NN_lung_cancer_BDMS</strong> where NN is your name.</p>
+<p>Go back to Settings and select gamma, loglogistic, LogProbit and Weibull under Alternatives/Bayesian Model Averaging</p>
+<p>Discuss why these models were selected</p>
+<p>Click on Save Analysis</p>
+<p>Click on Run Analysis</p>
+<p>In Outputs, there is a new table called Bayesian Model Results. Discuss the meaning of prior and posterior weights</p>
+<p>Which model has the highest weight in the Bayesian model averaging?</p>
+<p>Note the BMDL and BMDU based on model averaging.</p>
+<p>Save the report into <strong>NN_lung_cancer_BDMS_MA</strong> where NN is your name</p>
+</div>
+</div>
+</div>
 <ol start="4" class="example" type="1">
-<li>Define a model with two parameters (<span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>) calculating <span class="math inline">\(y\)</span> given the input variable <span class="math inline">\(z\)</span></li>
+<li>We will discuss the BMD modelling from both software in class. You are welcome to try out the other software.</li>
 </ol>
-<p><span class="math display">\[y = \frac{1}{z\cdot\alpha\cdot\beta}\]</span></p>
-<p>We have the following information</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Symbol</th>
-<th>Definition</th>
-<th>Value</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(z\)</span></td>
-<td>input variable</td>
-<td>user defined</td>
-<td>kg/L</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\alpha\)</span></td>
-<td>parameter</td>
-<td>3</td>
-<td>none</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(\beta\)</span></td>
-<td>parameter</td>
-<td>0.2</td>
-<td>none</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(y\)</span></td>
-<td>quantity of interest</td>
-<td>calculated</td>
-<td>kg/L</td>
-</tr>
-</tbody>
-</table>
-<p>Uncertainty in parameters are specified to be</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Probability distribution</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(\alpha\)</span></td>
-<td>N(3,0.1)</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\beta\)</span></td>
-<td>U(0.1,0.2)</td>
-</tr>
-</tbody>
-</table>
-<p>We set up a Monte Carlo simulation sampling from the parameter distributions and propagating this uncertainty to the quantity of interest for a given value on the input variable <span class="math inline">\(z\)</span>. Here we set <span class="math inline">\(z = 1\)</span>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>niter <span class="ot">=</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">3</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">=</span> <span class="dv">1</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">=</span> <span class="fu">rnorm</span>(niter,<span class="dv">3</span>,<span class="fl">0.1</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">=</span> <span class="fu">runif</span>(niter,<span class="fl">0.1</span>,<span class="fl">0.2</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span>(z<span class="sc">*</span>alpha<span class="sc">*</span>beta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="graphical-visualisation-of-the-influence-of-parameters-on-a-quantity-of-interest" class="level3">
-<h3 class="anchored" data-anchor-id="graphical-visualisation-of-the-influence-of-parameters-on-a-quantity-of-interest">Graphical visualisation of the influence of parameters on a quantity of interest</h3>
-<ol start="5" class="example" type="1">
-<li>Make scatter plots with the sampled parameters values on the x-axis and the simulated values of the quantity of interest on the y-axis</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(y<span class="sc">~</span>alpha)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="ex_bioaccumulation_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(y<span class="sc">~</span>beta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="ex_bioaccumulation_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<ol start="6" class="example" type="1">
-<li>From looking at these graphs, which of the parameters do you think have the most contribution to uncertainty in the quantity of interest? influential?</li>
-</ol>
-<p>To get a better overview one can produce a matrix of scatter plots</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">alpha =</span> alpha, <span class="at">beta =</span> beta, <span class="at">y =</span> y)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="ex_bioaccumulation_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</section>
-<section id="derivation-of-metrics-for-sensitivity" class="level3">
-<h3 class="anchored" data-anchor-id="derivation-of-metrics-for-sensitivity">Derivation of metrics for sensitivity</h3>
-<p>Sensitivity can be measured in several ways. One option is to calculate the correlation between the sampled values for the parameter and the simulated values for the quantity of interest</p>
-<ol start="7" class="example" type="1">
-<li>Calculate the correlation</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(alpha,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.1358665</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(beta,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.9734564</code></pre>
-</div>
-</div>
-<p>Or do it in one go</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>            alpha        beta          y
-alpha  1.00000000 -0.01368764 -0.1358665
-beta  -0.01368764  1.00000000 -0.9734564
-y     -0.13586650 -0.97345640  1.0000000</code></pre>
-</div>
-</div>
-<ol start="8" class="example" type="1">
-<li>Considering the correlation, which parameter contributes most to uncertainty in the quantity of interest?</li>
-</ol>
-</section>
-</section>
-<section id="execute-monte-carlo-simulation-and-perform-sensitivity-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="execute-monte-carlo-simulation-and-perform-sensitivity-analysis">Execute Monte Carlo simulation and perform sensitivity analysis</h2>
-<p>If you have the time, implement your Monte Carlo simulation and identify the most influential parameter.</p>
-<p><strong>Ullrika will share a solution after the exercise</strong></p>
 
 
 </section>
