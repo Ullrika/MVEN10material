@@ -1,5 +1,5 @@
 ---
-title: "Exercise 8. Observe, fit and simulate"
+title: "Exercise Observe, fit and simulate"
 subtitle: "Report"
 author: "PUT YOUR NAME HERE"
 date: today
@@ -25,12 +25,16 @@ library(ggplot2)
 library(fitdistrplus)
 ```
 
-## Data
+## Discrete data  
 
-## Model
+## Model for discrete data
 
-### Description
+## Justification for the choice of model
 
-### Justification
+## Continuous data  
 
-### Simulation from the model
+## Model for continuous data
+
+## Justification for the choice of model
+
+## Simulation from the model with continuous data

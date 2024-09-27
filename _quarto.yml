@@ -30,7 +30,7 @@ website:
           file: ex/useful_functions_with_R.qmd
           target: "_blank"
         - text: "Exercise Observe and summarise"
-          file: ex/observe_summarise.qmd
+          file: ex/ex_observe_summarise.qmd
           target: "_blank"
       - section: "Sept 16"
         contents:
@@ -41,7 +41,7 @@ website:
           file: ex/ex_environ_fate_assessment.qmd
           target: "_blank"
         - text: "Exercise Observe, fit model (and simulate)"
-          file: ex/observe_fit_simulate.qmd
+          file: ex/ex_observe_fit_simulate.qmd
           target: "_blank"
         - text: "Exercise Hazard assessment"
           file: ex/ex_env_hazard_assessment.qmd
@@ -60,10 +60,10 @@ website:
       - section: "Sept 30"
         contents:
         - text: "Exercise Uncertainty Interval analysis"
-          #file: ex/ex_daily_intake_equation.qmd
+          file: ex/ex_daily_intake_equation.qmd
           target: "_blank"
         - text: "Exercise Uncertainty Monte Carlo simulation"
-          #file: ex/ex_daily_intake_equation_MC.qmd
+          file: ex/ex_daily_intake_equation_MC.qmd
           target: "_blank"
       - section: "Oct 1"
         contents:

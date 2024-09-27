@@ -78,14 +78,21 @@ library(dplyr)
 library(ggplot2)
 ```
 
-(@) Read in data into a data frame named **df**.
+(@) Read in data into a data frame named **df** and view it.
 
 ```{r}
 #| eval: false
 df <- read_excel(path="data/ex_obs_all.xlsx",sheet="data")
+View(df)
 ```
 
-You are to use R to fit a probability distribution to the observations from all four groups. 
+```{r}
+#| echo: false
+df <- read_excel(path=paste0("../data/ex_obs_all.xlsx"),sheet="data")
+View(df)
+```
+
+You are to use R to fit a probability distribution to the observations to two groups, one with discrete and one with continious observations. 
 
 (@) Choose one of the columns to start with.
 
@@ -100,12 +107,12 @@ This is my set of observations
 df$obs
 ```
 
-
 ```{r}
 #| echo: false
-df <- read_excel(path=paste0("../data/ex_obs_all.xlsx"),sheet="data")
-df$obs <- rlnorm(40,3,2)
+df <- data.frame(obs = round(rlnorm(20,3,2),1))
+df$obs
 ```
+
 
 
 (@) Make a histogram of data. 
@@ -222,7 +229,8 @@ fitexp$aic
 
 ```{r}
 #| echo: false
-df$obs <- rbinom(40,10,0.2)
+df$obs <- rbinom(20,10,0.2)
+df$obs
 ```
 
 
@@ -303,54 +311,50 @@ fitpois$aic
 
 (@) Choose the best model and justify your decision
 
+
 ## Simulate
 
-We have previously looked how to generate random samples from a probability distribution. Next time we will simulate from your fitted distributions. 
+At this point you have a model for a quantity that is either a continuous or a discrete variable.
 
+Now you are to simulate from the continuous model and visualise the results. Simulation is done by generating random numbers from the chosen probability distribution.
 
-<!-- ## Simulate -->
+(@) Sample 10 000 random values from your choice of the best model.
 
-<!-- At this point you have a model for a quantity that is either a continuous or a discrete probability distribution.  -->
+:::: {.panel-tabset}
+### Simulate Normal
 
-<!-- Now you are to simulate this model and visualise the results. Simulation is done by generating random numbers from the chosen probability distribution. -->
+Here is a code how to sample ten values from a fitted normal distribution.
 
-<!-- (@) Sample 10 000 random values from your choice of the best model.  -->
+- The parameters of the fitted distribution is found by typing **$estimate** after the fitted object. For a normal it is:
 
-<!-- :::: {.panel-tabset} -->
-<!-- ### Simulate Normal -->
+```{r}
+fitnorm$estimate
+```
 
-<!-- Here is a code how to sample ten values from a fitted normal distribution.  -->
+- use the function *rnorm* to sample *niter = 10* values
 
-<!-- - The parameters of the fitted distribution is found by typing **$estimate** after the fitted object. For a normal it is: -->
+```{r}
+niter = 10
 
-<!-- ```{r} -->
-<!-- fitnorm$estimate -->
-<!-- ``` -->
+rnorm(niter,fitnorm$estimate["mean"],fitnorm$estimate["sd"])
+```
 
-<!-- - use the function *rnorm* to sample *niter = 10* values -->
+- sample and plot as a histogram.
 
-<!-- ```{r} -->
-<!-- niter = 10 -->
+Here is a code how to do it for the normal distribution.
 
-<!-- rnorm(niter,fitnorm$estimate["mean"],fitnorm$estimate["sd"]) -->
-<!-- ``` -->
+```{r}
+#| warning: false
+#| message: false
 
-<!-- - sample and plot as a histogram.  -->
-
-<!-- Here is a code how to do it for the normal distribution.  -->
-
-<!-- ```{r} -->
-<!-- #| warning: false -->
-<!-- #| message: false -->
-
-<!-- data.frame(x=rnorm(niter,fitnorm$estimate["mean"],fitnorm$estimate["sd"])) %>% -->
-<!--   ggplot(aes(x=x)) + -->
-<!--   geom_histogram() -->
-<!-- ``` -->
+data.frame(x=rnorm(niter,fitnorm$estimate["mean"],fitnorm$estimate["sd"])) %>%
+  ggplot(aes(x=x)) +
+  geom_histogram()
+```
 
 <!-- ### Simulate Poisson -->
 
-<!-- Here is a code how to sample ten values from a fitted poisson distribution.  -->
+<!-- Here is a code how to sample ten values from a fitted poisson distribution. -->
 
 <!-- - The parameters of the fitted distribution is found by typing **$estimate** after the fitted object. For a poisson it is: -->
 
@@ -366,9 +370,9 @@ We have previously looked how to generate random samples from a probability dist
 <!-- rpois(niter,fitpois$estimate["lambda"]) -->
 <!-- ``` -->
 
-<!-- - sample and plot as a histogram.  -->
+<!-- - sample and plot as a histogram. -->
 
-<!-- Here is a code how to do it for the normal distribution.  -->
+<!-- Here is a code how to do it for the normal distribution. -->
 
 <!-- ```{r} -->
 <!-- #| warning: false -->
@@ -381,33 +385,33 @@ We have previously looked how to generate random samples from a probability dist
 
 <!-- :::: -->
 
-<!-- ## Report -->
+## Report
 
-<!-- Prepare a report including:  -->
+Prepare a report including:
 
-<!-- - your name -->
+- your name
 
-<!-- - your choice of data set -->
+- your choice of the two data sets
 
-<!-- - your chosen model -->
+- your chosen models
 
-<!-- - include your justification  -->
-<!--   - refer to if the data is for a continuous or discrete quantity -->
-<!--   - the goodness-of-fit measured by AIC in comparison to alternative models -->
-<!--   - a graph comparing the histogram with the PDF of the fitted model and the empirical and theoretical CDFs -->
+- include your justification
+  - refer to if the data is for a continuous or discrete quantity
+  - the goodness-of-fit measured by AIC in comparison to alternative models
+  - a graph comparing the histogram with the PDF of the fitted model and the empirical and theoretical CDFs
 
-<!-- - a histogram visualising a random sample of 10 000 values from the quantity -->
+- a histogram visualising a random sample of 10 000 values from the quantity
 
-<!-- Use this template for the report -->
+Use this template for the report
 
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- downloadthis::download_file( -->
-<!--   path = "../ex/ex8_report_template.qmd", -->
-<!--   button_label = "template for report ex 8", -->
-<!--   button_type = "warning", -->
-<!--   has_icon = TRUE, -->
-<!--   icon = "fa fa-save", -->
-<!--   self_contained = FALSE -->
-<!-- ) -->
-<!-- ``` -->
+```{r}
+#| echo: false
+downloadthis::download_file(
+  path = "../ex/ex_sim_report_template.qmd",
+  button_label = "template for report observe fit simulate",
+  button_type = "warning",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+```
