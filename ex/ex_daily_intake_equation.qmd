@@ -42,6 +42,8 @@ $$Dose = \frac{C \cdot IR \cdot EF}{bw}$$
 
 Replicate these calculations chapter 9.3.2
 
+Note that the upper bound for the interval on body weight should be 45.14!!! 
+
 ![](../img/burg2.png)
 
 ## Monte Carlo simulation
