@@ -72,10 +72,10 @@ website:
       - section: "Oct 2"
         contents:
         - text: "Exposure assessment using a model for bioaccumulation"
-          #file: ex/ex_bioaccumulation.qmd
+          file: ex/ex_bioaccumulation.qmd
           target: "_blank"
         - text: "Exercise Risk classification"    
-          #file: ex/risk_classification_ROC.qmd
+          file: ex/risk_classification_ROC.qmd
           target: "_blank"
       - section: "Oct 7"
         contents:  

@@ -11,7 +11,7 @@ Work together in groups of 1 to 3
 
 ### Purpose
 
--   To apply Monte Carlo simulation on an equation impelemented in R
+-   To apply Monte Carlo simulation on an equation implemented in R
 
 -   To perform sensitivity analysis towards
 

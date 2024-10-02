@@ -179,6 +179,6 @@ cor(df)
 
 ## Execute Monte Carlo simulation and perform sensitivity analysis 
 
-If you have the time, implement your Monte Carlo simulation and identify the most influential parameter. 
+If you have the time, implement your Monte Carlo simulation on the first bioaccumulation model and identify the most influential parameter. 
 
-**Ullrika will share a solution after the exercise**
+

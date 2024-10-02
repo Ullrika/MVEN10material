@@ -25,13 +25,13 @@ library(ggplot2)
 library(fitdistrplus)
 ```
 
-## Discrete data  
+## Discrete data
 
 ## Model for discrete data
 
 ## Justification for the choice of model
 
-## Continuous data  
+## Continuous data
 
 ## Model for continuous data
 

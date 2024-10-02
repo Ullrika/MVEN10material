@@ -144,9 +144,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      MVEN10
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ex/ex_bioaccumulation.html">Oct 2</a></li><li class="breadcrumb-item"><a href="../ex/ex_bioaccumulation.html">Exposure assessment using a model for bioaccumulation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -359,11 +357,17 @@ window.Quarto = {
       </div>
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">Exposure assessment using a model for bioaccumulation</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../ex/ex_bioaccumulation.html" class="sidebar-item-text sidebar-link active" target="_blank">
+ <span class="menu-text">Exposure assessment using a model for bioaccumulation</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">Exercise Risk classification</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../ex/risk_classification_ROC.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Exercise Risk classification</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -423,7 +427,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ex/ex_bioaccumulation.html">Oct 2</a></li><li class="breadcrumb-item"><a href="../ex/ex_bioaccumulation.html">Exposure assessment using a model for bioaccumulation</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Exercise. Exposure assessment using a model for bioaccumulation</h1>
 <p class="subtitle lead">MVEN10 Risk Assessment in Environment and Public Health</p>
@@ -652,23 +656,23 @@ window.Quarto = {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(alpha,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.1810085</code></pre>
+<pre><code>[1] -0.1286363</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(beta,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.9675595</code></pre>
+<pre><code>[1] -0.9680635</code></pre>
 </div>
 </div>
 <p>Or do it in one go</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>             alpha         beta          y
-alpha  1.000000000  0.004728159 -0.1810085
-beta   0.004728159  1.000000000 -0.9675595
-y     -0.181008532 -0.967559521  1.0000000</code></pre>
+<pre><code>            alpha        beta          y
+alpha  1.00000000 -0.04412728 -0.1286363
+beta  -0.04412728  1.00000000 -0.9680635
+y     -0.12863632 -0.96806354  1.0000000</code></pre>
 </div>
 </div>
 <ol start="8" class="example" type="1">
@@ -678,8 +682,7 @@ y     -0.181008532 -0.967559521  1.0000000</code></pre>
 </section>
 <section id="execute-monte-carlo-simulation-and-perform-sensitivity-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="execute-monte-carlo-simulation-and-perform-sensitivity-analysis">Execute Monte Carlo simulation and perform sensitivity analysis</h2>
-<p>If you have the time, implement your Monte Carlo simulation and identify the most influential parameter.</p>
-<p><strong>Ullrika will share a solution after the exercise</strong></p>
+<p>If you have the time, implement your Monte Carlo simulation on the first bioaccumulation model and identify the most influential parameter.</p>
 
 
 </section>

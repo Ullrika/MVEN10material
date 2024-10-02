@@ -59,7 +59,7 @@ The purpose of this exercise is to
 
 - to gain more R skills
 
-- to practice making a report using Quarto
+<!-- - to practice making a report using Quarto -->
 
 ### Content
 
@@ -71,17 +71,19 @@ The purpose of this exercise is to
 
 - Build another classifier and compare the two models
 
-- Instructions how to write the report
+<!-- - Instructions how to write the report -->
 
 ### Duration
 
-45 minutes - partly as home work
+45 minutes
 
 ### Reporting
 
-Write a report using the template provided. Start preparing the report after you have worked through the exercise. 
+No report
 
-Add your name(s) to create a group under E4 in canvas and upload the report on the assignment in canvas. 
+<!-- Write a report using the template provided. Start preparing the report after you have worked through the exercise.  -->
+
+<!-- Add your name(s) to create a group under E4 in canvas and upload the report on the assignment in canvas.  -->
 
 ### References
 
@@ -321,7 +323,7 @@ list(radius=r,compactness=r2) %>% ggroc +
 ```
 
 
-:::{.callout-note title="Information to add in the report"}
+:::{.callout-note title="Questions"}
 Add the graph with the two ROC curves to the project. 
 
 Which of the two binary classification models have the best performance according to the AUC measure? 
@@ -329,27 +331,27 @@ Which of the two binary classification models have the best performance accordin
 Suggest three things that could be done to build a better classification model? 
 :::
 
-## Instructions for reporting
+<!-- ## Instructions for reporting -->
 
-Download the template for the report, upload it to the folder named **ex** in your project in R Studio cloud and open it. 
-
-
-```{r}
-#| echo: false
-downloadthis::download_file(
-  path = "../ex/ex4_report_template.qmd",
-  button_label = "Download template",
-  button_type = "default",
-  has_icon = TRUE,
-  icon = "fa fa-save",
-  self_contained = FALSE
-)
-```
-
-All code in for the report is in the template. You are to 
-
-- add text, such as the answers to questions 
+<!-- Download the template for the report, upload it to the folder named **ex** in your project in R Studio cloud and open it.  -->
 
 
-Render the report as a html-file and upload it on the assignment for your E4 group on canvas. 
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- downloadthis::download_file( -->
+<!--   path = "../ex/ex4_report_template.qmd", -->
+<!--   button_label = "Download template", -->
+<!--   button_type = "default", -->
+<!--   has_icon = TRUE, -->
+<!--   icon = "fa fa-save", -->
+<!--   self_contained = FALSE -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- All code in for the report is in the template. You are to  -->
+
+<!-- - add text, such as the answers to questions  -->
+
+
+<!-- Render the report as a html-file and upload it on the assignment for your E4 group on canvas.  -->
 
