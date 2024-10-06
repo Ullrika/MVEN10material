@@ -25,17 +25,17 @@ library(readxl)
 
 ## Quantity to be elicited
 
-The healthy life years for females in Norway 2003
+The healthy life years for females in Norway 2022
 
 Healthy life years is defined as the number of remaining years that a person at birth is expected to live without any severe or moderate health problems. 
 
-[Link to definition on eurostat] (https://ec.europa.eu/eurostat/cache/metadata/en/hlth_hlye_h_esms.htm)
+[Link to definition on eurostat](https://ec.europa.eu/eurostat/cache/metadata/en/hlth_hlye_h_esms.htm)
 
 ## Procedure (1)
 
 - We discussed the quantity and enusured that it was well-defined 
 
-- The experts (students) made their judgements indpendent of each other 
+- The experts (students) made their judgements independent of each other 
 
 - Each student fitted a distribution to their judgements and extracted a 80% probability interval 
 

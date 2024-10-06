@@ -80,12 +80,14 @@ website:
       - section: "Oct 7"
         contents:  
         - text: "Exercise Expert Elicitation"
-          #file: ex/expert_judgement.qmd
+          file: ex/expert_judgement.qmd
           target: "_blank"
 #        - text: "Wisdom of Crowds"
 #          file: ex/wisdom_of_crowds.qmd
 #          target: "_blank"
         - text: "Exercise Assessment of overall uncertainty"
+          file: ex/ex_uncertainty_moe.qmd
+          target: "_blank"
 
   # - text: "Exercise 14"
   #         file: ex/ex_population_viability_analysis.qmd

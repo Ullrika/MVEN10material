@@ -1,0 +1,309 @@
+---
+title: "Exercise. Food safety assessment with uncertainty analysis"
+subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
+author: "Ullrika Sahlin"
+format: 
+  html:
+    toc: true
+    echo: false
+    message: false
+    warning: false
+---
+
+## Exercise overview
+
+We do this jointly in class. 
+
+### Background
+
+We can never be completely certain about the future, either in science, or in everyday life. Even when there is strong evidence that something will happen, there will almost always be uncertainty about the outcome. But by taking account of this uncertainty, we often can make better, more transparent decisions about things that may affect the outcome.
+
+The European Food Safety Authority (EFSA) has developed a guidance for uncertainty analysis in scientific assessment which requires all assessment to say
+
+-   what sources of uncertainty have been identified
+
+and contain
+
+-   a characterisation of their overall impact on the assessment conclusion.
+
+The reason is that uncertainty of scientific conclusions has important implications for decision making and it is important to communicate this uncertainty for the transparency of assessments.
+
+
+### Purpose
+
+-   To practice performing a probabilistic uncertainty analysis.
+
+### Content
+
+-   A human chemical risk assessment problem
+
+-   A probabilistic uncertainty analysis using expert judgement and Monte Carlo-simulation
+
+### Duration
+
+45 minutes
+
+### Reporting
+
+Be prepared to report back during and at the end of the exercise.
+
+### References
+
+Tutorial videos on EFSA's topic page on uncertainty (examples in the chemical area)
+
+[Key concepts](https://www.youtube.com/watch?v=SGIo_jQLuSM) (17 minutes) 
+
+[Methods and options for basic assessment of uncertainty](https://www.youtube.com/watch?v=bBQlJHhLPiY) (27 minutes)
+
+
+## Description of the assessment
+
+The example is taken from the human health risk assessment of inorganic arsenic in food by EFSA that constituted one of the case studies.
+
+Here we are to reproduce part of the uncertainty analysis. More specifically, the part where they perform probabilistic uncertainty analysis that a high exposure would exceed the Benchmark Dose (BMD) (which is the same that the MOE is less than 1). 
+
+### Hazard assessment
+
+Estimates of benchmark dose as μg iAs/kg bw per day was identified by the CONTAM Panel for different critical effects. A lower, median and upper value for the BMD were derived from model averaging of a BMD modelling. 
+
+
+|Critical effect | BMDL   | BMD   | BMDU   |
+|----------------|--------|-------|--------|
+|Skin cancer     |0.06    |0.15   |0.21    |
+|Bladder cancer  |0.15    | 1.33  | 5.46   |
+
+(@) Which quantiles does the BMDL, BMD and BMDU corresponds to? 
+
+### Exposure assessment
+
+The ranges and medians of the 95th percentile dietary exposure estimates for iAs seen over different consumption surveys and for two relevant age groups are: 
+
+
+|Age group  | Low value | Mid value  |High value |
+|-----------|-----------|------------|-----------|
+|Infants    |  0.21     |  0.6       | 1.20      |
+|Toddlers   |  0.24     |  0.51      | 0.99      |
+
+(@) Decide which quantiles does the Low, Mid and High value corresponds to. 
+
+
+## Load packages
+
+```{r}
+library(SHELF)
+library(sn)
+library(ggplot2)
+```
+
+
+## Probabilistic uncertainty analysis 
+
+### Characterise uncertainty in the Reference Point
+
+(@) Choose one of the critical effects and find a probability distribution describing uncertainty about the BMD for that effect. Use the SHELF tool, where you feed in your own values. 
+
+```{r}
+fit_rp <- fitdist(vals = c(0.06,0.15,0.21), probs = c(0.05, 0.5, 0.95), lower = 0)
+fit_rp
+```
+
+(@) Choose one of the distributions. You can justify your choice as the one having the lowest sum of squares. 
+
+```{r}
+df <- data.frame(ssq = as.numeric(fit_rp$ssq[1:6]), dist = colnames(fit_rp$ssq[1:6]))
+ggplot(df,aes(x=ssq,y=dist)) +
+  geom_col()
+```
+
+```{r}
+SHELF::plotfit(fit_rp, d = "best", ql = 0.05, qu = 0.95)
+```
+
+(@) Generate a report. In the report you can see how to draw random numbers from the chosen probability distribution. 
+
+```{r}
+#SHELF::generateReport(fit_rp)
+```
+
+```{r}
+niter = 10^4
+rp <- sn::rsn(n = niter, xi = 0.197, omega = 0.0698, alpha = -2.79)
+```
+
+### Characterise uncertainty in a high exposure
+
+```{r}
+fit_exposure <- fitdist(vals = c(0.21, 0.6,1.2), probs = c(0.025, 0.5, 0.975), lower = 0)
+fit_exposure
+```
+
+```{r}
+df <- data.frame(ssq = as.numeric(fit_exposure$ssq[1:6]), dist = colnames(fit_exposure$ssq[1:6]))
+ggplot(df,aes(x=ssq,y=dist)) +
+  geom_col()
+```
+
+
+```{r}
+plotfit(fit_exposure, d = "best")
+```
+
+(@) Generate a report. In the report you can see how to draw random numbers from the chosen probability distribution. 
+
+```{r}
+#SHELF::generateReport(fit_exposure)
+```
+
+```{r}
+exposure <- sn::rsn(n = niter, xi = 0.345, omega = 0.382, alpha = 2.63)
+```
+
+
+
+### Uncertainty in a high exposure and the Reference Point
+
+
+```{r}
+ggplot(data.frame(concentration = c(rp,exposure), quantity = rep(c("Reference Point", "High Exposure"),each = niter)),aes(x=concentration, fill = quantity)) +
+  geom_density(alpha=0.2) +
+  ggtitle("Uncertainty in a High Exposure and the Reference Point")
+```
+
+### Characterise uncertainty in the Margin of Exposure 
+
+A Margin of Exposure (MOE) is defined as $$MOE=\frac{\text{Reference Point}}{\text{high expsoure}}$$
+
+A $MOE < 1$ corresponds to $\text{high exposure} < \text{Reference Point}$ and a risk. Risk is unaccepatble if $P(MOE < 1)$ is too high. 
+
+```{r}
+#| warning: false
+#| message: false
+
+df_dens <- density(rp/exposure, from=0)
+df_moe <- data.frame(x=df_dens$x,y=df_dens$y)
+ggplot(df_moe,aes(x=x, y=y)) +
+  geom_line() +
+  geom_ribbon(data=subset(df_moe,x<1),  aes(x=x,ymax=y),ymin=0,fill="darkred", alpha=0.5) +
+  xlab("MOE") +
+  ylab("density") +
+  ggtitle("Uncertainty in MOE", subtitle=paste0("P(MOE<1)=",round(mean(rp<exposure)*100),"%")) 
+```
+
+
+### Characterise uncertainty in the Risk Characterisation Ratio 
+
+```{r}
+#| warning: false
+#| message: false
+
+df_dens <- density(exposure/rp)
+df_rcr <- data.frame(x=df_dens$x,y=df_dens$y)
+ggplot(df_rcr,aes(x=x, y=y)) +
+  geom_line() +
+  geom_ribbon(data=subset(df_rcr,x>1),  aes(x=x,ymax=y),ymin=0,fill="darkred", alpha=0.5) +
+  xlab("RCR") +
+  ylab("density") +
+  ggtitle("Uncertainty in RCR", subtitle=paste0("P(RCR>1)=",round(mean(rp<exposure)*100),"%")) 
+```
+
+<!-- ## Probabilistic uncertainty analysis -->
+
+<!-- ### Characterise uncertainty in the Reference Point -->
+
+<!-- ```{r} -->
+<!-- fit_rp <- fitdist(vals = c(0.15,1.33,5.46), probs = c(0.05, 0.5, 0.95), lower = 0) -->
+<!-- fit_rp -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- df <- data.frame(ssq = as.numeric(fit_rp$ssq[1:6]), dist = colnames(fit_rp$ssq[1:6])) -->
+<!-- ggplot(df,aes(x=ssq,y=dist)) + -->
+<!--   geom_col() -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- SHELF::plotfit(fit_rp, d = "best", ql = 0.05, qu = 0.95) -->
+<!-- ``` -->
+
+<!-- (@) Generate a report. In the report you can see how to draw random numbers from the chosen probability distribution.  -->
+
+<!-- ```{r} -->
+<!-- #SHELF::generateReport(fit_rp) -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- niter = 10^4 -->
+<!-- rp <- rgamma(n = niter, shape = 1.17, rate = 0.636) -->
+<!-- ``` -->
+
+<!-- ### Characterise uncertainty in a high exposure -->
+
+
+<!-- ```{r} -->
+<!-- fit_exposure <- fitdist(vals = c(0.24, 0.51,0.99), probs = c(0.025, 0.5, 0.975), lower = 0) -->
+<!-- fit_exposure -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- df <- data.frame(ssq = as.numeric(fit_exposure$ssq[1:6]), dist = colnames(fit_exposure$ssq[1:6])) -->
+<!-- ggplot(df,aes(x=ssq,y=dist)) + -->
+<!--   geom_col() -->
+<!-- ``` -->
+
+
+<!-- ```{r} -->
+<!-- plotfit(fit_exposure, d = "best") -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- #SHELF::generateReport(fit_exposure) -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- exposure <- sn::rsn(n = niter, xi = 0.304, omega = 0.306, alpha = 3.75) -->
+<!-- ``` -->
+
+<!-- ### Uncertainty in a high exposure and the Reference Point -->
+
+<!-- ```{r} -->
+<!-- ggplot(data.frame(concentration = c(rp,exposure), quantity = rep(c("Reference Point", "High Exposure"),each = niter)),aes(x=concentration, fill = quantity)) + -->
+<!--   geom_density(alpha=0.2) + -->
+<!--   ggtitle("Uncertainty in a High Exposure and the Reference Point") -->
+<!-- ``` -->
+
+<!-- ### Characterise uncertainty in the Margin of Exposure -->
+
+<!-- A Margin of Exposure (MOE) is defined as $$MOE=\frac{\text{Reference Point}}{\text{high expsoure}}$$ -->
+
+<!-- A $MOE < 1$ corresponds to $\text{high exposure} < \text{Reference Point}$ and a risk. Risk is unaccepatble if $P(MOE < 1)$ is too high.  -->
+
+<!-- ```{r} -->
+<!-- #| warning: false -->
+<!-- #| message: false -->
+
+<!-- df_dens <- density(rp/exposure, from=0) -->
+<!-- df_moe <- data.frame(x=df_dens$x,y=df_dens$y) -->
+<!-- ggplot(df_moe,aes(x=x, y=y)) + -->
+<!--   geom_line() + -->
+<!--   geom_ribbon(data=subset(df_moe,x<1),  aes(x=x,ymax=y),ymin=0,fill="darkred", alpha=0.5) + -->
+<!--   xlab("MOE") + -->
+<!--   ylab("density") + -->
+<!--   ggtitle("Uncertainty in MOE", subtitle=paste0("P(MOE<1)=",round(mean(rp<exposure)*100),"%"))  -->
+<!-- ``` -->
+
+<!-- ### Characterise uncertainty in the Risk Characterisation Ratio  -->
+
+<!-- ```{r} -->
+<!-- #| warning: false -->
+<!-- #| message: false -->
+
+<!-- df_dens <- density(exposure/rp) -->
+<!-- df_rcr <- data.frame(x=df_dens$x,y=df_dens$y) -->
+<!-- ggplot(df_rcr,aes(x=x, y=y)) + -->
+<!--   geom_line() + -->
+<!--   geom_ribbon(data=subset(df_rcr,x>1),  aes(x=x,ymax=y),ymin=0,fill="darkred", alpha=0.5) + -->
+<!--   xlab("RCR") + -->
+<!--   ylab("density") + -->
+<!--   ggtitle("Uncertainty in RCR", subtitle=paste0("P(RCR>1)=",round(mean(rp<exposure)*100),"%")) -->
+<!-- ``` -->
+

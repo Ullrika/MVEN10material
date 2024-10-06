@@ -1,5 +1,5 @@
 ---
-title: "Exercise 19. Food safety assessment with uncertainty analysis"
+title: "Exercise. Food safety assessment with uncertainty analysis"
 subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Ullrika Sahlin"
 format: 
@@ -217,6 +217,7 @@ Unfortunately, this result is not enough to reach a conclusion whether a High Ex
 Therefore we move on to a refined option for uncertainty analysis with probability distributions.  
 
 #### Refined option with probability distributions 
+
 A refined option can alternatively be done with with probability distributions which are combined by Monte Carlo simulation.
 
 This is an option, when the outcome of a probability bound analysis was not conclusive. 
@@ -448,6 +449,7 @@ View the third tutorial video [Refined options for assessing uncertainty](https:
 ### Post scriptum 1
 
 An alternative choice for a probability distribution to represent uncertainty in a High Exposure would be a distribution that resonates properties of percentiles. 
+
 to be continued
 
 <!-- Consider the following simulation experiment where we draw samples from a lognormal distribution and derive the 95th percentile.  -->

@@ -1,5 +1,5 @@
 ---
-title: "Expert judgement"
+title: "Exercise: Expert judgement"
 subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Ullrika Sahlin"
 format: 
@@ -56,7 +56,7 @@ It is also important that experts receive training in making probabilistic judge
 
 ### Reporting
 
-No need to report other than contributing with judgements
+No need to report other than contributing with judgements (including justifications) on a piece of paper.
 
 ### References
 
@@ -190,18 +190,26 @@ data.frame(pp = ppoints(1000)) %>%
 
 Now we will practice doing an elicitation where you are the experts. 
 
-The elicitor (Ullrika) will introduce the quantity to be elicited in class and make sure the quantity is well defined. She will then ask you to make your judgements on a piece of paper. 
+The elicitor (Ullrika) is facilitating the session. She will first introduce the quantity to be elicited in class and make sure the quantity is well defined. She will then ask you to make your judgements on a piece of paper. 
+
+- Quantity of interest
+
+- Threshold of importance
+
+- Evidence dossier
+
+## Make individual judgements
 
 ### Fit single distribution to judgements
 
-We will use an online app from the SHELF software to fit and explore the judgements. Go to
+Here, we will use an online app from the SHELF software to fit and explore the judgements. Go to
 [SHELF webpage](https://shelf.sites.sheffield.ac.uk/software#h.n8yy6jrhk7) and open the app for a single expert.
 
 ![](../img/shelf1.png)
 
-(@) Provide your lower and upper plausible bounds by replacing the values 0 and 100 in the box **Parameter limits**
+(@) Provide your lower and upper plausible bounds by replacing the values 0 and 100 in the box **Parameter limits**. Write down on the paper a justification for your judgements on the plausible range.
 
-(@) Provide your judgements on the median, and the lower and upper quartiles by replacing the values 25, 50 and 75 in the box **Parameter values**
+(@) Provide your judgements on the median, and the lower and upper quartiles by replacing the values 25, 50 and 75 in the box **Parameter values**. Write down on the paper a justification for your judgements on the quartiles.
 
 (@) Click on the **Quartiles** tab to view a visualisation of your judgements
 
@@ -223,7 +231,7 @@ The software will help the elicitor to "fit" a probability distribution that rep
 
 - Do you think the CDF of the fitted distribution corresponds well to your judgements? 
 
-You can try other distributions and see how the fit looks like, but keep the best fitting when continuing.
+You can try other distributions and see how the fit looks like. At the end keep the one you think best describes your uncertainty.
 
 (@) Now we want to see how the fitted probability distributions intended to represent your uncertainty about the quantity looks like. Tick **show fitted PDF** and go to the **PDF** tab.  
 
@@ -233,8 +241,6 @@ You can try other distributions and see how the fit looks like, but keep the bes
 
 (@) You are welcome to change your judgements until you accept the fitted distribution
 
-The tutor has provided an important threshold for the quantity on the board. Use the fitted probability distribution to calculate the probability that the quantity is below a value provided by the tutor!
-
 - The quantiles P10 and P90 can be seen as bounds of a probability interval where you are 80% certain that the true value lies.  
 
 Take note of the calculated quantiles in the table to the right in the section **Fitted quantiles and cumulative probabilities** below the PDF graph
@@ -243,15 +249,18 @@ Take note of the calculated quantiles in the table to the right in the section *
 
 ![](../img/shelf4.png){width=40%}
 
+The tutor has provided an important threshold for the quantity of interest. Use the fitted probability distribution to calculate the probability that the quantity is below the treshold value provided by the tutor!
+
 (@) Take note of the calculated probability in the table to the right in the section **Fitted quantiles and cumulative probabilities** below the PDF graph
 
-
-(@) To prepare for the next step, fill in your judgements and the calculated quantiles P10 and P90 and calculated probabilities in [this google form](https://forms.gle/83chHkXJMzzyTpvf6)
+(@) To prepare for the next step, hand over your judgements and the calculated quantiles P10 and P90 and calculated probabilities to Ullrika
+<!-- in [this google form](https://forms.gle/83chHkXJMzzyTpvf6) -->
 
 ### Aggregation of expert judgements
 
 This part of the exercise is led by the tutor (Ullrika)
 
+We will compare and discuss the individual judgements and try to reach a concensus judgement 
 She will use the [SHELF online tool for multiple experts](https://shelf.sites.sheffield.ac.uk/software#h.6a6o2k640h43)
 
 
@@ -259,12 +268,8 @@ She will use the [SHELF online tool for multiple experts](https://shelf.sites.sh
 
 The wisdom of the crowds [interesting wiki page](https://en.wikipedia.org/wiki/The_Wisdom_of_Crowds) states that pooling judgements using a trusted process from a diverse group of experts, that made their judgements independent of each other, is better than using one expert. 
 
-The tutor has the true answer 
+We will now pool your judgments by making averages of the PDF over each point, also known as a *linear pool*
 
-We will pool your judgments by making averages of the PDF over each point, also known as a *linear pool*
+- Is the linear pool a better judgement than the individual judgements?
 
-- Is the linear pool a better judgement?
 
-<!-- ::: {callout-tip} -->
-<!-- You can find examples of graphs together with code at [the R Graph Gallery](https://r-graph-gallery.com/index.html) -->
-<!-- ::: -->

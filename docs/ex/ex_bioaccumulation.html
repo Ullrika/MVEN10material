@@ -380,11 +380,17 @@ window.Quarto = {
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">Exercise Expert Elicitation</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../ex/expert_judgement.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Exercise Expert Elicitation</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">Exercise Assessment of overall uncertainty</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../ex/ex_uncertainty_moe.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Exercise Assessment of overall uncertainty</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -656,23 +662,23 @@ window.Quarto = {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(alpha,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.1407975</code></pre>
+<pre><code>[1] -0.1451508</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(beta,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.9709868</code></pre>
+<pre><code>[1] -0.9721661</code></pre>
 </div>
 </div>
 <p>Or do it in one go</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>            alpha        beta          y
-alpha  1.00000000 -0.02199145 -0.1407975
-beta  -0.02199145  1.00000000 -0.9709868
-y     -0.14079749 -0.97098680  1.0000000</code></pre>
+<pre><code>             alpha         beta          y
+alpha  1.000000000 -0.007342761 -0.1451508
+beta  -0.007342761  1.000000000 -0.9721661
+y     -0.145150763 -0.972166085  1.0000000</code></pre>
 </div>
 </div>
 <ol start="8" class="example" type="1">

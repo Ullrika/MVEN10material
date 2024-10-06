@@ -8,7 +8,7 @@
 
 <meta name="author" content="Ullrika Sahlin">
 
-<title>Exercise 19. Food safety assessment with uncertainty analysis – MVEN10</title>
+<title>Exercise. Food safety assessment with uncertainty analysis – MVEN10</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -382,11 +382,17 @@ window.Quarto = {
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">Exercise Expert Elicitation</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../ex/expert_judgement.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Exercise Expert Elicitation</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">Exercise Assessment of overall uncertainty</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../ex/ex_uncertainty_moe.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Exercise Assessment of overall uncertainty</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -437,7 +443,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Exercise 19. Food safety assessment with uncertainty analysis</h1>
+<h1 class="title">Exercise. Food safety assessment with uncertainty analysis</h1>
 <p class="subtitle lead">MVEN10 Risk Assessment in Environment and Public Health</p>
 </div>
 
@@ -698,8 +704,8 @@ window.Quarto = {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.23</span> <span class="sc">*</span> <span class="fu">rbeta</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">shape1 =</span> <span class="fl">3.15</span>, <span class="at">shape2 =</span> <span class="fl">1.92</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.11524623 0.05290413 0.20138252 0.09744235 0.14124122 0.12749893
- [7] 0.20709976 0.15537887 0.15635138 0.11099724</code></pre>
+<pre><code> [1] 0.08102311 0.13114507 0.16203766 0.15323707 0.16784505 0.21829065
+ [7] 0.08090455 0.13200315 0.05343115 0.05790236</code></pre>
 </div>
 </div>
 <p>This beta-distribution is defined as</p>
@@ -878,7 +884,8 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="extra-material-outside-of-the-exercise">Extra material outside of the exercise</h2>
 <section id="post-scriptum-1" class="level3">
 <h3 class="anchored" data-anchor-id="post-scriptum-1">Post scriptum 1</h3>
-<p>An alternative choice for a probability distribution to represent uncertainty in a High Exposure would be a distribution that resonates properties of percentiles. to be continued</p>
+<p>An alternative choice for a probability distribution to represent uncertainty in a High Exposure would be a distribution that resonates properties of percentiles.</p>
+<p>to be continued</p>
 <!-- Consider the following simulation experiment where we draw samples from a lognormal distribution and derive the 95th percentile.  -->
 <!-- ```{r} -->
 <!-- #| warning: false -->
