@@ -5,7 +5,7 @@ author: "Ullrika Sahlin"
 format: 
   html:
     toc: true
-    echo: false
+    echo: true
     message: false
     warning: false
 ---

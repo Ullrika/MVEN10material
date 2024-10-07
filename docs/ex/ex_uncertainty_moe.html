@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -537,6 +571,11 @@ window.Quarto = {
 </section>
 <section id="load-packages" class="level2">
 <h2 class="anchored" data-anchor-id="load-packages">Load packages</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SHELF)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sn)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="probabilistic-uncertainty-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="probabilistic-uncertainty-analysis">Probabilistic uncertainty analysis</h2>
@@ -546,6 +585,8 @@ window.Quarto = {
 <li>Choose one of the critical effects and find a probability distribution describing uncertainty about the BMD for that effect. Use the SHELF tool, where you feed in your own values.</li>
 </ol>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fit_rp <span class="ot">&lt;-</span> <span class="fu">fitdist</span>(<span class="at">vals =</span> <span class="fu">c</span>(<span class="fl">0.06</span>,<span class="fl">0.15</span>,<span class="fl">0.21</span>), <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.5</span>, <span class="fl">0.95</span>), <span class="at">lower =</span> <span class="dv">0</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>fit_rp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$Normal
        mean         sd
@@ -620,6 +661,9 @@ attr(,"class")
 <li>Choose one of the distributions. You can justify your choice as the one having the lowest sum of squares.</li>
 </ol>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ssq =</span> <span class="fu">as.numeric</span>(fit_rp<span class="sc">$</span>ssq[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]), <span class="at">dist =</span> <span class="fu">colnames</span>(fit_rp<span class="sc">$</span>ssq[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df,<span class="fu">aes</span>(<span class="at">x=</span>ssq,<span class="at">y=</span>dist)) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -629,6 +673,7 @@ attr(,"class")
 </div>
 </div>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>SHELF<span class="sc">::</span><span class="fu">plotfit</span>(fit_rp, <span class="at">d =</span> <span class="st">"best"</span>, <span class="at">ql =</span> <span class="fl">0.05</span>, <span class="at">qu =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -640,10 +685,19 @@ attr(,"class")
 <ol start="5" class="example" type="1">
 <li>Generate a report. In the report you can see how to draw random numbers from the chosen probability distribution.</li>
 </ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#SHELF::generateReport(fit_rp)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>niter <span class="ot">=</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">4</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>rp <span class="ot">&lt;-</span> sn<span class="sc">::</span><span class="fu">rsn</span>(<span class="at">n =</span> niter, <span class="at">xi =</span> <span class="fl">0.197</span>, <span class="at">omega =</span> <span class="fl">0.0698</span>, <span class="at">alpha =</span> <span class="sc">-</span><span class="fl">2.79</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="characterise-uncertainty-in-a-high-exposure" class="level3">
 <h3 class="anchored" data-anchor-id="characterise-uncertainty-in-a-high-exposure">Characterise uncertainty in a high exposure</h3>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fit_exposure <span class="ot">&lt;-</span> <span class="fu">fitdist</span>(<span class="at">vals =</span> <span class="fu">c</span>(<span class="fl">0.21</span>, <span class="fl">0.6</span>,<span class="fl">1.2</span>), <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.5</span>, <span class="fl">0.975</span>), <span class="at">lower =</span> <span class="dv">0</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fit_exposure</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$Normal
        mean        sd
@@ -715,6 +769,9 @@ attr(,"class")
 </div>
 </div>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ssq =</span> <span class="fu">as.numeric</span>(fit_exposure<span class="sc">$</span>ssq[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]), <span class="at">dist =</span> <span class="fu">colnames</span>(fit_exposure<span class="sc">$</span>ssq[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df,<span class="fu">aes</span>(<span class="at">x=</span>ssq,<span class="at">y=</span>dist)) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -724,6 +781,7 @@ attr(,"class")
 </div>
 </div>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotfit</span>(fit_exposure, <span class="at">d =</span> <span class="st">"best"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -735,10 +793,19 @@ attr(,"class")
 <ol start="6" class="example" type="1">
 <li>Generate a report. In the report you can see how to draw random numbers from the chosen probability distribution.</li>
 </ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#SHELF::generateReport(fit_exposure)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>exposure <span class="ot">&lt;-</span> sn<span class="sc">::</span><span class="fu">rsn</span>(<span class="at">n =</span> niter, <span class="at">xi =</span> <span class="fl">0.345</span>, <span class="at">omega =</span> <span class="fl">0.382</span>, <span class="at">alpha =</span> <span class="fl">2.63</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="uncertainty-in-a-high-exposure-and-the-reference-point" class="level3">
 <h3 class="anchored" data-anchor-id="uncertainty-in-a-high-exposure-and-the-reference-point">Uncertainty in a high exposure and the Reference Point</h3>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">concentration =</span> <span class="fu">c</span>(rp,exposure), <span class="at">quantity =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Reference Point"</span>, <span class="st">"High Exposure"</span>),<span class="at">each =</span> niter)),<span class="fu">aes</span>(<span class="at">x=</span>concentration, <span class="at">fill =</span> quantity)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Uncertainty in a High Exposure and the Reference Point"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -753,6 +820,14 @@ attr(,"class")
 <p>A Margin of Exposure (MOE) is defined as <span class="math display">\[MOE=\frac{\text{Reference Point}}{\text{high expsoure}}\]</span></p>
 <p>A <span class="math inline">\(MOE &lt; 1\)</span> corresponds to <span class="math inline">\(\text{high exposure} &lt; \text{Reference Point}\)</span> and a risk. Risk is unaccepatble if <span class="math inline">\(P(MOE &lt; 1)\)</span> is too high.</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_dens <span class="ot">&lt;-</span> <span class="fu">density</span>(rp<span class="sc">/</span>exposure, <span class="at">from=</span><span class="dv">0</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df_moe <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span>df_dens<span class="sc">$</span>x,<span class="at">y=</span>df_dens<span class="sc">$</span>y)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_moe,<span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>y)) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="at">data=</span><span class="fu">subset</span>(df_moe,x<span class="sc">&lt;</span><span class="dv">1</span>),  <span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">ymax=</span>y),<span class="at">ymin=</span><span class="dv">0</span>,<span class="at">fill=</span><span class="st">"darkred"</span>, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"MOE"</span>) <span class="sc">+</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"density"</span>) <span class="sc">+</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Uncertainty in MOE"</span>, <span class="at">subtitle=</span><span class="fu">paste0</span>(<span class="st">"P(MOE&lt;1)="</span>,<span class="fu">round</span>(<span class="fu">mean</span>(rp<span class="sc">&lt;</span>exposure)<span class="sc">*</span><span class="dv">100</span>),<span class="st">"%"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -765,6 +840,14 @@ attr(,"class")
 <section id="characterise-uncertainty-in-the-risk-characterisation-ratio" class="level3">
 <h3 class="anchored" data-anchor-id="characterise-uncertainty-in-the-risk-characterisation-ratio">Characterise uncertainty in the Risk Characterisation Ratio</h3>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_dens <span class="ot">&lt;-</span> <span class="fu">density</span>(exposure<span class="sc">/</span>rp)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df_rcr <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span>df_dens<span class="sc">$</span>x,<span class="at">y=</span>df_dens<span class="sc">$</span>y)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_rcr,<span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>y)) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="at">data=</span><span class="fu">subset</span>(df_rcr,x<span class="sc">&gt;</span><span class="dv">1</span>),  <span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">ymax=</span>y),<span class="at">ymin=</span><span class="dv">0</span>,<span class="at">fill=</span><span class="st">"darkred"</span>, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"RCR"</span>) <span class="sc">+</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"density"</span>) <span class="sc">+</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Uncertainty in RCR"</span>, <span class="at">subtitle=</span><span class="fu">paste0</span>(<span class="st">"P(RCR&gt;1)="</span>,<span class="fu">round</span>(<span class="fu">mean</span>(rp<span class="sc">&lt;</span>exposure)<span class="sc">*</span><span class="dv">100</span>),<span class="st">"%"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
