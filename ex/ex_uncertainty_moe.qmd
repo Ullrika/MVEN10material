@@ -102,6 +102,8 @@ library(ggplot2)
 
 (@) Choose one of the critical effects and find a probability distribution describing uncertainty about the BMD for that effect. Use the SHELF tool, where you feed in your own values. 
 
+Let us start with **Skin cancer**
+
 ```{r}
 fit_rp <- fitdist(vals = c(0.06,0.15,0.21), probs = c(0.05, 0.5, 0.95), lower = 0)
 fit_rp
@@ -128,12 +130,17 @@ SHELF::plotfit(fit_rp, d = "best", ql = 0.05, qu = 0.95)
 ```{r}
 niter = 10^4
 rp <- sn::rsn(n = niter, xi = 0.197, omega = 0.0698, alpha = -2.79)
+rp_skin <- rp
 ```
 
 ### Characterise uncertainty in a high exposure
 
+(@) Choose which age group to consider. 
+
+I choose **Infants**
+
 ```{r}
-fit_exposure <- fitdist(vals = c(0.21, 0.6,1.2), probs = c(0.025, 0.5, 0.975), lower = 0)
+fit_exposure <- fitdist(vals = c(0.21, 0.6, 1.2), probs = c(0.025, 0.5, 0.975), lower = 0)
 fit_exposure
 ```
 
@@ -144,8 +151,10 @@ ggplot(df,aes(x=ssq,y=dist)) +
 ```
 
 
+Although the skewed normal is the best fitting distribution, I choose Gamma since it is stricly positive and is also having a good fit. 
+
 ```{r}
-plotfit(fit_exposure, d = "best")
+plotfit(fit_exposure, d = "gamma")
 ```
 
 (@) Generate a report. In the report you can see how to draw random numbers from the chosen probability distribution. 
@@ -155,7 +164,8 @@ plotfit(fit_exposure, d = "best")
 ```
 
 ```{r}
-exposure <- sn::rsn(n = niter, xi = 0.345, omega = 0.382, alpha = 2.63)
+exposure <- rgamma(n = niter, shape = 5.95, rate = 9.39)
+exposure_infant <- exposure
 ```
 
 
@@ -171,7 +181,7 @@ ggplot(data.frame(concentration = c(rp,exposure), quantity = rep(c("Reference Po
 
 ### Characterise uncertainty in the Margin of Exposure 
 
-A Margin of Exposure (MOE) is defined as $$MOE=\frac{\text{Reference Point}}{\text{high expsoure}}$$
+A Margin of Exposure (MOE) is defined as $$MOE=\frac{\text{Reference Point}}{\text{high exposure}}$$
 
 A $MOE < 1$ corresponds to $\text{high exposure} < \text{Reference Point}$ and a risk. Risk is unaccepatble if $P(MOE < 1)$ is too high. 
 
@@ -186,11 +196,16 @@ ggplot(df_moe,aes(x=x, y=y)) +
   geom_ribbon(data=subset(df_moe,x<1),  aes(x=x,ymax=y),ymin=0,fill="darkred", alpha=0.5) +
   xlab("MOE") +
   ylab("density") +
-  ggtitle("Uncertainty in MOE", subtitle=paste0("P(MOE<1)=",round(mean(rp<exposure)*100),"%")) 
+  ggtitle("Uncertainty in MOE", subtitle=paste0("P(MOE<1)=",round(mean(rp<exposure)*100),"%")) +
+  xlim(0,5)
 ```
 
 
 ### Characterise uncertainty in the Risk Characterisation Ratio 
+
+Alternative risk measure is the RCR
+
+$$RCR=\frac{\text{high exposure}}{\text{Reference Point}}$$
 
 ```{r}
 #| warning: false
@@ -203,107 +218,194 @@ ggplot(df_rcr,aes(x=x, y=y)) +
   geom_ribbon(data=subset(df_rcr,x>1),  aes(x=x,ymax=y),ymin=0,fill="darkred", alpha=0.5) +
   xlab("RCR") +
   ylab("density") +
-  ggtitle("Uncertainty in RCR", subtitle=paste0("P(RCR>1)=",round(mean(rp<exposure)*100),"%")) 
+  ggtitle("Uncertainty in RCR", subtitle=paste0("P(RCR>1)=",round(mean(rp<exposure)*100),"%")) +
+  xlim(0,25)
 ```
 
-<!-- ## Probabilistic uncertainty analysis -->
+## Conclusion
 
-<!-- ### Characterise uncertainty in the Reference Point -->
-
-<!-- ```{r} -->
-<!-- fit_rp <- fitdist(vals = c(0.15,1.33,5.46), probs = c(0.05, 0.5, 0.95), lower = 0) -->
-<!-- fit_rp -->
-<!-- ``` -->
-
-<!-- ```{r} -->
-<!-- df <- data.frame(ssq = as.numeric(fit_rp$ssq[1:6]), dist = colnames(fit_rp$ssq[1:6])) -->
-<!-- ggplot(df,aes(x=ssq,y=dist)) + -->
-<!--   geom_col() -->
-<!-- ``` -->
-
-<!-- ```{r} -->
-<!-- SHELF::plotfit(fit_rp, d = "best", ql = 0.05, qu = 0.95) -->
-<!-- ``` -->
-
-<!-- (@) Generate a report. In the report you can see how to draw random numbers from the chosen probability distribution.  -->
-
-<!-- ```{r} -->
-<!-- #SHELF::generateReport(fit_rp) -->
-<!-- ``` -->
-
-<!-- ```{r} -->
-<!-- niter = 10^4 -->
-<!-- rp <- rgamma(n = niter, shape = 1.17, rate = 0.636) -->
-<!-- ``` -->
-
-<!-- ### Characterise uncertainty in a high exposure -->
+After taking all sources of uncertainty into account, there is a 99% probability that the Margin of Exposure is less than one. I am therefore 99% certain that there exposure of iAr is a health concern for Infants. 
 
 
-<!-- ```{r} -->
-<!-- fit_exposure <- fitdist(vals = c(0.24, 0.51,0.99), probs = c(0.025, 0.5, 0.975), lower = 0) -->
-<!-- fit_exposure -->
-<!-- ``` -->
-
-<!-- ```{r} -->
-<!-- df <- data.frame(ssq = as.numeric(fit_exposure$ssq[1:6]), dist = colnames(fit_exposure$ssq[1:6])) -->
-<!-- ggplot(df,aes(x=ssq,y=dist)) + -->
-<!--   geom_col() -->
-<!-- ``` -->
+## My results when redoing this for all combinations of hazard and expsoure. 
 
 
-<!-- ```{r} -->
-<!-- plotfit(fit_exposure, d = "best") -->
-<!-- ``` -->
+### Characterise uncertainty in a high exposure for Toddlers
 
-<!-- ```{r} -->
-<!-- #SHELF::generateReport(fit_exposure) -->
-<!-- ``` -->
+```{r}
+fit_exposure <- fitdist(vals = c(0.24, 0.51,0.99), probs = c(0.025, 0.5, 0.975), lower = 0)
+fit_exposure
+```
 
-<!-- ```{r} -->
-<!-- exposure <- sn::rsn(n = niter, xi = 0.304, omega = 0.306, alpha = 3.75) -->
-<!-- ``` -->
+```{r}
+df <- data.frame(ssq = as.numeric(fit_exposure$ssq[1:6]), dist = colnames(fit_exposure$ssq[1:6]))
+ggplot(df,aes(x=ssq,y=dist)) +
+  geom_col()
+```
 
-<!-- ### Uncertainty in a high exposure and the Reference Point -->
 
-<!-- ```{r} -->
-<!-- ggplot(data.frame(concentration = c(rp,exposure), quantity = rep(c("Reference Point", "High Exposure"),each = niter)),aes(x=concentration, fill = quantity)) + -->
-<!--   geom_density(alpha=0.2) + -->
-<!--   ggtitle("Uncertainty in a High Exposure and the Reference Point") -->
-<!-- ``` -->
+```{r}
+plotfit(fit_exposure, d = "best")
+```
 
-<!-- ### Characterise uncertainty in the Margin of Exposure -->
+```{r}
+#SHELF::generateReport(fit_exposure)
 
-<!-- A Margin of Exposure (MOE) is defined as $$MOE=\frac{\text{Reference Point}}{\text{high expsoure}}$$ -->
+```
 
-<!-- A $MOE < 1$ corresponds to $\text{high exposure} < \text{Reference Point}$ and a risk. Risk is unaccepatble if $P(MOE < 1)$ is too high.  -->
+```{r}
+#exposure <- exp(-0.674 + 0.219 * rt(n = niter, df = 3))
+exposure <- sn::rsn(n = niter, xi = 0.304, omega = 0.306, alpha = 3.75)
+exposure_toddler <- exposure
 
-<!-- ```{r} -->
-<!-- #| warning: false -->
-<!-- #| message: false -->
+```
 
-<!-- df_dens <- density(rp/exposure, from=0) -->
-<!-- df_moe <- data.frame(x=df_dens$x,y=df_dens$y) -->
-<!-- ggplot(df_moe,aes(x=x, y=y)) + -->
-<!--   geom_line() + -->
-<!--   geom_ribbon(data=subset(df_moe,x<1),  aes(x=x,ymax=y),ymin=0,fill="darkred", alpha=0.5) + -->
-<!--   xlab("MOE") + -->
-<!--   ylab("density") + -->
-<!--   ggtitle("Uncertainty in MOE", subtitle=paste0("P(MOE<1)=",round(mean(rp<exposure)*100),"%"))  -->
-<!-- ``` -->
 
-<!-- ### Characterise uncertainty in the Risk Characterisation Ratio  -->
+### Characterise uncertainty in the Reference Point for Bladder cancer
 
-<!-- ```{r} -->
-<!-- #| warning: false -->
-<!-- #| message: false -->
+```{r}
+fit_rp <- fitdist(vals = c(0.15,1.33,5.46), probs = c(0.05, 0.5, 0.95), lower = 0)
+fit_rp
+```
 
-<!-- df_dens <- density(exposure/rp) -->
-<!-- df_rcr <- data.frame(x=df_dens$x,y=df_dens$y) -->
-<!-- ggplot(df_rcr,aes(x=x, y=y)) + -->
-<!--   geom_line() + -->
-<!--   geom_ribbon(data=subset(df_rcr,x>1),  aes(x=x,ymax=y),ymin=0,fill="darkred", alpha=0.5) + -->
-<!--   xlab("RCR") + -->
-<!--   ylab("density") + -->
-<!--   ggtitle("Uncertainty in RCR", subtitle=paste0("P(RCR>1)=",round(mean(rp<exposure)*100),"%")) -->
-<!-- ``` -->
+```{r}
+df <- data.frame(ssq = as.numeric(fit_rp$ssq[1:6]), dist = colnames(fit_rp$ssq[1:6]))
+ggplot(df,aes(x=ssq,y=dist)) +
+  geom_col()
+```
 
+```{r}
+SHELF::plotfit(fit_rp, d = "gamma", ql = 0.05, qu = 0.95)
+```
+
+(@) Generate a report. In the report you can see how to draw random numbers from the chosen probability distribution.
+
+```{r}
+#SHELF::generateReport(fit_rp)
+```
+
+```{r}
+rp <- rgamma(n = niter, shape = 1.17, rate = 0.636)
+rp_bladder <- rp
+```
+
+
+###  Summary skin cancer and infants
+
+Skin cancer: skewed normal
+
+Infants: gamma
+
+$P(MOE<1) = `r round(mean(rp_skin<exposure_infant)*100,0)` \%$
+
+```{r}
+ggplot(data.frame(concentration = c(rp_skin,exposure_infant), quantity = rep(c("Reference Point", "High Exposure"),each = niter)),aes(x=concentration, fill = quantity)) +
+  geom_density(alpha=0.2) +
+  ggtitle("Uncertainty in a High Exposure and the Reference Point")
+```
+
+
+```{r}
+#| warning: false
+#| message: false
+
+df_dens <- density(rp_skin/exposure_infant, from=0)
+df_moe <- data.frame(x=df_dens$x,y=df_dens$y)
+ggplot(df_moe,aes(x=x, y=y)) +
+  geom_line() +
+  geom_ribbon(data=subset(df_moe,x<1),  aes(x=x,ymax=y),ymin=0,fill="darkred", alpha=0.5) +
+  xlab("MOE") +
+  ylab("density") +
+  ggtitle("Uncertainty in MOE", subtitle=paste0("P(MOE<1)=",round(mean(rp_skin<exposure_infant)*100),"%")) +
+  xlim(0,5)
+```
+
+### Summary Skin cancer and Toddlers
+
+Skin cancer: skewed normal
+
+Toddlers: skewed normal
+
+$P(MOE<1) = `r round(mean(rp_skin<exposure_toddler)*100,0)` \%$
+
+```{r}
+ggplot(data.frame(concentration = c(rp_skin,exposure_toddler), quantity = rep(c("Reference Point", "High Exposure"),each = niter)),aes(x=concentration, fill = quantity)) +
+  geom_density(alpha=0.2) +
+  ggtitle("Uncertainty in a High Exposure and the Reference Point")
+```
+
+```{r}
+#| warning: false
+#| message: false
+
+df_dens <- density(rp_skin/exposure_toddler, from=0)
+df_moe <- data.frame(x=df_dens$x,y=df_dens$y)
+ggplot(df_moe,aes(x=x, y=y)) +
+  geom_line() +
+  geom_ribbon(data=subset(df_moe,x<1),  aes(x=x,ymax=y),ymin=0,fill="darkred", alpha=0.5) +
+  xlab("MOE") +
+  ylab("density") +
+  ggtitle("Uncertainty in MOE", subtitle=paste0("P(MOE<1)=",round(mean(rp_skin<exposure_toddler)*100),"%")) +
+  xlim(0,5)
+```
+### Summary  Bladder cancer and Infants
+
+Bladder cancer: gamma
+
+Infants: gamma
+
+$P(MOE<1) = `r round(mean(rp_bladder<exposure_infant)*100,0)` \%$
+
+Here one can argue that the assessors are not certain enough to make a conclusion, and advice them to go back and reduce uncertainty (by collecting more data) och refine uncertaint (by changing worst case or conservative estimates to more precise ones).
+
+```{r}
+ggplot(data.frame(concentration = c(rp_bladder,exposure_infant), quantity = rep(c("Reference Point", "High Exposure"),each = niter)),aes(x=concentration, fill = quantity)) +
+  geom_density(alpha=0.2) +
+  ggtitle("Uncertainty in a High Exposure and the Reference Point")
+```
+
+```{r}
+#| warning: false
+#| message: false
+
+df_dens <- density(rp_bladder/exposure_infant, from=0)
+df_moe <- data.frame(x=df_dens$x,y=df_dens$y)
+ggplot(df_moe,aes(x=x, y=y)) +
+  geom_line() +
+  geom_ribbon(data=subset(df_moe,x<1),  aes(x=x,ymax=y),ymin=0,fill="darkred", alpha=0.5) +
+  xlab("MOE") +
+  ylab("density") +
+  ggtitle("Uncertainty in MOE", subtitle=paste0("P(MOE<1)=",round(mean(rp_bladder<exposure_infant)*100),"%")) +
+  xlim(0,5)
+```
+
+### Summary  Bladder cancer and Toddlers
+
+Bladder cancer: gamma
+
+Toddlers: skewed normal
+
+$P(MOE<1) = `r round(mean(rp_bladder<exposure_toddler)*100,0)` \%$
+
+
+```{r}
+ggplot(data.frame(concentration = c(rp_bladder,exposure_toddler), quantity = rep(c("Reference Point", "High Exposure"),each = niter)),aes(x=concentration, fill = quantity)) +
+  geom_density(alpha=0.2) +
+  ggtitle("Uncertainty in a High Exposure and the Reference Point")
+```
+
+
+```{r}
+#| warning: false
+#| message: false
+
+df_dens <- density(rp_bladder/exposure_toddler, from=0)
+df_moe <- data.frame(x=df_dens$x,y=df_dens$y)
+ggplot(df_moe,aes(x=x, y=y)) +
+  geom_line() +
+  geom_ribbon(data=subset(df_moe,x<1),  aes(x=x,ymax=y),ymin=0,fill="darkred", alpha=0.5) +
+  xlab("MOE") +
+  ylab("density") +
+  ggtitle("Uncertainty in MOE", subtitle=paste0("P(MOE<1)=",round(mean(rp_bladder<exposure_toddler)*100),"%")) +
+  xlim(0,5)
+```

@@ -508,8 +508,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]   1.1 265.6  45.6 109.0  40.3 412.3  19.9   4.3  15.2  72.7   1.2  12.9
-[13]  12.2  19.0 131.4 690.4 255.1   1.8  23.5  55.2</code></pre>
+<pre><code> [1]  145.9    2.4    0.5   28.3   13.7   27.8   17.8   18.1    3.8   24.1
+[11]  290.6   14.6   22.6  219.3    0.6   31.6   10.5    4.3    3.3 1030.3</code></pre>
 </div>
 </div>
 <ol start="7" class="example" type="1">
@@ -578,8 +578,8 @@ Tip
 <pre><code>Fitting of the distribution ' norm ' by maximum likelihood 
 Parameters:
      estimate Std. Error
-mean  109.435   38.26885
-sd    171.144   27.06017</code></pre>
+mean  95.5050   50.93555
+sd   227.7928   36.01737</code></pre>
 </div>
 </div>
 <ul>
@@ -605,8 +605,8 @@ sd    171.144   27.06017</code></pre>
 <pre><code>Fitting of the distribution ' lnorm ' by maximum likelihood 
 Parameters:
         estimate Std. Error
-meanlog 3.413099  0.4083521
-sdlog   1.826206  0.2887481</code></pre>
+meanlog 2.824403  0.4234748
+sdlog   1.893837  0.2994415</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -628,8 +628,8 @@ sdlog   1.826206  0.2887481</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Fitting of the distribution ' exp ' by maximum likelihood 
 Parameters:
-        estimate  Std. Error
-rate 0.009137844 0.002018463</code></pre>
+       estimate  Std. Error
+rate 0.01047066 0.002319722</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -649,22 +649,22 @@ rate 0.009137844 0.002018463</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fitnorm<span class="sc">$</span>aic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 266.4577</code></pre>
+<pre><code>[1] 277.895</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fitlnorm<span class="sc">$</span>aic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 221.3711</code></pre>
+<pre><code>[1] 199.2779</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>fitexp<span class="sc">$</span>aic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 229.8132</code></pre>
+<pre><code>[1] 224.3671</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 3 0 2 3 2 3 1 2 2 1 4 3 4 0 1 5 4 4 1 3</code></pre>
+<pre><code> [1] 0 4 0 2 2 3 1 2 1 1 0 5 0 0 3 2 2 2 2 4</code></pre>
 </div>
 </div>
 <p>We will use <em>negative binomial</em>, <em>binomial</em> and <em>poisson</em> as candidate distributions for the discrete quantity.</p>
@@ -690,9 +690,9 @@ Tip
 <div class="cell-output cell-output-stdout">
 <pre><code>Fitting of the distribution ' nbinom ' by maximum likelihood 
 Parameters:
-         estimate Std. Error
-size 6.368933e+06        NaN
-mu   2.399931e+00  0.3464001</code></pre>
+     estimate Std. Error
+size 9.712325 22.6474743
+mu   1.800161  0.3266524</code></pre>
 </div>
 </div>
 <ul>
@@ -721,7 +721,7 @@ mu   2.399931e+00  0.3464001</code></pre>
 Parameters:
      estimate
 size    20.00
-prob     0.12</code></pre>
+prob     0.09</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -744,7 +744,7 @@ prob     0.12</code></pre>
 <pre><code>Fitting of the distribution ' pois ' by maximum likelihood 
 Parameters:
        estimate Std. Error
-lambda      2.4  0.3464101</code></pre>
+lambda      1.8  0.2999999</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -764,15 +764,15 @@ lambda      2.4  0.3464101</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>fitnbinom<span class="sc">$</span>aic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 74.41719</code></pre>
+<pre><code>[1] 72.60253</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>fitbinom<span class="sc">$</span>aic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 74.02678</code></pre>
+<pre><code>[1] 73.20188</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>fitpois<span class="sc">$</span>aic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 72.41719</code></pre>
+<pre><code>[1] 70.83766</code></pre>
 </div>
 </div>
 </div>
@@ -801,8 +801,8 @@ lambda      2.4  0.3464101</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>fitnorm<span class="sc">$</span>estimate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   mean      sd 
-109.435 171.144 </code></pre>
+<pre><code>    mean       sd 
+ 95.5050 227.7928 </code></pre>
 </div>
 </div>
 <ul>
@@ -813,8 +813,8 @@ lambda      2.4  0.3464101</code></pre>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(niter,fitnorm<span class="sc">$</span>estimate[<span class="st">"mean"</span>],fitnorm<span class="sc">$</span>estimate[<span class="st">"sd"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 197.896185 115.690387  29.893267 353.608783 -40.108314 101.896675
- [7] 318.230537 186.281756 196.584279  -9.085654</code></pre>
+<pre><code> [1]  -17.81796  395.94369 -196.89576 -372.27911  459.87993  123.21815
+ [7] -144.09099 -146.44296  -96.67299  334.91645</code></pre>
 </div>
 </div>
 <ul>
