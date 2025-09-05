@@ -8,19 +8,29 @@ website:
     style: "docked"
     search: true
     contents: 
-       - section: "Sept 5"
+       - section: "General"
          contents:
-          - text: "Useful functions in Excel"
-            file: ex/useful_functions.qmd
+         - text: "Probability distributions"
+           file: ex/probability_distribution.qmd
+           target: "_blank"
+       - section: "Intro to excel and R - Sept 5"
+         contents:
+         - text: "Useful functions in Excel"
+           file: ex/useful_functions.qmd
+           target: "_blank"
+         - text: "Intro to Quarto and R"
+           file: ex/introduction_to_quarto_and_R.qmd
+           target: "_blank"
+         - text: "Useful functions in R"
+           file: ex/useful_functions_with_R.qmd
+           target: "_blank"
+       - section: "Probability models - Sept 8"
+         contents: 
+          - text: "Interval and 1D Monte Carlo"
+            file: ex/ex_daily_intake_equation.qmd
             target: "_blank"
-          - text: "Intro to Quarto and R"
-            file: ex/introduction_to_quarto_and_R.qmd
-            target: "_blank"
-          - text: "Useful functions in R"
-            file: ex/useful_functions_with_R.qmd
-            target: "_blank"
-          - text: "Probability distributions"
-            file: ex/probability_distribution.qmd
+          - text: "Exercise Probability"
+            file: ex/chance_belief_frequency.qmd
             target: "_blank"
 #- text: "Exercise Uncertainty"
 #            file: ex/expressing_uncertainty.qmd

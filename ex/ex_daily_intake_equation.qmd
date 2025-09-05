@@ -1,0 +1,110 @@
+---
+title: "Exercise Interval arithmetic and 1D Monte Carlo Simulation"
+subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
+author: "Ullrika Sahlin"
+---
+
+## Exercise overview
+
+Do individually
+
+### Background
+
+All estimates (derived from data, modelling or from experts) have associated uncertainty. This uncertainty can be described in different ways and propagated through the assessment model. 
+
+### Purpose
+
+- To apply interval arithmetic
+
+- To explore the principle of 1 dimensional Monte Carlo simulation
+
+### Content
+
+The daily dose equation with values taken from the course book by Burgman. 
+
+### Duration
+
+30 minutes
+
+### Reporting
+
+Be prepared to report back at the end of the exercise.
+
+### References
+
+The course book chapter 9 and 10 (specifically 9.3.2 and 10.8.1.) 
+
+## The daily dose equation
+
+$$Dose = \frac{C \cdot IR \cdot EF}{bw}$$
+
+The following estimates are provided:  
+
+Concentration mg/l (C): 0.00063
+
+Intake rate l/day (IR): 5
+
+Exposure frequency unitless (EF): 0.15
+
+Body weight mg (bw): 25.11
+
+(@) Calculate the daily intake dose! 
+
+## Interval artithmetic 
+
+![](../img/burg1.png)
+
+To consider uncertainty in estimates, we express uncertainty by intervals defined by a lower and upper bounds. 
+
+Concentration mg/l (C): [0.000007, 0.0033]
+
+Intake rate l/day (IR): [4,6]
+
+Exposure frequency unitless (EF): [0.12,0.18]
+
+Body weight mg (bw): [8.43,45.14]
+
+
+(@) Calculate intervals for daily intake dose using interval arithmetic.
+
+## 1D Monte Carlo simulation
+
+To consider uncertainty in estimates, we express uncertainty by probability distributions defined by a distribution type and associated parameters. 
+
+The aim is that you should be able to do this in Excel and R. 
+
+Concentration mg/l (C): $C\sim N(0.00063,0.000063)$
+
+Intake rate l/day (IR): $IR \sim N(5,0.5)$
+
+Exposure frequency unitless (EF): $EF \sim U(0.12,0.18)$
+
+Body weight mg (bw): $bw \sim N(25.11,2.51)$
+
+Use 1D Monte Carlo simulation to
+
+(@) approximate the expected value of the daily intake 
+(@) approximate the standard deviation of the daily intake 
+(@) derive an approximate 90% probability interval for daily intake
+(@) the probability that the daily intake is above the thresholds for the tolerably level
+
+###  Solution for Monte Carlo simulation done in Excel
+
+Download the file, open it and go to sheet 1. 
+
+```{r}
+#| echo: false
+downloadthis::download_file(
+  path = "../files/dose_equation_MC.xlsx",
+  button_label = "Download xlsx file",
+  button_type = "info",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+```
+
+### Solution for Monte Carlo simulation done in R 
+
+I let you work on this
+

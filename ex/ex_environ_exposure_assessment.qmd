@@ -1,0 +1,85 @@
+---
+title: "Exercise Environmental exposure assessment"
+subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
+author: "Ullrika Sahlin"
+---
+
+## Exercise overview
+
+Do in groups of 1-3
+
+### Background
+
+Predictive models of exposure of chemical substances in the environment are common in risk assessment. 
+
+There are several mass-balance models to support exposure assessment. 
+
+An assessments starts with the source and level of emissions. The exposure assessment models derive masses of chemical substances after reaching steady state. 
+
+## Purpose
+
+-   To extract output values from a common environmental exposure assessment model
+
+### Content
+
+-   Excel and SimpleBox-TRAM vs 3.24.
+
+### Duration
+
+30 minutes
+
+### Reporting
+
+Be prepared to report back at the end of the exercise.
+
+### References
+
+## SimpleBox 
+
+SimpleBox is a multimedia mass balance model for evaluating the fate of chemical substances developed by RIVM. 
+
+The environment is modelled as consisting of well-mixed environmental compartments (air, water, sediment, soil, etc.), at three spatial scales. Emissions to the compartments, transfer and partitioning between the compartments, and removal from the compartments are used to compute the steady state and quasi-dynamic masses of chemical substance in the
+environment. 
+
+The SimpleBox model simulates the environmental fates of different substances in different landscape settings, of which the characteristics are provided with the model database. In its default settings, SimpleBox returns results for a typical chemical, given a typical emission, to a typical environment.
+
+(@) Go to the website at RIVM and read about the [SimpleBox model](https://www.rivm.nl/en/soil-and-water/simplebox)
+
+(@) What does RIVM stands for?
+
+(@) Who has developed SimpleBox? 
+
+## Assess exposure from emissions of hexachlorobenzene to agricultural soil
+
+You will use the version of SimpleBox that comes with the Targeted Risk Assessment tool from ECETOC
+
+(@) Download the excel file for SimpleBox-TRAM and open it. Enable Content!
+
+```{r}
+#| echo: false
+downloadthis::download_file(
+  path = "../files/SimpleBox-TRAM.xls",
+  button_label = "SimpleBox-TRAM",
+  button_type = "warning",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+```
+
+(@) Goto sheet **chembase** and note the **ID** number for hexachlorobenzene. 
+
+(@) Goto sheet **input** and write down the row number ID in cell **I44**. 
+
+The model will now use substance specific parameters for the calculations. 
+
+(@) Set **USE volume** at local scale to 1 in **cell I85** 
+
+(@) Set the value on **EMISSION to agricultural soil** to be 2
+
+(@) Goto sheet **level 3 output** and note the concentration at local level in fresh water in **cell D13**
+
+(@) Study the graphical output, i.e. the steady-state mass flows in the same sheet starting in **cell BL1**. 
+
+We will talk more about this model during a seminar/lecture. 
+

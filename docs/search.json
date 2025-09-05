@@ -13,7 +13,7 @@
     "section": "",
     "text": "Work alone on your own laptop\n\n\n\nMicrosoft Excel is a common software in risk analysis. The primary use is to organise and extract data, but it is also possible to build models and perform analysis and simulations in Microsoft Excel.\nThere are several commercial add-on packages designed for specific purposes. One example is @RISK for probabilistic risk analysis in Excel. It includes functions such as fitting distributions to data and performing Monte Carlo simulation.\nWe are not teaching using @RISK at this course, but you are welcome to download a free demo and try it.\nAnother example is the Monte Carlo Risk Assessment platform that has been developed by several projects and is accepted by EFSA for use in assessment.\nThe purpose with this exercise is to refresh some functions in Excel that might be useful for the course.\nWe will later show how to do this in R\n\n\n\nTo learn\n\nthe basic functions to calculate the average, standard deviation, quantile and size of a sample\nhow to plot a histogram\nhow to plot a probability density function\nhow to sample from a probability distribution\nto illustrate the convergence of a sample statistics to the theoretical values, which is the fundamental behind Monte Carlo simulations\n\n\n\n\n\nThe students explore an excel file with prepared functions\n\n\n\n\n25 minutes\n\n\n\nNo reporting required if present at the exercise.",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Useful functions in Excel"
     ]
   },
@@ -24,7 +24,7 @@
     "section": "",
     "text": "Work alone on your own laptop\n\n\n\nMicrosoft Excel is a common software in risk analysis. The primary use is to organise and extract data, but it is also possible to build models and perform analysis and simulations in Microsoft Excel.\nThere are several commercial add-on packages designed for specific purposes. One example is @RISK for probabilistic risk analysis in Excel. It includes functions such as fitting distributions to data and performing Monte Carlo simulation.\nWe are not teaching using @RISK at this course, but you are welcome to download a free demo and try it.\nAnother example is the Monte Carlo Risk Assessment platform that has been developed by several projects and is accepted by EFSA for use in assessment.\nThe purpose with this exercise is to refresh some functions in Excel that might be useful for the course.\nWe will later show how to do this in R\n\n\n\nTo learn\n\nthe basic functions to calculate the average, standard deviation, quantile and size of a sample\nhow to plot a histogram\nhow to plot a probability density function\nhow to sample from a probability distribution\nto illustrate the convergence of a sample statistics to the theoretical values, which is the fundamental behind Monte Carlo simulations\n\n\n\n\n\nThe students explore an excel file with prepared functions\n\n\n\n\n25 minutes\n\n\n\nNo reporting required if present at the exercise.",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Useful functions in Excel"
     ]
   },
@@ -35,7 +35,7 @@
     "section": "Preparations",
     "text": "Preparations\n\nDownload the prepared Excel file and save on your computer.\n\n\n\n Download xlsx file\n\n\n\nMake sure you have activated the Excel Add-in Analysis ToolPak.\n\nGo to the Data tab.. It is active if you have an icon with Data Analysis in the header.\n\nIf it is not there. Go to File&gt;Options&gt;Add-ins and click Go on Manage Excel Add-ins\n\nTick the box for Analysis ToolPak and Solver Add-in (we will use it later on) and click OK.",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Useful functions in Excel"
     ]
   },
@@ -46,7 +46,7 @@
     "section": "Descriptive statistics",
     "text": "Descriptive statistics\n\nGo to the sheet data sample. This is the first three columns from the breast-cancer data set. We will use this to illustrate the functions for summary statistics.\nGo to the sheet sample summary. Here we show what you get out from running Data&gt;Data Analysis&gt;Descriptive Statistics. Try this!\n\nWe also show examples of functions to derive descriptive statistics from a data sample.\n\n\n\n\n\n\nTip\n\n\n\nClick on the name of the function in the editor to open it’s help text\n\n\n\n\nCalculate the three summary statistics described in the green area of the sheet.\n\n\nThe third quartile in the sample, P75, should be 15.78\nThe 5% quantile (or 5th percentile), P05, should be 9.52\nThe coefficient of variation is the ratio between the sample standard deviation and the sample mean, and should be 25%\n\n\n\n\n\n\n\nTip\n\n\n\nSolutions are found at the end of this document - but try first!",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Useful functions in Excel"
     ]
   },
@@ -57,7 +57,7 @@
     "section": "Histogram",
     "text": "Histogram\n\nGo to the sheet plot a histogram and explore the two ways to create a histogram.",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Useful functions in Excel"
     ]
   },
@@ -68,7 +68,7 @@
     "section": "Probability functions",
     "text": "Probability functions\n\nGo to the sheet probability functions.\n\nHere we listed the functions available in a standard Excel. A density (PDF) and a probability (CDF) is calculated using the function ending with .DIST, but with different arguments. A quantile is calculated with the function ending with .INV. Different distributions are considered by using the name or short name before .DIST or .INV.\n\nCalculate the probability that a normally distributed variable with mean 14 and standard deviation 3.5 is less than 10\n\n\nAnswer should be 0.127\n\n\nFind the 95% quantile in the same distribution\n\n\nAnswer should be 19.8\n\n\nCalculate the probability that an exponentially distributed variable with mean 14 is less than 10\n\n\nAnswer should be 0.51",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Useful functions in Excel"
     ]
   },
@@ -79,7 +79,7 @@
     "section": "Plot probability distributions",
     "text": "Plot probability distributions\nThe general principle to plot a function is to create pairs of x-y values that are connected by a line.\n\nGo to the sheet plot probability distribution and study the plotting of the probability density function for a normal distribution with mean 14 and standard deviation 3.5.\n\n\nColumn A: pp-values are probabilities going from 0.01 to 0.99 - this is a trick to avoid having to create new x-values every time we change the parameters of the distribution.\nColumn B: the x-values are generated by calculating the quantile for each pp-value\nColumn C: the y-values (probability density) is calculated for each x-value\n\n\nSee what happens when you change the values of the parameters mean and standard deviation (yellow cells)\n\n\n\n\n\n\n\nTip\n\n\n\nThe only thing you need to change are the parameters!\nLinking functions to each other will save a lot of time and reduce the risk for errors when you work with excel.\n\n\n\n\n\n\n\n\nExtra\n\n\n\nIf you feel you have the time or do another time:\nCopy the sheet and refine the grid by using pp-values from 0.001 to 0.999.",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Useful functions in Excel"
     ]
   },
@@ -90,7 +90,7 @@
     "section": "Random sampling",
     "text": "Random sampling\n\nGo to the sheet random sampling.\n\nAll sample generators start with a random number between 0 and 1. This is also a sample from a uniform distribution.\n\n\n\n\n\n\nTip\n\n\n\nPress F9 to make a new draw\n\n\n\nType into cell D4 a function that generates a uniform random number in the interval 1 to 6. Hint: check out the help text for RAND\n\nA random draw from a probability distribution can be generated by the inverse method. - Draws pp-values from a uniform distribution between 0 and 1 - Transform them into quantiles of the target distribution\n\nThe inverse method is demonstrated in cell D6 where it generates random draws from a normal distribution\nIn cell D8 we draw from a beta distribution\n\nThe inverse method is used for generating random values from probability distributions in Monte Carlo simulations.",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Useful functions in Excel"
     ]
   },
@@ -101,7 +101,7 @@
     "section": "Compare descriptive statistics against theoretical values",
     "text": "Compare descriptive statistics against theoretical values\nWow - now we can generate data where we know the true value on parameters and all theoretical probabilities and quantiles, and compare with what we get when deriving descriptive statistics from the random sample.\nNow we can explore the importance of large number of random numbers to gett good approximations when doing Monte Carlo simulations.\n\nGo to the final sheet compare\n\nThis sheet generates a random sample from a beta distribution.\nA beta distribution has two parameters \\(\\alpha\\) and \\(\\beta\\)\nThe expected value of a beta distributed variable is \\(\\frac{\\alpha}{\\alpha+\\beta}\\)\n\nCompare the calculated sample average to the theoretical expected value (green cells)\n\nWe can also derive the theoretical quantile, let us say the P95.\n\nCompare the quantile from the sample with the quantile calculated from the inverse probability distribution function (blue cells)\n\n\nWhich of them has the smallest difference? Why do you think it is like that?\n\n\n\n\n\n\n\nExtra\n\n\n\nIf you feel you have the time or do another time:\nExplore what happens with the difference between theoretical and statistical values when you increase sample size from 20 to a high number (close to 1000)?\nTip: Drag the formula in column B27 down to a row with a large number.",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Useful functions in Excel"
     ]
   },
@@ -112,7 +112,7 @@
     "section": "Solutions",
     "text": "Solutions\n\nFunctions in Excel\nQUARTILE.INC(‘data sample’!C:C,3)\nPERCENTILE.INC(‘data sample’!C:C,0.05)\nSTDEV.S(‘data sample’!C:C)/AVERAGE(‘data sample’!C:C)*100\nNORM.DIST(10,14,3.5,1)\nNORM.INV(0.95,14,3.5)\nEXPON.DIST(10,1/14,1)\nRAND()*(6-1)+1\n\n\nFunctions in R\nYou can find a reproduction of the calculations, visualisations and simulations using R.\nUseful functions reproduced using R",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Useful functions in Excel"
     ]
   },
@@ -123,7 +123,7 @@
     "section": "",
     "text": "Work in pairs or alone.\n\n\n\nCalculations, simulations, data analysis and statistical analysis are common elements in risk assessments.\nBeing able to produce or read code supporting an assessment is a valuable skill when working as an expert or assessor.\nOpen source systems for coding and reporting are useful for collaborative work, reproducibility and external evaluation.\n\n\n\nTo learn how to create a presentation in html format using Quarto and how to combine text, figures, equations and results from analysis into a report.\n\n\n\n\nCreate a Quarto presentation in html format from R Studio cloud.\nUse basic commands in R run from R Studio cloud.\nCreate a quarto report integrating text and results from running commands i R from R Studio cloud.\n\n\n\n\n25 minutes\n\n\n\nNo reporting required if present at the exercise\n\n\n\nhttps://quarto.org/",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Intro to Quarto and R"
     ]
   },
@@ -134,7 +134,7 @@
     "section": "",
     "text": "Work in pairs or alone.\n\n\n\nCalculations, simulations, data analysis and statistical analysis are common elements in risk assessments.\nBeing able to produce or read code supporting an assessment is a valuable skill when working as an expert or assessor.\nOpen source systems for coding and reporting are useful for collaborative work, reproducibility and external evaluation.\n\n\n\nTo learn how to create a presentation in html format using Quarto and how to combine text, figures, equations and results from analysis into a report.\n\n\n\n\nCreate a Quarto presentation in html format from R Studio cloud.\nUse basic commands in R run from R Studio cloud.\nCreate a quarto report integrating text and results from running commands i R from R Studio cloud.\n\n\n\n\n25 minutes\n\n\n\nNo reporting required if present at the exercise\n\n\n\nhttps://quarto.org/",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Intro to Quarto and R"
     ]
   },
@@ -145,7 +145,7 @@
     "section": "Quarto presentation",
     "text": "Quarto presentation\n\nGo to posit.cloud and register an account.\nOpen a new project and call it “intro”.\nClick on the new file button (up to the left) and open a new Quarto Presentation.\nAssign a title, e.g. My report\nAssign yourself as author\nClick on Create\n\nIf you get a yellow ribbon asking you to install rmarkdown - Click install and wait. When finished, your window should look like this:\n\n\nSave the file as “testpresentation.qmd”\nPress Render\n\nThe program is running the qmd-file creating a html-file that is automatically opened in your browser.\nUse the page down button or left/right arrow to change slide.\n\nGo back to the page with Your workspace intro\n\nThe code in testpresentation.qmd is currently shown as Visual.\n\nChange to Source.\n\nYou can enlarge the window by reducing the console window.\n\nRemove all text from line 8 and downwards\nAdd the following text\n\n## Slide 1\n\nA probability is always between 0 and 1\n\n## Slide 2\n\nProbability can be interpreted as a\n\n- theoretical probability\n\n- frequency\n\n- subjective probability\n\n## Slide 3\n\nToday we have learnt about \n\n### Uncertainty\n\nIt was *fun*\n\n### Probability\n\nIt was even more **fun**\n\n## Slide 4\n\nNow I practise writing a math expression \n\n$\\frac{m}{n}$\n\n$\\alpha$\n\nI use two dollar signs to center it\n\n$$X\\cdot Y$$\n\nPress Render and look at the html-document for the presentation.\n\nIf you did not close it before, it should be in the browser.\nNow you know how to create a presentation with headings, subheadings and bulletpoints.",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Intro to Quarto and R"
     ]
   },
@@ -156,7 +156,7 @@
     "section": "Basic commands in R",
     "text": "Basic commands in R\n\nSimple calculations\n\nClick on new file and open an R Script\n\nR can work as a calculator\n\nOn line 1, type 1 + 2 and press Run\n\nYou should see the result 3 in the Console\n\n1 + 2\n\n[1] 3\n\n\nYou can save the result from a calculation as an object\n\nChange the code on line 1 to be y = 1 + 2 and press Run\n\nTo see the value of y, you have to type it as well in the code an rerun or in the Console\n\ny = 1 + 2\ny\n\n[1] 3\n\n\n\n\nSimple plotting\nNow let us look at how to create a plot\n\nCreate a data frame consisting of two variables X and Y with 10 values each, where Y is positively associated with X.\n\n\n\n\n\n\n\nNote\n\n\n\nIt is useful to denote variables with capital letters and use lower case letters for observations of this variable.\nFor example, x is an sample from X.\n\n\n\nPlot the sample from Y against the sample from X\n\n\nx = runif(10)\ny = 2*x + rnorm(10)\nplot(x,y)\n\n\n\n\n\n\n\n\nNice visualisations of data makes a huge difference to a report. We will therefore demonstrate a way to generate the same plot using ggplot2.\n\nInstall ggplot2 by typing install.packages(“tidyverse”) in the R Console. You might have to rewrite the quotation marks.\n\nThis installs several packages including ggplot2 that you will use later on. R-packages are libraries with functions and data sets designed for a specific purpose. Note that you will only have to do this one time in your work space.\n\nLoad the library\n\n\nlibrary(\"ggplot2\")\n\n\nCreate a data frame with the observations and redo the plotting using ggplot2\n\n\ndf = data.frame(x=x,y=y)\n\nggplot(df,aes(x=x,y=y))+\n  geom_point()\n\n\n\n\n\n\n\n\nThere will be time to explore ggplot later on in the course, but let us add a line fitted to the data.\n\nggplot(df,aes(x=x,y=y))+\n  geom_point()+\n  geom_smooth(method=lm,formula = y ~ x)\n\n\n\n\n\n\n\n\nNow you can make a plot using R! More things will be introduced during exercises.\nThere are lot of resources for self studies on R. We recommend you to have a look at the W3schools’ tutorial on R Statistics after the exercise.",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Intro to Quarto and R"
     ]
   },
@@ -167,9 +167,202 @@
     "section": "Quarto report",
     "text": "Quarto report\nNow you will create a report using Quarto in which you combine text and outputs from code running in R.\n\nCreate a new Quarto Document with the title “My Report”, you as the author and save it as “testreport.qmd”\nIn the configuration section (also known as the YAML), add the text “date: today” as shown in the figure below.\n\n\n\nPress Render and view the generated html-file that appears in the browser.\nGo back and look at the testreport.qmd file. R-code is added as gray chunks. One can use to show or hide the code.\n\nLet us now add our own information into the report.\n\nRemove everything from line 9 and downwards.\nAdd the following text\n\n## Summary\n\n### Lessons learnt\n\nProbability can be interpreted as a\n\n- theoretical probability\n\n- frequency\n\n- subjective probability\n\n### Skills gained\n\n(@) Generate presentations and reports using Quarto\n\n(@) Create and plot data from R, such as this\n\nPress Render to see what the report looks like\n\nLet us now add the figure by adding the following code\n\nlibrary(\"ggplot2\")\nx = runif(10)\ny = 2*x + rnorm(10)\ndf = data.frame(x=x,y=y)\nggplot(df,aes(x=x,y=y))+\n  geom_point()+\n  geom_smooth(method=lm,formula = y ~ x)\n\n\n\n\n\n\n\n\n\nPress Render and look at the report\n\nLet us now hide the code by adding #| echo: false in the beginning of the r-chunk\n\n\nPress Render\n\nLet us improve the accessibility of the report by adding a table of content.\n\nChange the YAML as shown below. The toc is the table of contents.\n\n\n\nRender\n\nIsn’t this great!\nLet us now end by adding an image to the report\n\nDownload this image and upload it to your project in R Studio cloud\n\n\n\n Download risk meme as example image\n\n\n\nAdd the following text at the end of your testreport.qmd file\n\n## Risk\n\n*No matter what, it is difficult to save the world without acknowledging that risk involves our values and our uncertainties about the world.*\n\n![](twobuttons.jpg){width=40%}\n\nRender and view your report.\n\n\n\n\n\n\n\nTip\n\n\n\nYou can integrate code and create figures in the same way in a Quarto presentation. The only difference is that there is a limitation on every slide.\nBegin a new slide by ## [header of the slide]\n\n\n\nTo simplify sharing code and organise files during the course we here recommend to use folders\ndata for storing data\nex for storing .rmd files\nimg for storing images",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Intro to Quarto and R"
     ]
+  },
+  {
+    "objectID": "ex/ex_environ_fate_assessment.html",
+    "href": "ex/ex_environ_fate_assessment.html",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "",
+    "text": "We go through this in class.\n\n\nPredictive models of exposure of chemical substances in the environment are common in risk assessment.\nThere are several mass-balance models to support exposure assessment.\nAn assessments starts with the source and level of emissions. The exposure assessment models derive masses of chemical substances after reaching steady state."
+  },
+  {
+    "objectID": "ex/ex_environ_fate_assessment.html#exercise-overview",
+    "href": "ex/ex_environ_fate_assessment.html#exercise-overview",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "",
+    "text": "We go through this in class.\n\n\nPredictive models of exposure of chemical substances in the environment are common in risk assessment.\nThere are several mass-balance models to support exposure assessment.\nAn assessments starts with the source and level of emissions. The exposure assessment models derive masses of chemical substances after reaching steady state."
+  },
+  {
+    "objectID": "ex/ex_environ_fate_assessment.html#purpose",
+    "href": "ex/ex_environ_fate_assessment.html#purpose",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "Purpose",
+    "text": "Purpose\n\nTo extract output values from a common environmental exposure assessment model\n\n\nContent\n\nSimpleBox vs 4.04\n\n\n\nReferences"
+  },
+  {
+    "objectID": "ex/ex_environ_fate_assessment.html#simplebox",
+    "href": "ex/ex_environ_fate_assessment.html#simplebox",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "SimpleBox",
+    "text": "SimpleBox\nSimpleBox is a multimedia mass balance model for evaluating the fate of chemical substances developed by RIVM.\nThe environment is modelled as consisting of well-mixed environmental compartments (air, water, sediment, soil), at three spatial scales. Emissions to the compartments, transfer and partitioning between the compartments, and removal from the compartments are used to compute the steady state and quasi-dynamic masses of chemical substance in the environment.\nThe SimpleBox model simulates the environmental fates of different substances in different landscape settings, of which the characteristics are provided with the model database. In its default settings, SimpleBox returns results for a typical chemical, given a typical emission, to a typical environment.\n\nGo to the website at RIVM and read about the SimpleBox model\nWhat does RIVM stands for?\nWho has developed SimpleBox?"
+  },
+  {
+    "objectID": "ex/ex_environ_fate_assessment.html#assess-exposure-from-emissions-of-caffeine-to-agricultural-soil-and-freshwater",
+    "href": "ex/ex_environ_fate_assessment.html#assess-exposure-from-emissions-of-caffeine-to-agricultural-soil-and-freshwater",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "Assess exposure from emissions of Caffeine to agricultural soil and freshwater",
+    "text": "Assess exposure from emissions of Caffeine to agricultural soil and freshwater\n\nGo to the git-repository for SimpleBox and download the Spreadsheet xl_version of SimpleBox (click xl-version and download the file named “SimpleBox4.04_20240405.xlsm”).\nOpen the xlsm-file and enable content!\n\nIf it doesn’t work then use this to download the file\n\n\n SimpleBox\n\n\n\nGoto sheet substances and note the ID number for caffeine.\nGoto sheet input and write down the row number ID in cell I6.\n\nThe model will now use substance specific parameters for the calculations.\n\nSelect EUSES settings as Exposure Scenario\nSet the value on EMISSION to fresh water at REGIONAL SCALE to 1 in cell I82\nSet the value on EMISSION to agricultural soil at REGIONAL SCALE to 1 in cell I85\nGoto sheet output and note the concentration at REGIONAL SCALE in Fresh water sediments (mass in cell C23, concentration in cell M23) or look at the Graphic output: steady-state mass flows)\n\nI get mass 6.7 kg and concentration 1.4e-7 g.kg(w)-1\n\nStudy the Graphic output: steady-state mass flows in the same sheet but further to the right. Identify the mass/concentration in fresh water sediment in the graph.\n\nI see that the mass in freshwater sediment is 0.7% of the total concentration in the system.\n\nWere do the majority of the caffeine end up at steady state?\n\nI see that 81.1% of the mass of caffeine is in open freshwater.\n\nWe will talk more about this model during a seminar/lecture."
+  },
+  {
+    "objectID": "ex/ex_daily_intake_equation.html",
+    "href": "ex/ex_daily_intake_equation.html",
+    "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
+    "section": "",
+    "text": "Do individually\n\n\nAll estimates (derived from data, modelling or from experts) have associated uncertainty. This uncertainty can be described in different ways and propagated through the assessment model.\n\n\n\n\nTo apply interval arithmetic\nTo explore the principle of 1 dimensional Monte Carlo simulation\n\n\n\n\nThe daily dose equation with values taken from the course book by Burgman.\n\n\n\n30 minutes\n\n\n\nBe prepared to report back at the end of the exercise.\n\n\n\nThe course book chapter 9 and 10 (specifically 9.3.2 and 10.8.1.)",
+    "crumbs": [
+      "Probability models - Sept 8",
+      "Interval and 1D Monte Carlo"
+    ]
+  },
+  {
+    "objectID": "ex/ex_daily_intake_equation.html#exercise-overview",
+    "href": "ex/ex_daily_intake_equation.html#exercise-overview",
+    "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
+    "section": "",
+    "text": "Do individually\n\n\nAll estimates (derived from data, modelling or from experts) have associated uncertainty. This uncertainty can be described in different ways and propagated through the assessment model.\n\n\n\n\nTo apply interval arithmetic\nTo explore the principle of 1 dimensional Monte Carlo simulation\n\n\n\n\nThe daily dose equation with values taken from the course book by Burgman.\n\n\n\n30 minutes\n\n\n\nBe prepared to report back at the end of the exercise.\n\n\n\nThe course book chapter 9 and 10 (specifically 9.3.2 and 10.8.1.)",
+    "crumbs": [
+      "Probability models - Sept 8",
+      "Interval and 1D Monte Carlo"
+    ]
+  },
+  {
+    "objectID": "ex/ex_daily_intake_equation.html#the-daily-dose-equation",
+    "href": "ex/ex_daily_intake_equation.html#the-daily-dose-equation",
+    "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
+    "section": "The daily dose equation",
+    "text": "The daily dose equation\n\\[Dose = \\frac{C \\cdot IR \\cdot EF}{bw}\\]\nThe following estimates are provided:\nConcentration mg/l (C): 0.00063\nIntake rate l/day (IR): 5\nExposure frequency unitless (EF): 0.15\nBody weight mg (bw): 25.11\n\nCalculate the daily intake dose!",
+    "crumbs": [
+      "Probability models - Sept 8",
+      "Interval and 1D Monte Carlo"
+    ]
+  },
+  {
+    "objectID": "ex/ex_daily_intake_equation.html#interval-artithmetic",
+    "href": "ex/ex_daily_intake_equation.html#interval-artithmetic",
+    "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
+    "section": "Interval artithmetic",
+    "text": "Interval artithmetic\n\nTo consider uncertainty in estimates, we express uncertainty by intervals defined by a lower and upper bounds.\nConcentration mg/l (C): [0.000007, 0.0033]\nIntake rate l/day (IR): [4,6]\nExposure frequency unitless (EF): [0.12,0.18]\nBody weight mg (bw): [8.43,45.14]\n\nCalculate intervals for daily intake dose using interval arithmetic.",
+    "crumbs": [
+      "Probability models - Sept 8",
+      "Interval and 1D Monte Carlo"
+    ]
+  },
+  {
+    "objectID": "ex/ex_daily_intake_equation.html#d-monte-carlo-simulation",
+    "href": "ex/ex_daily_intake_equation.html#d-monte-carlo-simulation",
+    "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
+    "section": "1D Monte Carlo simulation",
+    "text": "1D Monte Carlo simulation\nTo consider uncertainty in estimates, we express uncertainty by probability distributions defined by a distribution type and associated parameters.\nThe aim is that you should be able to do this in Excel and R.\nConcentration mg/l (C): \\(C\\sim N(0.00063,0.000063)\\)\nIntake rate l/day (IR): \\(IR \\sim N(5,0.5)\\)\nExposure frequency unitless (EF): \\(EF \\sim U(0.12,0.18)\\)\nBody weight mg (bw): \\(bw \\sim N(25.11,2.51)\\)\nUse 1D Monte Carlo simulation to\n\napproximate the expected value of the daily intake\napproximate the standard deviation of the daily intake\nderive an approximate 90% probability interval for daily intake\nthe probability that the daily intake is above the thresholds for the tolerably level\n\n\nSolution for Monte Carlo simulation done in Excel\nDownload the file, open it and go to sheet 1.\n\n\n Download xlsx file\n\n\n\n\nSolution for Monte Carlo simulation done in R\nI let you work on this",
+    "crumbs": [
+      "Probability models - Sept 8",
+      "Interval and 1D Monte Carlo"
+    ]
+  },
+  {
+    "objectID": "ex/chance_belief_frequency.html",
+    "href": "ex/chance_belief_frequency.html",
+    "title": "Chance, belief and frequency",
+    "section": "",
+    "text": "Work in groups of 3-4\n\n\n\nProbability is a mathematical concept defined basic rules.\n\n\n\n\n\n\nThe basic rules of probability\n\n\n\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\n\n\nThere are different ways to interpret and use probability, sometimes within the same assessment. In this exercise you will be exposed to probability as a\n\nTheoretical probability: The number of outcomes favouring the event, divided by the total number of outcomes, assuming the outcomes are all equally likely.\nFrequency: The proportion of times, in the long run of identical circumstances that the event occurs.\nSubjective probability: A persons confidence that an event will occur, expressed as a number between 0 and 1.\n\n\n\n\n\nTo understand common interpretations of probability and for what they are used\n\n\n\n\n\nExperiment to illustrate the frequency interpretation of probability\nTheoretical probability vs Expected frequency\nSubjective probability\n\n\n\n\n30 minutes\n\n\n\nNo reporting required\n\n\n\nI have used examples and text from the book Teaching probability by Jenny Gage and David Spiegelhalter from 2016. Cambridge University Press.",
+    "crumbs": [
+      "Probability models - Sept 8",
+      "Exercise Probability"
+    ]
+  },
+  {
+    "objectID": "ex/chance_belief_frequency.html#exercise-overview",
+    "href": "ex/chance_belief_frequency.html#exercise-overview",
+    "title": "Chance, belief and frequency",
+    "section": "",
+    "text": "Work in groups of 3-4\n\n\n\nProbability is a mathematical concept defined basic rules.\n\n\n\n\n\n\nThe basic rules of probability\n\n\n\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\n\n\nThere are different ways to interpret and use probability, sometimes within the same assessment. In this exercise you will be exposed to probability as a\n\nTheoretical probability: The number of outcomes favouring the event, divided by the total number of outcomes, assuming the outcomes are all equally likely.\nFrequency: The proportion of times, in the long run of identical circumstances that the event occurs.\nSubjective probability: A persons confidence that an event will occur, expressed as a number between 0 and 1.\n\n\n\n\n\nTo understand common interpretations of probability and for what they are used\n\n\n\n\n\nExperiment to illustrate the frequency interpretation of probability\nTheoretical probability vs Expected frequency\nSubjective probability\n\n\n\n\n30 minutes\n\n\n\nNo reporting required\n\n\n\nI have used examples and text from the book Teaching probability by Jenny Gage and David Spiegelhalter from 2016. Cambridge University Press.",
+    "crumbs": [
+      "Probability models - Sept 8",
+      "Exercise Probability"
+    ]
+  },
+  {
+    "objectID": "ex/chance_belief_frequency.html#frequency",
+    "href": "ex/chance_belief_frequency.html#frequency",
+    "title": "Chance, belief and frequency",
+    "section": "Frequency",
+    "text": "Frequency\nThe experiment is setup as follows:\n\nAssign one student to flip the symmetric coin of the type Antoninus Pius - Bronze Sestertius - Roman Empire using the virtual coin flipper on random.org\nRecord if the outcome is heads or tails.\nAssign another student to throw a six sided dice using the virtual dice roller on random.org\nRecord if the outcome is a number in the range 1 to 5 or a six\nRepeat N=5 times\n\nAssign one student to record the outcomes in this frequency tree (replace N and # with numbers).\n\nAnswer the following questions:\n\nWhat is the observed frequency of the event “heads followed by a six”?\n\n\nExpected frequency\n\nIs this a reliable estimate of the expected frequency? If not, what can one do to make it more reliable?\nWhat do you expect the frequency to be if N would be a very large number?\n\n\n\n\n\n\n\nTip\n\n\n\nDefine the events A = “heads” and B = “six”.\nSpecify P(A) and P(B).\nCalculate P(A and B) using the multiplication rule for two independent events.\nDon’t forget to multiply by N to get the expected frequency.\n\n\nRepeat the experiment with N = 100 to verify if estimates of the expected frequencies become more reliable with a larger number of observations.\n\n\n\n\n\n\nTip\n\n\n\nYou can use the prepared spreadsheet in frequency_experiment.xlsx\n\n\n Download xlsx file\n\n\nFirst you have to figure out how to expand the formulas for 100 iterations.\n\n\n\n\nChance\nNow let us go back to the step where you specified the probabilities P(A) and P(B). How did you do that? One way to do it is to look at the outcome space, find the outcomes that correspond to the event and divide by the total number of outcomes.\nFor the coin the outcome space is “heads” and “tails”, i.e. n = 2. The event of a getting “heads” can occur in one of the outcomes, i.e. m = 1. Under the assumption that all outcomes are equally likely, the theoretical probability for “heads” is \\(\\frac{m}{n} = \\frac{1}{2}\\).\nFor the dice, the outcome space is 1, 2, 3, 4, 5, and 6, i.e. n = 6. The event of getting a “six” can occur in one way, i.e. m = 1. The theoretical probability for the event “six” is therefore \\(\\frac{1}{6}\\).\n\n\n\n\n\n\nNote\n\n\n\nNotice that theoretical probabilities can only be used in balanced situations such as dice, cards, or lottery tickets where it justified to assume symmetry (equal probability) for all possible outcomes.\n\n\n\n\nRelative frequency\nIf we divide the frequency of an event by the number of trials N, we get the relative frequency which is a good estimate of a probability for the event to occur at the next iteration of the same experiment.\nLet \\(m\\) be the number of times the event has occurred. \\(E(\\frac{m}{N})=\\frac{E(m)}{N}=\\frac{N\\cdot P(event)}{N} = P(event)\\)\nRelative frequencies can be used to estimate the probability for an event as long as the observations are equally likely across the full outcome space.\n\n\n\n\n\n\nMake sure N is large\n\n\n\nThe more observations (i.e. larger N) the better estimate.\nThe more extreme event, i.e. very low or high probability of occurring, the more observations are needed.\nBe very skeptical to estimates of probabilities that are either 0 and 1, when the event is possible to occur.\n\n\n\n\nBelief (Personal probability)\nTake one of the thumbtacks provided in the exercise and a cup. Put the thumbtack in the cup, shake and place the cup upside down on a table without revealing the outcome.\n\nWhat outcomes are possible?\n\nFocus on the outcome that the thumbtack is having its head down with the needle pointing upwards.\n\nLet everyone in the group state their personal probability of this event as a number between 0 and 1, where 0 means that it is impossible to occur and 1 means that it is certain to occur.\n\n\n\n\n\n\n\nCromwell’s rule\n\n\n\nProbabilities 1 (“the event will definitely occur”) or 0 (“the event will definitely not occur”) should be avoided, except when applied to statements that are logically true or false.\n\n\n\nDiscuss if and why the probabilities differ.\n\nThis is an example of probability as a subjective probability that is purely a personal judgement based on available evidence and assumptions.\nMore evidence ought to result in smaller divergence in judgements. One way to illustrate this is to lift the cup and let everyone revise their judgement.\n\nDo that!\n\nGiven that the evidence is revealing the outcome, the subjective probabilities held by the students in the group should now be either 1 or 0.\nIn risk assessment, we seldom have such full certainty as in this example. Probabilities are almost inevitably based on judgements and assumptions such as random sampling.\n\n\n\n\n\n\nA general advice\n\n\n\nProbability can be thought of as an expected frequency. Instead of saying that “the probability of the event is 0.20 (or 20%)”, you can say “out of 100 situations like this, we would expect the event to occur 20 times”.\nBy carefully stating the denominator (reference class), ambiguity about the meaning of probability can be avoided.\nThis advice applies to any of the interpretations.",
+    "crumbs": [
+      "Probability models - Sept 8",
+      "Exercise Probability"
+    ]
+  },
+  {
+    "objectID": "ex/ex_environ_exposure_assessment.html",
+    "href": "ex/ex_environ_exposure_assessment.html",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "",
+    "text": "Do in groups of 1-3\n\n\nPredictive models of exposure of chemical substances in the environment are common in risk assessment.\nThere are several mass-balance models to support exposure assessment.\nAn assessments starts with the source and level of emissions. The exposure assessment models derive masses of chemical substances after reaching steady state."
+  },
+  {
+    "objectID": "ex/ex_environ_exposure_assessment.html#exercise-overview",
+    "href": "ex/ex_environ_exposure_assessment.html#exercise-overview",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "",
+    "text": "Do in groups of 1-3\n\n\nPredictive models of exposure of chemical substances in the environment are common in risk assessment.\nThere are several mass-balance models to support exposure assessment.\nAn assessments starts with the source and level of emissions. The exposure assessment models derive masses of chemical substances after reaching steady state."
+  },
+  {
+    "objectID": "ex/ex_environ_exposure_assessment.html#purpose",
+    "href": "ex/ex_environ_exposure_assessment.html#purpose",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "Purpose",
+    "text": "Purpose\n\nTo extract output values from a common environmental exposure assessment model\n\n\nContent\n\nExcel and SimpleBox-TRAM vs 3.24.\n\n\n\nDuration\n30 minutes\n\n\nReporting\nBe prepared to report back at the end of the exercise.\n\n\nReferences"
+  },
+  {
+    "objectID": "ex/ex_environ_exposure_assessment.html#simplebox",
+    "href": "ex/ex_environ_exposure_assessment.html#simplebox",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "SimpleBox",
+    "text": "SimpleBox\nSimpleBox is a multimedia mass balance model for evaluating the fate of chemical substances developed by RIVM.\nThe environment is modelled as consisting of well-mixed environmental compartments (air, water, sediment, soil, etc.), at three spatial scales. Emissions to the compartments, transfer and partitioning between the compartments, and removal from the compartments are used to compute the steady state and quasi-dynamic masses of chemical substance in the environment.\nThe SimpleBox model simulates the environmental fates of different substances in different landscape settings, of which the characteristics are provided with the model database. In its default settings, SimpleBox returns results for a typical chemical, given a typical emission, to a typical environment.\n\nGo to the website at RIVM and read about the SimpleBox model\nWhat does RIVM stands for?\nWho has developed SimpleBox?"
+  },
+  {
+    "objectID": "ex/ex_environ_exposure_assessment.html#assess-exposure-from-emissions-of-hexachlorobenzene-to-agricultural-soil",
+    "href": "ex/ex_environ_exposure_assessment.html#assess-exposure-from-emissions-of-hexachlorobenzene-to-agricultural-soil",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "Assess exposure from emissions of hexachlorobenzene to agricultural soil",
+    "text": "Assess exposure from emissions of hexachlorobenzene to agricultural soil\nYou will use the version of SimpleBox that comes with the Targeted Risk Assessment tool from ECETOC\n\nDownload the excel file for SimpleBox-TRAM and open it. Enable Content!\n\n\n\n SimpleBox-TRAM\n\n\n\nGoto sheet chembase and note the ID number for hexachlorobenzene.\nGoto sheet input and write down the row number ID in cell I44.\n\nThe model will now use substance specific parameters for the calculations.\n\nSet USE volume at local scale to 1 in cell I85\nSet the value on EMISSION to agricultural soil to be 2\nGoto sheet level 3 output and note the concentration at local level in fresh water in cell D13\nStudy the graphical output, i.e. the steady-state mass flows in the same sheet starting in cell BL1.\n\nWe will talk more about this model during a seminar/lecture."
+  },
+  {
+    "objectID": "ex/ex_exposure_assessment_databases.html",
+    "href": "ex/ex_exposure_assessment_databases.html",
+    "title": "Exercise Exposure assessment from databases",
+    "section": "",
+    "text": "Do in groups of 1-3\n\n\nExposure assessment uses data on food consumption and drinking water, analytical data on the presence of substances in food and statistics of behaviours and lifestyles of populations of interest.\nData from studies and surveys have been collected into databases that are available to be used in risk assessment.\n\n\n\n\nTo explore some databases to support exposure assessment\nTo discuss how to derive exposure estimates\n\n\n\n\n\nThe European exposure database\n\n\n\n\n45 minutes\n\n\n\nBe prepared to report back at the end of the exercise.\n\n\n\nIn text"
+  },
+  {
+    "objectID": "ex/ex_exposure_assessment_databases.html#exercise-overview",
+    "href": "ex/ex_exposure_assessment_databases.html#exercise-overview",
+    "title": "Exercise Exposure assessment from databases",
+    "section": "",
+    "text": "Do in groups of 1-3\n\n\nExposure assessment uses data on food consumption and drinking water, analytical data on the presence of substances in food and statistics of behaviours and lifestyles of populations of interest.\nData from studies and surveys have been collected into databases that are available to be used in risk assessment.\n\n\n\n\nTo explore some databases to support exposure assessment\nTo discuss how to derive exposure estimates\n\n\n\n\n\nThe European exposure database\n\n\n\n\n45 minutes\n\n\n\nBe prepared to report back at the end of the exercise.\n\n\n\nIn text"
+  },
+  {
+    "objectID": "ex/ex_exposure_assessment_databases.html#exposure-facts",
+    "href": "ex/ex_exposure_assessment_databases.html#exposure-facts",
+    "title": "Exercise Exposure assessment from databases",
+    "section": "Exposure facts",
+    "text": "Exposure facts\n\nGo to the website at JRC and read about the Exposure facts\nWhat does JRC stands for?\nWhat type of information are there in the ExpoFacts Database?"
+  },
+  {
+    "objectID": "ex/ex_exposure_assessment_databases.html#the-exposure-factors-handbook",
+    "href": "ex/ex_exposure_assessment_databases.html#the-exposure-factors-handbook",
+    "title": "Exercise Exposure assessment from databases",
+    "section": "The exposure factors handbook",
+    "text": "The exposure factors handbook\nThe US EPA Exposure factors handbook contains information for exposure assessment.\n\nGo to chapter 5. Soil and dust ingestion and open the update from 2017\nWhat type of information is found in this chapter and what can it be used for?\nDiscuss the difference between these three terms\n\nSoil ingestion is the consumption of soil. This may result from various behaviors including, but not limited to, mouthing, contacting dirty hands, eating dropped food, or consuming soil directly.\nSoil pica is the recurrent ingestion of unusually high amounts of soil (i.e., on the order of 1,000−5,000 mg/day or more).\nGeophagy is the intentional ingestion of earths and is usually associated with cultural practices.\n\nDiscuss the difference between soil and dust (see definitions on Page 5-2 [10 in the PDF])\nGoto Table 5-3 and estract a high exposure to Aluminium via soil and dust combined for a child between 1 to 4 years old.\nDiscuss if high exposure should be evaluated on the 95th Percentile or the Maximum.\n\nBe prepared to report back."
+  },
+  {
+    "objectID": "ex/ex_exposure_assessment_databases.html#the-efsa-comprehensive-european-food-consumption-database",
+    "href": "ex/ex_exposure_assessment_databases.html#the-efsa-comprehensive-european-food-consumption-database",
+    "title": "Exercise Exposure assessment from databases",
+    "section": "The EFSA Comprehensive European Food Consumption Database",
+    "text": "The EFSA Comprehensive European Food Consumption Database\nThe Comprehensive Food Consumption Database is a source of information on food consumption across the European Union (EU).\n\nGoto the site for the food consumption database.\nEnter the foodex2-level-1 window\nFilter the data according to Exposure hierarchy L1 - by deselecting (All) and then selecting Coffee, cocoa, tea and infusions only\n\n\n\nDiscuss the difference between the four categories of data?\nExpand the data sheet for Chronic Food Consumption Grams per kilogram of body weight per day (g/kg bw per day) - Consumers only\nYour task is now to assess the consumption for a high consumer of Coffee, cocoa, tea and infusions for two population groups in the EU:\n\n\nAdult and pregnant women\n\n\nDiscuss how to define a high consumer and how to derive the estimate. You are welcome to ask for advice. Be prepared to report back your suggestion and results."
   },
   {
     "objectID": "ex/probability_distribution.html",
@@ -178,7 +371,7 @@
     "section": "",
     "text": "Expert judgement are common in risk assessment. To ensure rigour of the assessment, these judgements should be collected in a structured way. Methods have been developed to reduce linguistic uncertainty and cognitive biases when experts make judgements, and to aggregate judgements by a group of experts.\nQuantitative judgements, e.g. judgements expressed by subjective probabilities are preferable over qualitative expressions of uncertainty. The reasons are that\n\nqualitative judgements have different meanings for different people, and\nquantitative judgements can be combined using probability rules (probability calculations)\n\nEFSA defines Expert Knowledge Elicitation as\n\nA systematic, documented and reviewable process to retrieve expert judgements from a group of experts, often in the form of a probability distribution.\n\nIn general, it is possible to make a quantitative judgement when the question asked to an expert is well-defined.\nThe expert should also feel that she has some basis to make his/her judgement.\n\nA good expert makes judgements where she has domain knowledge and is hesitant to make judgements for questions where she feels there is not enough basis for a judgement.\n\nIt is also important that experts receive training in making probabilistic judgements to ensure they understand them.\n\n\nThis mini-lecture introduces probability distributions for a binary event, a categorical quantity, a discrete quantity and a continuous quantity. The terms cumulative probability function, probability density function, and quantile and boxplot. The aim of the lecture is to that the student understand the terms quantile and percentile.",
     "crumbs": [
-      "Sept 5",
+      "General",
       "Probability distributions"
     ]
   },
@@ -189,7 +382,7 @@
     "section": "",
     "text": "Expert judgement are common in risk assessment. To ensure rigour of the assessment, these judgements should be collected in a structured way. Methods have been developed to reduce linguistic uncertainty and cognitive biases when experts make judgements, and to aggregate judgements by a group of experts.\nQuantitative judgements, e.g. judgements expressed by subjective probabilities are preferable over qualitative expressions of uncertainty. The reasons are that\n\nqualitative judgements have different meanings for different people, and\nquantitative judgements can be combined using probability rules (probability calculations)\n\nEFSA defines Expert Knowledge Elicitation as\n\nA systematic, documented and reviewable process to retrieve expert judgements from a group of experts, often in the form of a probability distribution.\n\nIn general, it is possible to make a quantitative judgement when the question asked to an expert is well-defined.\nThe expert should also feel that she has some basis to make his/her judgement.\n\nA good expert makes judgements where she has domain knowledge and is hesitant to make judgements for questions where she feels there is not enough basis for a judgement.\n\nIt is also important that experts receive training in making probabilistic judgements to ensure they understand them.\n\n\nThis mini-lecture introduces probability distributions for a binary event, a categorical quantity, a discrete quantity and a continuous quantity. The terms cumulative probability function, probability density function, and quantile and boxplot. The aim of the lecture is to that the student understand the terms quantile and percentile.",
     "crumbs": [
-      "Sept 5",
+      "General",
       "Probability distributions"
     ]
   },
@@ -200,7 +393,7 @@
     "section": "Probability distributions",
     "text": "Probability distributions\n\nA binary event\nThe simplest probability distribution is the probability for a binary event, which is an event having only two outcomes.\nLet us say that we have the events A and not A.\nIf the probability for A is \\(p\\), then the probability for not A is \\(1-p\\).\nWe can illustrate the probability distribution for a binary event as a bar chart\n\n\n\n\n\n\n\n\n\nAnother useful way is to think of binary events as sections taking up a certain area of the probability scale\n\n\n\n\n\n\n\n\n\n\n\nMore than two possible outcomes\nProbability is also used for quantities having “more than two possible outcomes”.\nThis can be quantities that are\n\ncategorical - with distinct classes that do not have to come in a particular order\ndiscrete - taking numerical integer values, usually obtained by counts\ncontinuous - taking numerical continuous values for which probability is expressed over ranges instead of specific numbers\n\nThe probabilities for quantities taking different values are summarised by a probability distribution.\nThere are different types of probability distributions depending on the characteristic of the outcome space, i.e. the full set of possible outcomes.\n\n\n\n\n\n\n\n\n\nType of outcome\nDescription of outcomes\nExamples outcome space\nExamples distributions\n\n\n\n\nBinary\ntwo outcomes\n0 or 1\nBernoulli\n\n\n\n\nA or not A\n\n\n\n\n\nTRUE or FALSE\n\n\n\nCategorical\ntwo or more categories\nAdult, Adolescent, Other children\n\n\n\nDiscrete\nwhole numbers\n0, 1, 2, 3, …\nPoisson\n\n\n\n\n0, 1, 2, …, n-1, n\nBinomial\n\n\n\n\nthe number of trials that falls into two or more categories\nMultinomial\n\n\nContinuous\nreal numbers \\(x \\in \\mathbb{R}\\)\n\\(-\\inf &lt; x &lt; \\inf\\)\nNormal\n\n\n\n\n\\(0&lt;x\\)\nExponential\n\n\n\n\n\\(0 &lt; x &lt; 1\\)\nUniform, Beta\n\n\n\nFootnote: The \\(x\\) in the table above is a notation for a random observation from the probability distribution.",
     "crumbs": [
-      "Sept 5",
+      "General",
       "Probability distributions"
     ]
   },
@@ -211,7 +404,7 @@
     "section": "Visualising probability distributions",
     "text": "Visualising probability distributions\nA probability distribution for a continuous quantity can be plotted in various formats:\n\nA Box plot\nA Probability Density Function (PDF)\nA Cumulative Probability Distribution (CDF)\n\nHere they are plotted together to show how they are related\n\n\n\n\n\n\n\n\nFigure 1: CDF, PDF and boxplot\n\n\n\n\n\n\nQuantiles\nTo summarise uncertainty, an assessor might want to find values that divide the range of the quantity into parts containing specified amounts of probability. Such values are known as quantiles.\nA quantile can be denoted with the letter P, together with the associated probability that the quantity would take a value below the quantile. For example, the value that divides a probability distribution into two parts with equal probabilities is the P50 quantile.\nThis value is also known as the median.\nQuartiles divide a probability distribution into four sections of equal probability. The first quartile is P25. The second quartile is the median P50. The third quartile is P75.\nA boxplot visualises quartiles.\nA percentile is another name for a quantile defined by the probability to the left of the quantile.\n\n\nProbability Density Function\nMost continuous quantities have a Probability Density Function (PDF).\nThe Probability Density Function express probabilities as area under its curve. The total area under the curve is 1, corresponding to 100% probability.\nThe area under the PDF curve to the left of the median is 50%.\nThe PDF can be thought of as a smooth histogram for a continuous quantity. Note that when used for a probability distribution, the area for the histogram should be 1.\n\n\nCumulative Distribution Function\nA probability distribution can be represented by its Cumulative Distribution Function (often abbreviated as CDF). The CDF gives the probability that the quantity is less than or equal to any specified value\nThe CDF contains all the information about probabilities for the quantity: for example, it can be used to calculate the probability that the quantity lies in any specified range of values.\nThis is a curve over the possible range of the quantity (on the x-axis) increasing from 0 to 100% probability (on the y-axis).",
     "crumbs": [
-      "Sept 5",
+      "General",
       "Probability distributions"
     ]
   },
@@ -222,7 +415,7 @@
     "section": "Uncertainty and variability",
     "text": "Uncertainty and variability\nUncertainty refers to the state of knowledge, whereas variability refers to actual variation or heterogeneity in the real world.\nBoth uncertainty and variability can be represented by probability distributions\n\n\n\nUncertainty and variability figure from EFSA\n\n\nThe left you see a probability distribution for a non-variable quantity - Let us call it parameter P. It is a single true value which is uncertain, and the distribution represents uncertainty about P.\nIn the center, you see a probability distribution for a variable quantity. This variable V has multiple true values. The probability distribution represents variability of V.\nTo the right you see a probabilistic model for both variability and uncertainty. We use a probability distribution to represent variability in this variable, but the true distribution for variability is unknown and we use probability distributions to represent our uncertainty about it’s variability. This distribution is sometimes referred to as a spaghetti plot or two-dimensional distribution.\nUncertainty may be altered (either reduced or increased) by further research, because it results from limitations in knowledge.\nVariability cannot be altered by obtaining more knowledge, because it refers to real differences in the world or how the assessors choose to model the world.\nIt is important that assessors distinguish uncertainty and variability because they have different implications for decision-making: informing decisions about whether to invest resources in research aimed at reducing uncertainty or in management options aimed at influencing variability (e.g. to change exposures to subgroups of the population).",
     "crumbs": [
-      "Sept 5",
+      "General",
       "Probability distributions"
     ]
   },
@@ -233,7 +426,7 @@
     "section": "Probability distributions",
     "text": "Probability distributions\nParametric probability distributions are defined by the Probability Density Function (PDF). The text below is just a starter to describe common distriubtions. We will learn more about them during the course. Wikipedia is a good sourse for the definition of distributions, focus on the graphs of the PDF and CDF, the definition of outcome space and parameters, and if the expected value and variance is a function of the parameters.\n\nUniform\nA quantity that takes any value in an interval with equal probability\nwiki uniform\n\n\nBeta\nA quantity that takes any value in an interval\nwiki beta\n\n\nNormal\nA quantity taking values from \\(-\\inf\\) to \\(\\inf\\) with a symmteric and decaying probability from the central moment.\nwiki normal\n\n\nLogNormal\nA quantity that is normally distribution if you log it. It only takes positive values\nwiki lognormal\nI recommend to log the data and work with the normal distribution instead\n\n\nExponential\nThe time between independent events with equal intensity to occur, where the chance for an event to occur does not depend on when the previous event occurred\nwiki exponential\n\n\nPoisson\nThe number of independent events with equal intensity to occur, that you see during a time period\nwiki poisson\n\n\nBinomial\nThe number of in total N trials that are successful (falls into two categories)\nwiki binomial\n\n\nMultinomial\nThe number of in total N trials that falls into two or more categories\nwiki multinomial",
     "crumbs": [
-      "Sept 5",
+      "General",
       "Probability distributions"
     ]
   },
@@ -244,7 +437,7 @@
     "section": "References",
     "text": "References\nEFSA Scientific Committee, 2018. Scientific Opinion on the principles and methods behind EFSA’s Guidance on Uncertainty Analysis in Scientific Assessment. EFSA Journal 2018;16(1):5122, 235 pp. https://doi.org/10.2903/j.efsa.2018.5122",
     "crumbs": [
-      "Sept 5",
+      "General",
       "Probability distributions"
     ]
   },
@@ -255,7 +448,7 @@
     "section": "",
     "text": "Load packages\n\nlibrary(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nLoad data and save the variable to an object called x\n\ndf = as_tibble(read_csv(\"../data/breast-cancer.csv\"))%&gt;% select(radius_mean)",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Useful functions in R"
     ]
   },
@@ -266,7 +459,7 @@
     "section": "",
     "text": "Load packages\n\nlibrary(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nLoad data and save the variable to an object called x\n\ndf = as_tibble(read_csv(\"../data/breast-cancer.csv\"))%&gt;% select(radius_mean)",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Useful functions in R"
     ]
   },
@@ -277,7 +470,7 @@
     "section": "Descriptive statistics",
     "text": "Descriptive statistics\n\nsummary(df)\n\n  radius_mean    \n Min.   : 6.981  \n 1st Qu.:11.700  \n Median :13.370  \n Mean   :14.127  \n 3rd Qu.:15.780  \n Max.   :28.110  \n\n\n\nx = df$radius_mean\nquantile(x,probs=0.25)\n\n 25% \n11.7 \n\nmedian(x)\n\n[1] 13.37\n\nquantile(x,probs=0.95)\n\n   95% \n20.576 \n\nmean(x)\n\n[1] 14.12729\n\nsd(x)\n\n[1] 3.524049\n\nmin(x)\n\n[1] 6.981\n\nmax(x)\n\n[1] 28.11\n\nlength(x)\n\n[1] 569\n\n\nCalculate the three summary statistics described in the green area of the sheet.\n\nThe third quartile in the sample, P75\n\n\nquantile(x,probs=0.75)\n\n  75% \n15.78 \n\n\n\nThe 5% quantile (or 5th percentile), P05\n\n\nquantile(x,probs=0.05)\n\n    5% \n9.5292 \n\n\n\nThe coefficient of variation is the ratio between the sample standard deviation and the sample mean\n\n\nsd(x)/mean(x)*100\n\n[1] 24.94497",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Useful functions in R"
     ]
   },
@@ -288,7 +481,7 @@
     "section": "Histogram",
     "text": "Histogram\n\nhist(x)\n\n\n\n\n\n\n\n\n\ndf %&gt;% \n  ggplot(aes(x=radius_mean))+\n  geom_histogram()\n\n\n\n\n\n\n\n\n\ndf %&gt;% \n  ggplot(aes(x=radius_mean))+\n  geom_histogram(binwidth = 2.5)\n\n\n\n\n\n\n\n\n\ndf %&gt;% \n  ggplot(aes(x=radius_mean))+\n  geom_density()",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Useful functions in R"
     ]
   },
@@ -299,7 +492,7 @@
     "section": "Probability functions",
     "text": "Probability functions\nThe probability functions follow the principles of combining p, d, q and r with the name (or short name) of the probability distributions.\n\nFunctions for the normal distribution\n\n\nWhat to calculate\nR-function\n\n\n\n\nCDF\npnorm\n\n\nPDF\ndnorm\n\n\nquantile\nqnorm\n\n\nrandom draw\nrnorm\n\n\n\nCalculate the probability that a normally distributed variable with mean 14 and standard deviation 3.5 is less than 10\n\npnorm(10,mean=14,sd=3.5)\n\n[1] 0.126549\n\n\nFind the 95% quantile in the same distribution\n\nqnorm(0.95,mean=14,sd=3.5)\n\n[1] 19.75699\n\n\nCalculate the probability that an exponentially distributed variable with mean 14 is less than 10\n\npexp(10,rate=1/14)\n\n[1] 0.5104583\n\n\n\n\n\n\n\n\nTip\n\n\n\nType a question mark before the function to see the help text ?pexp",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Useful functions in R"
     ]
   },
@@ -310,7 +503,7 @@
     "section": "Plot probability distributions",
     "text": "Plot probability distributions\n\nm=14\ns=3.5\ndata.frame(pp=ppoints(100)) %&gt;%\n  mutate(x=qnorm(pp,m,s)) %&gt;%\n  mutate(d=dnorm(x,m,s)) %&gt;%\n  ggplot(aes(x=x,y=d))+\n  geom_line()+\n  xlab('value')+\n  ylab('density')\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExtra\n\n\n\nIf you feel you have the time or do another time:\nCopy the sheet and refine the grid by using pp-values from 0.001 to 0.999.\n\n\n\nm=14\ns=3.5\ndata.frame(pp=ppoints(1000)) %&gt;%\n  mutate(x=qnorm(pp,m,s)) %&gt;%\n  mutate(d=dnorm(x,m,s)) %&gt;%\n  ggplot(aes(x=x,y=d))+\n  geom_line()+\n  xlab('value')+\n  ylab('density')",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Useful functions in R"
     ]
   },
@@ -319,9 +512,9 @@
     "href": "ex/useful_functions_with_R.html#random-sampling",
     "title": "The R-version of what we did in Introduction to useful functions in Excel",
     "section": "Random sampling",
-    "text": "Random sampling\nAll sample generators start with a random number between 0 and 1. This is also a sample from a uniform distribution.\n\nrunif(1)\n\n[1] 0.299156\n\n\nType a function that generates a uniform random number in the interval 1 to 6.\n\nrunif(1,min=1,max=6)\n\n[1] 3.590969\n\n\nA random draw from a probability distribution can be generated by the inverse method. - Draws pp-values from a uniform distribution between 0 and 1 - Transform them into quantiles of the target distribution\nGenerates random draws from a normal distribution using the inverse method\n\nqnorm(runif(1),m,s)\n\n[1] 13.31465\n\n\nThis is already implemented as a function\n\nrnorm(1,m,s)\n\n[1] 12.30892\n\n\nDraw from a beta distribution with parameters \\(\\alpha=2\\) and \\(\\beta=8\\)\n\nrbeta(1,2,8)\n\n[1] 0.09898477",
+    "text": "Random sampling\nAll sample generators start with a random number between 0 and 1. This is also a sample from a uniform distribution.\n\nrunif(1)\n\n[1] 0.3944893\n\n\nType a function that generates a uniform random number in the interval 1 to 6.\n\nrunif(1,min=1,max=6)\n\n[1] 4.786321\n\n\nA random draw from a probability distribution can be generated by the inverse method. - Draws pp-values from a uniform distribution between 0 and 1 - Transform them into quantiles of the target distribution\nGenerates random draws from a normal distribution using the inverse method\n\nqnorm(runif(1),m,s)\n\n[1] 18.41598\n\n\nThis is already implemented as a function\n\nrnorm(1,m,s)\n\n[1] 19.11692\n\n\nDraw from a beta distribution with parameters \\(\\alpha=2\\) and \\(\\beta=8\\)\n\nrbeta(1,2,8)\n\n[1] 0.1278282",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Useful functions in R"
     ]
   },
@@ -330,9 +523,9 @@
     "href": "ex/useful_functions_with_R.html#compare-descriptive-statistics-against-theoretical-values",
     "title": "The R-version of what we did in Introduction to useful functions in Excel",
     "section": "Compare descriptive statistics against theoretical values",
-    "text": "Compare descriptive statistics against theoretical values\nWow - now we can generate data where we know the true value on parameters and all theoretical probabilities and quantiles, and compare with what we get when deriving descriptive statistics from the random sample.\nThis sheet generates a random sample of size 20 from a beta distribution.\n\nrbeta(n=20,2,8)\n\n [1] 0.42279225 0.32122158 0.09475398 0.29061108 0.18750877 0.01235102\n [7] 0.26278442 0.16433195 0.38710132 0.07440930 0.28020110 0.10520106\n[13] 0.06982437 0.26499563 0.41849873 0.23034484 0.06810699 0.41992172\n[19] 0.02419164 0.19701012\n\n\nA beta distribution has two parameters \\(\\alpha\\) and \\(\\beta\\)\nThe expected value of a beta distributed variable is \\(\\frac{\\alpha}{\\alpha+\\beta}\\)\nCompare the calculated sample average to the theoretical expected value\n\nalpha=2\nbeta=8\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=20,alpha,beta))\n\n[1] 0.207995\n\n\nWe can also derive the theoretical quantile, let us say the P95.\nCompare the quantile from the sample with the quantile calculated from the inverse probability distribution function\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=20,alpha,beta),probs=0.95)\n\n      95% \n0.3726838 \n\n\n\nWhich of them has the smallest difference? Why do you think it is like that?\n\n\n\n\n\n\n\nExtra\n\n\n\nIf you feel you have the time or do another time:\nExplore what happens with the difference between theoretical and statistical values when you increase sample size from 20 to a high number (close to 1000)?\n\n\nBelow I wrte a script where sample size is controlled at one place. The P95 is approximated fairly well by the sampling when I use \\(n=10 000\\).\n\nalpha=2\nbeta=8\nn=10000\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=n,alpha,beta))\n\n[1] 0.1996854\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=n,alpha,beta),probs=0.95)\n\n      95% \n0.4248981 \n\n\nLet us visualise the convergence of the approximation of the mean and 95th percentile of the beta distribution using Monte Carlo simulation.\nThe code below defines a function which calculates the mean and P95 after every increase of the sample size and plots the convergence.\n\nplot_conv &lt;- function(n){\nsample_mean=cummean(rbeta(n=n,alpha,beta))\nsample_P95=unlist(lapply(1:n,function(iter){\n  quantile(rbeta(n=iter,alpha,beta),probs=0.95)}))\ndata.frame(values=c(sample_mean,sample_P95),n=rep(1:n,2), statistic=rep(c(\"mean\",\"P95\"),each=n))  %&gt;%\n  ggplot(aes(x=n,y=values,color=statistic))+\n  geom_line()+\n  geom_hline(yintercept = alpha/(alpha+beta)) +\n  geom_hline(yintercept = qbeta(0.95,alpha,beta))\n}\n\nWe start with \\(n=10\\)\n\nplot_conv(n=10)\n\n\n\n\n\n\n\n\n..increase to \\(n=100\\)\n\nplot_conv(n=100)\n\n\n\n\n\n\n\n\n..increase to \\(n=1000\\)\n\nplot_conv(n=10^3)\n\n\n\n\n\n\n\n\n..and finally \\(n=10000\\)\n\nplot_conv(n=10^4)",
+    "text": "Compare descriptive statistics against theoretical values\nWow - now we can generate data where we know the true value on parameters and all theoretical probabilities and quantiles, and compare with what we get when deriving descriptive statistics from the random sample.\nThis sheet generates a random sample of size 20 from a beta distribution.\n\nrbeta(n=20,2,8)\n\n [1] 0.60889237 0.43304904 0.38400868 0.10171723 0.43129220 0.20919706\n [7] 0.19535063 0.29698046 0.37911662 0.24377907 0.02088214 0.32683590\n[13] 0.23571676 0.17729122 0.47666144 0.23526720 0.05474760 0.24576081\n[19] 0.03178494 0.26640737\n\n\nA beta distribution has two parameters \\(\\alpha\\) and \\(\\beta\\)\nThe expected value of a beta distributed variable is \\(\\frac{\\alpha}{\\alpha+\\beta}\\)\nCompare the calculated sample average to the theoretical expected value\n\nalpha=2\nbeta=8\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=20,alpha,beta))\n\n[1] 0.1521892\n\n\nWe can also derive the theoretical quantile, let us say the P95.\nCompare the quantile from the sample with the quantile calculated from the inverse probability distribution function\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=20,alpha,beta),probs=0.95)\n\n      95% \n0.5458032 \n\n\n\nWhich of them has the smallest difference? Why do you think it is like that?\n\n\n\n\n\n\n\nExtra\n\n\n\nIf you feel you have the time or do another time:\nExplore what happens with the difference between theoretical and statistical values when you increase sample size from 20 to a high number (close to 1000)?\n\n\nBelow I wrte a script where sample size is controlled at one place. The P95 is approximated fairly well by the sampling when I use \\(n=10 000\\).\n\nalpha=2\nbeta=8\nn=10000\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=n,alpha,beta))\n\n[1] 0.1996673\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=n,alpha,beta),probs=0.95)\n\n      95% \n0.4257699 \n\n\nLet us visualise the convergence of the approximation of the mean and 95th percentile of the beta distribution using Monte Carlo simulation.\nThe code below defines a function which calculates the mean and P95 after every increase of the sample size and plots the convergence.\n\nplot_conv &lt;- function(n){\nsample_mean=cummean(rbeta(n=n,alpha,beta))\nsample_P95=unlist(lapply(1:n,function(iter){\n  quantile(rbeta(n=iter,alpha,beta),probs=0.95)}))\ndata.frame(values=c(sample_mean,sample_P95),n=rep(1:n,2), statistic=rep(c(\"mean\",\"P95\"),each=n))  %&gt;%\n  ggplot(aes(x=n,y=values,color=statistic))+\n  geom_line()+\n  geom_hline(yintercept = alpha/(alpha+beta)) +\n  geom_hline(yintercept = qbeta(0.95,alpha,beta))\n}\n\nWe start with \\(n=10\\)\n\nplot_conv(n=10)\n\n\n\n\n\n\n\n\n..increase to \\(n=100\\)\n\nplot_conv(n=100)\n\n\n\n\n\n\n\n\n..increase to \\(n=1000\\)\n\nplot_conv(n=10^3)\n\n\n\n\n\n\n\n\n..and finally \\(n=10000\\)\n\nplot_conv(n=10^4)",
     "crumbs": [
-      "Sept 5",
+      "Intro to excel and R - Sept 5",
       "Useful functions in R"
     ]
   }

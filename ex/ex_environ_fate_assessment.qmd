@@ -1,0 +1,89 @@
+---
+title: "Exercise Environmental exposure assessment"
+subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
+author: "Ullrika Sahlin"
+---
+
+## Exercise overview
+
+We go through this in class.
+
+### Background
+
+Predictive models of exposure of chemical substances in the environment are common in risk assessment. 
+
+There are several mass-balance models to support exposure assessment. 
+
+An assessments starts with the source and level of emissions. The exposure assessment models derive masses of chemical substances after reaching steady state. 
+
+## Purpose
+
+-   To extract output values from a common environmental exposure assessment model
+
+### Content
+
+-   SimpleBox vs 4.04
+
+### References
+
+## SimpleBox 
+
+SimpleBox is a multimedia mass balance model for evaluating the fate of chemical substances developed by RIVM. 
+
+The environment is modelled as consisting of well-mixed environmental compartments (air, water, sediment, soil), at three spatial scales. Emissions to the compartments, transfer and partitioning between the compartments, and removal from the compartments are used to compute the steady state and quasi-dynamic masses of chemical substance in the environment. 
+
+The SimpleBox model simulates the environmental fates of different substances in different landscape settings, of which the characteristics are provided with the model database. In its default settings, SimpleBox returns results for a typical chemical, given a typical emission, to a typical environment.
+
+(@) Go to the website at RIVM and read about the [SimpleBox model](https://www.rivm.nl/en/soil-and-water/simplebox)
+
+(@) What does RIVM stands for?
+
+(@) Who has developed SimpleBox? 
+
+## Assess exposure from emissions of Caffeine to agricultural soil and freshwater
+
+
+(@) Go to the [git-repository for SimpleBox](https://github.com/rivm-syso/SimpleBox) and download the **Spreadsheet xl_version of SimpleBox** (click xl-version and download the file named "SimpleBox4.04_20240405.xlsm"). 
+
+(@) Open the xlsm-file and *enable content!*
+
+If it doesn't work then use this to download the file
+
+```{r}
+#| echo: false
+downloadthis::download_file(
+  path = "../files/SimpleBox4.04_20240405.xlsm",
+  button_label = "SimpleBox",
+  button_type = "warning",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+```
+
+(@) Goto sheet **substances** and note the **ID** number for caffeine. 
+
+(@) Goto sheet **input** and write down the row number ID in cell **I6**. 
+
+The model will now use substance specific parameters for the calculations.
+
+(@) Select **EUSES settings** as Exposure Scenario
+
+(@) Set the value on **EMISSION to fresh water** at REGIONAL SCALE to 1 in **cell I82** 
+
+(@) Set the value on **EMISSION to agricultural soil** at REGIONAL SCALE to 1 in **cell I85** 
+
+(@) Goto sheet **output** and note the concentration at REGIONAL SCALE in Fresh water sediments (mass in **cell C23**, concentration in **cell M23**) or look at the **Graphic output: steady-state mass flows**)
+
+I get mass 6.7 kg and concentration 1.4e-7 g.kg(w)-1
+
+(@) Study the  **Graphic output: steady-state mass flows** in the same sheet but further to the right. Identify the mass/concentration in fresh water sediment in the graph. 
+
+I see that the mass in freshwater sediment is 0.7% of the total concentration in the system.
+
+(@) Were do the majority of the caffeine end up at steady state? 
+
+I see that 81.1% of the mass of caffeine is in open freshwater. 
+
+>We will talk more about this model during a seminar/lecture. 
+
