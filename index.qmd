@@ -4,4 +4,4 @@ author: "Ullrika Sahlin"
 date: today
 ---
 
-This is a website for the exercises on the course Risk Assessment in Environment and Public Health MVEN10 Fall 2024.
+This is a website for the exercises on the course Risk Assessment in Environment and Public Health MVEN10 Fall 2025.

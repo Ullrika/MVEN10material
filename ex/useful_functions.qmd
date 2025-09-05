@@ -6,7 +6,7 @@ author: "Ullrika Sahlin"
 
 ## Exercise overview
 
-- Work alone or in pairs. If you don't have Excel on your computer, collaborate with someone that does. 
+- Work alone on your own laptop 
 
 ### Background
 
@@ -42,11 +42,11 @@ To learn
 
 ### Duration
 
-40 minutes
+25 minutes
 
 ### Reporting
 
-Be prepared to report back at the end of the exercise.
+No reporting required if present at the exercise.
 
 ## Preparations
 

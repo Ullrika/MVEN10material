@@ -8,86 +8,95 @@ website:
     style: "docked"
     search: true
     contents: 
-      - section: "Sept 6"
-        contents:
-        - text: "Exercise Uncertainty"
-          file: ex/expressing_uncertainty.qmd
-          target: "_blank"
-        - text: "Useful functions in Excel"
-          file: ex/useful_functions.qmd
-          target: "_blank"
-      - section: "Sept 9"
-        contents:
-        - text: "Exercise Probability"
-          file: ex/chance_belief_frequency.qmd
-          target: "_blank"
-        - text: "Intro to Quarto and R"
-          file: ex/introduction_to_quarto_and_R.qmd
-          target: "_blank"
-      - section: "Sept 13"
-        contents:
-        - text: "Useful functions in R"
-          file: ex/useful_functions_with_R.qmd
-          target: "_blank"
-        - text: "Exercise Observe and summarise"
-          file: ex/ex_observe_summarise.qmd
-          target: "_blank"
-      - section: "Sept 16"
-        contents:
-        - text: "Exercise Exposure databases"
-          file: ex/ex_exposure_assessment_databases.qmd
-          target: "_blank"
-        - text: "Exercise Exposure assessment"
-          file: ex/ex_environ_fate_assessment.qmd
-          target: "_blank"
-        - text: "Exercise Observe, fit model (and simulate)"
-          file: ex/ex_observe_fit_simulate.qmd
-          target: "_blank"
-        - text: "Exercise Hazard assessment"
-          file: ex/ex_env_hazard_assessment.qmd
-          target: "_blank"
-      - section: "Sept 18"
-        contents:
-        - text: "Exercise Environmental health risk assessment (canvas)"
-      - section: "Sept 23"
-        contents:
-        - text: "Exercise Benchmark Dose Modelling"
-          file: ex/ex_benchmark_dose_modelling.qmd
-          target: "_blank"
-        - text: "Exercise Causal inference"
-          file: ex/ex_causal_inference.qmd
-          target: "_blank"
-      - section: "Sept 30"
-        contents:
-        - text: "Exercise Uncertainty Interval analysis"
-          file: ex/ex_daily_intake_equation.qmd
-          target: "_blank"
-        - text: "Exercise Uncertainty Monte Carlo simulation"
-          file: ex/ex_daily_intake_equation_MC.qmd
-          target: "_blank"
-      - section: "Oct 1"
-        contents:
-        - text: "Exercise Species Distribution Modelling (canvas)"
-        target: "_blank"
-      - section: "Oct 2"
-        contents:
-        - text: "Exposure assessment using a model for bioaccumulation"
-          file: ex/ex_bioaccumulation.qmd
-          target: "_blank"
-        - text: "Exercise Risk classification"    
-          file: ex/risk_classification_ROC.qmd
-          target: "_blank"
-      - section: "Oct 7"
-        contents:  
-        - text: "Exercise Expert Elicitation"
-          file: ex/expert_judgement.qmd
-          target: "_blank"
-#        - text: "Wisdom of Crowds"
-#          file: ex/wisdom_of_crowds.qmd
-#          target: "_blank"
-        - text: "Exercise Assessment of overall uncertainty"
-          file: ex/ex_uncertainty_moe.qmd
-          target: "_blank"
+       - section: "Sept 5"
+         contents:
+          - text: "Useful functions in Excel"
+            file: ex/useful_functions.qmd
+            target: "_blank"
+          - text: "Intro to Quarto and R"
+            file: ex/introduction_to_quarto_and_R.qmd
+            target: "_blank"
+          - text: "Useful functions in R"
+            file: ex/useful_functions_with_R.qmd
+            target: "_blank"
+          - text: "Probability distributions"
+            file: ex/probability_distribution.qmd
+            target: "_blank"
+#- text: "Exercise Uncertainty"
+#            file: ex/expressing_uncertainty.qmd
+#            target: "_blank"
+#       - section: "Sept 9"
+#         contents:
+#         - text: "Exercise Probability"
+#           file: ex/chance_belief_frequency.qmd
+#           target: "_blank"
+#         - text: "Intro to Quarto and R"
+#           file: ex/introduction_to_quarto_and_R.qmd
+#           target: "_blank"
+#       - section: "Sept 13"
+#         contents:
+#         - text: "Useful functions in R"
+#           file: ex/useful_functions_with_R.qmd
+#           target: "_blank"
+#         - text: "Exercise Observe and summarise"
+#           file: ex/ex_observe_summarise.qmd
+#           target: "_blank"
+#       - section: "Sept 16"
+#         contents:
+#         - text: "Exercise Exposure databases"
+#           file: ex/ex_exposure_assessment_databases.qmd
+#           target: "_blank"
+#         - text: "Exercise Exposure assessment"
+#           file: ex/ex_environ_fate_assessment.qmd
+#           target: "_blank"
+#         - text: "Exercise Observe, fit model (and simulate)"
+#           file: ex/ex_observe_fit_simulate.qmd
+#           target: "_blank"
+#         - text: "Exercise Hazard assessment"
+#           file: ex/ex_env_hazard_assessment.qmd
+#           target: "_blank"
+#       - section: "Sept 18"
+#         contents:
+#         - text: "Exercise Environmental health risk assessment (canvas)"
+#       - section: "Sept 23"
+#         contents:
+#         - text: "Exercise Benchmark Dose Modelling"
+#           file: ex/ex_benchmark_dose_modelling.qmd
+#           target: "_blank"
+#         - text: "Exercise Causal inference"
+#           file: ex/ex_causal_inference.qmd
+#           target: "_blank"
+#       - section: "Sept 30"
+#         contents:
+#         - text: "Exercise Uncertainty Interval analysis"
+#           file: ex/ex_daily_intake_equation.qmd
+#           target: "_blank"
+#         - text: "Exercise Uncertainty Monte Carlo simulation"
+#           file: ex/ex_daily_intake_equation_MC.qmd
+#           target: "_blank"
+#       - section: "Oct 1"
+#         contents:
+#         - text: "Exercise Species Distribution Modelling (canvas)"
+#         target: "_blank"
+#       - section: "Oct 2"
+#         contents:
+#         - text: "Exposure assessment using a model for bioaccumulation"
+#           file: ex/ex_bioaccumulation.qmd
+#           target: "_blank"
+#         - text: "Exercise Risk classification"    
+#           file: ex/risk_classification_ROC.qmd
+#           target: "_blank"
+#       - section: "Oct 7"
+#         contents:  
+#         - text: "Exercise Expert Elicitation"
+#           file: ex/expert_judgement.qmd
+#           target: "_blank"
+# #        - text: "Wisdom of Crowds"
+# #          file: ex/wisdom_of_crowds.qmd
+# #          target: "_blank"
+#         - text: "Exercise Assessment of overall uncertainty"
+#           file: ex/ex_uncertainty_moe.qmd
+#           target: "_blank"
 
   # - text: "Exercise 14"
   #         file: ex/ex_population_viability_analysis.qmd

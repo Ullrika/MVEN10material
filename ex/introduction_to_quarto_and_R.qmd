@@ -30,11 +30,11 @@ To learn how to create a presentation in html format using Quarto and how to com
 
 ### Duration
 
-45 minutes
+25 minutes
 
 ### Reporting
 
-No reporting required
+No reporting required if present at the exercise
 
 ### References
 
