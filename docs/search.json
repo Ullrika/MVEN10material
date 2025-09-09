@@ -1,0 +1,883 @@
+[
+  {
+    "objectID": "zheng/lecture_hazardID.html",
+    "href": "zheng/lecture_hazardID.html",
+    "title": "Hazard Identification",
+    "section": "",
+    "text": "Risk = Hazard * Exposure\n\n\n\n\nRisk Assessment Paradigm"
+  },
+  {
+    "objectID": "zheng/lecture_hazardID.html#introduction",
+    "href": "zheng/lecture_hazardID.html#introduction",
+    "title": "Hazard Identification",
+    "section": "",
+    "text": "Risk = Hazard * Exposure\n\n\n\n\nRisk Assessment Paradigm"
+  },
+  {
+    "objectID": "zheng/lecture_hazardID.html#hazard-identification-and-characterization",
+    "href": "zheng/lecture_hazardID.html#hazard-identification-and-characterization",
+    "title": "Hazard Identification",
+    "section": "Hazard Identification and Characterization",
+    "text": "Hazard Identification and Characterization\nDifferent questions of interest:\n\nIdentification: YES/NO\nCharacterization: dose-response models"
+  },
+  {
+    "objectID": "zheng/lecture_hazardID.html#validity-hierarchy-of-evidence",
+    "href": "zheng/lecture_hazardID.html#validity-hierarchy-of-evidence",
+    "title": "Hazard Identification",
+    "section": "Validity: Hierarchy of Evidence",
+    "text": "Validity: Hierarchy of Evidence\n\n\n\nEvidence Pyramid (Golden and Bass 2013)\n\n\n\nOpinion without evidence\n\nNOT expert judgement; Not necessarily from experts\nStrength: useful in the lack of empirical evidence\nWeakness: low validity (not necessarily wrong!)\n\n\n\nCase report & case series\n\nDefinition\nStrength: simple in design and practice\nWeakness: no account for bias; generalizability\n\n\n\nObservational studies\n\nDefinition: observational vs interventional\nType: case control, cohort\nStrength: generalizable within study groups; less bias from comparison\nWeakness: no full account for bias\n\n\n\nControlled experiments (randomized and non-randomized)\n\nDefinition: direct intervention; group assignment\nStrength: direct evaluation of impact of intervention to reduce bias\nWeakness: time-consuming, expensive, ethical challenges\n\n\n\nSystematic reviews\n\nStrength: consider existing evidence for their results, validity and generalizability; adaptive\nWeakness: complicated and affected by review methodology"
+  },
+  {
+    "objectID": "zheng/lecture_hazardID.html#type-lines-of-empirical-evidence",
+    "href": "zheng/lecture_hazardID.html#type-lines-of-empirical-evidence",
+    "title": "Hazard Identification",
+    "section": "Type: Lines of Empirical Evidence",
+    "text": "Type: Lines of Empirical Evidence\nType: human, animal (in vivo), non-animal (in vitro, new-approach methodologies)\n\nHuman Experiments\nAtrocities within sight:\n\nduring WWI, deliberate and pseudo-scientific experiments and torture on human by Japanese and German Nazi\nTuskegee Syphilis study (1932-1972) by US government, targeting African Americans\n\n\n\nWhy we don’t conduct human experiments\n\nEthics: “Cannot deliberately expose humans to potentially harmful agents.”\n\nWatch the videos on:\nThe Nuremberg Code (1947)\nDeclaration of Helsinki (1964) by the World Medical Association\nThe Belmont Report (1979) after the Tuskegee experiment\nMandate on Institutional Review Boards(US); Swedish Ethical Review Authority (Etikprövningsmyndigheten)\n\nPotential harmful agents: observational evidence in human + controlled experiments in animal and non-animal systems\nBeneficial agents: controlled trails, voluntary participation after complete transparency\n\n\n\nEpidemiological studies\n\nDefinition: Observational studies on human\nDesign: prospective vs retrospective, sampling, extrapolation\nLimitations in interpretation: results from epidemiological studies should only be interpreted as associations, not causations\n\n\n\nAnimal studies\n\nSpecies: rodents (rats, mice), fish, earthworm, dogs, monkeys, etc.\nStrength: free from human ethical concerns; precise controls; mechanistic insights\nWeakness: intra-species difference\n\nMore toxic to animal than human: DDT (Silent Spring by Rachel Carson, 1962)\nMore toxic to human than animal: arsenic (WHO arsenic facts)\nAcute animal dosing for chronic human exposure\n\n\n\n\nNon-animal studies\n\nType: in vitro (cell/tissue cultures), in silico (computational modeling/simulations)\nExample: physiologically-based artificial organ system, human cell genome analysis (omics), quantitative structure-activity relationship models\nStrength: free of animal use (3R principles)- rapid, high-throughput, cost-effective, no ethical concerns\nWeakness: still developing, limited acceptance in regulation and application"
+  },
+  {
+    "objectID": "zheng/lecture_hazardID.html#discussion-and-exercise",
+    "href": "zheng/lecture_hazardID.html#discussion-and-exercise",
+    "title": "Hazard Identification",
+    "section": "Discussion and Exercise",
+    "text": "Discussion and Exercise\nSeparate into two groups and discussion the following questions (5 min):\n\nconsidering the strength and weakness of each line of evidence, how they compliment each other.\nfill in the following table: intersection between type and validity of evidence\n\n\n\n\n\n\n\n\n\n\n\nEvidence type\nCase report & series\nObservational studies\nControlled trails\nSystematic Reviews\n\n\n\n\nHuman experiment\n…\n…\n…\n…\n\n\nEpidemiological studies\n…\n…\n…\n…\n\n\nAnimal studies\n…\n…\n…\n…\n\n\nNon-animal studies\n…\n…\n…\n…"
+  },
+  {
+    "objectID": "zheng/lecture_hazardID.html#causal-inference",
+    "href": "zheng/lecture_hazardID.html#causal-inference",
+    "title": "Hazard Identification",
+    "section": "Causal inference",
+    "text": "Causal inference\nCentral question: inference for causality\n“Was the hazard caused by the agent of interest?”\n“Will the intervention cause a reduction in the hazard?”\n\nCorrelation is NOT Causation\nOur intuitive inference are based on correlation.\nExample1: People who use more sunscreen also have higher rates of skin cancer\nExample2: In the United States, the per capita crime rates are higher among people of brown and black skin color\nExample3: Number of people drown increases when ice cream consumption increases\nHighlights:\n\nCorrelation does not imply a causal relationship.\nLack of correlation does not imply a lack of causal relationship.\nThere may be biases that explain the observed association.\n\n\n\nThreats to validity in observational and non-randomized intervention studies\n\nSelection Bias: When individuals self-select into treatment groups, leading to systematic differences between groups.\n\nExample: People who opt for an exercise program may already be healthier than those who do not.\n\nConfounding: A third variable affects both the treatment and the outcome, leading to biased estimates.\n\nExample: A new teaching method might be adopted in schools that already have higher-performing students.\n\nMaturation: Changes in subjects occur naturally over time, not because of the treatment.\n\nExample: Children naturally improve in cognitive skills as they age, regardless of an educational intervention.\n\nHistory: External events occurring during the study may affect outcomes.\n\nExample: An economic crisis affecting income levels during a study of financial literacy interventions.\n\n\n\n\nObservational designs\nSimple Comparison\n\n\n\n\n\n\n\n\n\nEasy to implement; Comparison at one time point only.\nOne-group pre-post comparison\n\n\n\n\n\n\n\n\n\nCheck for baseline difference\nMulti-group pre-post comparisons\n\n\n\n\n\n\n\n\n\n\n\nBradford Hill considerations\nBy Austin Bradford Hill 1965, causal inference in epidemiological studies.\nNine considerations:\n\nStrength\nConsistency\nSpecificity\nTemporality: the ONLY necessary condition for causality among the nine\nBiological Gradient\nPlausibility\nCoherence\nExperiment\nAnalogy\n\nHall, 2024. Austin Bradford Hill’s ‘Environment and disease: Association or causation’.Addition.\nHill’s considerations:\n\nNot designed as a definitive criteria, thus should not be used as one\nAll Hill’s considerations satisifed without causality: ice cream consumption and drowning\n\n\n\nCounterfacuals\nIdentification question: “Was the hazard caused by the agent of interest?”\nCountefactual: “Would the same individual subject develop the same hazard, if anything else were the same, without exposure to the agent of interest?”\n“Will hazard on the same subject be reduced, if anything else were the same, without the intervention?”\nBy comparing the treatment with the counterfactual, these threats are effectively controlled.\nCounterfactuals cannot remove biases, but isolate the causal effect from biases.\n\n\nRandomized Controlled trails as approximations to counterfactuals\nChallenge to counterfactuals: Current human technology has no method to observe counterfactuals.\nApproximation: randomized assignment into intervention and control groups\nRCT question: “What would happen if everything is the same between groups except the intervention/exposed?”\nRandomized controlled trails is the GOLD STANDARD of causal inference.\n\n\nDirections to Advanced Causal Inference\nExperimental design\n\nWhat is the minimal sample size required for randomization?\nWhat if we want to introduce magnitude of treatment into randomization?\nWhat if the sample needs to be stratified to represent the population?\nEmpirical evaluation of observational evidence\n\nQuasi-experimental methods (such as instrumental variable)\n\nWhat assumption underlines these methods?\nTo what extent their conclusion could be generalized?"
+  },
+  {
+    "objectID": "zheng/lecture_hazardID.html#questions",
+    "href": "zheng/lecture_hazardID.html#questions",
+    "title": "Hazard Identification",
+    "section": "Questions?",
+    "text": "Questions?\nAfternoon at 1-3pm at Biosfären (Sal 220)"
+  },
+  {
+    "objectID": "zheng/ex_hazard.html",
+    "href": "zheng/ex_hazard.html",
+    "title": "Exercise: Hazard Identification and Exposure Assessment",
+    "section": "",
+    "text": "Part I hazard identification: 1-1:50 pm\nPart II: exposure assessment: 2-3 pm (do not forget the report)",
+    "crumbs": [
+      "Hazard and Exposure assessment - Sept 12",
+      "Hazard"
+    ]
+  },
+  {
+    "objectID": "zheng/ex_hazard.html#submission-requirements",
+    "href": "zheng/ex_hazard.html#submission-requirements",
+    "title": "Exercise: Hazard Identification and Exposure Assessment",
+    "section": "Submission requirements",
+    "text": "Submission requirements\nNo report required.",
+    "crumbs": [
+      "Hazard and Exposure assessment - Sept 12",
+      "Hazard"
+    ]
+  },
+  {
+    "objectID": "zheng/ex_hazard.html#instructions",
+    "href": "zheng/ex_hazard.html#instructions",
+    "title": "Exercise: Hazard Identification and Exposure Assessment",
+    "section": "Instructions",
+    "text": "Instructions\n\nDownload the spreadsheet with different hazard data.\n\n\n\n Download xlsx file\n\n\n\nOpen the file in Excel. Inspect worksheet base. Understand the data based on the following variable notions:\n\n\nSubject ID: unique identifier of subjects.\nExposed: exposure status. 0= unexposed, 1= exposed.\nBPb: Blood lead levels (parts per billion) of the subject\n\n\nCalculate the average BPb level for exposed and unexposed subjects, respectively. Use excel or R.\n\n\n\n\n(In R) Read worksheet expand. Compare it with worksheet base. Discuss whether you believe they are the same and why.\n\n(In R) Read worksheet scen1 to scen4. Calculate the average BPb level for the exposed and unexposed subjects from each data.\n(R optional) Create a simple comparison plot and a two-group pre-post comparison plot for each scenario based on the corresponding worksheet.\nDiscuss whether there is difference in the simple comparison plots between scenarios, or difference in the pre-post comparison plot between scenarios.",
+    "crumbs": [
+      "Hazard and Exposure assessment - Sept 12",
+      "Hazard"
+    ]
+  },
+  {
+    "objectID": "zheng/ex_hazard.html#example-r-script",
+    "href": "zheng/ex_hazard.html#example-r-script",
+    "title": "Exercise: Hazard Identification and Exposure Assessment",
+    "section": "Example R script",
+    "text": "Example R script\nYou are encouraged to firstly complete the exercise, then consider the script below for validation.\nlibrary(readxl)\npath &lt;- getwd()                 ## replace this line with the path of your downloaded file \n\nbase &lt;- read_xlsx(file.path(path,\"exercise_Data_hazardID.xlsx\"),sheet = \"base\")\nprint(base)\n\nexpand &lt;- read_xlsx(file.path(path,\"exercise_Data_hazardID.xlsx\"),sheet = \"expand\")\nprint(expand)\n\nscen1 &lt;- read_xlsx(file.path(path,\"exercise_Data_hazardID.xlsx\"),sheet = \"scen1\")\nprint(scen1)\n\nscen2 &lt;- read_xlsx(file.path(path,\"exercise_Data_hazardID.xlsx\"),sheet = \"scen2\")\nprint(scen2)\n\nscen3 &lt;- read_xlsx(file.path(path,\"exercise_Data_hazardID.xlsx\"),sheet = \"scen3\")\nprint(scen3)\n\nscen4 &lt;- read_xlsx(file.path(path,\"exercise_Data_hazardID.xlsx\"),sheet = \"scen4\")\nprint(scen4)\n\nlibrary(tidyverse)\n# Function to create simple comparison plot\ncreate_simple_plot &lt;- function(df, scenario_name) {\n  ggplot(df, aes(x = as.factor(Exposed), y = `Observed BPb`, fill = as.factor(Exposed))) +\n    geom_boxplot(alpha = 0.7, width = 0.5) +\n    geom_jitter(width = 0.1, size = 2, alpha = 0.8) +\n    scale_fill_manual(values = c(\"0\" = \"skyblue\", \"1\" = \"salmon\")) +\n    labs(title = paste(\"Scenario\", gsub(\"scen\", \"\", scenario_name), \n                       \": Observed BPb by Exposure Group\"),\n         x = \"Exposed (0 = No, 1 = Yes)\",\n         y = \"Blood Lead Level (BPb)\") +\n    theme_minimal() +\n    theme(legend.position = \"none\")\n}\n\n# Function to create group mean pre-post comparison plot\ncreate_group_mean_plot &lt;- function(df, scenario_name) {\n  # Calculate group means\n  group_means &lt;- df %&gt;%\n    group_by(Exposed) %&gt;%\n    summarize(\n      mean_before = mean(BPb_before, na.rm = TRUE),\n      mean_after = mean(BPb_after, na.rm = TRUE)\n    ) %&gt;%\n    pivot_longer(\n      cols = c(mean_before, mean_after),\n      names_to = \"Time\",\n      values_to = \"Mean_BPb\"\n    ) %&gt;%\n    mutate(\n      Time = factor(Time,\n                   levels = c(\"mean_before\", \"mean_after\"),\n                   labels = c(\"Pre\", \"Post\")),\n      Exposed_Group = ifelse(Exposed == 0, \"Unexposed\", \"Exposed\")\n    )\n  \n  ggplot(group_means, aes(x = Time, y = Mean_BPb, group = Exposed_Group)) +\n    geom_line(aes(color = Exposed_Group), alpha = 0.7, linewidth = 1.5) +\n    geom_point(aes(color = Exposed_Group, shape = Exposed_Group), size = 4) +\n    scale_color_manual(values = c(\"Unexposed\" = \"skyblue\", \"Exposed\" = \"salmon\")) +\n    scale_shape_manual(values = c(\"Unexposed\" = 16, \"Exposed\" = 17)) +\n    labs(title = paste(\"Scenario\", gsub(\"scen\", \"\", scenario_name), \n                       \": Pre-Post Group Mean Comparison\"),\n         subtitle = \"Lines show average BPb levels before and after exposure for each group\",\n         x = \"Time\",\n         y = \"Mean Blood Lead Level (BPb)\",\n         color = \"Exposure Group\",\n         shape = \"Exposure Group\") +\n    theme_minimal() +\n    theme(legend.position = \"bottom\")\n}\n# Create plots for Scenario 1\nscen1_simple_plot &lt;- create_simple_plot(scen1, \"scen1\")\nscen1_group_prepost_plot &lt;- create_group_mean_plot(scen1, \"scen1\")\n\n# Create plots for Scenario 2\nscen2_simple_plot &lt;- create_simple_plot(scen2, \"scen2\")\nscen2_group_prepost_plot &lt;- create_group_mean_plot(scen2, \"scen2\")\n\n# Create plots for Scenario 3\nscen3_simple_plot &lt;- create_simple_plot(scen3, \"scen3\")\nscen3_group_prepost_plot &lt;- create_group_mean_plot(scen3, \"scen3\")\n\n# Create plots for Scenario 4\nscen4_simple_plot &lt;- create_simple_plot(scen4, \"scen4\")\nscen4_group_prepost_plot &lt;- create_group_mean_plot(scen4, \"scen4\")",
+    "crumbs": [
+      "Hazard and Exposure assessment - Sept 12",
+      "Hazard"
+    ]
+  },
+  {
+    "objectID": "zheng/ex_hazard.html#submission-requirements-1",
+    "href": "zheng/ex_hazard.html#submission-requirements-1",
+    "title": "Exercise: Hazard Identification and Exposure Assessment",
+    "section": "Submission requirements",
+    "text": "Submission requirements\nYou must submit a report in PDF format. You are recommended to generate the PDF document from a QMD file. The sections of the report should be indexed by questions.\nIf you prepare the report in QMD format, you can create indexes using the following template:\n# Heading level 1\n\n## Heading level 2\n\n### Heading level 3\nUse the following YAML header at the top of your QMD document:\ntitle: \"Exposure assessment using Real Data\"\nsubtitle: \"Calculate Average Daily Dose\"\nauthor: \"Your name\"\ndate: today\nformat: \n  pdf:\n    toc: true\n    message: false\n    warning: false\n    theme: simple\n    incremental: true\n    embedded-resources: true\nFor each question, your answers must include the following components:\n\nR code: All R scripts used for data extraction, processing, and calculations (properly commented). You are recommended to divide the chunk into multiple chunks. This allows you to have better control of the output from each chunk.\nWritten results and discussions.\n\nOther formatting requirements:\n\nInclude proper citations for all data sources\nEnsure all figures and tables are properly labeled",
+    "crumbs": [
+      "Hazard and Exposure assessment - Sept 12",
+      "Hazard"
+    ]
+  },
+  {
+    "objectID": "zheng/ex_hazard.html#average-daily-dose-concept-and-equation",
+    "href": "zheng/ex_hazard.html#average-daily-dose-concept-and-equation",
+    "title": "Exercise: Hazard Identification and Exposure Assessment",
+    "section": "Average daily dose concept and equation",
+    "text": "Average daily dose concept and equation\nDefinition\nThe Average Daily Dose (ADD) represents the average amount of a chemical substance that an individual is exposed to per unit body weight per day over a specified time period. It is a fundamental metric in exposure assessment used to characterize potential health risks.\nEquation\n\\[\nADD=\\frac{C\\cdot IR\\cdot EF\\cdot ED}{BW\\cdot AT}\n\\]\nWhere:\nADD = Average Daily Dose (mg/kg-day)\nC = Concentration of the contaminant in the medium (mg/kg for food)\nIR = Ingestion Rate (kg/day for food consumption)\nEF = Exposure Frequency (days/year)\nED = Exposure Duration (years)\nBW = Body Weight (kg)\nAT = Averaging Time (days)\nSimplified Equation for Dietary Exposure\nFor this exercise focusing on chronic dietary exposure, we will use a simplified version assuming continuous daily exposure over a lifetime:\n\\[\nADD =\\frac{C\\cdot IR}{BW}\n\\]",
+    "crumbs": [
+      "Hazard and Exposure assessment - Sept 12",
+      "Hazard"
+    ]
+  },
+  {
+    "objectID": "zheng/ex_hazard.html#case-study-inorganic-arsenic-through-rice-intake",
+    "href": "zheng/ex_hazard.html#case-study-inorganic-arsenic-through-rice-intake",
+    "title": "Exercise: Hazard Identification and Exposure Assessment",
+    "section": "Case Study: Inorganic arsenic through rice intake",
+    "text": "Case Study: Inorganic arsenic through rice intake\nInorganic arsenic contamination in rice represents a significant global public health concern. Inorganic arsenic is classified as a Group 1 carcinogen by the International Agency for Research on Cancer (IARC) (IARC 2012). Rice serves as a staple food for over half of the world’s population, making dietary exposure through rice consumption a widespread concern.\nThe European Commission has established maximum levels for inorganic arsenic in rice products (200 µg/kg for milled rice), and the US FDA has proposed action levels, highlighting the regulatory significance of this contamination issue.",
+    "crumbs": [
+      "Hazard and Exposure assessment - Sept 12",
+      "Hazard"
+    ]
+  },
+  {
+    "objectID": "zheng/ex_hazard.html#instructions-1",
+    "href": "zheng/ex_hazard.html#instructions-1",
+    "title": "Exercise: Hazard Identification and Exposure Assessment",
+    "section": "Instructions",
+    "text": "Instructions\n\nExtract data on rice consumption for the US, Swedish and Italian populations. You can find relevant information from the following sources:\n\nThe US EPA Exposure factors handbook\nSweden and Italy European Exposure facts.\nNotice the data could be reported for different subpopulations. Choose the most representative subpopulation based on the principles of exposure assessment you learnt before. Convert the extract data to average daily rice intake (kg/day).\n\nExtract data on inorganic arsenic concentration in rice from the US, Swedish and Italian markets. You can find relevant information from the following sources:\n\nUS FDA Analytical Results from Inorganic Arsenic in Rice and Rice Products Sampling\nlivsmedelsverket report on Inorganic arsenic in rice and rice products on the Swedish market 2015 Notice the data could be reported for different rice and rice products. Decide based on the principles of exposure assessment you learnt before.\nTenni et al. 2017 Total As and As Speciation in Italian Rice as Related to Producing Areas and Paddy Soils Properties\nNotice the data could be reported for different arsenic species and different rice grains. Consider only inorganic arsenic. Convert the extract data to average inorganic arsenic concentration in rice (ug/kg).\n\nExtract data on body weights for the US, Swedish and Italian populations. You can find relevant information from the following sources:\n\nThe US EPA Exposure factors handbook\nSweden and Italy European Exposure facts.\nNotice the data could be reported for different subpopulations. Choose the most representative subpopulation based on the principles of exposure assessment you learnt before. Convert the extract data to average body weights (kg).\n\n(In R) Calculate ADDs using the simplified equation and the extracted data on rice consumption, inorganic arsenic concentration and body weight. Do the calculation for the US, Swedish and Italian population respectively.\n(In R) Calculate ADDs for the following hypothetical scenarios:\n\n5a) If Sweden had the same rice consumption rate as Italy. Keep Sweden’s original arsenic concentration and body weight data.\n5b) If arsenic concentration were regulated uniformly across the EU. Use half of the EU maximum level for inorganic arsenic in rice for both Sweden and Italy, that is 100 ug/kg. Keep original consumption and body weight data for each country.\n5c) If Swedish population had the same body weight as the US. Keep Sweden’s original arsenic concentration and rice consumption.\nPresent all ADD calculations (including the real ones from question 4) in a table for comparison. You may generate the table in excel, in R, or use a [table generator] for the QMD file (https://www.tablesgenerator.com/markdown_tables). The table must be included in your report.\n\nThe World Health Organization (WHO 2011) determined that the inorganic arsenic lower limit on the benchmark dose for lung cancer was calculated to be 3 μg/kg bw per day and 5.2 µg/kg bw/day for bladder cancer, respectively. The US EPA (IRIS 2025) ruled that the inorganic arsenic lower limit on the benchmark dose for cardiovascular endocrine disruption was calculated to be 6 x 10 -5 mg/kg/day. Compare the real ADDs you calculated for the three populations with these regulatory reference values.",
+    "crumbs": [
+      "Hazard and Exposure assessment - Sept 12",
+      "Hazard"
+    ]
+  },
+  {
+    "objectID": "zheng/ex_hazard.html#optional-questions-for-extracurricular-activities",
+    "href": "zheng/ex_hazard.html#optional-questions-for-extracurricular-activities",
+    "title": "Exercise: Hazard Identification and Exposure Assessment",
+    "section": "Optional questions for extracurricular activities",
+    "text": "Optional questions for extracurricular activities\nThe following questions are not required for this report. You are encourage to explore them as extracurricular activities if you are interested.\n\n(In R) Extract data on rice consumption, inorganic arsenic concentration and body weight for a different country of your interest. Calculate the ADD and compare with the ones from question 4. Then compare the ADD with the reference values from question 6.\nBased on the ADDs you calculated in question 4 and 5, discuss which parameter (concentration, consumption, body weight) causes the greatest change in ADD when varied between populations?\nBased on the results of question 6, discuss if you consider inorganic arsenic in rice require immediate regulatory action for Sweden and Italy. If yes, propose one mitigation strategy for the corresponding country and briefly explain your rationale.",
+    "crumbs": [
+      "Hazard and Exposure assessment - Sept 12",
+      "Hazard"
+    ]
+  },
+  {
+    "objectID": "zheng/ex_benchmark_dose_modelling.html",
+    "href": "zheng/ex_benchmark_dose_modelling.html",
+    "title": "Exercise Benchmark Dose Modelling",
+    "section": "",
+    "text": "This exercise is designed to 1) help you evaluate and improve your understandings of key concepts of benchmark dose modeling, 2) gain practical experience with established benchmark dose modeling tools.",
+    "crumbs": [
+      "Hazard characterisation - Sept 22",
+      "Benchmark dose modelling"
+    ]
+  },
+  {
+    "objectID": "zheng/ex_benchmark_dose_modelling.html#tasks",
+    "href": "zheng/ex_benchmark_dose_modelling.html#tasks",
+    "title": "Exercise Benchmark Dose Modelling",
+    "section": "Tasks",
+    "text": "Tasks\n(1) Explain if this data can derive a NOAEL. If yes, what is it? If no, why?\n(2) Explain if this data can derive a LOAEL. If yes, what is it? If no, why?",
+    "crumbs": [
+      "Hazard characterisation - Sept 22",
+      "Benchmark dose modelling"
+    ]
+  },
+  {
+    "objectID": "zheng/ex_benchmark_dose_modelling.html#tasks-1",
+    "href": "zheng/ex_benchmark_dose_modelling.html#tasks-1",
+    "title": "Exercise Benchmark Dose Modelling",
+    "section": "Tasks",
+    "text": "Tasks\n(1) Use EFSA PROAST for BMD modeling. You can use the web version: https://proastweb.rivm.nl/ or the R-package version: https://www.rivm.nl/en/proast. Generate a report.\n(2) Based on the report from (a), find the following information: 1) number of models fitted, 2) AIC of each model, 3) CED, CEDL and CEDU of each model\n(3) Use US EPA BMDS for BMD modeling: https://www.epa.gov/bmds/bmds-online. Generate a report.\n(4) Based on the report from (c), find the following information: 1) number of models fitted, 2) P-value, AIC and reason of recommendation of each model, 3) BMD, BMDL and BMDU of each model",
+    "crumbs": [
+      "Hazard characterisation - Sept 22",
+      "Benchmark dose modelling"
+    ]
+  },
+  {
+    "objectID": "zheng/ex_benchmark_dose_modelling.html#tasks-2",
+    "href": "zheng/ex_benchmark_dose_modelling.html#tasks-2",
+    "title": "Exercise Benchmark Dose Modelling",
+    "section": "Tasks",
+    "text": "Tasks\nDiscuss one strengths and one weaknesses of the NOAEL/LOAEL approach and the BMD approach, respectively.\nYou may consider the following hints:\n\nWhat information is needed for each approach?\nIf there are changes in study design, e.g., dose level setup, how will each approach be affected?\nHow difficult it is to implement each approach?\nDoes the sample size have impacts on the estimates from the two approaches?\nCan a NOAEL be derived from a LOAEL? from a BMD?\nWhat is a benchmark response and how it is chosen?\nWhat are the differences between BMD models?\nHow are uncertainty in the data considered in the two approaches?",
+    "crumbs": [
+      "Hazard characterisation - Sept 22",
+      "Benchmark dose modelling"
+    ]
+  },
+  {
+    "objectID": "ex/useful_functions_with_R.html",
+    "href": "ex/useful_functions_with_R.html",
+    "title": "The R-version of what we did in Introduction to useful functions in Excel",
+    "section": "",
+    "text": "Load packages\n\nlibrary(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nLoad data and save the variable to an object called x\n\ndf = as_tibble(read_csv(\"../data/breast-cancer.csv\"))%&gt;% select(radius_mean)",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Useful functions in R"
+    ]
+  },
+  {
+    "objectID": "ex/useful_functions_with_R.html#preparations",
+    "href": "ex/useful_functions_with_R.html#preparations",
+    "title": "The R-version of what we did in Introduction to useful functions in Excel",
+    "section": "",
+    "text": "Load packages\n\nlibrary(readr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nLoad data and save the variable to an object called x\n\ndf = as_tibble(read_csv(\"../data/breast-cancer.csv\"))%&gt;% select(radius_mean)",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Useful functions in R"
+    ]
+  },
+  {
+    "objectID": "ex/useful_functions_with_R.html#descriptive-statistics",
+    "href": "ex/useful_functions_with_R.html#descriptive-statistics",
+    "title": "The R-version of what we did in Introduction to useful functions in Excel",
+    "section": "Descriptive statistics",
+    "text": "Descriptive statistics\n\nsummary(df)\n\n  radius_mean    \n Min.   : 6.981  \n 1st Qu.:11.700  \n Median :13.370  \n Mean   :14.127  \n 3rd Qu.:15.780  \n Max.   :28.110  \n\n\n\nx = df$radius_mean\nquantile(x,probs=0.25)\n\n 25% \n11.7 \n\nmedian(x)\n\n[1] 13.37\n\nquantile(x,probs=0.95)\n\n   95% \n20.576 \n\nmean(x)\n\n[1] 14.12729\n\nsd(x)\n\n[1] 3.524049\n\nmin(x)\n\n[1] 6.981\n\nmax(x)\n\n[1] 28.11\n\nlength(x)\n\n[1] 569\n\n\nCalculate the three summary statistics described in the green area of the sheet.\n\nThe third quartile in the sample, P75\n\n\nquantile(x,probs=0.75)\n\n  75% \n15.78 \n\n\n\nThe 5% quantile (or 5th percentile), P05\n\n\nquantile(x,probs=0.05)\n\n    5% \n9.5292 \n\n\n\nThe coefficient of variation is the ratio between the sample standard deviation and the sample mean\n\n\nsd(x)/mean(x)*100\n\n[1] 24.94497",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Useful functions in R"
+    ]
+  },
+  {
+    "objectID": "ex/useful_functions_with_R.html#histogram",
+    "href": "ex/useful_functions_with_R.html#histogram",
+    "title": "The R-version of what we did in Introduction to useful functions in Excel",
+    "section": "Histogram",
+    "text": "Histogram\n\nhist(x)\n\n\n\n\n\n\n\n\n\ndf %&gt;% \n  ggplot(aes(x=radius_mean))+\n  geom_histogram()\n\n\n\n\n\n\n\n\n\ndf %&gt;% \n  ggplot(aes(x=radius_mean))+\n  geom_histogram(binwidth = 2.5)\n\n\n\n\n\n\n\n\n\ndf %&gt;% \n  ggplot(aes(x=radius_mean))+\n  geom_density()",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Useful functions in R"
+    ]
+  },
+  {
+    "objectID": "ex/useful_functions_with_R.html#probability-functions",
+    "href": "ex/useful_functions_with_R.html#probability-functions",
+    "title": "The R-version of what we did in Introduction to useful functions in Excel",
+    "section": "Probability functions",
+    "text": "Probability functions\nThe probability functions follow the principles of combining p, d, q and r with the name (or short name) of the probability distributions.\n\nFunctions for the normal distribution\n\n\nWhat to calculate\nR-function\n\n\n\n\nCDF\npnorm\n\n\nPDF\ndnorm\n\n\nquantile\nqnorm\n\n\nrandom draw\nrnorm\n\n\n\nCalculate the probability that a normally distributed variable with mean 14 and standard deviation 3.5 is less than 10\n\npnorm(10,mean=14,sd=3.5)\n\n[1] 0.126549\n\n\nFind the 95% quantile in the same distribution\n\nqnorm(0.95,mean=14,sd=3.5)\n\n[1] 19.75699\n\n\nCalculate the probability that an exponentially distributed variable with mean 14 is less than 10\n\npexp(10,rate=1/14)\n\n[1] 0.5104583\n\n\n\n\n\n\n\n\nTip\n\n\n\nType a question mark before the function to see the help text ?pexp",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Useful functions in R"
+    ]
+  },
+  {
+    "objectID": "ex/useful_functions_with_R.html#plot-probability-distributions",
+    "href": "ex/useful_functions_with_R.html#plot-probability-distributions",
+    "title": "The R-version of what we did in Introduction to useful functions in Excel",
+    "section": "Plot probability distributions",
+    "text": "Plot probability distributions\n\nm=14\ns=3.5\ndata.frame(pp=ppoints(100)) %&gt;%\n  mutate(x=qnorm(pp,m,s)) %&gt;%\n  mutate(d=dnorm(x,m,s)) %&gt;%\n  ggplot(aes(x=x,y=d))+\n  geom_line()+\n  xlab('value')+\n  ylab('density')\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExtra\n\n\n\nIf you feel you have the time or do another time:\nCopy the sheet and refine the grid by using pp-values from 0.001 to 0.999.\n\n\n\nm=14\ns=3.5\ndata.frame(pp=ppoints(1000)) %&gt;%\n  mutate(x=qnorm(pp,m,s)) %&gt;%\n  mutate(d=dnorm(x,m,s)) %&gt;%\n  ggplot(aes(x=x,y=d))+\n  geom_line()+\n  xlab('value')+\n  ylab('density')",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Useful functions in R"
+    ]
+  },
+  {
+    "objectID": "ex/useful_functions_with_R.html#random-sampling",
+    "href": "ex/useful_functions_with_R.html#random-sampling",
+    "title": "The R-version of what we did in Introduction to useful functions in Excel",
+    "section": "Random sampling",
+    "text": "Random sampling\nAll sample generators start with a random number between 0 and 1. This is also a sample from a uniform distribution.\n\nrunif(1)\n\n[1] 0.9023306\n\n\nType a function that generates a uniform random number in the interval 1 to 6.\n\nrunif(1,min=1,max=6)\n\n[1] 4.202474\n\n\nA random draw from a probability distribution can be generated by the inverse method. - Draws pp-values from a uniform distribution between 0 and 1 - Transform them into quantiles of the target distribution\nGenerates random draws from a normal distribution using the inverse method\n\nqnorm(runif(1),m,s)\n\n[1] 12.33296\n\n\nThis is already implemented as a function\n\nrnorm(1,m,s)\n\n[1] 14.29432\n\n\nDraw from a beta distribution with parameters \\(\\alpha=2\\) and \\(\\beta=8\\)\n\nrbeta(1,2,8)\n\n[1] 0.3706745",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Useful functions in R"
+    ]
+  },
+  {
+    "objectID": "ex/useful_functions_with_R.html#compare-descriptive-statistics-against-theoretical-values",
+    "href": "ex/useful_functions_with_R.html#compare-descriptive-statistics-against-theoretical-values",
+    "title": "The R-version of what we did in Introduction to useful functions in Excel",
+    "section": "Compare descriptive statistics against theoretical values",
+    "text": "Compare descriptive statistics against theoretical values\nWow - now we can generate data where we know the true value on parameters and all theoretical probabilities and quantiles, and compare with what we get when deriving descriptive statistics from the random sample.\nThis sheet generates a random sample of size 20 from a beta distribution.\n\nrbeta(n=20,2,8)\n\n [1] 0.39160832 0.32812525 0.16042346 0.40130043 0.11953717 0.39322255\n [7] 0.07158903 0.24747434 0.18256597 0.63975994 0.11505564 0.26617962\n[13] 0.25010826 0.06310929 0.50933089 0.08090644 0.18887732 0.17505052\n[19] 0.08012008 0.08791493\n\n\nA beta distribution has two parameters \\(\\alpha\\) and \\(\\beta\\)\nThe expected value of a beta distributed variable is \\(\\frac{\\alpha}{\\alpha+\\beta}\\)\nCompare the calculated sample average to the theoretical expected value\n\nalpha=2\nbeta=8\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=20,alpha,beta))\n\n[1] 0.192244\n\n\nWe can also derive the theoretical quantile, let us say the P95.\nCompare the quantile from the sample with the quantile calculated from the inverse probability distribution function\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=20,alpha,beta),probs=0.95)\n\n     95% \n0.400358 \n\n\n\nWhich of them has the smallest difference? Why do you think it is like that?\n\n\n\n\n\n\n\nExtra\n\n\n\nIf you feel you have the time or do another time:\nExplore what happens with the difference between theoretical and statistical values when you increase sample size from 20 to a high number (close to 1000)?\n\n\nBelow I wrte a script where sample size is controlled at one place. The P95 is approximated fairly well by the sampling when I use \\(n=10 000\\).\n\nalpha=2\nbeta=8\nn=10000\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=n,alpha,beta))\n\n[1] 0.2000488\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=n,alpha,beta),probs=0.95)\n\n      95% \n0.4268505 \n\n\nLet us visualise the convergence of the approximation of the mean and 95th percentile of the beta distribution using Monte Carlo simulation.\nThe code below defines a function which calculates the mean and P95 after every increase of the sample size and plots the convergence.\n\nplot_conv &lt;- function(n){\nsample_mean=cummean(rbeta(n=n,alpha,beta))\nsample_P95=unlist(lapply(1:n,function(iter){\n  quantile(rbeta(n=iter,alpha,beta),probs=0.95)}))\ndata.frame(values=c(sample_mean,sample_P95),n=rep(1:n,2), statistic=rep(c(\"mean\",\"P95\"),each=n))  %&gt;%\n  ggplot(aes(x=n,y=values,color=statistic))+\n  geom_line()+\n  geom_hline(yintercept = alpha/(alpha+beta)) +\n  geom_hline(yintercept = qbeta(0.95,alpha,beta))\n}\n\nWe start with \\(n=10\\)\n\nplot_conv(n=10)\n\n\n\n\n\n\n\n\n..increase to \\(n=100\\)\n\nplot_conv(n=100)\n\n\n\n\n\n\n\n\n..increase to \\(n=1000\\)\n\nplot_conv(n=10^3)\n\n\n\n\n\n\n\n\n..and finally \\(n=10000\\)\n\nplot_conv(n=10^4)",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Useful functions in R"
+    ]
+  },
+  {
+    "objectID": "ex/probability_distribution.html",
+    "href": "ex/probability_distribution.html",
+    "title": "Introduction to probability distributions",
+    "section": "",
+    "text": "Expert judgement are common in risk assessment. To ensure rigour of the assessment, these judgements should be collected in a structured way. Methods have been developed to reduce linguistic uncertainty and cognitive biases when experts make judgements, and to aggregate judgements by a group of experts.\nQuantitative judgements, e.g. judgements expressed by subjective probabilities are preferable over qualitative expressions of uncertainty. The reasons are that\n\nqualitative judgements have different meanings for different people, and\nquantitative judgements can be combined using probability rules (probability calculations)\n\nEFSA defines Expert Knowledge Elicitation as\n\nA systematic, documented and reviewable process to retrieve expert judgements from a group of experts, often in the form of a probability distribution.\n\nIn general, it is possible to make a quantitative judgement when the question asked to an expert is well-defined.\nThe expert should also feel that she has some basis to make his/her judgement.\n\nA good expert makes judgements where she has domain knowledge and is hesitant to make judgements for questions where she feels there is not enough basis for a judgement.\n\nIt is also important that experts receive training in making probabilistic judgements to ensure they understand them.\n\n\nThis mini-lecture introduces probability distributions for a binary event, a categorical quantity, a discrete quantity and a continuous quantity. The terms cumulative probability function, probability density function, and quantile and boxplot. The aim of the lecture is to that the student understand the terms quantile and percentile.",
+    "crumbs": [
+      "General",
+      "Probability distributions"
+    ]
+  },
+  {
+    "objectID": "ex/probability_distribution.html#background",
+    "href": "ex/probability_distribution.html#background",
+    "title": "Introduction to probability distributions",
+    "section": "",
+    "text": "Expert judgement are common in risk assessment. To ensure rigour of the assessment, these judgements should be collected in a structured way. Methods have been developed to reduce linguistic uncertainty and cognitive biases when experts make judgements, and to aggregate judgements by a group of experts.\nQuantitative judgements, e.g. judgements expressed by subjective probabilities are preferable over qualitative expressions of uncertainty. The reasons are that\n\nqualitative judgements have different meanings for different people, and\nquantitative judgements can be combined using probability rules (probability calculations)\n\nEFSA defines Expert Knowledge Elicitation as\n\nA systematic, documented and reviewable process to retrieve expert judgements from a group of experts, often in the form of a probability distribution.\n\nIn general, it is possible to make a quantitative judgement when the question asked to an expert is well-defined.\nThe expert should also feel that she has some basis to make his/her judgement.\n\nA good expert makes judgements where she has domain knowledge and is hesitant to make judgements for questions where she feels there is not enough basis for a judgement.\n\nIt is also important that experts receive training in making probabilistic judgements to ensure they understand them.\n\n\nThis mini-lecture introduces probability distributions for a binary event, a categorical quantity, a discrete quantity and a continuous quantity. The terms cumulative probability function, probability density function, and quantile and boxplot. The aim of the lecture is to that the student understand the terms quantile and percentile.",
+    "crumbs": [
+      "General",
+      "Probability distributions"
+    ]
+  },
+  {
+    "objectID": "ex/probability_distribution.html#probability-distributions",
+    "href": "ex/probability_distribution.html#probability-distributions",
+    "title": "Introduction to probability distributions",
+    "section": "Probability distributions",
+    "text": "Probability distributions\n\nA binary event\nThe simplest probability distribution is the probability for a binary event, which is an event having only two outcomes.\nLet us say that we have the events A and not A.\nIf the probability for A is \\(p\\), then the probability for not A is \\(1-p\\).\nWe can illustrate the probability distribution for a binary event as a bar chart\n\n\n\n\n\n\n\n\n\nAnother useful way is to think of binary events as sections taking up a certain area of the probability scale\n\n\n\n\n\n\n\n\n\n\n\nMore than two possible outcomes\nProbability is also used for quantities having “more than two possible outcomes”.\nThis can be quantities that are\n\ncategorical - with distinct classes that do not have to come in a particular order\ndiscrete - taking numerical integer values, usually obtained by counts\ncontinuous - taking numerical continuous values for which probability is expressed over ranges instead of specific numbers\n\nThe probabilities for quantities taking different values are summarised by a probability distribution.\nThere are different types of probability distributions depending on the characteristic of the outcome space, i.e. the full set of possible outcomes.\n\n\n\n\n\n\n\n\n\nType of outcome\nDescription of outcomes\nExamples outcome space\nExamples distributions\n\n\n\n\nBinary\ntwo outcomes\n0 or 1\nBernoulli\n\n\n\n\nA or not A\n\n\n\n\n\nTRUE or FALSE\n\n\n\nCategorical\ntwo or more categories\nAdult, Adolescent, Other children\n\n\n\nDiscrete\nwhole numbers\n0, 1, 2, 3, …\nPoisson\n\n\n\n\n0, 1, 2, …, n-1, n\nBinomial\n\n\n\n\nthe number of trials that falls into two or more categories\nMultinomial\n\n\nContinuous\nreal numbers \\(x \\in \\mathbb{R}\\)\n\\(-\\inf &lt; x &lt; \\inf\\)\nNormal\n\n\n\n\n\\(0&lt;x\\)\nExponential\n\n\n\n\n\\(0 &lt; x &lt; 1\\)\nUniform, Beta\n\n\n\nFootnote: The \\(x\\) in the table above is a notation for a random observation from the probability distribution.",
+    "crumbs": [
+      "General",
+      "Probability distributions"
+    ]
+  },
+  {
+    "objectID": "ex/probability_distribution.html#visualising-probability-distributions",
+    "href": "ex/probability_distribution.html#visualising-probability-distributions",
+    "title": "Introduction to probability distributions",
+    "section": "Visualising probability distributions",
+    "text": "Visualising probability distributions\nA probability distribution for a continuous quantity can be plotted in various formats:\n\nA Box plot\nA Probability Density Function (PDF)\nA Cumulative Probability Distribution (CDF)\n\nHere they are plotted together to show how they are related\n\n\n\n\n\n\n\n\nFigure 1: CDF, PDF and boxplot\n\n\n\n\n\n\nQuantiles\nTo summarise uncertainty, an assessor might want to find values that divide the range of the quantity into parts containing specified amounts of probability. Such values are known as quantiles.\nA quantile can be denoted with the letter P, together with the associated probability that the quantity would take a value below the quantile. For example, the value that divides a probability distribution into two parts with equal probabilities is the P50 quantile.\nThis value is also known as the median.\nQuartiles divide a probability distribution into four sections of equal probability. The first quartile is P25. The second quartile is the median P50. The third quartile is P75.\nA boxplot visualises quartiles.\nA percentile is another name for a quantile defined by the probability to the left of the quantile.\n\n\nProbability Density Function\nMost continuous quantities have a Probability Density Function (PDF).\nThe Probability Density Function express probabilities as area under its curve. The total area under the curve is 1, corresponding to 100% probability.\nThe area under the PDF curve to the left of the median is 50%.\nThe PDF can be thought of as a smooth histogram for a continuous quantity. Note that when used for a probability distribution, the area for the histogram should be 1.\n\n\nCumulative Distribution Function\nA probability distribution can be represented by its Cumulative Distribution Function (often abbreviated as CDF). The CDF gives the probability that the quantity is less than or equal to any specified value\nThe CDF contains all the information about probabilities for the quantity: for example, it can be used to calculate the probability that the quantity lies in any specified range of values.\nThis is a curve over the possible range of the quantity (on the x-axis) increasing from 0 to 100% probability (on the y-axis).",
+    "crumbs": [
+      "General",
+      "Probability distributions"
+    ]
+  },
+  {
+    "objectID": "ex/probability_distribution.html#uncertainty-and-variability",
+    "href": "ex/probability_distribution.html#uncertainty-and-variability",
+    "title": "Introduction to probability distributions",
+    "section": "Uncertainty and variability",
+    "text": "Uncertainty and variability\nUncertainty refers to the state of knowledge, whereas variability refers to actual variation or heterogeneity in the real world.\nBoth uncertainty and variability can be represented by probability distributions\n\n\n\nUncertainty and variability figure from EFSA\n\n\nThe left you see a probability distribution for a non-variable quantity - Let us call it parameter P. It is a single true value which is uncertain, and the distribution represents uncertainty about P.\nIn the center, you see a probability distribution for a variable quantity. This variable V has multiple true values. The probability distribution represents variability of V.\nTo the right you see a probabilistic model for both variability and uncertainty. We use a probability distribution to represent variability in this variable, but the true distribution for variability is unknown and we use probability distributions to represent our uncertainty about it’s variability. This distribution is sometimes referred to as a spaghetti plot or two-dimensional distribution.\nUncertainty may be altered (either reduced or increased) by further research, because it results from limitations in knowledge.\nVariability cannot be altered by obtaining more knowledge, because it refers to real differences in the world or how the assessors choose to model the world.\nIt is important that assessors distinguish uncertainty and variability because they have different implications for decision-making: informing decisions about whether to invest resources in research aimed at reducing uncertainty or in management options aimed at influencing variability (e.g. to change exposures to subgroups of the population).",
+    "crumbs": [
+      "General",
+      "Probability distributions"
+    ]
+  },
+  {
+    "objectID": "ex/probability_distribution.html#probability-distributions-1",
+    "href": "ex/probability_distribution.html#probability-distributions-1",
+    "title": "Introduction to probability distributions",
+    "section": "Probability distributions",
+    "text": "Probability distributions\nParametric probability distributions are defined by the Probability Density Function (PDF). The text below is just a starter to describe common distriubtions. We will learn more about them during the course. Wikipedia is a good sourse for the definition of distributions, focus on the graphs of the PDF and CDF, the definition of outcome space and parameters, and if the expected value and variance is a function of the parameters.\n\nUniform\nA quantity that takes any value in an interval with equal probability\nwiki uniform\n\n\nBeta\nA quantity that takes any value in an interval\nwiki beta\n\n\nNormal\nA quantity taking values from \\(-\\inf\\) to \\(\\inf\\) with a symmteric and decaying probability from the central moment.\nwiki normal\n\n\nLogNormal\nA quantity that is normally distribution if you log it. It only takes positive values\nwiki lognormal\nI recommend to log the data and work with the normal distribution instead\n\n\nExponential\nThe time between independent events with equal intensity to occur, where the chance for an event to occur does not depend on when the previous event occurred\nwiki exponential\n\n\nPoisson\nThe number of independent events with equal intensity to occur, that you see during a time period\nwiki poisson\n\n\nBinomial\nThe number of in total N trials that are successful (falls into two categories)\nwiki binomial\n\n\nMultinomial\nThe number of in total N trials that falls into two or more categories\nwiki multinomial",
+    "crumbs": [
+      "General",
+      "Probability distributions"
+    ]
+  },
+  {
+    "objectID": "ex/probability_distribution.html#references-1",
+    "href": "ex/probability_distribution.html#references-1",
+    "title": "Introduction to probability distributions",
+    "section": "References",
+    "text": "References\nEFSA Scientific Committee, 2018. Scientific Opinion on the principles and methods behind EFSA’s Guidance on Uncertainty Analysis in Scientific Assessment. EFSA Journal 2018;16(1):5122, 235 pp. https://doi.org/10.2903/j.efsa.2018.5122",
+    "crumbs": [
+      "General",
+      "Probability distributions"
+    ]
+  },
+  {
+    "objectID": "ex/ex_species_sensitivity_distribution.html",
+    "href": "ex/ex_species_sensitivity_distribution.html",
+    "title": "Exercise Hazard assessment using Species Sensitivity Distributions",
+    "section": "",
+    "text": "The Species Sensitivity Distribution methodology is a common way in hazard assessment for setting safe limits on chemical concentrations in freshwaters. It usually require experimentally determined NOEC values for a number of species from different taxonomic groups.\nThe species sensitivity distribution (SSD) is a statistical approach that is used to estimate either the concentration of a chemical that is hazardous to no more than x% of all species (the HCx) or the proportion of species potentially affected by a given concentration of a chemical.\nThe SSD approach follows a three-step procedure:\nFirst, compile results from separate toxicity tests on a given chemical for various aquatic animal species.\nSecond, fit candidate probability distribution(s) to the data.\nThird, use the fitted distribution(s) to infer a concentration that will be protective of a desired proportion of species in a hypothetical aquatic community.\nThere are several SSDs tools available for risk assessors.\nIf a SSD cannot be applied (which is usually the case), the hazard assessment is performed using assessment factors, where the general principle is to divide the result from a laboratory test by an appropriate assessment factor. The table below is taken from ECHAs dose response guidance, go to the original document to read more about this.\n\n\n\n\n\nTo apply the SSD approach to find a hazardous concentration\nTo explore one of the many tools for SSD, namely the R-package ssdtools, in which the modelling can be done in an user friendly Shiny app\nTo compare with a situation of a SSD with more data, and with a situation of less data and the use of assessment factors\n\n\n\n\n\nFind hazardous concentration by SSD modelling bases on dose-response data on the chemical metolachlor\n\n\n\n\n90 minutes\n\n\n\nWrite a report using a quarto document and upload it on the assignment in canvas.\n\nUse the following information in the YAML (i.e. the top information in a .qmd document)\n\ntitle: “Hazard assessment using Species Sensitivity Distributions”\nsubtitle: “Report”\nauthor: “Your name”\ndate: today\nformat:\nhtml:\ntoc: true\n\ncode-fold: true\n\nmessage: false\n\nwarning: false\n\nembed-resources: true\n\nYou will explore the SSD approach using an app. Note that it is possible to get the full R-code for the SSD modelling. You can use this R-code to generate your report.\n\n\n\n\n\n\n\nTip\n\n\n\nI recommend you copy on the whole code into an R-chunk and then divide the chunk into multiple chunks. This allows you to have better control of the output from each chunk.\nNote that you cannot open the shinyapp in a qmd that is being rendered. An alternative to remove it is to put a # in front of the command\nSometimes you get messages or warnings when running a code. These might or might not be important. I judge the messages Ive seen on your computer as not important. You can suppress a message or warning by typing #| warning: false and #| message: false in the first row directly after the curly bracket in the R-chunk.\nIf you just want to look at your data you can e.g. open it in Excel. When your data is a csv-file, I recommend you open an empty Excel-file, got to Data&gt;Get data&gt;From File&gt;From Text/CSV and follow the instructions.\n\n\n\n\n\nECHA Guidance on dose response modelling\nFox, D.R., van Dam, R.A., Fisher, R., Batley, G.E., Tillmanns, A.R., Thorley, J., Schwarz, C.J., Spry, D.J. and McTavish, K. (2021), Recent Developments in Species Sensitivity Distribution Modeling. Environ Toxicol Chem, 40: 293-308. https://doi.org/10.1002/etc.4925\nThe shinyssdtools developed for the British Columbia Ministry of Environment and Climate Change Strategy. https://github.com/bcgov/shinyssdtools",
+    "crumbs": [
+      "Hazard characterisation - Sept 15",
+      "Species Sensitivity Distribution"
+    ]
+  },
+  {
+    "objectID": "ex/ex_species_sensitivity_distribution.html#exercise-overview",
+    "href": "ex/ex_species_sensitivity_distribution.html#exercise-overview",
+    "title": "Exercise Hazard assessment using Species Sensitivity Distributions",
+    "section": "",
+    "text": "The Species Sensitivity Distribution methodology is a common way in hazard assessment for setting safe limits on chemical concentrations in freshwaters. It usually require experimentally determined NOEC values for a number of species from different taxonomic groups.\nThe species sensitivity distribution (SSD) is a statistical approach that is used to estimate either the concentration of a chemical that is hazardous to no more than x% of all species (the HCx) or the proportion of species potentially affected by a given concentration of a chemical.\nThe SSD approach follows a three-step procedure:\nFirst, compile results from separate toxicity tests on a given chemical for various aquatic animal species.\nSecond, fit candidate probability distribution(s) to the data.\nThird, use the fitted distribution(s) to infer a concentration that will be protective of a desired proportion of species in a hypothetical aquatic community.\nThere are several SSDs tools available for risk assessors.\nIf a SSD cannot be applied (which is usually the case), the hazard assessment is performed using assessment factors, where the general principle is to divide the result from a laboratory test by an appropriate assessment factor. The table below is taken from ECHAs dose response guidance, go to the original document to read more about this.\n\n\n\n\n\nTo apply the SSD approach to find a hazardous concentration\nTo explore one of the many tools for SSD, namely the R-package ssdtools, in which the modelling can be done in an user friendly Shiny app\nTo compare with a situation of a SSD with more data, and with a situation of less data and the use of assessment factors\n\n\n\n\n\nFind hazardous concentration by SSD modelling bases on dose-response data on the chemical metolachlor\n\n\n\n\n90 minutes\n\n\n\nWrite a report using a quarto document and upload it on the assignment in canvas.\n\nUse the following information in the YAML (i.e. the top information in a .qmd document)\n\ntitle: “Hazard assessment using Species Sensitivity Distributions”\nsubtitle: “Report”\nauthor: “Your name”\ndate: today\nformat:\nhtml:\ntoc: true\n\ncode-fold: true\n\nmessage: false\n\nwarning: false\n\nembed-resources: true\n\nYou will explore the SSD approach using an app. Note that it is possible to get the full R-code for the SSD modelling. You can use this R-code to generate your report.\n\n\n\n\n\n\n\nTip\n\n\n\nI recommend you copy on the whole code into an R-chunk and then divide the chunk into multiple chunks. This allows you to have better control of the output from each chunk.\nNote that you cannot open the shinyapp in a qmd that is being rendered. An alternative to remove it is to put a # in front of the command\nSometimes you get messages or warnings when running a code. These might or might not be important. I judge the messages Ive seen on your computer as not important. You can suppress a message or warning by typing #| warning: false and #| message: false in the first row directly after the curly bracket in the R-chunk.\nIf you just want to look at your data you can e.g. open it in Excel. When your data is a csv-file, I recommend you open an empty Excel-file, got to Data&gt;Get data&gt;From File&gt;From Text/CSV and follow the instructions.\n\n\n\n\n\nECHA Guidance on dose response modelling\nFox, D.R., van Dam, R.A., Fisher, R., Batley, G.E., Tillmanns, A.R., Thorley, J., Schwarz, C.J., Spry, D.J. and McTavish, K. (2021), Recent Developments in Species Sensitivity Distribution Modeling. Environ Toxicol Chem, 40: 293-308. https://doi.org/10.1002/etc.4925\nThe shinyssdtools developed for the British Columbia Ministry of Environment and Climate Change Strategy. https://github.com/bcgov/shinyssdtools",
+    "crumbs": [
+      "Hazard characterisation - Sept 15",
+      "Species Sensitivity Distribution"
+    ]
+  },
+  {
+    "objectID": "ex/ex_species_sensitivity_distribution.html#get-ssd-data",
+    "href": "ex/ex_species_sensitivity_distribution.html#get-ssd-data",
+    "title": "Exercise Hazard assessment using Species Sensitivity Distributions",
+    "section": "Get SSD data",
+    "text": "Get SSD data\nDownload a ssd data set.\nThis data set consists of cronic EC10 or LOEC values from exposure to the substance metolachlor for six different species in an aquatic system. This data is a selection from a bigger data set on 21 species.\n\n\n Download csv file",
+    "crumbs": [
+      "Hazard characterisation - Sept 15",
+      "Species Sensitivity Distribution"
+    ]
+  },
+  {
+    "objectID": "ex/ex_species_sensitivity_distribution.html#a-tool-for-species-sensitivity-distributions",
+    "href": "ex/ex_species_sensitivity_distribution.html#a-tool-for-species-sensitivity-distributions",
+    "title": "Exercise Hazard assessment using Species Sensitivity Distributions",
+    "section": "A tool for Species Sensitivity Distributions",
+    "text": "A tool for Species Sensitivity Distributions\n\nInstall and open the SSD tool.\n\nThese commands will install a R-package, load it into R and then open a shinyapp.\n\ndevtools::install_github(\"bcgov/shinyssdtools\")\nlibrary(shinyssdtools)\nshinyssdtools::run_app()\n\n\n\nLoading required package: ssdtools\n\n\nWarning: package 'ssdtools' was built under R version 4.4.3\n\n\n\nChoose to open the app in the browser.\n\n\n\n\n\n\n\nTip\n\n\n\nStop the shiny app by closing the webrower and click on the STOP-sign in the R-console\n\nRun the app by the command\n\nshinyssdtools::run_app()\n\n\n\n\nLoad the data metolachlor_ssd.csv to the app using option 2. Upload a csv file\n\n\n\nLook at the data, what does it contain?\nGo to tab 2. Fit\n\n\nStudy the goodness of fit measures and the visual fits between curves and data points, and select your top three best distributions. Write down the arguments why you choose these three distributions. \n\nGo to to the tab predict\n\n\n\nSet the threshold that defines the hazardous concentration, e.g. 5% defines HC5. Use 5%!\n\n\n\nAt this point you can read out HC5 for each model and the model average.\n\nIf we want to consider statistical errors there is an option to derive an uncertainty interval for the hazardous concentration and select its lower bound. Uncertainty intervals can be characterised by bootstrapping which is a method to sample with replacement from data, refit the model and do this many times.\n\nSet the number of bootstrap samples. Use 1000 to avoid it taking too long time.\nClick on the button CL to start the bootstrapping (this will take some time)\n\n\n\nTake note of the lower bound (lcl)of the uncertainty interval for the hazardous concentration corresponding to protection of at least 95% of the population.\nDownload the R-code for the analysis you did and put it into the report.\n\n\n\nRender the document. Note that you might have to change the path to data.\n\nWrite in the report:\n\nThe three distributions that were chosen and the justification for this choice.\nA lower bound for the concentration of metolachlor that is hazardous to no more than 5% of all species in an aquatic system.\nCompare to the numbers 0.72 and 0.107 - this is the model average and lower uncertainty bound from a SSD using the full data set of 21 species\nCompare to a hazardous concentration derived from two species and an appropriate assessment factor. Select two species from your data and select the assessment factor from the table in the beginning of this document.\n\n\nSubmit on the assignment in canvas",
+    "crumbs": [
+      "Hazard characterisation - Sept 15",
+      "Species Sensitivity Distribution"
+    ]
+  },
+  {
+    "objectID": "ex/ex_environ_fate_assessment.html",
+    "href": "ex/ex_environ_fate_assessment.html",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "",
+    "text": "We go through this in class.\n\n\nPredictive models of exposure of chemical substances in the environment are common in risk assessment.\nThere are several mass-balance models to support exposure assessment.\nAn assessments starts with the source and level of emissions. The exposure assessment models derive masses of chemical substances after reaching steady state."
+  },
+  {
+    "objectID": "ex/ex_environ_fate_assessment.html#exercise-overview",
+    "href": "ex/ex_environ_fate_assessment.html#exercise-overview",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "",
+    "text": "We go through this in class.\n\n\nPredictive models of exposure of chemical substances in the environment are common in risk assessment.\nThere are several mass-balance models to support exposure assessment.\nAn assessments starts with the source and level of emissions. The exposure assessment models derive masses of chemical substances after reaching steady state."
+  },
+  {
+    "objectID": "ex/ex_environ_fate_assessment.html#purpose",
+    "href": "ex/ex_environ_fate_assessment.html#purpose",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "Purpose",
+    "text": "Purpose\n\nTo extract output values from a common environmental exposure assessment model\n\n\nContent\n\nSimpleBox vs 4.04\n\n\n\nReferences"
+  },
+  {
+    "objectID": "ex/ex_environ_fate_assessment.html#simplebox",
+    "href": "ex/ex_environ_fate_assessment.html#simplebox",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "SimpleBox",
+    "text": "SimpleBox\nSimpleBox is a multimedia mass balance model for evaluating the fate of chemical substances developed by RIVM.\nThe environment is modelled as consisting of well-mixed environmental compartments (air, water, sediment, soil), at three spatial scales. Emissions to the compartments, transfer and partitioning between the compartments, and removal from the compartments are used to compute the steady state and quasi-dynamic masses of chemical substance in the environment.\nThe SimpleBox model simulates the environmental fates of different substances in different landscape settings, of which the characteristics are provided with the model database. In its default settings, SimpleBox returns results for a typical chemical, given a typical emission, to a typical environment.\n\nGo to the website at RIVM and read about the SimpleBox model\nWhat does RIVM stands for?\nWho has developed SimpleBox?"
+  },
+  {
+    "objectID": "ex/ex_environ_fate_assessment.html#assess-exposure-from-emissions-of-caffeine-to-agricultural-soil-and-freshwater",
+    "href": "ex/ex_environ_fate_assessment.html#assess-exposure-from-emissions-of-caffeine-to-agricultural-soil-and-freshwater",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "Assess exposure from emissions of Caffeine to agricultural soil and freshwater",
+    "text": "Assess exposure from emissions of Caffeine to agricultural soil and freshwater\n\nGo to the git-repository for SimpleBox and download the Spreadsheet xl_version of SimpleBox (click xl-version and download the file named “SimpleBox4.04_20240405.xlsm”).\nOpen the xlsm-file and enable content!\n\nIf it doesn’t work then use this to download the file\n\n\n SimpleBox\n\n\n\nGoto sheet substances and note the ID number for caffeine.\nGoto sheet input and write down the row number ID in cell I6.\n\nThe model will now use substance specific parameters for the calculations.\n\nSelect EUSES settings as Exposure Scenario\nSet the value on EMISSION to fresh water at REGIONAL SCALE to 1 in cell I82\nSet the value on EMISSION to agricultural soil at REGIONAL SCALE to 1 in cell I85\nGoto sheet output and note the concentration at REGIONAL SCALE in Fresh water sediments (mass in cell C23, concentration in cell M23) or look at the Graphic output: steady-state mass flows)\n\nI get mass 6.7 kg and concentration 1.4e-7 g.kg(w)-1\n\nStudy the Graphic output: steady-state mass flows in the same sheet but further to the right. Identify the mass/concentration in fresh water sediment in the graph.\n\nI see that the mass in freshwater sediment is 0.7% of the total concentration in the system.\n\nWere do the majority of the caffeine end up at steady state?\n\nI see that 81.1% of the mass of caffeine is in open freshwater.\n\nWe will talk more about this model during a seminar/lecture."
+  },
+  {
+    "objectID": "ex/ex_daily_intake_equation.html",
+    "href": "ex/ex_daily_intake_equation.html",
+    "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
+    "section": "",
+    "text": "Do individually\n\n\nAll estimates (derived from data, modelling or from experts) have associated uncertainty. This uncertainty can be described in different ways and propagated through the assessment model.\n\n\n\n\nTo apply interval arithmetic\nTo explore the principle of 1 dimensional Monte Carlo simulation\n\n\n\n\nThe daily dose equation with values taken from the course book by Burgman.\n\n\n\n30 minutes\n\n\n\nBe prepared to report back at the end of the exercise.\n\n\n\nThe course book chapter 9 and 10 (specifically 9.3.2 and 10.8.1.)",
+    "crumbs": [
+      "Probability models - Sept 8",
+      "Interval and 1D Monte Carlo"
+    ]
+  },
+  {
+    "objectID": "ex/ex_daily_intake_equation.html#exercise-overview",
+    "href": "ex/ex_daily_intake_equation.html#exercise-overview",
+    "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
+    "section": "",
+    "text": "Do individually\n\n\nAll estimates (derived from data, modelling or from experts) have associated uncertainty. This uncertainty can be described in different ways and propagated through the assessment model.\n\n\n\n\nTo apply interval arithmetic\nTo explore the principle of 1 dimensional Monte Carlo simulation\n\n\n\n\nThe daily dose equation with values taken from the course book by Burgman.\n\n\n\n30 minutes\n\n\n\nBe prepared to report back at the end of the exercise.\n\n\n\nThe course book chapter 9 and 10 (specifically 9.3.2 and 10.8.1.)",
+    "crumbs": [
+      "Probability models - Sept 8",
+      "Interval and 1D Monte Carlo"
+    ]
+  },
+  {
+    "objectID": "ex/ex_daily_intake_equation.html#the-daily-dose-equation",
+    "href": "ex/ex_daily_intake_equation.html#the-daily-dose-equation",
+    "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
+    "section": "The daily dose equation",
+    "text": "The daily dose equation\n\\[Dose = \\frac{C \\cdot IR \\cdot EF}{bw}\\]\nThe following estimates are provided:\nConcentration mg/l (C): 0.00063\nIntake rate l/day (IR): 5\nExposure frequency unitless (EF): 0.15\nBody weight mg (bw): 25.11\n\nCalculate the daily intake dose!",
+    "crumbs": [
+      "Probability models - Sept 8",
+      "Interval and 1D Monte Carlo"
+    ]
+  },
+  {
+    "objectID": "ex/ex_daily_intake_equation.html#interval-artithmetic",
+    "href": "ex/ex_daily_intake_equation.html#interval-artithmetic",
+    "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
+    "section": "Interval artithmetic",
+    "text": "Interval artithmetic\n\nTo consider uncertainty in estimates, we express uncertainty by intervals defined by a lower and upper bounds.\nConcentration mg/l (C): [0.000007, 0.0033]\nIntake rate l/day (IR): [4,6]\nExposure frequency unitless (EF): [0.12,0.18]\nBody weight mg (bw): [8.43,45.14]\n\nCalculate intervals for daily intake dose using interval arithmetic.",
+    "crumbs": [
+      "Probability models - Sept 8",
+      "Interval and 1D Monte Carlo"
+    ]
+  },
+  {
+    "objectID": "ex/ex_daily_intake_equation.html#d-monte-carlo-simulation",
+    "href": "ex/ex_daily_intake_equation.html#d-monte-carlo-simulation",
+    "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
+    "section": "1D Monte Carlo simulation",
+    "text": "1D Monte Carlo simulation\nTo consider uncertainty in estimates, we express uncertainty by probability distributions defined by a distribution type and associated parameters.\nThe aim is that you should be able to do this in Excel and R.\nConcentration mg/l (C): \\(C\\sim N(0.00063,0.000063)\\)\nIntake rate l/day (IR): \\(IR \\sim N(5,0.5)\\)\nExposure frequency unitless (EF): \\(EF \\sim U(0.12,0.18)\\)\nBody weight mg (bw): \\(bw \\sim N(25.11,2.51)\\)\nUse 1D Monte Carlo simulation to\n\napproximate the expected value of the daily intake\napproximate the standard deviation of the daily intake\nderive an approximate 90% probability interval for daily intake\nthe probability that the daily intake is above the thresholds for the tolerably level\n\n\nSolution for Monte Carlo simulation done in Excel\nDownload the file, open it and go to sheet 1.\n\n\n Download xlsx file\n\n\n\n\nSolution for Monte Carlo simulation done in R\nI let you work on this",
+    "crumbs": [
+      "Probability models - Sept 8",
+      "Interval and 1D Monte Carlo"
+    ]
+  },
+  {
+    "objectID": "ex/chance_belief_frequency.html",
+    "href": "ex/chance_belief_frequency.html",
+    "title": "Chance, belief and frequency",
+    "section": "",
+    "text": "Work in groups of 3-4\n\n\n\nProbability is a mathematical concept defined basic rules.\n\n\n\n\n\n\nThe basic rules of probability\n\n\n\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\n\n\nThere are different ways to interpret and use probability, sometimes within the same assessment. In this exercise you will be exposed to probability as a\n\nTheoretical probability: The number of outcomes favouring the event, divided by the total number of outcomes, assuming the outcomes are all equally likely.\nFrequency: The proportion of times, in the long run of identical circumstances that the event occurs.\nSubjective probability: A persons confidence that an event will occur, expressed as a number between 0 and 1.\n\n\n\n\n\nTo understand common interpretations of probability and for what they are used\n\n\n\n\n\nExperiment to illustrate the frequency interpretation of probability\nTheoretical probability vs Expected frequency\nSubjective probability\n\n\n\n\n30 minutes\n\n\n\nNo reporting required\n\n\n\nI have used examples and text from the book Teaching probability by Jenny Gage and David Spiegelhalter from 2016. Cambridge University Press.",
+    "crumbs": [
+      "Probability models - Sept 8",
+      "Exercise Probability"
+    ]
+  },
+  {
+    "objectID": "ex/chance_belief_frequency.html#exercise-overview",
+    "href": "ex/chance_belief_frequency.html#exercise-overview",
+    "title": "Chance, belief and frequency",
+    "section": "",
+    "text": "Work in groups of 3-4\n\n\n\nProbability is a mathematical concept defined basic rules.\n\n\n\n\n\n\nThe basic rules of probability\n\n\n\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\n\n\nThere are different ways to interpret and use probability, sometimes within the same assessment. In this exercise you will be exposed to probability as a\n\nTheoretical probability: The number of outcomes favouring the event, divided by the total number of outcomes, assuming the outcomes are all equally likely.\nFrequency: The proportion of times, in the long run of identical circumstances that the event occurs.\nSubjective probability: A persons confidence that an event will occur, expressed as a number between 0 and 1.\n\n\n\n\n\nTo understand common interpretations of probability and for what they are used\n\n\n\n\n\nExperiment to illustrate the frequency interpretation of probability\nTheoretical probability vs Expected frequency\nSubjective probability\n\n\n\n\n30 minutes\n\n\n\nNo reporting required\n\n\n\nI have used examples and text from the book Teaching probability by Jenny Gage and David Spiegelhalter from 2016. Cambridge University Press.",
+    "crumbs": [
+      "Probability models - Sept 8",
+      "Exercise Probability"
+    ]
+  },
+  {
+    "objectID": "ex/chance_belief_frequency.html#frequency",
+    "href": "ex/chance_belief_frequency.html#frequency",
+    "title": "Chance, belief and frequency",
+    "section": "Frequency",
+    "text": "Frequency\nThe experiment is setup as follows:\n\nAssign one student to flip the symmetric coin of the type Antoninus Pius - Bronze Sestertius - Roman Empire using the virtual coin flipper on random.org\nRecord if the outcome is heads or tails.\nAssign another student to throw a six sided dice using the virtual dice roller on random.org\nRecord if the outcome is a number in the range 1 to 5 or a six\nRepeat N=5 times\n\nAssign one student to record the outcomes in this frequency tree (replace N and # with numbers).\n\nAnswer the following questions:\n\nWhat is the observed frequency of the event “heads followed by a six”?\n\n\nExpected frequency\n\nIs this a reliable estimate of the expected frequency? If not, what can one do to make it more reliable?\nWhat do you expect the frequency to be if N would be a very large number?\n\n\n\n\n\n\n\nTip\n\n\n\nDefine the events A = “heads” and B = “six”.\nSpecify P(A) and P(B).\nCalculate P(A and B) using the multiplication rule for two independent events.\nDon’t forget to multiply by N to get the expected frequency.\n\n\nRepeat the experiment with N = 100 to verify if estimates of the expected frequencies become more reliable with a larger number of observations.\n\n\n\n\n\n\nTip\n\n\n\nYou can use the prepared spreadsheet in frequency_experiment.xlsx\n\n\n Download xlsx file\n\n\nFirst you have to figure out how to expand the formulas for 100 iterations.\n\n\n\n\nChance\nNow let us go back to the step where you specified the probabilities P(A) and P(B). How did you do that? One way to do it is to look at the outcome space, find the outcomes that correspond to the event and divide by the total number of outcomes.\nFor the coin the outcome space is “heads” and “tails”, i.e. n = 2. The event of a getting “heads” can occur in one of the outcomes, i.e. m = 1. Under the assumption that all outcomes are equally likely, the theoretical probability for “heads” is \\(\\frac{m}{n} = \\frac{1}{2}\\).\nFor the dice, the outcome space is 1, 2, 3, 4, 5, and 6, i.e. n = 6. The event of getting a “six” can occur in one way, i.e. m = 1. The theoretical probability for the event “six” is therefore \\(\\frac{1}{6}\\).\n\n\n\n\n\n\nNote\n\n\n\nNotice that theoretical probabilities can only be used in balanced situations such as dice, cards, or lottery tickets where it justified to assume symmetry (equal probability) for all possible outcomes.\n\n\n\n\nRelative frequency\nIf we divide the frequency of an event by the number of trials N, we get the relative frequency which is a good estimate of a probability for the event to occur at the next iteration of the same experiment.\nLet \\(m\\) be the number of times the event has occurred. \\(E(\\frac{m}{N})=\\frac{E(m)}{N}=\\frac{N\\cdot P(event)}{N} = P(event)\\)\nRelative frequencies can be used to estimate the probability for an event as long as the observations are equally likely across the full outcome space.\n\n\n\n\n\n\nMake sure N is large\n\n\n\nThe more observations (i.e. larger N) the better estimate.\nThe more extreme event, i.e. very low or high probability of occurring, the more observations are needed.\nBe very skeptical to estimates of probabilities that are either 0 and 1, when the event is possible to occur.\n\n\n\n\nBelief (Personal probability)\nTake one of the thumbtacks provided in the exercise and a cup. Put the thumbtack in the cup, shake and place the cup upside down on a table without revealing the outcome.\n\nWhat outcomes are possible?\n\nFocus on the outcome that the thumbtack is having its head down with the needle pointing upwards.\n\nLet everyone in the group state their personal probability of this event as a number between 0 and 1, where 0 means that it is impossible to occur and 1 means that it is certain to occur.\n\n\n\n\n\n\n\nCromwell’s rule\n\n\n\nProbabilities 1 (“the event will definitely occur”) or 0 (“the event will definitely not occur”) should be avoided, except when applied to statements that are logically true or false.\n\n\n\nDiscuss if and why the probabilities differ.\n\nThis is an example of probability as a subjective probability that is purely a personal judgement based on available evidence and assumptions.\nMore evidence ought to result in smaller divergence in judgements. One way to illustrate this is to lift the cup and let everyone revise their judgement.\n\nDo that!\n\nGiven that the evidence is revealing the outcome, the subjective probabilities held by the students in the group should now be either 1 or 0.\nIn risk assessment, we seldom have such full certainty as in this example. Probabilities are almost inevitably based on judgements and assumptions such as random sampling.\n\n\n\n\n\n\nA general advice\n\n\n\nProbability can be thought of as an expected frequency. Instead of saying that “the probability of the event is 0.20 (or 20%)”, you can say “out of 100 situations like this, we would expect the event to occur 20 times”.\nBy carefully stating the denominator (reference class), ambiguity about the meaning of probability can be avoided.\nThis advice applies to any of the interpretations.",
+    "crumbs": [
+      "Probability models - Sept 8",
+      "Exercise Probability"
+    ]
+  },
+  {
+    "objectID": "ex/ex_environ_exposure_assessment.html",
+    "href": "ex/ex_environ_exposure_assessment.html",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "",
+    "text": "Do in groups of 1-3\n\n\nPredictive models of exposure of chemical substances in the environment are common in risk assessment.\nThere are several mass-balance models to support exposure assessment.\nAn assessments starts with the source and level of emissions. The exposure assessment models derive masses of chemical substances after reaching steady state."
+  },
+  {
+    "objectID": "ex/ex_environ_exposure_assessment.html#exercise-overview",
+    "href": "ex/ex_environ_exposure_assessment.html#exercise-overview",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "",
+    "text": "Do in groups of 1-3\n\n\nPredictive models of exposure of chemical substances in the environment are common in risk assessment.\nThere are several mass-balance models to support exposure assessment.\nAn assessments starts with the source and level of emissions. The exposure assessment models derive masses of chemical substances after reaching steady state."
+  },
+  {
+    "objectID": "ex/ex_environ_exposure_assessment.html#purpose",
+    "href": "ex/ex_environ_exposure_assessment.html#purpose",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "Purpose",
+    "text": "Purpose\n\nTo extract output values from a common environmental exposure assessment model\n\n\nContent\n\nExcel and SimpleBox-TRAM vs 3.24.\n\n\n\nDuration\n20 minutes\n\n\nReporting\nBe prepared to report back at the end of the exercise. or Make a report with your answers to the questions and main dicussion points and submit to canvas.\n\n\nReferences"
+  },
+  {
+    "objectID": "ex/ex_environ_exposure_assessment.html#simplebox",
+    "href": "ex/ex_environ_exposure_assessment.html#simplebox",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "SimpleBox",
+    "text": "SimpleBox\nSimpleBox is a multimedia mass balance model for evaluating the fate of chemical substances developed by RIVM.\nThe environment is modelled as consisting of well-mixed environmental compartments (air, water, sediment, soil, etc.), at three spatial scales. Emissions to the compartments, transfer and partitioning between the compartments, and removal from the compartments are used to compute the steady state and quasi-dynamic masses of chemical substance in the environment.\nThe SimpleBox model simulates the environmental fates of different substances in different landscape settings, of which the characteristics are provided with the model database. In its default settings, SimpleBox returns results for a typical chemical, given a typical emission, to a typical environment.\n\nGo to the website at RIVM and read about the SimpleBox model\nWhat does RIVM stands for?\nWho has developed SimpleBox?"
+  },
+  {
+    "objectID": "ex/ex_environ_exposure_assessment.html#assess-exposure-from-emissions-of-hexachlorobenzene-to-agricultural-soil",
+    "href": "ex/ex_environ_exposure_assessment.html#assess-exposure-from-emissions-of-hexachlorobenzene-to-agricultural-soil",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "Assess exposure from emissions of hexachlorobenzene to agricultural soil",
+    "text": "Assess exposure from emissions of hexachlorobenzene to agricultural soil\nYou will use the version of SimpleBox that comes with the Targeted Risk Assessment tool from ECETOC\n\nDownload the excel file for SimpleBox-TRAM and open it. Enable Content!\n\n\n\n SimpleBox-TRAM\n\n\n\nGoto sheet chembase and note the ID number for hexachlorobenzene.\nGoto sheet input and write down the row number ID in cell I44.\n\nThe model will now use substance specific parameters for the calculations.\n\nSet USE volume at local scale to 1 in cell I85\nSet the value on EMISSION to agricultural soil to be 2\nGoto sheet level 3 output and note the concentration at local level in fresh water in cell D13\nStudy the graphical output, i.e. the steady-state mass flows in the same sheet starting in cell BL1.\nAnswer the following questions:\n\n\nWhat is the exposure scenario?\nWhat is the Predicted Environmental Concentration in fresh water of hexachlorobenzene under the exposure scenario?"
+  },
+  {
+    "objectID": "ex/ex_exposure_assessment_databases.html",
+    "href": "ex/ex_exposure_assessment_databases.html",
+    "title": "Exercise Exposure assessment from databases",
+    "section": "",
+    "text": "Do in groups of 1-3\n\n\nExposure assessment uses data on food consumption and drinking water, analytical data on the presence of substances in food and statistics of behaviours and lifestyles of populations of interest.\nData from studies and surveys have been collected into databases that are available to be used in risk assessment.\n\n\n\n\nTo explore some databases to support exposure assessment\nTo discuss how to derive exposure estimates\n\n\n\n\n\nThe European exposure database\n\n\n\n\n30 minutes\n\n\n\nMake a report with your answers to the questions and main dicussion points and submit to canvas.\n\n\n\nIn text"
+  },
+  {
+    "objectID": "ex/ex_exposure_assessment_databases.html#exercise-overview",
+    "href": "ex/ex_exposure_assessment_databases.html#exercise-overview",
+    "title": "Exercise Exposure assessment from databases",
+    "section": "",
+    "text": "Do in groups of 1-3\n\n\nExposure assessment uses data on food consumption and drinking water, analytical data on the presence of substances in food and statistics of behaviours and lifestyles of populations of interest.\nData from studies and surveys have been collected into databases that are available to be used in risk assessment.\n\n\n\n\nTo explore some databases to support exposure assessment\nTo discuss how to derive exposure estimates\n\n\n\n\n\nThe European exposure database\n\n\n\n\n30 minutes\n\n\n\nMake a report with your answers to the questions and main dicussion points and submit to canvas.\n\n\n\nIn text"
+  },
+  {
+    "objectID": "ex/ex_exposure_assessment_databases.html#exposure-facts",
+    "href": "ex/ex_exposure_assessment_databases.html#exposure-facts",
+    "title": "Exercise Exposure assessment from databases",
+    "section": "Exposure facts",
+    "text": "Exposure facts\n\nGo to the website at JRC and read about the Exposure facts\nWhat does JRC stands for?\nWhat type of information are there in the ExpoFacts Database?"
+  },
+  {
+    "objectID": "ex/ex_exposure_assessment_databases.html#the-exposure-factors-handbook",
+    "href": "ex/ex_exposure_assessment_databases.html#the-exposure-factors-handbook",
+    "title": "Exercise Exposure assessment from databases",
+    "section": "The exposure factors handbook",
+    "text": "The exposure factors handbook\nThe US EPA Exposure factors handbook contains information for exposure assessment.\n\nGo to chapter 5. Soil and dust ingestion and open the update from 2017\nWhat type of information is found in this chapter and what can it be used for?\nDiscuss the difference between these three terms\n\nSoil ingestion is the consumption of soil. This may result from various behaviors including, but not limited to, mouthing, contacting dirty hands, eating dropped food, or consuming soil directly.\nSoil pica is the recurrent ingestion of unusually high amounts of soil (i.e., on the order of 1,000−5,000 mg/day or more).\nGeophagy is the intentional ingestion of earths and is usually associated with cultural practices.\n\nDiscuss the difference between soil and dust (see definitions on Page 5-2 [10 in the PDF])\nGoto Table 5-3 and estract a high exposure to Aluminium via soil and dust combined for a child between 1 to 4 years old.\nDiscuss if high exposure should be evaluated on the 95th Percentile or the Maximum."
+  },
+  {
+    "objectID": "ex/ex_exposure_assessment_databases.html#the-efsa-comprehensive-european-food-consumption-database",
+    "href": "ex/ex_exposure_assessment_databases.html#the-efsa-comprehensive-european-food-consumption-database",
+    "title": "Exercise Exposure assessment from databases",
+    "section": "The EFSA Comprehensive European Food Consumption Database",
+    "text": "The EFSA Comprehensive European Food Consumption Database\nThe Comprehensive Food Consumption Database is a source of information on food consumption across the European Union (EU).\n\nGoto the site for the food consumption database.\nEnter the foodex2-level-1 window\nFilter the data according to Exposure hierarchy L1 - by deselecting (All) and then selecting Coffee, cocoa, tea and infusions only\n\n\n\nDiscuss the difference between the four categories of data.\nExpand the data sheet for Chronic Food Consumption Grams per kilogram of body weight per day (g/kg bw per day) - Consumers only\nYour task is now to assess the consumption for a high consumer of Coffee, cocoa, tea and infusions for two population groups in the EU:\n\n\nAdult and pregnant women\n\n\nDiscuss how to define a high consumer and how to derive the estimate. You are welcome to ask for advice. Report back your suggestion and results."
+  },
+  {
+    "objectID": "ex/introduction_to_quarto_and_R.html",
+    "href": "ex/introduction_to_quarto_and_R.html",
+    "title": "Introduction to Quarto and R",
+    "section": "",
+    "text": "Work in pairs or alone.\n\n\n\nCalculations, simulations, data analysis and statistical analysis are common elements in risk assessments.\nBeing able to produce or read code supporting an assessment is a valuable skill when working as an expert or assessor.\nOpen source systems for coding and reporting are useful for collaborative work, reproducibility and external evaluation.\n\n\n\nTo learn how to create a presentation in html format using Quarto and how to combine text, figures, equations and results from analysis into a report.\n\n\n\n\nCreate a Quarto presentation in html format from R Studio cloud.\nUse basic commands in R run from R Studio cloud.\nCreate a quarto report integrating text and results from running commands i R from R Studio cloud.\n\n\n\n\n25 minutes\n\n\n\nNo reporting required if present at the exercise\n\n\n\nhttps://quarto.org/",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Intro to Quarto and R"
+    ]
+  },
+  {
+    "objectID": "ex/introduction_to_quarto_and_R.html#exercise-overview",
+    "href": "ex/introduction_to_quarto_and_R.html#exercise-overview",
+    "title": "Introduction to Quarto and R",
+    "section": "",
+    "text": "Work in pairs or alone.\n\n\n\nCalculations, simulations, data analysis and statistical analysis are common elements in risk assessments.\nBeing able to produce or read code supporting an assessment is a valuable skill when working as an expert or assessor.\nOpen source systems for coding and reporting are useful for collaborative work, reproducibility and external evaluation.\n\n\n\nTo learn how to create a presentation in html format using Quarto and how to combine text, figures, equations and results from analysis into a report.\n\n\n\n\nCreate a Quarto presentation in html format from R Studio cloud.\nUse basic commands in R run from R Studio cloud.\nCreate a quarto report integrating text and results from running commands i R from R Studio cloud.\n\n\n\n\n25 minutes\n\n\n\nNo reporting required if present at the exercise\n\n\n\nhttps://quarto.org/",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Intro to Quarto and R"
+    ]
+  },
+  {
+    "objectID": "ex/introduction_to_quarto_and_R.html#quarto-presentation",
+    "href": "ex/introduction_to_quarto_and_R.html#quarto-presentation",
+    "title": "Introduction to Quarto and R",
+    "section": "Quarto presentation",
+    "text": "Quarto presentation\n\nGo to posit.cloud and register an account.\nOpen a new project and call it “intro”.\nClick on the new file button (up to the left) and open a new Quarto Presentation.\nAssign a title, e.g. My report\nAssign yourself as author\nClick on Create\n\nIf you get a yellow ribbon asking you to install rmarkdown - Click install and wait. When finished, your window should look like this:\n\n\nSave the file as “testpresentation.qmd”\nPress Render\n\nThe program is running the qmd-file creating a html-file that is automatically opened in your browser.\nUse the page down button or left/right arrow to change slide.\n\nGo back to the page with Your workspace intro\n\nThe code in testpresentation.qmd is currently shown as Visual.\n\nChange to Source.\n\nYou can enlarge the window by reducing the console window.\n\nRemove all text from line 8 and downwards\nAdd the following text\n\n## Slide 1\n\nA probability is always between 0 and 1\n\n## Slide 2\n\nProbability can be interpreted as a\n\n- theoretical probability\n\n- frequency\n\n- subjective probability\n\n## Slide 3\n\nToday we have learnt about \n\n### Uncertainty\n\nIt was *fun*\n\n### Probability\n\nIt was even more **fun**\n\n## Slide 4\n\nNow I practise writing a math expression \n\n$\\frac{m}{n}$\n\n$\\alpha$\n\nI use two dollar signs to center it\n\n$$X\\cdot Y$$\n\nPress Render and look at the html-document for the presentation.\n\nIf you did not close it before, it should be in the browser.\nNow you know how to create a presentation with headings, subheadings and bulletpoints.",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Intro to Quarto and R"
+    ]
+  },
+  {
+    "objectID": "ex/introduction_to_quarto_and_R.html#basic-commands-in-r",
+    "href": "ex/introduction_to_quarto_and_R.html#basic-commands-in-r",
+    "title": "Introduction to Quarto and R",
+    "section": "Basic commands in R",
+    "text": "Basic commands in R\n\nSimple calculations\n\nClick on new file and open an R Script\n\nR can work as a calculator\n\nOn line 1, type 1 + 2 and press Run\n\nYou should see the result 3 in the Console\n\n1 + 2\n\n[1] 3\n\n\nYou can save the result from a calculation as an object\n\nChange the code on line 1 to be y = 1 + 2 and press Run\n\nTo see the value of y, you have to type it as well in the code an rerun or in the Console\n\ny = 1 + 2\ny\n\n[1] 3\n\n\n\n\nSimple plotting\nNow let us look at how to create a plot\n\nCreate a data frame consisting of two variables X and Y with 10 values each, where Y is positively associated with X.\n\n\n\n\n\n\n\nNote\n\n\n\nIt is useful to denote variables with capital letters and use lower case letters for observations of this variable.\nFor example, x is an sample from X.\n\n\n\nPlot the sample from Y against the sample from X\n\n\nx = runif(10)\ny = 2*x + rnorm(10)\nplot(x,y)\n\n\n\n\n\n\n\n\nNice visualisations of data makes a huge difference to a report. We will therefore demonstrate a way to generate the same plot using ggplot2.\n\nInstall ggplot2 by typing install.packages(“tidyverse”) in the R Console. You might have to rewrite the quotation marks.\n\nThis installs several packages including ggplot2 that you will use later on. R-packages are libraries with functions and data sets designed for a specific purpose. Note that you will only have to do this one time in your work space.\n\nLoad the library\n\n\nlibrary(\"ggplot2\")\n\n\nCreate a data frame with the observations and redo the plotting using ggplot2\n\n\ndf = data.frame(x=x,y=y)\n\nggplot(df,aes(x=x,y=y))+\n  geom_point()\n\n\n\n\n\n\n\n\nThere will be time to explore ggplot later on in the course, but let us add a line fitted to the data.\n\nggplot(df,aes(x=x,y=y))+\n  geom_point()+\n  geom_smooth(method=lm,formula = y ~ x)\n\n\n\n\n\n\n\n\nNow you can make a plot using R! More things will be introduced during exercises.\nThere are lot of resources for self studies on R. We recommend you to have a look at the W3schools’ tutorial on R Statistics after the exercise.",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Intro to Quarto and R"
+    ]
+  },
+  {
+    "objectID": "ex/introduction_to_quarto_and_R.html#quarto-report",
+    "href": "ex/introduction_to_quarto_and_R.html#quarto-report",
+    "title": "Introduction to Quarto and R",
+    "section": "Quarto report",
+    "text": "Quarto report\nNow you will create a report using Quarto in which you combine text and outputs from code running in R.\n\nCreate a new Quarto Document with the title “My Report”, you as the author and save it as “testreport.qmd”\nIn the configuration section (also known as the YAML), add the text “date: today” as shown in the figure below.\n\n\n\nPress Render and view the generated html-file that appears in the browser.\nGo back and look at the testreport.qmd file. R-code is added as gray chunks. One can use to show or hide the code.\n\nLet us now add our own information into the report.\n\nRemove everything from line 9 and downwards.\nAdd the following text\n\n## Summary\n\n### Lessons learnt\n\nProbability can be interpreted as a\n\n- theoretical probability\n\n- frequency\n\n- subjective probability\n\n### Skills gained\n\n(@) Generate presentations and reports using Quarto\n\n(@) Create and plot data from R, such as this\n\nPress Render to see what the report looks like\n\nLet us now add the figure by adding the following code\n\nlibrary(\"ggplot2\")\nx = runif(10)\ny = 2*x + rnorm(10)\ndf = data.frame(x=x,y=y)\nggplot(df,aes(x=x,y=y))+\n  geom_point()+\n  geom_smooth(method=lm,formula = y ~ x)\n\n\n\n\n\n\n\n\n\nPress Render and look at the report\n\nLet us now hide the code by adding #| echo: false in the beginning of the r-chunk\n\n\nPress Render\n\nLet us improve the accessibility of the report by adding a table of content.\n\nChange the YAML as shown below. The toc is the table of contents.\n\n\n\nRender\n\nIsn’t this great!\nLet us now end by adding an image to the report\n\nDownload this image and upload it to your project in R Studio cloud\n\n\n\n Download risk meme as example image\n\n\n\nAdd the following text at the end of your testreport.qmd file\n\n## Risk\n\n*No matter what, it is difficult to save the world without acknowledging that risk involves our values and our uncertainties about the world.*\n\n![](twobuttons.jpg){width=40%}\n\nRender and view your report.\n\n\n\n\n\n\n\nTip\n\n\n\nYou can integrate code and create figures in the same way in a Quarto presentation. The only difference is that there is a limitation on every slide.\nBegin a new slide by ## [header of the slide]\n\n\n\nTo simplify sharing code and organise files during the course we here recommend to use folders\ndata for storing data\nex for storing .rmd files\nimg for storing images",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Intro to Quarto and R"
+    ]
+  },
+  {
+    "objectID": "ex/useful_functions.html",
+    "href": "ex/useful_functions.html",
+    "title": "Introduction to useful functions in Excel",
+    "section": "",
+    "text": "Work alone on your own laptop\n\n\n\nMicrosoft Excel is a common software in risk analysis. The primary use is to organise and extract data, but it is also possible to build models and perform analysis and simulations in Microsoft Excel.\nThere are several commercial add-on packages designed for specific purposes. One example is @RISK for probabilistic risk analysis in Excel. It includes functions such as fitting distributions to data and performing Monte Carlo simulation.\nWe are not teaching using @RISK at this course, but you are welcome to download a free demo and try it.\nAnother example is the Monte Carlo Risk Assessment platform that has been developed by several projects and is accepted by EFSA for use in assessment.\nThe purpose with this exercise is to refresh some functions in Excel that might be useful for the course.\nWe will later show how to do this in R\n\n\n\nTo learn\n\nthe basic functions to calculate the average, standard deviation, quantile and size of a sample\nhow to plot a histogram\nhow to plot a probability density function\nhow to sample from a probability distribution\nto illustrate the convergence of a sample statistics to the theoretical values, which is the fundamental behind Monte Carlo simulations\n\n\n\n\n\nThe students explore an excel file with prepared functions\n\n\n\n\n25 minutes\n\n\n\nNo reporting required if present at the exercise.",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Useful functions in Excel"
+    ]
+  },
+  {
+    "objectID": "ex/useful_functions.html#exercise-overview",
+    "href": "ex/useful_functions.html#exercise-overview",
+    "title": "Introduction to useful functions in Excel",
+    "section": "",
+    "text": "Work alone on your own laptop\n\n\n\nMicrosoft Excel is a common software in risk analysis. The primary use is to organise and extract data, but it is also possible to build models and perform analysis and simulations in Microsoft Excel.\nThere are several commercial add-on packages designed for specific purposes. One example is @RISK for probabilistic risk analysis in Excel. It includes functions such as fitting distributions to data and performing Monte Carlo simulation.\nWe are not teaching using @RISK at this course, but you are welcome to download a free demo and try it.\nAnother example is the Monte Carlo Risk Assessment platform that has been developed by several projects and is accepted by EFSA for use in assessment.\nThe purpose with this exercise is to refresh some functions in Excel that might be useful for the course.\nWe will later show how to do this in R\n\n\n\nTo learn\n\nthe basic functions to calculate the average, standard deviation, quantile and size of a sample\nhow to plot a histogram\nhow to plot a probability density function\nhow to sample from a probability distribution\nto illustrate the convergence of a sample statistics to the theoretical values, which is the fundamental behind Monte Carlo simulations\n\n\n\n\n\nThe students explore an excel file with prepared functions\n\n\n\n\n25 minutes\n\n\n\nNo reporting required if present at the exercise.",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Useful functions in Excel"
+    ]
+  },
+  {
+    "objectID": "ex/useful_functions.html#preparations",
+    "href": "ex/useful_functions.html#preparations",
+    "title": "Introduction to useful functions in Excel",
+    "section": "Preparations",
+    "text": "Preparations\n\nDownload the prepared Excel file and save on your computer.\n\n\n\n Download xlsx file\n\n\n\nMake sure you have activated the Excel Add-in Analysis ToolPak.\n\nGo to the Data tab.. It is active if you have an icon with Data Analysis in the header.\n\nIf it is not there. Go to File&gt;Options&gt;Add-ins and click Go on Manage Excel Add-ins\n\nTick the box for Analysis ToolPak and Solver Add-in (we will use it later on) and click OK.",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Useful functions in Excel"
+    ]
+  },
+  {
+    "objectID": "ex/useful_functions.html#descriptive-statistics",
+    "href": "ex/useful_functions.html#descriptive-statistics",
+    "title": "Introduction to useful functions in Excel",
+    "section": "Descriptive statistics",
+    "text": "Descriptive statistics\n\nGo to the sheet data sample. This is the first three columns from the breast-cancer data set. We will use this to illustrate the functions for summary statistics.\nGo to the sheet sample summary. Here we show what you get out from running Data&gt;Data Analysis&gt;Descriptive Statistics. Try this!\n\nWe also show examples of functions to derive descriptive statistics from a data sample.\n\n\n\n\n\n\nTip\n\n\n\nClick on the name of the function in the editor to open it’s help text\n\n\n\n\nCalculate the three summary statistics described in the green area of the sheet.\n\n\nThe third quartile in the sample, P75, should be 15.78\nThe 5% quantile (or 5th percentile), P05, should be 9.52\nThe coefficient of variation is the ratio between the sample standard deviation and the sample mean, and should be 25%\n\n\n\n\n\n\n\nTip\n\n\n\nSolutions are found at the end of this document - but try first!",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Useful functions in Excel"
+    ]
+  },
+  {
+    "objectID": "ex/useful_functions.html#histogram",
+    "href": "ex/useful_functions.html#histogram",
+    "title": "Introduction to useful functions in Excel",
+    "section": "Histogram",
+    "text": "Histogram\n\nGo to the sheet plot a histogram and explore the two ways to create a histogram.",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Useful functions in Excel"
+    ]
+  },
+  {
+    "objectID": "ex/useful_functions.html#probability-functions",
+    "href": "ex/useful_functions.html#probability-functions",
+    "title": "Introduction to useful functions in Excel",
+    "section": "Probability functions",
+    "text": "Probability functions\n\nGo to the sheet probability functions.\n\nHere we listed the functions available in a standard Excel. A density (PDF) and a probability (CDF) is calculated using the function ending with .DIST, but with different arguments. A quantile is calculated with the function ending with .INV. Different distributions are considered by using the name or short name before .DIST or .INV.\n\nCalculate the probability that a normally distributed variable with mean 14 and standard deviation 3.5 is less than 10\n\n\nAnswer should be 0.127\n\n\nFind the 95% quantile in the same distribution\n\n\nAnswer should be 19.8\n\n\nCalculate the probability that an exponentially distributed variable with mean 14 is less than 10\n\n\nAnswer should be 0.51",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Useful functions in Excel"
+    ]
+  },
+  {
+    "objectID": "ex/useful_functions.html#plot-probability-distributions",
+    "href": "ex/useful_functions.html#plot-probability-distributions",
+    "title": "Introduction to useful functions in Excel",
+    "section": "Plot probability distributions",
+    "text": "Plot probability distributions\nThe general principle to plot a function is to create pairs of x-y values that are connected by a line.\n\nGo to the sheet plot probability distribution and study the plotting of the probability density function for a normal distribution with mean 14 and standard deviation 3.5.\n\n\nColumn A: pp-values are probabilities going from 0.01 to 0.99 - this is a trick to avoid having to create new x-values every time we change the parameters of the distribution.\nColumn B: the x-values are generated by calculating the quantile for each pp-value\nColumn C: the y-values (probability density) is calculated for each x-value\n\n\nSee what happens when you change the values of the parameters mean and standard deviation (yellow cells)\n\n\n\n\n\n\n\nTip\n\n\n\nThe only thing you need to change are the parameters!\nLinking functions to each other will save a lot of time and reduce the risk for errors when you work with excel.\n\n\n\n\n\n\n\n\nExtra\n\n\n\nIf you feel you have the time or do another time:\nCopy the sheet and refine the grid by using pp-values from 0.001 to 0.999.",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Useful functions in Excel"
+    ]
+  },
+  {
+    "objectID": "ex/useful_functions.html#random-sampling",
+    "href": "ex/useful_functions.html#random-sampling",
+    "title": "Introduction to useful functions in Excel",
+    "section": "Random sampling",
+    "text": "Random sampling\n\nGo to the sheet random sampling.\n\nAll sample generators start with a random number between 0 and 1. This is also a sample from a uniform distribution.\n\n\n\n\n\n\nTip\n\n\n\nPress F9 to make a new draw\n\n\n\nType into cell D4 a function that generates a uniform random number in the interval 1 to 6. Hint: check out the help text for RAND\n\nA random draw from a probability distribution can be generated by the inverse method. - Draws pp-values from a uniform distribution between 0 and 1 - Transform them into quantiles of the target distribution\n\nThe inverse method is demonstrated in cell D6 where it generates random draws from a normal distribution\nIn cell D8 we draw from a beta distribution\n\nThe inverse method is used for generating random values from probability distributions in Monte Carlo simulations.",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Useful functions in Excel"
+    ]
+  },
+  {
+    "objectID": "ex/useful_functions.html#compare-descriptive-statistics-against-theoretical-values",
+    "href": "ex/useful_functions.html#compare-descriptive-statistics-against-theoretical-values",
+    "title": "Introduction to useful functions in Excel",
+    "section": "Compare descriptive statistics against theoretical values",
+    "text": "Compare descriptive statistics against theoretical values\nWow - now we can generate data where we know the true value on parameters and all theoretical probabilities and quantiles, and compare with what we get when deriving descriptive statistics from the random sample.\nNow we can explore the importance of large number of random numbers to gett good approximations when doing Monte Carlo simulations.\n\nGo to the final sheet compare\n\nThis sheet generates a random sample from a beta distribution.\nA beta distribution has two parameters \\(\\alpha\\) and \\(\\beta\\)\nThe expected value of a beta distributed variable is \\(\\frac{\\alpha}{\\alpha+\\beta}\\)\n\nCompare the calculated sample average to the theoretical expected value (green cells)\n\nWe can also derive the theoretical quantile, let us say the P95.\n\nCompare the quantile from the sample with the quantile calculated from the inverse probability distribution function (blue cells)\n\n\nWhich of them has the smallest difference? Why do you think it is like that?\n\n\n\n\n\n\n\nExtra\n\n\n\nIf you feel you have the time or do another time:\nExplore what happens with the difference between theoretical and statistical values when you increase sample size from 20 to a high number (close to 1000)?\nTip: Drag the formula in column B27 down to a row with a large number.",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Useful functions in Excel"
+    ]
+  },
+  {
+    "objectID": "ex/useful_functions.html#solutions",
+    "href": "ex/useful_functions.html#solutions",
+    "title": "Introduction to useful functions in Excel",
+    "section": "Solutions",
+    "text": "Solutions\n\nFunctions in Excel\nQUARTILE.INC(‘data sample’!C:C,3)\nPERCENTILE.INC(‘data sample’!C:C,0.05)\nSTDEV.S(‘data sample’!C:C)/AVERAGE(‘data sample’!C:C)*100\nNORM.DIST(10,14,3.5,1)\nNORM.INV(0.95,14,3.5)\nEXPON.DIST(10,1/14,1)\nRAND()*(6-1)+1\n\n\nFunctions in R\nYou can find a reproduction of the calculations, visualisations and simulations using R.\nUseful functions reproduced using R",
+    "crumbs": [
+      "Intro to excel and R - Sept 5",
+      "Useful functions in Excel"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "This is a website for the exercises on the course Risk Assessment in Environment and Public Health MVEN10 Fall 2025."
+  },
+  {
+    "objectID": "zheng/ex_exposure.html",
+    "href": "zheng/ex_exposure.html",
+    "title": "Exercise: Hazard Identification and Exposure Assessment",
+    "section": "",
+    "text": "This part is to provide hands-on practice in exposure assessment, a fundamental component of human health risk assessment. Students will learn to:\n\nCalculate Average Daily Dose (ADD) using real-world data\nIntegrate multiple exposure parameters from different populations\nCompare exposure scenarios across different countries\nInterpret results in the context of public health significance\nApply statistical programming (R) to exposure assessment problems\n\nThrough this exercise, you will develop practical skills in quantitative exposure assessment methodology that forms the foundation of risk characterization in environmental and occupational health.\n\n\nYou must submit a report in PDF format. You are recommended to generate the PDF document from a QMD file. The sections of the report should be indexed by questions.\nIf you prepare the report in QMD format, you can create indexes using the following template:\n# Heading level 1\n\n## Heading level 2\n\n### Heading level 3\nUse the following YAML header at the top of your QMD document:\ntitle: \"Exposure assessment using Real Data\"\nsubtitle: \"Calculate Average Daily Dose\"\nauthor: \"Your name\"\ndate: today\nformat: \n  pdf:\n    toc: true\n    message: false\n    warning: false\n    theme: simple\n    incremental: true\n    embedded-resources: true\nOther formatting requirements:\n\nInclude proper citations for all data sources\nEnsure all figures and tables are properly labeled\n\n\n\n\nDefinition\nThe Average Daily Dose (ADD) represents the average amount of a chemical substance that an individual is exposed to per unit body weight per day over a specified time period. It is a fundamental metric in exposure assessment used to characterize potential health risks.\nEquation\n\\[\nADD=\\frac{C\\cdot IR\\cdot EF\\cdot ED}{BW\\cdot AT}\n\\]\nWhere:\nADD = Average Daily Dose (mg/kg-day)\nC = Concentration of the contaminant in the medium (mg/kg for food)\nIR = Ingestion Rate (kg/day for food consumption)\nEF = Exposure Frequency (days/year)\nED = Exposure Duration (years)\nBW = Body Weight (kg)\nAT = Averaging Time (days)\nSimplified Equation for Dietary Exposure\nFor this exercise focusing on chronic dietary exposure, we will use a simplified version assuming continuous daily exposure over a lifetime:\n\\[\nADD =\\frac{C\\cdot IR}{BW}\n\\]\n\n\n\nInorganic arsenic contamination in rice represents a significant global public health concern. Inorganic arsenic is classified as a Group 1 carcinogen by the International Agency for Research on Cancer (IARC) (IARC 2012). Rice serves as a staple food for over half of the world’s population, making dietary exposure through rice consumption a widespread concern.\nThe European Commission has established maximum levels for inorganic arsenic in rice products (200 µg/kg for milled rice), and the US FDA has proposed action levels, highlighting the regulatory significance of this contamination issue.\n\n\n\n\nExtract data on rice consumption for the US, Swedish and Italian populations. You can find relevant information from the following sources:\n\nThe US EPA Exposure factors handbook\nSweden and Italy European Exposure facts.\nNotice the data could be reported for different subpopulations. Choose the most representative subpopulation based on the principles of exposure assessment you learnt before. Convert the extract data to average daily rice intake (kg/day).\n\nExtract data on inorganic arsenic concentration in rice from the US, Swedish and Italian markets. You can find relevant information from the following sources:\n\nUS FDA Analytical Results from Inorganic Arsenic in Rice and Rice Products Sampling\nlivsmedelsverket report on Inorganic arsenic in rice and rice products on the Swedish market 2015 Notice the data could be reported for different rice and rice products. Decide based on the principles of exposure assessment you learnt before.\nTenni et al. 2017 Total As and As Speciation in Italian Rice as Related to Producing Areas and Paddy Soils Properties\nNotice the data could be reported for different arsenic species and different rice grains. Consider only inorganic arsenic. Convert the extract data to average inorganic arsenic concentration in rice (ug/kg).\n\nExtract data on body weights for the US, Swedish and Italian populations. You can find relevant information from the following sources:\n\nThe US EPA Exposure factors handbook\nSweden and Italy European Exposure facts.\nNotice the data could be reported for different subpopulations. Choose the most representative subpopulation based on the principles of exposure assessment you learnt before. Convert the extract data to average body weights (kg).\n\nCalculate ADDs using the simplified equation and the extracted data on rice consumption, inorganic arsenic concentration and body weight. Do the calculation for the US, Swedish and Italian population respectively.\nCalculate ADDs for the following hypothetical scenarios:\n\n5a) If Sweden had the same rice consumption rate as Italy. Keep Sweden’s original arsenic concentration and body weight data.\n5b) If arsenic concentration were regulated uniformly across the EU. Use half of the EU maximum level for inorganic arsenic in rice for both Sweden and Italy, that is 100 ug/kg. Keep original consumption and body weight data for each country.\n5c) If Swedish population had the same body weight as the US. Keep Sweden’s original arsenic concentration and rice consumption.\nPresent all ADD calculations (including the real ones from question 4) in a table for comparison. You may generate the table in excel, in R, or use a [table generator] for the QMD file (https://www.tablesgenerator.com/markdown_tables). The table must be included in your report.\n\nThe World Health Organization (WHO 2011) determined that the inorganic arsenic lower limit on the benchmark dose for lung cancer was calculated to be 3 μg/kg bw per day and 5.2 µg/kg bw/day for bladder cancer, respectively. The US EPA (IRIS 2025) ruled that the inorganic arsenic lower limit on the benchmark dose for cardiovascular endocrine disruption was calculated to be 6 x 10 -5 mg/kg/day. Compare the real ADDs you calculated for the three populations with these regulatory reference values.\n\n\n\n\nThe following questions are not required for this report. You are encourage to explore them as extracurricular activities if you are interested.\n\nExtract data on rice consumption, inorganic arsenic concentration and body weight for a different country of your interest. Calculate the ADD and compare with the ones from question 4. Then compare the ADD with the reference values from question 6.\nBased on the ADDs you calculated in question 4 and 5, discuss which parameter (concentration, consumption, body weight) causes the greatest change in ADD when varied between populations?\nBased on the results of question 6, discuss if you consider inorganic arsenic in rice require immediate regulatory action for Sweden and Italy. If yes, propose one mitigation strategy for the corresponding country and briefly explain your rationale.",
+    "crumbs": [
+      "Hazard and Exposure assessment - Sept 12",
+      "Exposure"
+    ]
+  },
+  {
+    "objectID": "zheng/ex_exposure.html#submission-requirements",
+    "href": "zheng/ex_exposure.html#submission-requirements",
+    "title": "Exercise: Hazard Identification and Exposure Assessment",
+    "section": "",
+    "text": "You must submit a report in PDF format. You are recommended to generate the PDF document from a QMD file. The sections of the report should be indexed by questions.\nIf you prepare the report in QMD format, you can create indexes using the following template:\n# Heading level 1\n\n## Heading level 2\n\n### Heading level 3\nUse the following YAML header at the top of your QMD document:\ntitle: \"Exposure assessment using Real Data\"\nsubtitle: \"Calculate Average Daily Dose\"\nauthor: \"Your name\"\ndate: today\nformat: \n  pdf:\n    toc: true\n    message: false\n    warning: false\n    theme: simple\n    incremental: true\n    embedded-resources: true\nOther formatting requirements:\n\nInclude proper citations for all data sources\nEnsure all figures and tables are properly labeled",
+    "crumbs": [
+      "Hazard and Exposure assessment - Sept 12",
+      "Exposure"
+    ]
+  },
+  {
+    "objectID": "zheng/ex_exposure.html#average-daily-dose-concept-and-equation",
+    "href": "zheng/ex_exposure.html#average-daily-dose-concept-and-equation",
+    "title": "Exercise: Hazard Identification and Exposure Assessment",
+    "section": "",
+    "text": "Definition\nThe Average Daily Dose (ADD) represents the average amount of a chemical substance that an individual is exposed to per unit body weight per day over a specified time period. It is a fundamental metric in exposure assessment used to characterize potential health risks.\nEquation\n\\[\nADD=\\frac{C\\cdot IR\\cdot EF\\cdot ED}{BW\\cdot AT}\n\\]\nWhere:\nADD = Average Daily Dose (mg/kg-day)\nC = Concentration of the contaminant in the medium (mg/kg for food)\nIR = Ingestion Rate (kg/day for food consumption)\nEF = Exposure Frequency (days/year)\nED = Exposure Duration (years)\nBW = Body Weight (kg)\nAT = Averaging Time (days)\nSimplified Equation for Dietary Exposure\nFor this exercise focusing on chronic dietary exposure, we will use a simplified version assuming continuous daily exposure over a lifetime:\n\\[\nADD =\\frac{C\\cdot IR}{BW}\n\\]",
+    "crumbs": [
+      "Hazard and Exposure assessment - Sept 12",
+      "Exposure"
+    ]
+  },
+  {
+    "objectID": "zheng/ex_exposure.html#case-study-inorganic-arsenic-through-rice-intake",
+    "href": "zheng/ex_exposure.html#case-study-inorganic-arsenic-through-rice-intake",
+    "title": "Exercise: Hazard Identification and Exposure Assessment",
+    "section": "",
+    "text": "Inorganic arsenic contamination in rice represents a significant global public health concern. Inorganic arsenic is classified as a Group 1 carcinogen by the International Agency for Research on Cancer (IARC) (IARC 2012). Rice serves as a staple food for over half of the world’s population, making dietary exposure through rice consumption a widespread concern.\nThe European Commission has established maximum levels for inorganic arsenic in rice products (200 µg/kg for milled rice), and the US FDA has proposed action levels, highlighting the regulatory significance of this contamination issue.",
+    "crumbs": [
+      "Hazard and Exposure assessment - Sept 12",
+      "Exposure"
+    ]
+  },
+  {
+    "objectID": "zheng/ex_exposure.html#instructions",
+    "href": "zheng/ex_exposure.html#instructions",
+    "title": "Exercise: Hazard Identification and Exposure Assessment",
+    "section": "",
+    "text": "Extract data on rice consumption for the US, Swedish and Italian populations. You can find relevant information from the following sources:\n\nThe US EPA Exposure factors handbook\nSweden and Italy European Exposure facts.\nNotice the data could be reported for different subpopulations. Choose the most representative subpopulation based on the principles of exposure assessment you learnt before. Convert the extract data to average daily rice intake (kg/day).\n\nExtract data on inorganic arsenic concentration in rice from the US, Swedish and Italian markets. You can find relevant information from the following sources:\n\nUS FDA Analytical Results from Inorganic Arsenic in Rice and Rice Products Sampling\nlivsmedelsverket report on Inorganic arsenic in rice and rice products on the Swedish market 2015 Notice the data could be reported for different rice and rice products. Decide based on the principles of exposure assessment you learnt before.\nTenni et al. 2017 Total As and As Speciation in Italian Rice as Related to Producing Areas and Paddy Soils Properties\nNotice the data could be reported for different arsenic species and different rice grains. Consider only inorganic arsenic. Convert the extract data to average inorganic arsenic concentration in rice (ug/kg).\n\nExtract data on body weights for the US, Swedish and Italian populations. You can find relevant information from the following sources:\n\nThe US EPA Exposure factors handbook\nSweden and Italy European Exposure facts.\nNotice the data could be reported for different subpopulations. Choose the most representative subpopulation based on the principles of exposure assessment you learnt before. Convert the extract data to average body weights (kg).\n\nCalculate ADDs using the simplified equation and the extracted data on rice consumption, inorganic arsenic concentration and body weight. Do the calculation for the US, Swedish and Italian population respectively.\nCalculate ADDs for the following hypothetical scenarios:\n\n5a) If Sweden had the same rice consumption rate as Italy. Keep Sweden’s original arsenic concentration and body weight data.\n5b) If arsenic concentration were regulated uniformly across the EU. Use half of the EU maximum level for inorganic arsenic in rice for both Sweden and Italy, that is 100 ug/kg. Keep original consumption and body weight data for each country.\n5c) If Swedish population had the same body weight as the US. Keep Sweden’s original arsenic concentration and rice consumption.\nPresent all ADD calculations (including the real ones from question 4) in a table for comparison. You may generate the table in excel, in R, or use a [table generator] for the QMD file (https://www.tablesgenerator.com/markdown_tables). The table must be included in your report.\n\nThe World Health Organization (WHO 2011) determined that the inorganic arsenic lower limit on the benchmark dose for lung cancer was calculated to be 3 μg/kg bw per day and 5.2 µg/kg bw/day for bladder cancer, respectively. The US EPA (IRIS 2025) ruled that the inorganic arsenic lower limit on the benchmark dose for cardiovascular endocrine disruption was calculated to be 6 x 10 -5 mg/kg/day. Compare the real ADDs you calculated for the three populations with these regulatory reference values.",
+    "crumbs": [
+      "Hazard and Exposure assessment - Sept 12",
+      "Exposure"
+    ]
+  },
+  {
+    "objectID": "zheng/ex_exposure.html#optional-questions-for-extracurricular-activities",
+    "href": "zheng/ex_exposure.html#optional-questions-for-extracurricular-activities",
+    "title": "Exercise: Hazard Identification and Exposure Assessment",
+    "section": "",
+    "text": "The following questions are not required for this report. You are encourage to explore them as extracurricular activities if you are interested.\n\nExtract data on rice consumption, inorganic arsenic concentration and body weight for a different country of your interest. Calculate the ADD and compare with the ones from question 4. Then compare the ADD with the reference values from question 6.\nBased on the ADDs you calculated in question 4 and 5, discuss which parameter (concentration, consumption, body weight) causes the greatest change in ADD when varied between populations?\nBased on the results of question 6, discuss if you consider inorganic arsenic in rice require immediate regulatory action for Sweden and Italy. If yes, propose one mitigation strategy for the corresponding country and briefly explain your rationale.",
+    "crumbs": [
+      "Hazard and Exposure assessment - Sept 12",
+      "Exposure"
+    ]
+  },
+  {
+    "objectID": "zheng/lecture_hazardCZ.html",
+    "href": "zheng/lecture_hazardCZ.html",
+    "title": "Hazard Characterization",
+    "section": "",
+    "text": "3-4pm: lecture on hazard characterization\n4-5pm: exercise on species sensitivity distribution"
+  },
+  {
+    "objectID": "zheng/lecture_hazardCZ.html#schedule",
+    "href": "zheng/lecture_hazardCZ.html#schedule",
+    "title": "Hazard Characterization",
+    "section": "",
+    "text": "3-4pm: lecture on hazard characterization\n4-5pm: exercise on species sensitivity distribution"
+  },
+  {
+    "objectID": "zheng/lecture_hazardCZ.html#dose-response-assessment",
+    "href": "zheng/lecture_hazardCZ.html#dose-response-assessment",
+    "title": "Hazard Characterization",
+    "section": "Dose-response assessment",
+    "text": "Dose-response assessment\n\nDescription of hazards\n“Ice cream consumption, exposure, intervention, experiment”\nWith or without a description of dose pertaining to the hazard:\n\nConsuming water can cause death\nConsuming 1000 liters water can cause death\nConsuming 1000 liters water in 1 hour can cause death\n\n\n\n\nA complete description of hazard must include dose\nWith enough dose, everything could be lethal\n“dosis sola facit venenum” - Paracelsus, 1538\n“Only the dose makes the poison”\nHazard characterization, aka dose-response assessment:\nAfter the identification of hazard, how the adverse outcome changes quantitatively in response to the changes in hazard?"
+  },
+  {
+    "objectID": "zheng/lecture_hazardCZ.html#why-move-away-from-noaelloael-for-dose-response-assessment",
+    "href": "zheng/lecture_hazardCZ.html#why-move-away-from-noaelloael-for-dose-response-assessment",
+    "title": "Hazard Characterization",
+    "section": "Why move away from NOAEL/LOAEL for dose-response assessment?",
+    "text": "Why move away from NOAEL/LOAEL for dose-response assessment?\nExample 1\ntolerated probability of type I error: 0.01\n\n\n\nDose\nResponse\np value\n\n\n\n\n0\n10.0\n-\n\n\n5\n10.5\n0.34\n\n\n25\n11.3\n0.002\n\n\n50\n18.3\n&lt; 0.001\n\n\n\n\nCan you find a NOAEL?\nCan you find a LOAEL?\n\nExample 2\n\n\n\nDose\nResponse\np value\n\n\n\n\n0\n10.0\n-\n\n\n10\n10.5\n0.005\n\n\n25\n11.3\n&lt; 0.001\n\n\n50\n18.3\n&lt; 0.001\n\n\n\n\nCan you find a NOAEL?\nCan you find a LOAEL?\nWhat’s the difference between example 1 and 2? How the differences affect NOAEL/LOAEL?\n\n\n\nProblems of NOAEL/LOAEL approach\n\nLimited by dosage setup in study design\nLimited use of data\nNOAEL not always available\nNo expression of uncertainty"
+  },
+  {
+    "objectID": "zheng/lecture_hazardCZ.html#benchmark-dose-modeling",
+    "href": "zheng/lecture_hazardCZ.html#benchmark-dose-modeling",
+    "title": "Hazard Characterization",
+    "section": "Benchmark dose modeling",
+    "text": "Benchmark dose modeling\n\nWhat is BMD?\n\nfit a statistical model to all dose-response data\nDetermine a BMR: a level of response of practical interest, e.g., not considerably adverse in the population\nEstimate the dose that causes the BMR using the fitted model\n\n\n\nStrength\n\nProper use of all dose-response data\nMuch less limited by dosage setup in study design\nNot requiring the data to show a NOAEL\nAllow the expression of uncertainty as distributions\n\n\n\nChallenges\n\nRequire more and complicated statistical analysis\nSensitive to selection of BMR\nSensitive to choices in statistical modeling\n\n\n\nExample benchmark dose models\n\n\n\n\n\n\n\n\n\n\nMonotonic, threshold\n\nThreshold: a level of dose beyond which the level of responses changes significantly\n\nMost ideal shape for decision making\nRequire more data for modeling\nMajority of chemicals: non-mutagenic, safe below threshold\nBMD around the threshold\n\n\nMonotonic, no threshold\n\n\nEasy to model\nMutagenic chemicals: one molecular can cause cancer, no safe level\nBMD around the dose that causes considerable risk, e.g., &gt;= 1 cancer in 100,000 population\n\n\nNon-monotonic\n\n\nHormesis\nEssential chemicals"
+  },
+  {
+    "objectID": "zheng/lecture_hazardCZ.html#bmd-tools",
+    "href": "zheng/lecture_hazardCZ.html#bmd-tools",
+    "title": "Hazard Characterization",
+    "section": "BMD tools",
+    "text": "BMD tools\nWe will exercise with:\nEFSA PROAST web (by RIVM): https://proastweb.rivm.nl/\nBMDS online (by US EPA): https://www.epa.gov/bmds/bmds-online\nOther options, not in our exercise:\nPROAST full (R package): https://www.rivm.nl/en/proast\nEFSA Bayesian BMD (by Hasselt University, Belgium): https://r4eu.efsa.europa.eu/app/bmdbayesian"
+  }
+]
