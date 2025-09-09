@@ -7,9 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ullrika Sahlin">
-<meta name="dcterms.date" content="2025-09-09">
 
-<title>Home – MVEN10</title>
+<title>Exercise Hazard assessment using Species Sensitivity Distributions – MVEN10</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,25 +21,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -68,9 +101,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/font-awesome-6.5.2/js/script.js"></script>
 
 
-<link rel="stylesheet" href="styles.css">
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked">
@@ -82,9 +117,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      MVEN10
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ex/ex_exposure_assessment_databases.html">Exposure assessment</a></li><li class="breadcrumb-item"><a href="../ex/ex_species_sensitivity_distribution.html">SSD</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -99,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">MVEN10</a> 
+      <a href="../">MVEN10</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -120,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/probability_distribution.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/probability_distribution.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Probability distributions</span></a>
   </div>
 </li>
@@ -137,19 +170,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/useful_functions.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/useful_functions.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Useful functions in Excel</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/introduction_to_quarto_and_R.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/introduction_to_quarto_and_R.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Intro to Quarto and R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/useful_functions_with_R.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/useful_functions_with_R.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Useful functions in R</span></a>
   </div>
 </li>
@@ -166,13 +199,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/ex_daily_intake_equation.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/ex_daily_intake_equation.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Interval and 1D Monte Carlo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/chance_belief_frequency.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/chance_belief_frequency.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Exercise Probability</span></a>
   </div>
 </li>
@@ -189,13 +222,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/ex_exposure_assessment_databases.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/ex_exposure_assessment_databases.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Hazard and Exposure</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/ex_species_sensitivity_distribution.html" class="sidebar-item-text sidebar-link">
+  <a href="../ex/ex_species_sensitivity_distribution.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">SSD</span></a>
   </div>
 </li>
@@ -206,15 +239,32 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#exercise-overview" id="toc-exercise-overview" class="nav-link active" data-scroll-target="#exercise-overview">Exercise overview</a>
+  <ul class="collapse">
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
+  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose">Purpose</a></li>
+  <li><a href="#content" id="toc-content" class="nav-link" data-scroll-target="#content">Content</a></li>
+  <li><a href="#duration" id="toc-duration" class="nav-link" data-scroll-target="#duration">Duration</a></li>
+  <li><a href="#reporting" id="toc-reporting" class="nav-link" data-scroll-target="#reporting">Reporting</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  <li><a href="#get-ssd-data" id="toc-get-ssd-data" class="nav-link" data-scroll-target="#get-ssd-data">Get SSD data</a></li>
+  <li><a href="#a-tool-for-species-sensitivity-distributions" id="toc-a-tool-for-species-sensitivity-distributions" class="nav-link" data-scroll-target="#a-tool-for-species-sensitivity-distributions">A tool for Species Sensitivity Distributions</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ex/ex_exposure_assessment_databases.html">Exposure assessment</a></li><li class="breadcrumb-item"><a href="../ex/ex_species_sensitivity_distribution.html">SSD</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Home</h1>
+<h1 class="title">Exercise Hazard assessment using Species Sensitivity Distributions</h1>
+<p class="subtitle lead">MVEN10 Risk Assessment in Environment and Public Health</p>
 </div>
 
 
@@ -228,12 +278,6 @@ ul.task-list li input[type="checkbox"] {
           </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 9, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -243,9 +287,209 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is a website for the exercises on the course Risk Assessment in Environment and Public Health MVEN10 Fall 2025.</p>
+<section id="exercise-overview" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-overview">Exercise overview</h2>
+<section id="background" class="level3">
+<h3 class="anchored" data-anchor-id="background">Background</h3>
+<p>The Species Sensitivity Distribution methodology is a common way in hazard assessment for setting safe limits on chemical concentrations in freshwaters. It usually require experimentally determined NOEC values for a number of species from different taxonomic groups.</p>
+<p>The species sensitivity distribution (SSD) is a statistical approach that is used to estimate either the concentration of a chemical that is hazardous to no more than x% of all species (the HCx) or the proportion of species potentially affected by a given concentration of a chemical.</p>
+<p>The SSD approach follows a three-step procedure:</p>
+<p>First, compile results from separate toxicity tests on a given chemical for various aquatic animal species.</p>
+<p>Second, fit candidate probability distribution(s) to the data.</p>
+<p>Third, use the fitted distribution(s) to infer a concentration that will be protective of a desired proportion of species in a hypothetical aquatic community.</p>
+<p>There are several SSDs tools available for risk assessors.</p>
+<p>If a SSD cannot be applied (which is usually the case), the hazard assessment is performed using assessment factors, where the general principle is to divide the result from a laboratory test by an appropriate assessment factor. The table below is taken from ECHAs dose response guidance, go to the original document to read more about this.</p>
+<p><img src="../img/ssd8.png" class="img-fluid"></p>
+</section>
+<section id="purpose" class="level3">
+<h3 class="anchored" data-anchor-id="purpose">Purpose</h3>
+<ul>
+<li><p>To apply the SSD approach to find a hazardous concentration</p></li>
+<li><p>To explore one of the many tools for SSD, namely the R-package <strong>ssdtools</strong>, in which the modelling can be done in an user friendly Shiny app</p></li>
+<li><p>To compare with a situation of a SSD with more data, and with a situation of less data and the use of assessment factors</p></li>
+</ul>
+</section>
+<section id="content" class="level3">
+<h3 class="anchored" data-anchor-id="content">Content</h3>
+<ul>
+<li>Find hazardous concentration by SSD modelling bases on dose-response data on the chemical metolachlor</li>
+</ul>
+</section>
+<section id="duration" class="level3">
+<h3 class="anchored" data-anchor-id="duration">Duration</h3>
+<p>90 minutes</p>
+</section>
+<section id="reporting" class="level3">
+<h3 class="anchored" data-anchor-id="reporting">Reporting</h3>
+<p>Write a report using a quarto document and upload it on the assignment in canvas.</p>
+<ul>
+<li>Use the following information in the YAML (i.e.&nbsp;the top information in a .qmd document)</li>
+</ul>
+<p>title: “Hazard assessment using Species Sensitivity Distributions”</p>
+<p>subtitle: “Report”</p>
+<p>author: “Your name”</p>
+<p>date: today</p>
+<p>format:</p>
+<p>html:</p>
+<pre><code>toc: true
+
+code-fold: true
+
+message: false
+
+warning: false
+
+embed-resources: true</code></pre>
+<ul>
+<li>You will explore the SSD approach using an app. Note that it is possible to get the full R-code for the SSD modelling. You can use this R-code to generate your report.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I recommend you copy on the whole code into an R-chunk and then divide the chunk into multiple chunks. This allows you to have better control of the output from each chunk.</p>
+<p>Note that you cannot open the shinyapp in a qmd that is being rendered. An alternative to remove it is to put a # in front of the command</p>
+<p>Sometimes you get messages or warnings when running a code. These might or might not be important. I judge the messages Ive seen on your computer as not important. You can suppress a message or warning by typing #| warning: false and #| message: false in the first row directly after the curly bracket in the R-chunk.</p>
+<p>If you just want to look at your data you can e.g.&nbsp;open it in Excel. When your data is a csv-file, I recommend you open an empty Excel-file, got to Data&gt;Get data&gt;From File&gt;From Text/CSV and follow the instructions.</p>
+</div>
+</div>
+</section>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
+<p><a href="https://echa.europa.eu/documents/10162/13632/information_requirements_r10_en.pdf/bb902be7-a503-4ab7-9036-d866b8ddce69">ECHA Guidance on dose response modelling</a></p>
+<p>Fox, D.R., van Dam, R.A., Fisher, R., Batley, G.E., Tillmanns, A.R., Thorley, J., Schwarz, C.J., Spry, D.J. and McTavish, K. (2021), Recent Developments in Species Sensitivity Distribution Modeling. Environ Toxicol Chem, 40: 293-308. <a href="https://doi.org/10.1002/etc.4925">https://doi.org/10.1002/etc.4925</a></p>
+<p>The <strong>shinyssdtools</strong> developed for the British Columbia Ministry of Environment and Climate Change Strategy. <a href="https://github.com/bcgov/shinyssdtools">https://github.com/bcgov/shinyssdtools</a></p>
+</section>
+</section>
+<section id="get-ssd-data" class="level2">
+<h2 class="anchored" data-anchor-id="get-ssd-data">Get SSD data</h2>
+<p>Download a ssd data set.</p>
+<p>This data set consists of cronic EC10 or LOEC values from exposure to the substance metolachlor for six different species in an aquatic system. This data is a selection from a bigger data set on 21 species.</p>
+<div class="cell">
+<div class="cell-output-display">
+<button class="btn btn-info" onclick="
+    async function downloadFile(event) {
+      event.preventDefault();
+      try {
+        const response = await fetch('data:text/csv;base64,Q29uYyxEdXJhdGlvbixHZW51cyxHcm91cCxMaWZlX3N0YWdlLE5vdGVzLFBoeWx1bSxTcGVjaWVzLFRlc3RfZW5kcG9pbnQsVG94aWNpdHlfbWVhc3VyZQoyMjQsMjEsRGFwaG5pYSxNYWNyb2ludmVydGVicmF0ZSw8MjQgaG91ciBvbGQsTkEsQXJ0aHJvcG9kYSxtYWduYSxZb3VuZyBwZXIgZmVtYWxlLENocm9uaWMgRUMxMAoyNyw0LFVsbmFyaWEsRGlhdG9tLEV4cG9uZW50aWFsIGdyb3d0aCBwaGFzZSxTcGVjaWVzIHRoYXQgb3JpZ2luYXRlZCBmcm9tL2FyZSBkaXN0cmlidXRlZCBpbiBBdXN0cmFsaWEgYW5kL29yIE5ldyBaZWFsYW5kLEJhY2lsbGFyaW9waHl0YSx1bG5hLENobG9yb3BoeWxsLWEgY29udGVudCxDaHJvbmljIEVDMTAKMTA0OCw0LEVuY3lvbmVtYSxEaWF0b20sRXhwb25lbnRpYWwgZ3Jvd3RoIHBoYXNlLFNwZWNpZXMgdGhhdCBvcmlnaW5hdGVkIGZyb20vYXJlIGRpc3RyaWJ1dGVkIGluIEF1c3RyYWxpYSBhbmQvb3IgTmV3IFplYWxhbmQsQmFjaWxsYXJpb3BoeXRhLHNpbGVzaWFjdW0sQ2hsb3JvcGh5bGwtYSBjb250ZW50LENocm9uaWMgRUMxMAo2NTI4LDQsQWNobmFudGhpZGl1bSxEaWF0b20sRXhwb25lbnRpYWwgZ3Jvd3RoIHBoYXNlLFNwZWNpZXMgdGhhdCBvcmlnaW5hdGVkIGZyb20vYXJlIGRpc3RyaWJ1dGVkIGluIEF1c3RyYWxpYSBhbmQvb3IgTmV3IFplYWxhbmQsQmFjaWxsYXJpb3BoeXRhLG1pbnV0aXNzaW11bSxDZWxsIGRlbnNpdHksQ2hyb25pYyBFQzEwCjkyNSw0LEN5Y2xvdGVsbGEsRGlhdG9tLEV4cG9uZW50aWFsIGdyb3d0aCBwaGFzZSxTcGVjaWVzIHRoYXQgb3JpZ2luYXRlZCBmcm9tL2FyZSBkaXN0cmlidXRlZCBpbiBBdXN0cmFsaWEgYW5kL29yIE5ldyBaZWFsYW5kLEJhY2lsbGFyaW9waHl0YSxtZW5lZ2hpbmlhbmEsQ2VsbCBkZW5zaXR5LENocm9uaWMgRUMxMAo2NDAsMzUsUGltZXBoYWxlcyxGaXNoLEVhcmx5IGxpZmUgc3RhZ2UsTkEsQ2hvcmRhdGEscHJvbWVsYXMsTW9ydGFsaXR5LENocm9uaWMgTE9FQwo=');
+        if (!response.ok) throw new Error('Network response failed');
+        const blob = await response.blob();
+        const blobUrl = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = 'metolachlor_ssd.csv';
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.dispatchEvent(new MouseEvent('click'));
+        document.body.removeChild(a);
+        setTimeout(() => {
+          window.URL.revokeObjectURL(blobUrl);
+        }, 100);
+        return false;
+      } catch (error) {
+        console.error('Download failed:', error);
+        alert('Download failed. Please try again.');
+      }
+    }
+    downloadFile(event);
+  "><i class="fa fa-save"></i> Download csv file</button>
+</div>
+</div>
+</section>
+<section id="a-tool-for-species-sensitivity-distributions" class="level2">
+<h2 class="anchored" data-anchor-id="a-tool-for-species-sensitivity-distributions">A tool for Species Sensitivity Distributions</h2>
+<ol class="example" type="1">
+<li>Install and open the SSD tool.</li>
+</ol>
+<p>These commands will install a R-package, load it into R and then open a shinyapp.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"bcgov/shinyssdtools"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shinyssdtools)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>shinyssdtools<span class="sc">::</span><span class="fu">run_app</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: ssdtools</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ssdtools' was built under R version 4.4.3</code></pre>
+</div>
+</div>
+<ol start="2" class="example" type="1">
+<li>Choose to open the app in the browser.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Stop the shiny app by closing the webrower and click on the STOP-sign in the R-console</p>
+<p><img src="../img/ssd3.png" class="img-fluid"></p>
+<p>Run the app by the command</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>shinyssdtools<span class="sc">::</span><span class="fu">run_app</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<ol start="3" class="example" type="1">
+<li>Load the data <strong>metolachlor_ssd.csv</strong> to the app using option 2. Upload a csv file</li>
+</ol>
+<p><img src="../img/ssd1.png" class="img-fluid"></p>
+<ol start="4" class="example" type="1">
+<li><p>Look at the data, what does it contain?</p></li>
+<li><p>Go to tab 2. Fit</p></li>
+</ol>
+<p><img src="../img/ssd2.png" class="img-fluid"></p>
+<p>Study the goodness of fit measures and the visual fits between curves and data points, and select your top three best distributions. Write down the arguments why you choose these three distributions. <img src="../img/ssdtools_distFitPlot.png" class="img-fluid"></p>
+<ol start="6" class="example" type="1">
+<li>Go to to the tab predict</li>
+</ol>
+<p><img src="../img/ssd4.png" class="img-fluid"></p>
+<ol start="7" class="example" type="1">
+<li>Set the threshold that defines the hazardous concentration, e.g.&nbsp;5% defines HC5. Use 5%!</li>
+</ol>
+<p><img src="../img/ssd5.png" class="img-fluid"></p>
+<ol start="8" class="example" type="1">
+<li>At this point you can read out HC5 for each model and the model average.</li>
+</ol>
+<p>If we want to consider statistical errors there is an option to derive an uncertainty interval for the hazardous concentration and select its lower bound. Uncertainty intervals can be characterised by bootstrapping which is a method to sample with replacement from data, refit the model and do this many times.</p>
+<ol start="9" class="example" type="1">
+<li><p>Set the number of bootstrap samples. Use 1000 to avoid it taking too long time.</p></li>
+<li><p>Click on the button CL to start the bootstrapping (this will take some time)</p></li>
+</ol>
+<p><img src="../img/ssd6.png" class="img-fluid"></p>
+<ol start="11" class="example" type="1">
+<li><p>Take note of the lower bound (<strong>lcl</strong>)of the uncertainty interval for the hazardous concentration corresponding to protection of at least 95% of the population.</p></li>
+<li><p>Download the R-code for the analysis you did and put it into the report.</p></li>
+</ol>
+<p><img src="../img/ssd7.png" class="img-fluid"></p>
+<ol start="13" class="example" type="1">
+<li>Render the document. Note that you might have to change the path to data.</li>
+</ol>
+<p>Write in the report:</p>
+<ul>
+<li><p>The three distributions that were chosen and the justification for this choice.</p></li>
+<li><p>A lower bound for the concentration of metolachlor that is hazardous to no more than 5% of all species in an aquatic system.</p></li>
+<li><p>Compare to the numbers 0.72 and 0.107 - this is the model average and lower uncertainty bound from a SSD using the full data set of 21 species</p></li>
+<li><p>Compare to a hazardous concentration derived from two species and an appropriate assessment factor. Select two species from your data and select the assessment factor from the table in the beginning of this document.</p></li>
+</ul>
+<ol start="14" class="example" type="1">
+<li>Submit on the assignment in canvas</li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -26,18 +26,21 @@ website:
            target: "_blank"
        - section: "Probability models - Sept 8"
          contents: 
-          - text: "Interval and 1D Monte Carlo"
-            file: ex/ex_daily_intake_equation.qmd
+         - text: "Interval and 1D Monte Carlo"
+           file: ex/ex_daily_intake_equation.qmd
+           target: "_blank"
+         - text: "Exercise Probability"
+           file: ex/chance_belief_frequency.qmd
+           target: "_blank"
+       - section: "Exposure assessment"
+         contents: 
+          #- text: "Exposure"
+          #  file: ex/ex_environ_fate_assessment.qmd
+          #- text: "Exposure"
+          #  file: ex/ex_environ_fate_assessment.qmd
+          - text: "Hazard and Exposure"
+            file: ex/ex_exposure_assessment_databases.qmd
             target: "_blank"
-          - text: "Exercise Probability"
-            file: ex/chance_belief_frequency.qmd
-            target: "_blank"
-        - section: "Exposure assessment"
-          contents: 
-          - text: "Exposure"
-            file: ex/ex_environ_fate_assessment.qmd
-          - text: "Exposure"
-            file: ex/ex_environ_fate_assessment.qmd
           - text: "SSD"
             file: ex/ex_species_sensitivity_distribution.qmd
 #- text: "Exercise Uncertainty"

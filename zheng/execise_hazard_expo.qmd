@@ -1,12 +1,13 @@
 ---
 title: "Exercise: Hazard Identification and Exposure Assessment"
+subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Zheng Zhou"
-date: "09/12/2025"
-format: 
-  pdf:
-    theme: simple
-    incremental: true
-    embedded-resources: true
+#date: "09/12/2025"
+#format: 
+#  pdf:
+#    theme: simple
+#    incremental: true
+#    embedded-resources: true
 ---
 
 # Schedule
@@ -25,7 +26,20 @@ No report required.
 
 ## Instructions 
 
-1. **Download** `exercise_data_hazardID.xlsx` from Canvas.
+1. **Download** the spreadsheet with different hazard data.
+
+```{r}
+#| echo: false
+downloadthis::download_file(
+  path = "../files/exercise_data_hazardID.xlsx",
+  output_name = "exercise_data_hazardID",
+  button_label = "Download xlsx file",
+  button_type = "info",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+```
 
 2. Open the file in Excel. **Inspect** worksheet `base`. Understand the data based on the following variable notions:
 
@@ -35,9 +49,14 @@ No report required.
 
 - BPb: Blood lead levels (parts per billion) of the subject
 
-**Calculate** the average BPb level for exposed and unexposed subjects, respectively. 
+3. **Calculate** the average BPb level for exposed and unexposed subjects, respectively. Use excel or R. 
 
-3. (In R) **Read** worksheet `expand`. **Compare** it with worksheet `base`. **Discuss** whether you believe they are the same and why.
+:::{callout-tip}
+
+
+::: 
+
+(In R) **Read** worksheet `expand`. **Compare** it with worksheet `base`. **Discuss** whether you believe they are the same and why.
 
 4. (In R) **Read** worksheet `scen1` to `scen4`. **Calculate** the average BPb level for the exposed and unexposed subjects from each data. 
 

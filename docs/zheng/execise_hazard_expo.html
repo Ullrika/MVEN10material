@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Zheng Zhou">
+
+<title>Exercise: Hazard Identification and Exposure Assessment – MVEN10</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../site_libs/font-awesome-6.5.2/js/script.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      MVEN10
+      </li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">MVEN10</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">General</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/probability_distribution.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Probability distributions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Intro to excel and R - Sept 5</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/useful_functions.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Useful functions in Excel</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/introduction_to_quarto_and_R.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Intro to Quarto and R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/useful_functions_with_R.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Useful functions in R</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Probability models - Sept 8</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/ex_daily_intake_equation.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Interval and 1D Monte Carlo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/chance_belief_frequency.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Exercise Probability</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Exposure assessment</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/ex_exposure_assessment_databases.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Hazard and Exposure</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/ex_species_sensitivity_distribution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SSD</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#schedule" id="toc-schedule" class="nav-link active" data-scroll-target="#schedule">Schedule</a></li>
+  <li><a href="#part-i-understand-threats-to-validity-in-r" id="toc-part-i-understand-threats-to-validity-in-r" class="nav-link" data-scroll-target="#part-i-understand-threats-to-validity-in-r">Part I: Understand Threats to Validity in R</a>
+  <ul class="collapse">
+  <li><a href="#submission-requirements" id="toc-submission-requirements" class="nav-link" data-scroll-target="#submission-requirements">Submission requirements</a></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#example-r-script" id="toc-example-r-script" class="nav-link" data-scroll-target="#example-r-script">Example R script</a></li>
+  </ul></li>
+  <li><a href="#part-ii-reporting-exposure" id="toc-part-ii-reporting-exposure" class="nav-link" data-scroll-target="#part-ii-reporting-exposure">Part II: Reporting Exposure</a>
+  <ul class="collapse">
+  <li><a href="#submission-requirements-1" id="toc-submission-requirements-1" class="nav-link" data-scroll-target="#submission-requirements-1">Submission requirements</a></li>
+  <li><a href="#average-daily-dose-concept-and-equation" id="toc-average-daily-dose-concept-and-equation" class="nav-link" data-scroll-target="#average-daily-dose-concept-and-equation">Average daily dose concept and equation</a></li>
+  <li><a href="#case-study-inorganic-arsenic-through-rice-intake" id="toc-case-study-inorganic-arsenic-through-rice-intake" class="nav-link" data-scroll-target="#case-study-inorganic-arsenic-through-rice-intake">Case Study: Inorganic arsenic through rice intake</a></li>
+  <li><a href="#instructions-1" id="toc-instructions-1" class="nav-link" data-scroll-target="#instructions-1">Instructions</a></li>
+  <li><a href="#optional-questions-for-extracurricular-activities" id="toc-optional-questions-for-extracurricular-activities" class="nav-link" data-scroll-target="#optional-questions-for-extracurricular-activities">Optional questions for extracurricular activities</a></li>
+  </ul></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Exercise: Hazard Identification and Exposure Assessment</h1>
+<p class="subtitle lead">MVEN10 Risk Assessment in Environment and Public Health</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Zheng Zhou </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="schedule" class="level1">
+<h1>Schedule</h1>
+<p>Part I hazard identification: 1-1:50 pm</p>
+<p>Part II: exposure assessment: 2-3 pm (do not forget the report)</p>
+</section>
+<section id="part-i-understand-threats-to-validity-in-r" class="level1">
+<h1>Part I: Understand Threats to Validity in R</h1>
+<p>This part helps to practice your R skills and improve your understandings on the threats to internal validity. You will use the R skills acquired from previous classes to perform data management and inspection in R. These data will be used in an analysis on the threats to internal validity. Example R script is provided at the end of this part. You are encourage to complete the exercise by yourself, then compare your code with the example script.</p>
+<section id="submission-requirements" class="level2">
+<h2 class="anchored" data-anchor-id="submission-requirements">Submission requirements</h2>
+<p>No report required.</p>
+</section>
+<section id="instructions" class="level2">
+<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
+<ol type="1">
+<li><strong>Download</strong> the spreadsheet with different hazard data.</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<button class="btn btn-info" onclick="
+    async function downloadFile(event) {
+      event.preventDefault();
+      try {
+        const response = await fetch('data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,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');
+        if (!response.ok) throw new Error('Network response failed');
+        const blob = await response.blob();
+        const blobUrl = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = 'exercise_data_hazardID.xlsx';
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.dispatchEvent(new MouseEvent('click'));
+        document.body.removeChild(a);
+        setTimeout(() => {
+          window.URL.revokeObjectURL(blobUrl);
+        }, 100);
+        return false;
+      } catch (error) {
+        console.error('Download failed:', error);
+        alert('Download failed. Please try again.');
+      }
+    }
+    downloadFile(event);
+  "><i class="fa fa-save"></i> Download xlsx file</button>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Open the file in Excel. <strong>Inspect</strong> worksheet <code>base</code>. Understand the data based on the following variable notions:</li>
+</ol>
+<ul>
+<li><p>Subject ID: unique identifier of subjects.</p></li>
+<li><p>Exposed: exposure status. 0= unexposed, 1= exposed.</p></li>
+<li><p>BPb: Blood lead levels (parts per billion) of the subject</p></li>
+</ul>
+<ol start="3" type="1">
+<li><strong>Calculate</strong> the average BPb level for exposed and unexposed subjects, respectively. Use excel or R.</li>
+</ol>
+<div class="{callout-tip}">
+
+</div>
+<p>(In R) <strong>Read</strong> worksheet <code>expand</code>. <strong>Compare</strong> it with worksheet <code>base</code>. <strong>Discuss</strong> whether you believe they are the same and why.</p>
+<ol start="4" type="1">
+<li><p>(In R) <strong>Read</strong> worksheet <code>scen1</code> to <code>scen4</code>. <strong>Calculate</strong> the average BPb level for the exposed and unexposed subjects from each data.</p></li>
+<li><p>(R optional) <strong>Create</strong> a simple comparison plot and a two-group pre-post comparison plot for each scenario based on the corresponding worksheet.</p></li>
+<li><p><strong>Discuss</strong> whether there is difference in the simple comparison plots between scenarios, or difference in the pre-post comparison plot between scenarios.</p></li>
+</ol>
+</section>
+<section id="example-r-script" class="level2">
+<h2 class="anchored" data-anchor-id="example-r-script">Example R script</h2>
+<p>You are encouraged to firstly complete the exercise, then consider the script below for validation.</p>
+<pre><code>library(readxl)
+path &lt;- getwd()                 ## replace this line with the path of your downloaded file 
+
+base &lt;- read_xlsx(file.path(path,"exercise_Data_hazardID.xlsx"),sheet = "base")
+print(base)
+
+expand &lt;- read_xlsx(file.path(path,"exercise_Data_hazardID.xlsx"),sheet = "expand")
+print(expand)
+
+scen1 &lt;- read_xlsx(file.path(path,"exercise_Data_hazardID.xlsx"),sheet = "scen1")
+print(scen1)
+
+scen2 &lt;- read_xlsx(file.path(path,"exercise_Data_hazardID.xlsx"),sheet = "scen2")
+print(scen2)
+
+scen3 &lt;- read_xlsx(file.path(path,"exercise_Data_hazardID.xlsx"),sheet = "scen3")
+print(scen3)
+
+scen4 &lt;- read_xlsx(file.path(path,"exercise_Data_hazardID.xlsx"),sheet = "scen4")
+print(scen4)
+
+library(tidyverse)
+# Function to create simple comparison plot
+create_simple_plot &lt;- function(df, scenario_name) {
+  ggplot(df, aes(x = as.factor(Exposed), y = `Observed BPb`, fill = as.factor(Exposed))) +
+    geom_boxplot(alpha = 0.7, width = 0.5) +
+    geom_jitter(width = 0.1, size = 2, alpha = 0.8) +
+    scale_fill_manual(values = c("0" = "skyblue", "1" = "salmon")) +
+    labs(title = paste("Scenario", gsub("scen", "", scenario_name), 
+                       ": Observed BPb by Exposure Group"),
+         x = "Exposed (0 = No, 1 = Yes)",
+         y = "Blood Lead Level (BPb)") +
+    theme_minimal() +
+    theme(legend.position = "none")
+}
+
+# Function to create group mean pre-post comparison plot
+create_group_mean_plot &lt;- function(df, scenario_name) {
+  # Calculate group means
+  group_means &lt;- df %&gt;%
+    group_by(Exposed) %&gt;%
+    summarize(
+      mean_before = mean(BPb_before, na.rm = TRUE),
+      mean_after = mean(BPb_after, na.rm = TRUE)
+    ) %&gt;%
+    pivot_longer(
+      cols = c(mean_before, mean_after),
+      names_to = "Time",
+      values_to = "Mean_BPb"
+    ) %&gt;%
+    mutate(
+      Time = factor(Time,
+                   levels = c("mean_before", "mean_after"),
+                   labels = c("Pre", "Post")),
+      Exposed_Group = ifelse(Exposed == 0, "Unexposed", "Exposed")
+    )
+  
+  ggplot(group_means, aes(x = Time, y = Mean_BPb, group = Exposed_Group)) +
+    geom_line(aes(color = Exposed_Group), alpha = 0.7, linewidth = 1.5) +
+    geom_point(aes(color = Exposed_Group, shape = Exposed_Group), size = 4) +
+    scale_color_manual(values = c("Unexposed" = "skyblue", "Exposed" = "salmon")) +
+    scale_shape_manual(values = c("Unexposed" = 16, "Exposed" = 17)) +
+    labs(title = paste("Scenario", gsub("scen", "", scenario_name), 
+                       ": Pre-Post Group Mean Comparison"),
+         subtitle = "Lines show average BPb levels before and after exposure for each group",
+         x = "Time",
+         y = "Mean Blood Lead Level (BPb)",
+         color = "Exposure Group",
+         shape = "Exposure Group") +
+    theme_minimal() +
+    theme(legend.position = "bottom")
+}
+# Create plots for Scenario 1
+scen1_simple_plot &lt;- create_simple_plot(scen1, "scen1")
+scen1_group_prepost_plot &lt;- create_group_mean_plot(scen1, "scen1")
+
+# Create plots for Scenario 2
+scen2_simple_plot &lt;- create_simple_plot(scen2, "scen2")
+scen2_group_prepost_plot &lt;- create_group_mean_plot(scen2, "scen2")
+
+# Create plots for Scenario 3
+scen3_simple_plot &lt;- create_simple_plot(scen3, "scen3")
+scen3_group_prepost_plot &lt;- create_group_mean_plot(scen3, "scen3")
+
+# Create plots for Scenario 4
+scen4_simple_plot &lt;- create_simple_plot(scen4, "scen4")
+scen4_group_prepost_plot &lt;- create_group_mean_plot(scen4, "scen4")</code></pre>
+</section>
+</section>
+<section id="part-ii-reporting-exposure" class="level1">
+<h1>Part II: Reporting Exposure</h1>
+<p>This part is to provide hands-on practice in exposure assessment, a fundamental component of human health risk assessment. Students will learn to:</p>
+<ul>
+<li><p>Calculate Average Daily Dose (ADD) using real-world data</p></li>
+<li><p>Integrate multiple exposure parameters from different populations</p></li>
+<li><p>Compare exposure scenarios across different countries</p></li>
+<li><p>Interpret results in the context of public health significance</p></li>
+<li><p>Apply statistical programming (R) to exposure assessment problems</p></li>
+</ul>
+<p>Through this exercise, you will develop practical skills in quantitative exposure assessment methodology that forms the foundation of risk characterization in environmental and occupational health.</p>
+<section id="submission-requirements-1" class="level2">
+<h2 class="anchored" data-anchor-id="submission-requirements-1">Submission requirements</h2>
+<p>You must submit a report in PDF format. You are recommended to generate the PDF document from a QMD file. The sections of the report should be indexed by questions.</p>
+<p>If you prepare the report in QMD format, you can create indexes using the following template:</p>
+<pre><code># Heading level 1
+
+## Heading level 2
+
+### Heading level 3</code></pre>
+<p>Use the following <code>YAML</code> header at the top of your QMD document:</p>
+<pre><code>title: "Exposure assessment using Real Data"
+subtitle: "Calculate Average Daily Dose"
+author: "Your name"
+date: today
+format: 
+  pdf:
+    toc: true
+    message: false
+    warning: false
+    theme: simple
+    incremental: true
+    embedded-resources: true</code></pre>
+<p>For each question, your answers must include the following components:</p>
+<ol type="1">
+<li><p>R code: All R scripts used for data extraction, processing, and calculations (properly commented). You are recommended to divide the chunk into multiple chunks. This allows you to have better control of the output from each chunk.</p></li>
+<li><p>Written results and discussions.</p></li>
+</ol>
+<p>Other formatting requirements:</p>
+<ol type="1">
+<li><p>Include proper citations for all data sources</p></li>
+<li><p>Ensure all figures and tables are properly labeled</p></li>
+</ol>
+</section>
+<section id="average-daily-dose-concept-and-equation" class="level2">
+<h2 class="anchored" data-anchor-id="average-daily-dose-concept-and-equation">Average daily dose concept and equation</h2>
+<p><strong>Definition</strong></p>
+<p>The Average Daily Dose (ADD) represents the average amount of a chemical substance that an individual is exposed to per unit body weight per day over a specified time period. It is a fundamental metric in exposure assessment used to characterize potential health risks.</p>
+<p><strong>Equation</strong></p>
+<p><span class="math display">\[
+ADD=\frac{C\cdot IR\cdot EF\cdot ED}{BW\cdot AT}
+\]</span></p>
+<p>Where:</p>
+<p>ADD = Average Daily Dose (mg/kg-day)</p>
+<p>C = Concentration of the contaminant in the medium (mg/kg for food)</p>
+<p>IR = Ingestion Rate (kg/day for food consumption)</p>
+<p>EF = Exposure Frequency (days/year)</p>
+<p>ED = Exposure Duration (years)</p>
+<p>BW = Body Weight (kg)</p>
+<p>AT = Averaging Time (days)</p>
+<p><strong>Simplified Equation for Dietary Exposure</strong></p>
+<p>For this exercise focusing on chronic dietary exposure, we will use a simplified version assuming continuous daily exposure over a lifetime:</p>
+<p><span class="math display">\[
+ADD =\frac{C\cdot IR}{BW}
+\]</span></p>
+</section>
+<section id="case-study-inorganic-arsenic-through-rice-intake" class="level2">
+<h2 class="anchored" data-anchor-id="case-study-inorganic-arsenic-through-rice-intake">Case Study: Inorganic arsenic through rice intake</h2>
+<p>Inorganic arsenic contamination in rice represents a significant global public health concern. Inorganic arsenic is classified as a Group 1 carcinogen by the International Agency for Research on Cancer (IARC) (IARC 2012). Rice serves as a staple food for over half of the world’s population, making dietary exposure through rice consumption a widespread concern.</p>
+<p>The European Commission has established maximum levels for inorganic arsenic in rice products (200 µg/kg for milled rice), and the US FDA has proposed action levels, highlighting the regulatory significance of this contamination issue.</p>
+</section>
+<section id="instructions-1" class="level2">
+<h2 class="anchored" data-anchor-id="instructions-1">Instructions</h2>
+<ol type="1">
+<li><strong>Extract</strong> data on rice consumption for the US, Swedish and Italian populations. You can find relevant information from the following sources:</li>
+</ol>
+<p>The US EPA <a href="https://www.epa.gov/expobox/about-exposure-factors-handbook">Exposure factors handbook</a></p>
+<p>Sweden and Italy <a href="https://joint-research-centre.ec.europa.eu/expofacts-european-exposure-factors-sourcebook_en">European Exposure facts</a>.</p>
+<p>Notice the data could be reported for different subpopulations. <strong>Choose</strong> the most representative subpopulation based on the principles of exposure assessment you learnt before. <strong>Convert</strong> the extract data to average daily rice intake (kg/day).</p>
+<ol start="2" type="1">
+<li><strong>Extract</strong> data on inorganic arsenic concentration in rice from the US, Swedish and Italian markets. You can find relevant information from the following sources:</li>
+</ol>
+<p><a href="https://www.fda.gov/media/86074/download">US FDA Analytical Results from Inorganic Arsenic in Rice and Rice Products Sampling</a></p>
+<p><a href="https://www.livsmedelsverket.se/globalassets/publikationsdatabas/rapporter/2015/inorganic-arsenic-in-rice-and-rice-products-on-the-swedish-market-2015---part-2-risk-assessment.pdf">livsmedelsverket report on Inorganic arsenic in rice and rice products on the Swedish market 2015</a> Notice the data could be reported for different rice and rice products. <strong>Decide</strong> based on the principles of exposure assessment you learnt before.</p>
+<p><a href="https://pubs.acs.org/doi/10.1021/acs.jafc.7b00694">Tenni et al.&nbsp;2017 Total As and As Speciation in Italian Rice as Related to Producing Areas and Paddy Soils Properties</a></p>
+<p>Notice the data could be reported for different arsenic species and different rice grains. Consider only <em>inorganic</em> arsenic. <strong>Convert</strong> the extract data to average inorganic arsenic concentration in rice (ug/kg).</p>
+<ol start="3" type="1">
+<li><strong>Extract</strong> data on body weights for the US, Swedish and Italian populations. You can find relevant information from the following sources:</li>
+</ol>
+<p>The US EPA <a href="https://www.epa.gov/expobox/about-exposure-factors-handbook">Exposure factors handbook</a></p>
+<p>Sweden and Italy <a href="https://joint-research-centre.ec.europa.eu/expofacts-european-exposure-factors-sourcebook_en">European Exposure facts</a>.</p>
+<p>Notice the data could be reported for different subpopulations. <strong>Choose</strong> the most representative subpopulation based on the principles of exposure assessment you learnt before. <strong>Convert</strong> the extract data to average body weights (kg).</p>
+<ol start="4" type="1">
+<li><p>(In R) <strong>Calculate</strong> ADDs using the simplified equation and the extracted data on rice consumption, inorganic arsenic concentration and body weight. Do the calculation for the US, Swedish and Italian population respectively.</p></li>
+<li><p>(In R) <strong>Calculate</strong> ADDs for the following hypothetical scenarios:</p></li>
+</ol>
+<p>5a) If Sweden had the same rice consumption rate as Italy. Keep Sweden’s original arsenic concentration and body weight data.</p>
+<p>5b) If arsenic concentration were regulated uniformly across the EU. Use half of the EU maximum level for inorganic arsenic in rice for both Sweden and Italy, that is 100 ug/kg. Keep original consumption and body weight data for each country.</p>
+<p>5c) If Swedish population had the same body weight as the US. Keep Sweden’s original arsenic concentration and rice consumption.</p>
+<p><strong>Present</strong> all ADD calculations (including the real ones from question 4) in a table for comparison. You may generate the table in excel, in R, or use a [table generator] for the QMD file (https://www.tablesgenerator.com/markdown_tables). The table must be included in your report.</p>
+<ol start="6" type="1">
+<li>The World Health Organization (WHO 2011) determined that the inorganic arsenic lower limit on the benchmark dose for lung cancer was calculated to be 3 μg/kg bw per day and 5.2 µg/kg bw/day for bladder cancer, respectively. The US EPA (IRIS 2025) ruled that the inorganic arsenic lower limit on the benchmark dose for cardiovascular endocrine disruption was calculated to be 6 x 10 -5 mg/kg/day. <strong>Compare</strong> the real ADDs you calculated for the three populations with these regulatory reference values.</li>
+</ol>
+</section>
+<section id="optional-questions-for-extracurricular-activities" class="level2">
+<h2 class="anchored" data-anchor-id="optional-questions-for-extracurricular-activities">Optional questions for extracurricular activities</h2>
+<p>The following questions are not required for this report. You are encourage to explore them as extracurricular activities if you are interested.</p>
+<ol start="7" type="1">
+<li><p>(In R) <strong>Extract</strong> data on rice consumption, inorganic arsenic concentration and body weight for a different country of your interest. <strong>Calculate</strong> the ADD and compare with the ones from question 4. Then <strong>compare</strong> the ADD with the reference values from question 6.</p></li>
+<li><p>Based on the ADDs you calculated in question 4 and 5, <strong>discuss</strong> which parameter (concentration, consumption, body weight) causes the greatest change in ADD when varied between populations?</p></li>
+<li><p>Based on the results of question 6, <strong>discuss</strong> if you consider inorganic arsenic in rice require immediate regulatory action for Sweden and Italy. If yes, <strong>propose</strong> one mitigation strategy for the corresponding country and briefly <strong>explain</strong> your rationale.</p></li>
+</ol>
+</section>
+</section>
+<section id="reference" class="level1">
+<h1>Reference</h1>
+<p>International Agency for Research on Cancer. 2012. Arsenic and arsenic compound. https://publications.iarc.who.int/Book-And-Report-Series/Iarc-Monographs-On-The-Identification-Of-Carcinogenic-Hazards-To-Humans/Arsenic-Metals-Fibres-And-Dusts-2012</p>
+<p>WHO 2011. Evaluations of the Joint FAO/WHO Expert Committee on Food Additives (JECFA). https://apps.who.int/food-additives-contaminants-jecfa-database/Home/Chemical/1863</p>
+<p>Integrated Risk Information System. 2025. Arsenic, Inorganic. https://iris.epa.gov/ChemicalLanding/&amp;substance_nmbr=278#values</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
