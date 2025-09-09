@@ -1,0 +1,69 @@
+---
+title: "Exercise Benchmark Dose Modelling"
+author: "Zheng Zhou"
+format:
+  pdf:
+    theme: simple
+    incremental: true
+    embedded-resources: true
+---
+
+# Instructions
+
+This exercise is designed to 1) help you evaluate and improve your understandings of key concepts of benchmark dose modeling, 2) gain practical experience with established benchmark dose modeling tools.
+
+# Submission requirements
+
+No report is required for this exercise. 
+
+# Question 1: NOAEL/LOAEL
+
+You are provided with a dose-response data set from a real study. Download the data.
+
+The study has a control group and three dose groups. For each group, the following data is measured: number of subjects, group average response, group standard deviation, and the p value of the difference in average response compared with the control group. You can find the data by the file "example_data_dose_response.txt".
+
+## Tasks
+
+**(1)** *Explain* if this data can derive a NOAEL. If yes, what is it? If no, why?
+
+**(2)** *Explain* if this data can derive a LOAEL. If yes, what is it? If no, why?
+ 
+# Question 2: BMD modeling
+
+Using the same dose-response data provided in question. Recall the three steps of BMD modeling. Perform the three steps in the existing BMD tools and generate reports.
+
+## Tasks
+
+**(1)** *Use* EFSA PROAST for BMD modeling. You can use the web version: [https://proastweb.rivm.nl/](https://proastweb.rivm.nl/) or the R-package version: [https://www.rivm.nl/en/proast](https://www.rivm.nl/en/proast). Generate a report.
+
+**(2)** Based on the report from **(a)**, *find* the following information: 1) number of models fitted, 2) AIC of each model, 3) CED, CEDL and CEDU of each model
+
+**(3)** *Use* US EPA BMDS for BMD modeling: [https://www.epa.gov/bmds/bmds-online](https://www.epa.gov/bmds/bmds-online). Generate a report.
+
+**(4)** Based on the report from **(c)**, *find* the following information: 1) number of models fitted, 2) P-value, AIC and reason of recommendation of each model, 3) BMD, BMDL and BMDU of each model 
+ 
+# Question 3: Evaluate dose-response models between NOAEL, LOAEL and the BMDs from different tools
+
+Gather your results of NOAEL/LOAEL (Question 1) and BMDs from different tools (Question 2). 
+
+## Tasks
+
+*Discuss* one strengths and one weaknesses of the NOAEL/LOAEL approach and the BMD approach, respectively.
+
+You may consider the following hints:
+
+a. What information is needed for each approach?
+
+b. If there are changes in study design, e.g., dose level setup, how will each approach be affected?
+
+c. How difficult it is to implement each approach?
+
+d. Does the sample size have impacts on the estimates from the two approaches?
+
+e. Can a NOAEL be derived from a LOAEL? from a BMD? 
+
+f. What is a benchmark response and how it is chosen?
+
+g. What are the differences between BMD models?
+
+h. How are uncertainty in the data considered in the two approaches?
