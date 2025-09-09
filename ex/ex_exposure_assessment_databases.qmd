@@ -26,11 +26,11 @@ Data from studies and surveys have been collected into databases that are availa
 
 ### Duration
 
-45 minutes
+30 minutes
 
 ### Reporting
 
-Be prepared to report back at the end of the exercise.
+Make a report with your answers to the questions and main dicussion points and submit to canvas. 
 
 ### References
 
@@ -66,7 +66,6 @@ The US EPA [Exposure factors handbook](https://www.epa.gov/expobox/about-exposur
 
 (@) Discuss if high exposure should be evaluated on the 95th Percentile or the Maximum. 
 
-Be prepared to report back. 
 
 <!-- ## Dietary Exposure (DietEx) tool -->
 
@@ -86,7 +85,7 @@ The [Comprehensive Food Consumption Database](https://www.efsa.europa.eu/en/data
 
 ![](../img/food1.png)
 
-(@) Discuss the difference between the four categories of data? 
+(@) Discuss the difference between the four categories of data.
 
 (@) Expand the data sheet for Chronic Food Consumption Grams per kilogram of body weight per day (g/kg bw per day) - Consumers only
 
@@ -94,5 +93,5 @@ The [Comprehensive Food Consumption Database](https://www.efsa.europa.eu/en/data
 
 - Adult and pregnant women
 
-(@) Discuss how to define a high consumer and how to derive the estimate. You are welcome to ask for advice. Be prepared to report back your suggestion and results.
+(@) Discuss how to define a high consumer and how to derive the estimate. You are welcome to ask for advice. Report back your suggestion and results.
 

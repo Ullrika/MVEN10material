@@ -32,6 +32,14 @@ website:
           - text: "Exercise Probability"
             file: ex/chance_belief_frequency.qmd
             target: "_blank"
+        - section: "Exposure assessment"
+          contents: 
+          - text: "Exposure"
+            file: ex/ex_environ_fate_assessment.qmd
+          - text: "Exposure"
+            file: ex/ex_environ_fate_assessment.qmd
+          - text: "SSD"
+            file: ex/ex_species_sensitivity_distribution.qmd
 #- text: "Exercise Uncertainty"
 #            file: ex/expressing_uncertainty.qmd
 #            target: "_blank"

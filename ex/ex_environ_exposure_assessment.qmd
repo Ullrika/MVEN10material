@@ -26,11 +26,13 @@ An assessments starts with the source and level of emissions. The exposure asses
 
 ### Duration
 
-30 minutes
+20 minutes
 
 ### Reporting
 
 Be prepared to report back at the end of the exercise.
+or
+Make a report with your answers to the questions and main dicussion points and submit to canvas.
 
 ### References
 
@@ -67,6 +69,7 @@ downloadthis::download_file(
 )
 ```
 
+
 (@) Goto sheet **chembase** and note the **ID** number for hexachlorobenzene. 
 
 (@) Goto sheet **input** and write down the row number ID in cell **I44**. 
@@ -81,5 +84,11 @@ The model will now use substance specific parameters for the calculations.
 
 (@) Study the graphical output, i.e. the steady-state mass flows in the same sheet starting in **cell BL1**. 
 
-We will talk more about this model during a seminar/lecture. 
+
+(@) Answer the following questions: 
+
+1) What is the exposure scenario? 
+
+2) What is the Predicted Environmental Concentration in fresh water of hexachlorobenzene under the exposure scenario? 
+
 
