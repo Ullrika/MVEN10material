@@ -2,11 +2,11 @@
 title: "Hazard Identification"
 author: "Zheng Zhou"
 date: "09/12/2025"
-format: 
-  pdf:
-    theme: simple
-    incremental: true
-    embedded-resources: true
+# format: 
+#  pdf:
+#    theme: simple
+#    incremental: true
+#    embedded-resources: true
 ---
 
 ## Introduction

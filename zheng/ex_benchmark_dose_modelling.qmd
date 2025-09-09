@@ -1,11 +1,11 @@
 ---
 title: "Exercise Benchmark Dose Modelling"
 author: "Zheng Zhou"
-format:
-  pdf:
-    theme: simple
-    incremental: true
-    embedded-resources: true
+# format:
+#  pdf:
+#    theme: simple
+#    incremental: true
+#    embedded-resources: true
 ---
 
 # Instructions
