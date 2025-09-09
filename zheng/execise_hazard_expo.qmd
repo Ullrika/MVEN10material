@@ -1,0 +1,302 @@
+---
+title: "Exercise: Hazard Identification and Exposure Assessment"
+author: "Zheng Zhou"
+date: "09/12/2025"
+format: 
+  pdf:
+    theme: simple
+    incremental: true
+    embedded-resources: true
+---
+
+# Schedule
+
+Part I hazard identification: 1-1:50 pm
+
+Part II: exposure assessment: 2-3 pm (do not forget the report)
+
+# Part I: Understand Threats to Validity in R
+
+This part helps to practice your R skills and improve your understandings on the threats to internal validity. You will use the R skills acquired from previous classes to perform data management and inspection in R. These data will be used in an analysis on the threats to internal validity. Example R script is provided at the end of this part. You are encourage to complete the exercise by yourself, then compare your code with the example script. 
+
+## Submission requirements
+
+No report required.
+
+## Instructions 
+
+1. **Download** `exercise_data_hazardID.xlsx` from Canvas.
+
+2. Open the file in Excel. **Inspect** worksheet `base`. Understand the data based on the following variable notions:
+
+- Subject ID: unique identifier of subjects.
+
+- Exposed: exposure status. 0= unexposed, 1= exposed.
+
+- BPb: Blood lead levels (parts per billion) of the subject
+
+**Calculate** the average BPb level for exposed and unexposed subjects, respectively. 
+
+3. (In R) **Read** worksheet `expand`. **Compare** it with worksheet `base`. **Discuss** whether you believe they are the same and why.
+
+4. (In R) **Read** worksheet `scen1` to `scen4`. **Calculate** the average BPb level for the exposed and unexposed subjects from each data. 
+
+5. (R optional) **Create** a simple comparison plot and a two-group pre-post comparison plot for each scenario based on the corresponding worksheet. 
+
+6. **Discuss** whether there is difference in the simple comparison plots between scenarios, or difference in the pre-post comparison plot between scenarios.
+
+## Example R script
+
+You are encouraged to firstly complete the exercise, then consider the script below for validation. 
+
+```
+library(readxl)
+path <- getwd()                 ## replace this line with the path of your downloaded file 
+
+base <- read_xlsx(file.path(path,"exercise_Data_hazardID.xlsx"),sheet = "base")
+print(base)
+
+expand <- read_xlsx(file.path(path,"exercise_Data_hazardID.xlsx"),sheet = "expand")
+print(expand)
+
+scen1 <- read_xlsx(file.path(path,"exercise_Data_hazardID.xlsx"),sheet = "scen1")
+print(scen1)
+
+scen2 <- read_xlsx(file.path(path,"exercise_Data_hazardID.xlsx"),sheet = "scen2")
+print(scen2)
+
+scen3 <- read_xlsx(file.path(path,"exercise_Data_hazardID.xlsx"),sheet = "scen3")
+print(scen3)
+
+scen4 <- read_xlsx(file.path(path,"exercise_Data_hazardID.xlsx"),sheet = "scen4")
+print(scen4)
+
+library(tidyverse)
+# Function to create simple comparison plot
+create_simple_plot <- function(df, scenario_name) {
+  ggplot(df, aes(x = as.factor(Exposed), y = `Observed BPb`, fill = as.factor(Exposed))) +
+    geom_boxplot(alpha = 0.7, width = 0.5) +
+    geom_jitter(width = 0.1, size = 2, alpha = 0.8) +
+    scale_fill_manual(values = c("0" = "skyblue", "1" = "salmon")) +
+    labs(title = paste("Scenario", gsub("scen", "", scenario_name), 
+                       ": Observed BPb by Exposure Group"),
+         x = "Exposed (0 = No, 1 = Yes)",
+         y = "Blood Lead Level (BPb)") +
+    theme_minimal() +
+    theme(legend.position = "none")
+}
+
+# Function to create group mean pre-post comparison plot
+create_group_mean_plot <- function(df, scenario_name) {
+  # Calculate group means
+  group_means <- df %>%
+    group_by(Exposed) %>%
+    summarize(
+      mean_before = mean(BPb_before, na.rm = TRUE),
+      mean_after = mean(BPb_after, na.rm = TRUE)
+    ) %>%
+    pivot_longer(
+      cols = c(mean_before, mean_after),
+      names_to = "Time",
+      values_to = "Mean_BPb"
+    ) %>%
+    mutate(
+      Time = factor(Time,
+                   levels = c("mean_before", "mean_after"),
+                   labels = c("Pre", "Post")),
+      Exposed_Group = ifelse(Exposed == 0, "Unexposed", "Exposed")
+    )
+  
+  ggplot(group_means, aes(x = Time, y = Mean_BPb, group = Exposed_Group)) +
+    geom_line(aes(color = Exposed_Group), alpha = 0.7, linewidth = 1.5) +
+    geom_point(aes(color = Exposed_Group, shape = Exposed_Group), size = 4) +
+    scale_color_manual(values = c("Unexposed" = "skyblue", "Exposed" = "salmon")) +
+    scale_shape_manual(values = c("Unexposed" = 16, "Exposed" = 17)) +
+    labs(title = paste("Scenario", gsub("scen", "", scenario_name), 
+                       ": Pre-Post Group Mean Comparison"),
+         subtitle = "Lines show average BPb levels before and after exposure for each group",
+         x = "Time",
+         y = "Mean Blood Lead Level (BPb)",
+         color = "Exposure Group",
+         shape = "Exposure Group") +
+    theme_minimal() +
+    theme(legend.position = "bottom")
+}
+# Create plots for Scenario 1
+scen1_simple_plot <- create_simple_plot(scen1, "scen1")
+scen1_group_prepost_plot <- create_group_mean_plot(scen1, "scen1")
+
+# Create plots for Scenario 2
+scen2_simple_plot <- create_simple_plot(scen2, "scen2")
+scen2_group_prepost_plot <- create_group_mean_plot(scen2, "scen2")
+
+# Create plots for Scenario 3
+scen3_simple_plot <- create_simple_plot(scen3, "scen3")
+scen3_group_prepost_plot <- create_group_mean_plot(scen3, "scen3")
+
+# Create plots for Scenario 4
+scen4_simple_plot <- create_simple_plot(scen4, "scen4")
+scen4_group_prepost_plot <- create_group_mean_plot(scen4, "scen4")
+```
+
+# Part II: Reporting Exposure
+
+This part is to provide hands-on practice in exposure assessment, a fundamental component of human health risk assessment. Students will learn to:
+
+- Calculate Average Daily Dose (ADD) using real-world data
+
+- Integrate multiple exposure parameters from different populations
+
+- Compare exposure scenarios across different countries
+
+- Interpret results in the context of public health significance
+
+- Apply statistical programming (R) to exposure assessment problems
+
+Through this exercise, you will develop practical skills in quantitative exposure assessment methodology that forms the foundation of risk characterization in environmental and occupational health.
+
+## Submission requirements
+
+You must submit a report in PDF format. You are recommended to generate the PDF document from a QMD file. The sections of the report should be indexed by questions. 
+
+If you prepare the report in QMD format, you can create indexes using the following template:
+
+```
+# Heading level 1
+
+## Heading level 2
+
+### Heading level 3
+```
+
+Use the following `YAML` header at the top of your QMD document:
+
+```
+title: "Exposure assessment using Real Data"
+subtitle: "Calculate Average Daily Dose"
+author: "Your name"
+date: today
+format: 
+  pdf:
+    toc: true
+    message: false
+    warning: false
+    theme: simple
+    incremental: true
+    embedded-resources: true
+```
+
+For each question, your answers must include the following components:
+
+1. R code: All R scripts used for data extraction, processing, and calculations (properly commented). You are recommended to divide the chunk into multiple chunks. This allows you to have better control of the output from each chunk.
+
+2. Written results and discussions.
+
+Other formatting requirements:
+
+1. Include proper citations for all data sources
+
+2. Ensure all figures and tables are properly labeled
+
+## Average daily dose concept and equation
+
+**Definition**
+
+The Average Daily Dose (ADD) represents the average amount of a chemical substance that an individual is exposed to per unit body weight per day over a specified time period. It is a fundamental metric in exposure assessment used to characterize potential health risks.
+
+**Equation**
+
+$$
+ADD=\frac{C*IR*EF*ED}{BW*AT}
+$$
+
+Where:
+
+ADD = Average Daily Dose (mg/kg-day)
+
+C = Concentration of the contaminant in the medium (mg/kg for food)
+
+IR = Ingestion Rate (kg/day for food consumption)
+
+EF = Exposure Frequency (days/year)
+
+ED = Exposure Duration (years)
+
+BW = Body Weight (kg)
+
+AT = Averaging Time (days)
+
+**Simplified Equation for Dietary Exposure**
+
+For this exercise focusing on chronic dietary exposure, we will use a simplified version assuming continuous daily exposure over a lifetime:
+
+$$
+ADD =\frac{C*IR}{BW}
+$$
+
+## Case Study: Inorganic arsenic through rice intake
+
+Inorganic arsenic contamination in rice represents a significant global public health concern. Inorganic arsenic is classified as a Group 1 carcinogen by the International Agency for Research on Cancer (IARC) (IARC 2012). Rice serves as a staple food for over half of the world's population, making dietary exposure through rice consumption a widespread concern.
+
+The European Commission has established maximum levels for inorganic arsenic in rice products (200 µg/kg for milled rice), and the US FDA has proposed action levels, highlighting the regulatory significance of this contamination issue.
+
+## Instructions
+
+1. **Extract** data on rice consumption for the US, Swedish and Italian populations. You can find relevant information from the following sources: 
+
+The US EPA [Exposure factors handbook](https://www.epa.gov/expobox/about-exposure-factors-handbook) 
+
+Sweden and Italy [European Exposure facts](https://joint-research-centre.ec.europa.eu/expofacts-european-exposure-factors-sourcebook_en). 
+
+Notice the data could be reported for different subpopulations. **Choose** the most representative subpopulation based on the principles of exposure assessment you learnt before. **Convert** the extract data to average daily rice intake (kg/day). 
+
+2. **Extract** data on inorganic arsenic concentration in rice from the US, Swedish and Italian markets. You can find relevant information from the following sources: 
+
+[US FDA Analytical Results from Inorganic Arsenic in Rice and Rice Products Sampling](https://www.fda.gov/media/86074/download)
+
+[livsmedelsverket report on Inorganic arsenic in rice and rice products on the Swedish market 2015](https://www.livsmedelsverket.se/globalassets/publikationsdatabas/rapporter/2015/inorganic-arsenic-in-rice-and-rice-products-on-the-swedish-market-2015---part-2-risk-assessment.pdf)
+Notice the data could be reported for different rice and rice products. **Decide** based on the principles of exposure assessment you learnt before.
+
+[Tenni et al. 2017 Total As and As Speciation in Italian Rice as Related to Producing Areas and Paddy Soils Properties](https://pubs.acs.org/doi/10.1021/acs.jafc.7b00694)
+
+Notice the data could be reported for different arsenic species and different rice grains. Consider only *inorganic* arsenic. **Convert** the extract data to average inorganic arsenic concentration in rice (ug/kg).
+
+3. **Extract** data on body weights for the US, Swedish and Italian populations. You can find relevant information from the following sources: 
+
+The US EPA [Exposure factors handbook](https://www.epa.gov/expobox/about-exposure-factors-handbook)
+
+Sweden and Italy [European Exposure facts](https://joint-research-centre.ec.europa.eu/expofacts-european-exposure-factors-sourcebook_en). 
+
+Notice the data could be reported for different subpopulations. **Choose** the most representative subpopulation based on the principles of exposure assessment you learnt before. **Convert** the extract data to average body weights (kg).
+
+4. (In R) **Calculate** ADDs using the simplified equation and the extracted data on rice consumption, inorganic arsenic concentration and body weight. Do the calculation for the US, Swedish and Italian population respectively.
+
+5. (In R) **Calculate** ADDs for the following hypothetical scenarios:
+
+  5a) If Sweden had the same rice consumption rate as Italy. Keep Sweden's original arsenic concentration and body weight data.
+  
+  5b) If arsenic concentration were regulated uniformly across the EU. Use half of the EU maximum level for inorganic arsenic in rice for both Sweden and Italy, that is 100 ug/kg. Keep original consumption and body weight data for each country.
+  
+  5c) If Swedish population had the same body weight as the US. Keep Sweden's original arsenic concentration and rice consumption.
+  
+**Present** all ADD calculations (including the real ones from question 4) in a table for comparison. You may generate the table in excel, in R, or use a [table generator] for the QMD file (https://www.tablesgenerator.com/markdown_tables). The table must be included in your report.
+
+6. The World Health Organization (WHO 2011) determined that the inorganic arsenic lower limit on the benchmark dose for lung cancer was calculated to be 3 μg/kg bw per day and 5.2 µg/kg bw/day for bladder cancer, respectively. The US EPA (IRIS 2025) ruled that the inorganic arsenic lower limit on the benchmark dose for cardiovascular endocrine disruption was calculated to be 6 x 10 -5 mg/kg/day. **Compare** the real ADDs you calculated for the three populations with these regulatory reference values. 
+
+## Optional questions for extracurricular activities
+
+The following questions are not required for this report. You are encourage to explore them as extracurricular activities if you are interested. 
+
+7. (In R) **Extract** data on rice consumption, inorganic arsenic concentration and body weight for a different country of your interest. **Calculate** the ADD and compare with the ones from question 4. Then **compare** the ADD with the reference values from question 6.
+
+8. Based on the ADDs you calculated in question 4 and 5, **discuss** which parameter (concentration, consumption, body weight) causes the greatest change in ADD when varied between populations?
+
+9. Based on the results of question 6, **discuss** if you consider inorganic arsenic in rice require immediate regulatory action for Sweden and Italy. If yes, **propose** one mitigation strategy for the corresponding country and briefly **explain** your rationale. 
+
+# Reference
+
+International Agency for Research on Cancer. 2012. Arsenic and arsenic compound. https://publications.iarc.who.int/Book-And-Report-Series/Iarc-Monographs-On-The-Identification-Of-Carcinogenic-Hazards-To-Humans/Arsenic-Metals-Fibres-And-Dusts-2012
+
+WHO 2011.  Evaluations of the Joint FAO/WHO Expert Committee on Food Additives (JECFA). https://apps.who.int/food-additives-contaminants-jecfa-database/Home/Chemical/1863
+
+Integrated Risk Information System. 2025. Arsenic, Inorganic. https://iris.epa.gov/ChemicalLanding/&substance_nmbr=278#values
