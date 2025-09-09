@@ -207,7 +207,7 @@ The Average Daily Dose (ADD) represents the average amount of a chemical substan
 **Equation**
 
 $$
-ADD=\frac{C*IR*EF*ED}{BW*AT}
+ADD=\frac{C\cdot IR\cdot EF\cdot ED}{BW\cdot AT}
 $$
 
 Where:
@@ -231,7 +231,7 @@ AT = Averaging Time (days)
 For this exercise focusing on chronic dietary exposure, we will use a simplified version assuming continuous daily exposure over a lifetime:
 
 $$
-ADD =\frac{C*IR}{BW}
+ADD =\frac{C\cdot IR}{BW}
 $$
 
 ## Case Study: Inorganic arsenic through rice intake
