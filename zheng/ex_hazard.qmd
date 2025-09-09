@@ -2,13 +2,9 @@
 title: "Exercise: Hazard Identification and Exposure Assessment"
 subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Zheng Zhou"
-<<<<<<< HEAD:zheng/execise_hazard_expo.qmd
-#date: "09/12/2025"
-#format: 
-=======
 date: "09/12/2025"
+#format: 
 # format: 
->>>>>>> 1edbf61aeefd466f58d7eb71d5898b88bbdef52c:zheng/ex_hazard.qmd
 #  pdf:
 #    theme: simple
 #    incremental: true

@@ -1,6 +1,9 @@
 ---
 title: "Exercise Benchmark Dose Modelling"
+subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Zheng Zhou"
+date: "09/22/2025"
+
 # format:
 #  pdf:
 #    theme: simple
@@ -19,6 +22,19 @@ No report is required for this exercise.
 # Question 1: NOAEL/LOAEL
 
 You are provided with a dose-response data set from a real study. Download the data.
+
+```{r}
+#| echo: false
+downloadthis::download_file(
+  path = "../files/example_data_dose_Response_nopvalue.txt",
+  output_name = "example_data_dose_Response_nopvalue",
+  button_label = "Download text file",
+  button_type = "info",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+```
 
 The study has a control group and three dose groups. For each group, the following data is measured: number of subjects, group average response, group standard deviation, and the p value of the difference in average response compared with the control group. You can find the data by the file "example_data_dose_response.txt".
 

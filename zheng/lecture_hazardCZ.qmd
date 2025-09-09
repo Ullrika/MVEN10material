@@ -1,5 +1,6 @@
 ---
 title: "Hazard Characterization"
+subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Zheng Zhou"
 date: "09/15/2025"
 # format:
