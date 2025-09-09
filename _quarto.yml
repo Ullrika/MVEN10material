@@ -40,14 +40,14 @@ website:
          - text: "Exposure"
            file: zheng/ex_exposure.qmd
            target: "_blank"
-        - section: "Hazard characterisation - Sept 15" 
-          contents: 
-        - text: "Species Sensitivity Distribution"
-          file: ex/ex_species_sensitivity_distribution.qmd
-        - section: "Hazard characterisation - Sept 22" 
-          contents: 
-        - text: "Benchmark dose modelling"
-          file: ex/ex_benchmark_dose_modelling.qmd
+       - section: "Hazard characterisation - Sept 15" 
+         contents: 
+         - text: "Species Sensitivity Distribution"
+           file: ex/ex_species_sensitivity_distribution.qmd
+       - section: "Hazard characterisation - Sept 22" 
+         contents: 
+         - text: "Benchmark dose modelling"
+           file: zheng/ex_benchmark_dose_modelling.qmd
 #- text: "Exercise Uncertainty"
 #            file: ex/expressing_uncertainty.qmd
 #            target: "_blank"
