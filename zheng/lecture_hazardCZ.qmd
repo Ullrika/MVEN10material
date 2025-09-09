@@ -1,0 +1,200 @@
+---
+title: "Hazard Characterization"
+author: "Zheng Zhou"
+date: "09/15/2025"
+format:
+  pdf:
+    theme: simple
+    incremental: true
+    embedded-resources: true
+---
+
+## Schedule
+
+3-4pm: lecture on hazard characterization
+
+4-5pm: exercise on species sensitivity distribution
+
+---
+
+## Dose-response assessment
+
+### Description of hazards
+
+_"Ice cream consumption, exposure, intervention, experiment"_
+
+With or without a description of dose pertaining to the hazard:
+
+- Consuming _water_ can cause death
+
+- Consuming _1000 liters water_ can cause death
+
+- Consuming _1000 liters water in 1 hour_ can cause death
+
+---
+
+### A complete description of hazard must include dose
+
+With enough dose, everything could be lethal
+
+"*dosis sola facit venenum*" - Paracelsus, 1538
+
+"Only the dose makes the poison"
+
+Hazard characterization, aka dose-response assessment:
+
+After the **identification** of hazard, how the adverse outcome changes quantitatively in response to the changes in hazard?
+
+---
+
+## Why move away from NOAEL/LOAEL for dose-response assessment?
+
+Example 1
+
+_tolerated probability of type I error: 0.01_
+
+| Dose | Response | p value  |
+|------|----------|----------|
+| 0    | 10.0        | \-       |
+| 5    | 10.5      | 0.34     |
+| 25   | 11.3      | 0.002     |
+| 50   | 18.3       | \< 0.001 |
+
+1. Can you find a NOAEL?
+
+2. Can you find a LOAEL?
+
+Example 2
+
+| Dose | Response | p value |
+|----|----|-----|
+|0 | 10.0 | \- |
+| 10 | 10.5 | 0.005 |
+| 25 | 11.3 | \< 0.001 |
+| 50 | 18.3 | \< 0.001 |
+
+1. Can you find a NOAEL?
+
+2. Can you find a LOAEL?
+
+3. What's the difference between example 1 and 2? How the differences affect NOAEL/LOAEL?
+
+---
+
+### Problems of NOAEL/LOAEL approach
+
+- Limited by dosage setup in study design
+
+- Limited use of data
+
+- NOAEL not always available
+
+- No expression of uncertainty
+
+---
+
+## Benchmark dose modeling
+
+### What is BMD? 
+
+1. fit a statistical model to all dose-response data
+
+2. Determine a BMR: a level of response of practical interest, e.g., not considerably adverse in the population
+
+3. **Estimate the dose that causes the BMR using the fitted model**
+
+### Strength 
+
+1. Proper use of all dose-response data
+
+2. Much less limited by dosage setup in study design
+
+3. Not requiring the data to show a NOAEL
+
+4. Allow the expression of uncertainty as distributions
+
+### Challenges
+
+1. Require more and complicated statistical analysis
+
+2. Sensitive to selection of BMR
+
+3. Sensitive to choices in statistical modeling
+
+### Example benchmark dose models
+
+```{r, echo=FALSE,message=F,warning=F}
+# Load necessary library
+library(ggplot2)
+
+# Create example data for each type of dose-response curve
+dose <- seq(0, 100, length.out=10)
+
+# Monotonic increasing without threshold
+response_mono_no_thresh <- 0.5 * dose + rnorm(length(dose), 0, 1)
+
+# Monotonic increasing with threshold
+threshold <- 40
+response_mono_with_thresh <- ifelse(dose > threshold, 1 * (dose - threshold), 0) + rnorm(length(dose), 0, 1)
+
+# U-shaped dose-response curve
+response_u_shape <- 1 * (dose - 50)^2 / 100  + rnorm(length(dose), 0, 1)
+
+# Create a data frame to hold the data
+data <- data.frame(
+  dose = rep(dose, 3),
+  response = c(response_mono_no_thresh, response_mono_with_thresh, response_u_shape),
+  type = rep(c("Monotonic (no threshold)", "Monotonic (with threshold)", "U-shaped"), each = length(dose))
+)
+
+# Plot the dose-response curves using ggplot2
+ggplot(data, aes(x = dose, y = response, color = type)) +
+  # geom_line(linewidth = 1) +
+  geom_point()+
+  geom_smooth()+
+  labs(title = "Dose-Response Curves", x = "Dose", y = "Response") +
+  theme_minimal() +
+  scale_color_manual(values = c("blue", "green", "red")) +
+  theme(legend.title = element_blank())+
+  labs(title = "Three shapes of dose-response curves")
+```
+
+1. Monotonic, threshold
+
+Threshold: a level of **dose** beyond which the level of **responses** changes significantly
+
+  - Most ideal shape for decision making
+
+  - Require more data for modeling
+
+  - Majority of chemicals: non-mutagenic, safe below threshold
+  
+  - BMD around the threshold
+
+2. Monotonic, no threshold
+
+  - Easy to model
+
+  - Mutagenic chemicals: one molecular can cause cancer, no safe level
+  
+  - BMD around the dose that causes considerable risk, e.g., >= 1 cancer in 100,000 population
+  
+3. Non-monotonic
+
+  - Hormesis
+  
+  - Essential chemicals
+  
+## BMD tools
+
+We will exercise with:
+
+EFSA PROAST web (by RIVM): https://proastweb.rivm.nl/
+
+BMDS online (by US EPA): https://www.epa.gov/bmds/bmds-online
+
+Other options, not in our exercise:
+
+PROAST full (R package): https://www.rivm.nl/en/proast
+
+EFSA Bayesian BMD (by Hasselt University, Belgium): https://r4eu.efsa.europa.eu/app/bmdbayesian
