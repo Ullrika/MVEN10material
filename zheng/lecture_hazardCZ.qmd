@@ -2,11 +2,11 @@
 title: "Hazard Characterization"
 author: "Zheng Zhou"
 date: "09/15/2025"
-format:
-  pdf:
-    theme: simple
-    incremental: true
-    embedded-resources: true
+# format:
+#  pdf:
+#    theme: simple
+#    incremental: true
+#    embedded-resources: true
 ---
 
 ## Schedule

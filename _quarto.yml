@@ -32,17 +32,22 @@ website:
          - text: "Exercise Probability"
            file: ex/chance_belief_frequency.qmd
            target: "_blank"
-       - section: "Exposure assessment"
+       - section: "Hazard and Exposure assessment - Sept 12" 
          contents: 
-          #- text: "Exposure"
-          #  file: ex/ex_environ_fate_assessment.qmd
-          #- text: "Exposure"
-          #  file: ex/ex_environ_fate_assessment.qmd
-          - text: "Hazard and Exposure"
-            file: ex/ex_exposure_assessment_databases.qmd
-            target: "_blank"
-          - text: "SSD"
-            file: ex/ex_species_sensitivity_distribution.qmd
+         - text: "Hazard"
+           file: zheng/ex_hazard.qmd
+           target: "_blank"
+         - text: "Exposure"
+           file: zheng/ex_exposure.qmd
+           target: "_blank"
+        - section: "Hazard characterisation - Sept 15" 
+          contents: 
+        - text: "Species Sensitivity Distribution"
+          file: ex/ex_species_sensitivity_distribution.qmd
+        - section: "Hazard characterisation - Sept 22" 
+          contents: 
+        - text: "Benchmark dose modelling"
+          file: ex/ex_benchmark_dose_modelling.qmd
 #- text: "Exercise Uncertainty"
 #            file: ex/expressing_uncertainty.qmd
 #            target: "_blank"
