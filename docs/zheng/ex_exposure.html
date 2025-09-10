@@ -315,35 +315,11 @@ window.Quarto = {
 <p>Through this exercise, you will develop practical skills in quantitative exposure assessment methodology that forms the foundation of risk characterization in environmental and occupational health.</p>
 <section id="submission-requirements" class="level2">
 <h2 class="anchored" data-anchor-id="submission-requirements">Submission requirements</h2>
-<!-- You must submit a report in PDF format. You are recommended to generate the PDF document from a QMD file.  -->
 <ul>
-<li>The sections of the report should be indexed by questions.</li>
-</ul>
-<!-- If you prepare the report in QMD format, you can create indexes using the following template: -->
-<!-- ``` -->
-<!-- # Heading level 1 -->
-<!-- ## Heading level 2 -->
-<!-- ### Heading level 3 -->
-<!-- ``` -->
-<!-- Use the following `YAML` header at the top of your QMD document: -->
-<!-- ``` -->
-<!-- title: "Exposure assessment using Real Data" -->
-<!-- subtitle: "Calculate Average Daily Dose" -->
-<!-- author: "Your name" -->
-<!-- date: today -->
-<!-- format:  -->
-<!--   pdf: -->
-<!--     toc: true -->
-<!--     message: false -->
-<!--     warning: false -->
-<!--     theme: simple -->
-<!--     incremental: true -->
-<!--     embedded-resources: true -->
-<!-- ``` -->
-<!-- Other formatting requirements: -->
-<ul>
+<li><p>The sections of the report should be indexed by questions</p></li>
 <li><p>Include proper citations for all data sources</p></li>
 <li><p>Ensure all figures or tables are properly labeled</p></li>
+<li><p>Save the report as a PDF and submit to Canvas</p></li>
 </ul>
 </section>
 <section id="average-daily-dose-concept-and-equation" class="level2">
@@ -385,7 +361,8 @@ ADD =\frac{C\cdot IR}{BW}
 <li><strong>Extract</strong> data on inorganic arsenic concentration in rice from the US, Swedish and Italian markets. You can find relevant information from the following sources:</li>
 </ol>
 <p><a href="https://www.fda.gov/media/86074/download">US FDA Analytical Results from Inorganic Arsenic in Rice and Rice Products Sampling</a></p>
-<p><a href="https://www.livsmedelsverket.se/globalassets/publikationsdatabas/rapporter/2015/inorganic-arsenic-in-rice-and-rice-products-on-the-swedish-market-2015---part-2-risk-assessment.pdf">livsmedelsverket report on Inorganic arsenic in rice and rice products on the Swedish market 2015</a> Notice the data could be reported for different rice and rice products. <strong>Decide</strong> based on the principles of exposure assessment you learnt before.</p>
+<p><a href="https://www.livsmedelsverket.se/globalassets/publikationsdatabas/rapporter/2015/inorganic-arsenic-in-rice-and-rice-products-on-the-swedish-market-2015---part-2-risk-assessment.pdf">livsmedelsverket report on Inorganic arsenic in rice and rice products on the Swedish market 2015</a></p>
+<p>Notice the data could be reported for different rice and rice products. <strong>Decide</strong> based on the principles of exposure assessment you learnt before.</p>
 <p><a href="https://pubs.acs.org/doi/10.1021/acs.jafc.7b00694">Tenni et al.&nbsp;2017 Total As and As Speciation in Italian Rice as Related to Producing Areas and Paddy Soils Properties</a></p>
 <p>Notice the data could be reported for different arsenic species and different rice grains. Consider only <em>inorganic</em> arsenic. <strong>Convert</strong> the extract data to average inorganic arsenic concentration in rice (ug/kg).</p>
 <ol start="3" class="example" type="1">
@@ -403,7 +380,11 @@ ADD =\frac{C\cdot IR}{BW}
 <li><p>If arsenic concentration were regulated uniformly across the EU. Use half of the EU maximum level for inorganic arsenic in rice for both Sweden and Italy, that is 100 ug/kg. Keep original consumption and body weight data for each country.</p></li>
 <li><p>If Swedish population had the same body weight as the US. Keep Sweden’s original arsenic concentration and rice consumption.</p></li>
 </ol>
-<p><strong>Present</strong> all ADD calculations (including the real ones from question 4) in a table for comparison. You may generate the table in excel, in R, or use a [table generator] for the QMD file (https://www.tablesgenerator.com/markdown_tables). The table must be included in your report.</p>
+<p><strong>Present</strong> all ADD calculations (including the real ones from question 4) in a table for comparison.</p>
+<div class="{callout-tip}">
+<p>You may generate the table in excel and paste into e.g.&nbsp;word.</p>
+<p>If using R (e.g.&nbsp;in future examples) you can use a <a href="https://www.tablesgenerator.com/markdown_tables">table generator</a> for the QMD file.</p>
+</div>
 <ol start="6" class="example" type="1">
 <li>The World Health Organization (WHO 2011) determined that the inorganic arsenic lower limit on the benchmark dose for lung cancer was calculated to be 3 μg/kg bw per day and 5.2 µg/kg bw/day for bladder cancer, respectively. The US EPA (IRIS 2025) ruled that the inorganic arsenic lower limit on the benchmark dose for cardiovascular endocrine disruption was calculated to be 6 x 10 -5 mg/kg/day. <strong>Compare</strong> the real ADDs you calculated for the three populations with these regulatory reference values.</li>
 </ol>
