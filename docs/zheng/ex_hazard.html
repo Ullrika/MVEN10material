@@ -9,7 +9,7 @@
 <meta name="author" content="Zheng Zhou">
 <meta name="dcterms.date" content="2025-09-12">
 
-<title>Exercise: Hazard Identification and Exposure Assessment – MVEN10</title>
+<title>Exercise: Hazard Identification – MVEN10</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -71,35 +105,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/font-awesome-6.5.2/js/script.js"></script>
 
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -247,23 +252,6 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Hazard characterisation - Sept 22</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../zheng/ex_benchmark_dose_modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Benchmark dose modelling</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -279,15 +267,6 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#submission-requirements" id="toc-submission-requirements" class="nav-link" data-scroll-target="#submission-requirements">Submission requirements</a></li>
   <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
-  <li><a href="#example-r-script" id="toc-example-r-script" class="nav-link" data-scroll-target="#example-r-script">Example R script</a></li>
-  </ul></li>
-  <li><a href="#part-ii-reporting-exposure" id="toc-part-ii-reporting-exposure" class="nav-link" data-scroll-target="#part-ii-reporting-exposure">Part II: Reporting Exposure</a>
-  <ul class="collapse">
-  <li><a href="#submission-requirements-1" id="toc-submission-requirements-1" class="nav-link" data-scroll-target="#submission-requirements-1">Submission requirements</a></li>
-  <li><a href="#average-daily-dose-concept-and-equation" id="toc-average-daily-dose-concept-and-equation" class="nav-link" data-scroll-target="#average-daily-dose-concept-and-equation">Average daily dose concept and equation</a></li>
-  <li><a href="#case-study-inorganic-arsenic-through-rice-intake" id="toc-case-study-inorganic-arsenic-through-rice-intake" class="nav-link" data-scroll-target="#case-study-inorganic-arsenic-through-rice-intake">Case Study: Inorganic arsenic through rice intake</a></li>
-  <li><a href="#instructions-1" id="toc-instructions-1" class="nav-link" data-scroll-target="#instructions-1">Instructions</a></li>
-  <li><a href="#optional-questions-for-extracurricular-activities" id="toc-optional-questions-for-extracurricular-activities" class="nav-link" data-scroll-target="#optional-questions-for-extracurricular-activities">Optional questions for extracurricular activities</a></li>
   </ul></li>
   <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a></li>
   </ul>
@@ -298,7 +277,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../zheng/ex_hazard.html">Hazard and Exposure assessment - Sept 12</a></li><li class="breadcrumb-item"><a href="../zheng/ex_hazard.html">Hazard</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Exercise: Hazard Identification and Exposure Assessment</h1>
+<h1 class="title">Exercise: Hazard Identification</h1>
 <p class="subtitle lead">MVEN10 Risk Assessment in Environment and Public Health</p>
 </div>
 
@@ -338,11 +317,11 @@ window.Quarto = {
 <p>This part helps to practice your R skills and improve your understandings on the threats to internal validity. You will use the R skills acquired from previous classes to perform data management and inspection in R. These data will be used in an analysis on the threats to internal validity. Example R script is provided at the end of this part. You are encourage to complete the exercise by yourself, then compare your code with the example script.</p>
 <section id="submission-requirements" class="level2">
 <h2 class="anchored" data-anchor-id="submission-requirements">Submission requirements</h2>
-<p>No report required.</p>
+<p>If present and active at the exercise, no report is required.</p>
 </section>
 <section id="instructions" class="level2">
 <h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
-<ol type="1">
+<ol class="example" type="1">
 <li><strong>Download</strong> the spreadsheet with different hazard data.</li>
 </ol>
 <div class="cell">
@@ -375,7 +354,7 @@ window.Quarto = {
   "><i class="fa fa-save"></i> Download xlsx file</button>
 </div>
 </div>
-<ol start="2" type="1">
+<ol start="2" class="example" type="1">
 <li>Open the file in Excel. <strong>Inspect</strong> worksheet <code>base</code>. Understand the data based on the following variable notions:</li>
 </ol>
 <ul>
@@ -383,223 +362,165 @@ window.Quarto = {
 <li><p>Exposed: exposure status. 0= unexposed, 1= exposed.</p></li>
 <li><p>BPb: Blood lead levels (parts per billion) of the subject</p></li>
 </ul>
-<ol start="3" type="1">
-<li><strong>Calculate</strong> the average BPb level for exposed and unexposed subjects, respectively. Use excel or R.</li>
+<ol start="3" class="example" type="1">
+<li><p><strong>Calculate</strong> the average BPb level for exposed and unexposed subjects, respectively. Use excel or R.</p></li>
+<li><p><strong>Compare</strong> worksheet <code>expand</code> with worksheet <code>base</code>. <strong>Discuss</strong> whether you believe they are the same and why.</p></li>
+<li><p>Go to worksheet <code>scen1</code> to <code>scen4</code> and <strong>calculate</strong> the average BPb level for the exposed and unexposed subjects from each data.</p></li>
+<li><p><strong>Create</strong> a simple comparison plot and a two-group pre-post comparison plot for each scenario based on the corresponding worksheet.</p></li>
 </ol>
 <div class="{callout-tip}">
-
+<p>Below is a code to read in the data and create the plot in R. Open your project in posit cloud. Upload the data file in the data folder. Open an empty qmd file, add an R-chunk and paste in the code. You can create multiple chunks by putting the cursor where you want a divide and press the +c green button.</p>
 </div>
-<p>(In R) <strong>Read</strong> worksheet <code>expand</code>. <strong>Compare</strong> it with worksheet <code>base</code>. <strong>Discuss</strong> whether you believe they are the same and why.</p>
-<ol start="4" type="1">
-<li><p>(In R) <strong>Read</strong> worksheet <code>scen1</code> to <code>scen4</code>. <strong>Calculate</strong> the average BPb level for the exposed and unexposed subjects from each data.</p></li>
-<li><p>(R optional) <strong>Create</strong> a simple comparison plot and a two-group pre-post comparison plot for each scenario based on the corresponding worksheet.</p></li>
-<li><p><strong>Discuss</strong> whether there is difference in the simple comparison plots between scenarios, or difference in the pre-post comparison plot between scenarios.</p></li>
-</ol>
-</section>
-<section id="example-r-script" class="level2">
-<h2 class="anchored" data-anchor-id="example-r-script">Example R script</h2>
-<p>You are encouraged to firstly complete the exercise, then consider the script below for validation.</p>
-<pre><code>library(readxl)
-path &lt;- getwd()                 ## replace this line with the path of your downloaded file 
-
-base &lt;- read_xlsx(file.path(path,"exercise_Data_hazardID.xlsx"),sheet = "base")
-print(base)
-
-expand &lt;- read_xlsx(file.path(path,"exercise_Data_hazardID.xlsx"),sheet = "expand")
-print(expand)
-
-scen1 &lt;- read_xlsx(file.path(path,"exercise_Data_hazardID.xlsx"),sheet = "scen1")
-print(scen1)
-
-scen2 &lt;- read_xlsx(file.path(path,"exercise_Data_hazardID.xlsx"),sheet = "scen2")
-print(scen2)
-
-scen3 &lt;- read_xlsx(file.path(path,"exercise_Data_hazardID.xlsx"),sheet = "scen3")
-print(scen3)
-
-scen4 &lt;- read_xlsx(file.path(path,"exercise_Data_hazardID.xlsx"),sheet = "scen4")
-print(scen4)
-
-library(tidyverse)
-# Function to create simple comparison plot
-create_simple_plot &lt;- function(df, scenario_name) {
-  ggplot(df, aes(x = as.factor(Exposed), y = `Observed BPb`, fill = as.factor(Exposed))) +
-    geom_boxplot(alpha = 0.7, width = 0.5) +
-    geom_jitter(width = 0.1, size = 2, alpha = 0.8) +
-    scale_fill_manual(values = c("0" = "skyblue", "1" = "salmon")) +
-    labs(title = paste("Scenario", gsub("scen", "", scenario_name), 
-                       ": Observed BPb by Exposure Group"),
-         x = "Exposed (0 = No, 1 = Yes)",
-         y = "Blood Lead Level (BPb)") +
-    theme_minimal() +
-    theme(legend.position = "none")
-}
-
-# Function to create group mean pre-post comparison plot
-create_group_mean_plot &lt;- function(df, scenario_name) {
-  # Calculate group means
-  group_means &lt;- df %&gt;%
-    group_by(Exposed) %&gt;%
-    summarize(
-      mean_before = mean(BPb_before, na.rm = TRUE),
-      mean_after = mean(BPb_after, na.rm = TRUE)
-    ) %&gt;%
-    pivot_longer(
-      cols = c(mean_before, mean_after),
-      names_to = "Time",
-      values_to = "Mean_BPb"
-    ) %&gt;%
-    mutate(
-      Time = factor(Time,
-                   levels = c("mean_before", "mean_after"),
-                   labels = c("Pre", "Post")),
-      Exposed_Group = ifelse(Exposed == 0, "Unexposed", "Exposed")
-    )
-  
-  ggplot(group_means, aes(x = Time, y = Mean_BPb, group = Exposed_Group)) +
-    geom_line(aes(color = Exposed_Group), alpha = 0.7, linewidth = 1.5) +
-    geom_point(aes(color = Exposed_Group, shape = Exposed_Group), size = 4) +
-    scale_color_manual(values = c("Unexposed" = "skyblue", "Exposed" = "salmon")) +
-    scale_shape_manual(values = c("Unexposed" = 16, "Exposed" = 17)) +
-    labs(title = paste("Scenario", gsub("scen", "", scenario_name), 
-                       ": Pre-Post Group Mean Comparison"),
-         subtitle = "Lines show average BPb levels before and after exposure for each group",
-         x = "Time",
-         y = "Mean Blood Lead Level (BPb)",
-         color = "Exposure Group",
-         shape = "Exposure Group") +
-    theme_minimal() +
-    theme(legend.position = "bottom")
-}
-# Create plots for Scenario 1
-scen1_simple_plot &lt;- create_simple_plot(scen1, "scen1")
-scen1_group_prepost_plot &lt;- create_group_mean_plot(scen1, "scen1")
-
-# Create plots for Scenario 2
-scen2_simple_plot &lt;- create_simple_plot(scen2, "scen2")
-scen2_group_prepost_plot &lt;- create_group_mean_plot(scen2, "scen2")
-
-# Create plots for Scenario 3
-scen3_simple_plot &lt;- create_simple_plot(scen3, "scen3")
-scen3_group_prepost_plot &lt;- create_group_mean_plot(scen3, "scen3")
-
-# Create plots for Scenario 4
-scen4_simple_plot &lt;- create_simple_plot(scen4, "scen4")
-scen4_group_prepost_plot &lt;- create_group_mean_plot(scen4, "scen4")</code></pre>
-</section>
-</section>
-<section id="part-ii-reporting-exposure" class="level1">
-<h1>Part II: Reporting Exposure</h1>
-<p>This part is to provide hands-on practice in exposure assessment, a fundamental component of human health risk assessment. Students will learn to:</p>
-<ul>
-<li><p>Calculate Average Daily Dose (ADD) using real-world data</p></li>
-<li><p>Integrate multiple exposure parameters from different populations</p></li>
-<li><p>Compare exposure scenarios across different countries</p></li>
-<li><p>Interpret results in the context of public health significance</p></li>
-<li><p>Apply statistical programming (R) to exposure assessment problems</p></li>
-</ul>
-<p>Through this exercise, you will develop practical skills in quantitative exposure assessment methodology that forms the foundation of risk characterization in environmental and occupational health.</p>
-<section id="submission-requirements-1" class="level2">
-<h2 class="anchored" data-anchor-id="submission-requirements-1">Submission requirements</h2>
-<p>You must submit a report in PDF format. You are recommended to generate the PDF document from a QMD file. The sections of the report should be indexed by questions.</p>
-<p>If you prepare the report in QMD format, you can create indexes using the following template:</p>
-<pre><code># Heading level 1
-
-## Heading level 2
-
-### Heading level 3</code></pre>
-<p>Use the following <code>YAML</code> header at the top of your QMD document:</p>
-<pre><code>title: "Exposure assessment using Real Data"
-subtitle: "Calculate Average Daily Dose"
-author: "Your name"
-date: today
-format: 
-  pdf:
-    toc: true
-    message: false
-    warning: false
-    theme: simple
-    incremental: true
-    embedded-resources: true</code></pre>
-<p>For each question, your answers must include the following components:</p>
-<ol type="1">
-<li><p>R code: All R scripts used for data extraction, processing, and calculations (properly commented). You are recommended to divide the chunk into multiple chunks. This allows you to have better control of the output from each chunk.</p></li>
-<li><p>Written results and discussions.</p></li>
-</ol>
-<p>Other formatting requirements:</p>
-<ol type="1">
-<li><p>Include proper citations for all data sources</p></li>
-<li><p>Ensure all figures and tables are properly labeled</p></li>
-</ol>
-</section>
-<section id="average-daily-dose-concept-and-equation" class="level2">
-<h2 class="anchored" data-anchor-id="average-daily-dose-concept-and-equation">Average daily dose concept and equation</h2>
-<p><strong>Definition</strong></p>
-<p>The Average Daily Dose (ADD) represents the average amount of a chemical substance that an individual is exposed to per unit body weight per day over a specified time period. It is a fundamental metric in exposure assessment used to characterize potential health risks.</p>
-<p><strong>Equation</strong></p>
-<p><span class="math display">\[
-ADD=\frac{C\cdot IR\cdot EF\cdot ED}{BW\cdot AT}
-\]</span></p>
-<p>Where:</p>
-<p>ADD = Average Daily Dose (mg/kg-day)</p>
-<p>C = Concentration of the contaminant in the medium (mg/kg for food)</p>
-<p>IR = Ingestion Rate (kg/day for food consumption)</p>
-<p>EF = Exposure Frequency (days/year)</p>
-<p>ED = Exposure Duration (years)</p>
-<p>BW = Body Weight (kg)</p>
-<p>AT = Averaging Time (days)</p>
-<p><strong>Simplified Equation for Dietary Exposure</strong></p>
-<p>For this exercise focusing on chronic dietary exposure, we will use a simplified version assuming continuous daily exposure over a lifetime:</p>
-<p><span class="math display">\[
-ADD =\frac{C\cdot IR}{BW}
-\]</span></p>
-</section>
-<section id="case-study-inorganic-arsenic-through-rice-intake" class="level2">
-<h2 class="anchored" data-anchor-id="case-study-inorganic-arsenic-through-rice-intake">Case Study: Inorganic arsenic through rice intake</h2>
-<p>Inorganic arsenic contamination in rice represents a significant global public health concern. Inorganic arsenic is classified as a Group 1 carcinogen by the International Agency for Research on Cancer (IARC) (IARC 2012). Rice serves as a staple food for over half of the world’s population, making dietary exposure through rice consumption a widespread concern.</p>
-<p>The European Commission has established maximum levels for inorganic arsenic in rice products (200 µg/kg for milled rice), and the US FDA has proposed action levels, highlighting the regulatory significance of this contamination issue.</p>
-</section>
-<section id="instructions-1" class="level2">
-<h2 class="anchored" data-anchor-id="instructions-1">Instructions</h2>
-<ol type="1">
-<li><strong>Extract</strong> data on rice consumption for the US, Swedish and Italian populations. You can find relevant information from the following sources:</li>
-</ol>
-<p>The US EPA <a href="https://www.epa.gov/expobox/about-exposure-factors-handbook">Exposure factors handbook</a></p>
-<p>Sweden and Italy <a href="https://joint-research-centre.ec.europa.eu/expofacts-european-exposure-factors-sourcebook_en">European Exposure facts</a>.</p>
-<p>Notice the data could be reported for different subpopulations. <strong>Choose</strong> the most representative subpopulation based on the principles of exposure assessment you learnt before. <strong>Convert</strong> the extract data to average daily rice intake (kg/day).</p>
-<ol start="2" type="1">
-<li><strong>Extract</strong> data on inorganic arsenic concentration in rice from the US, Swedish and Italian markets. You can find relevant information from the following sources:</li>
-</ol>
-<p><a href="https://www.fda.gov/media/86074/download">US FDA Analytical Results from Inorganic Arsenic in Rice and Rice Products Sampling</a></p>
-<p><a href="https://www.livsmedelsverket.se/globalassets/publikationsdatabas/rapporter/2015/inorganic-arsenic-in-rice-and-rice-products-on-the-swedish-market-2015---part-2-risk-assessment.pdf">livsmedelsverket report on Inorganic arsenic in rice and rice products on the Swedish market 2015</a> Notice the data could be reported for different rice and rice products. <strong>Decide</strong> based on the principles of exposure assessment you learnt before.</p>
-<p><a href="https://pubs.acs.org/doi/10.1021/acs.jafc.7b00694">Tenni et al.&nbsp;2017 Total As and As Speciation in Italian Rice as Related to Producing Areas and Paddy Soils Properties</a></p>
-<p>Notice the data could be reported for different arsenic species and different rice grains. Consider only <em>inorganic</em> arsenic. <strong>Convert</strong> the extract data to average inorganic arsenic concentration in rice (ug/kg).</p>
-<ol start="3" type="1">
-<li><strong>Extract</strong> data on body weights for the US, Swedish and Italian populations. You can find relevant information from the following sources:</li>
-</ol>
-<p>The US EPA <a href="https://www.epa.gov/expobox/about-exposure-factors-handbook">Exposure factors handbook</a></p>
-<p>Sweden and Italy <a href="https://joint-research-centre.ec.europa.eu/expofacts-european-exposure-factors-sourcebook_en">European Exposure facts</a>.</p>
-<p>Notice the data could be reported for different subpopulations. <strong>Choose</strong> the most representative subpopulation based on the principles of exposure assessment you learnt before. <strong>Convert</strong> the extract data to average body weights (kg).</p>
-<ol start="4" type="1">
-<li><p>(In R) <strong>Calculate</strong> ADDs using the simplified equation and the extracted data on rice consumption, inorganic arsenic concentration and body weight. Do the calculation for the US, Swedish and Italian population respectively.</p></li>
-<li><p>(In R) <strong>Calculate</strong> ADDs for the following hypothetical scenarios:</p></li>
-</ol>
-<p>5a) If Sweden had the same rice consumption rate as Italy. Keep Sweden’s original arsenic concentration and body weight data.</p>
-<p>5b) If arsenic concentration were regulated uniformly across the EU. Use half of the EU maximum level for inorganic arsenic in rice for both Sweden and Italy, that is 100 ug/kg. Keep original consumption and body weight data for each country.</p>
-<p>5c) If Swedish population had the same body weight as the US. Keep Sweden’s original arsenic concentration and rice consumption.</p>
-<p><strong>Present</strong> all ADD calculations (including the real ones from question 4) in a table for comparison. You may generate the table in excel, in R, or use a [table generator] for the QMD file (https://www.tablesgenerator.com/markdown_tables). The table must be included in your report.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>path <span class="ot">=</span> <span class="st">"data"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>base <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="fu">file.path</span>(path,<span class="st">"exercise_Data_hazardID.xlsx"</span>),<span class="at">sheet =</span> <span class="st">"base"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(base)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>expand <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="fu">file.path</span>(path,<span class="st">"exercise_Data_hazardID.xlsx"</span>),<span class="at">sheet =</span> <span class="st">"expand"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(expand)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>scen1 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="fu">file.path</span>(path,<span class="st">"exercise_Data_hazardID.xlsx"</span>),<span class="at">sheet =</span> <span class="st">"scen1"</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(scen1)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>scen2 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="fu">file.path</span>(path,<span class="st">"exercise_Data_hazardID.xlsx"</span>),<span class="at">sheet =</span> <span class="st">"scen2"</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(scen2)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>scen3 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="fu">file.path</span>(path,<span class="st">"exercise_Data_hazardID.xlsx"</span>),<span class="at">sheet =</span> <span class="st">"scen3"</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(scen3)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>scen4 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="fu">file.path</span>(path,<span class="st">"exercise_Data_hazardID.xlsx"</span>),<span class="at">sheet =</span> <span class="st">"scen4"</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(scen4)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to create simple comparison plot</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>create_simple_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(df, scenario_name) {</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(Exposed), <span class="at">y =</span> <span class="st">`</span><span class="at">Observed BPb</span><span class="st">`</span>, <span class="at">fill =</span> <span class="fu">as.factor</span>(Exposed))) <span class="sc">+</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">width =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"skyblue"</span>, <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"salmon"</span>)) <span class="sc">+</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Scenario"</span>, <span class="fu">gsub</span>(<span class="st">"scen"</span>, <span class="st">""</span>, scenario_name), </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>                       <span class="st">": Observed BPb by Exposure Group"</span>),</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Exposed (0 = No, 1 = Yes)"</span>,</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Blood Lead Level (BPb)"</span>) <span class="sc">+</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to create group mean pre-post comparison plot</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>create_group_mean_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(df, scenario_name) {</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate group means</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  group_means <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(Exposed) <span class="sc">%&gt;%</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>      <span class="at">mean_before =</span> <span class="fu">mean</span>(BPb_before, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>      <span class="at">mean_after =</span> <span class="fu">mean</span>(BPb_after, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>      <span class="at">cols =</span> <span class="fu">c</span>(mean_before, mean_after),</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>      <span class="at">names_to =</span> <span class="st">"Time"</span>,</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>      <span class="at">values_to =</span> <span class="st">"Mean_BPb"</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>      <span class="at">Time =</span> <span class="fu">factor</span>(Time,</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>                   <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"mean_before"</span>, <span class="st">"mean_after"</span>),</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Pre"</span>, <span class="st">"Post"</span>)),</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>      <span class="at">Exposed_Group =</span> <span class="fu">ifelse</span>(Exposed <span class="sc">==</span> <span class="dv">0</span>, <span class="st">"Unexposed"</span>, <span class="st">"Exposed"</span>)</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(group_means, <span class="fu">aes</span>(<span class="at">x =</span> Time, <span class="at">y =</span> Mean_BPb, <span class="at">group =</span> Exposed_Group)) <span class="sc">+</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> Exposed_Group), <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Exposed_Group, <span class="at">shape =</span> Exposed_Group), <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Unexposed"</span> <span class="ot">=</span> <span class="st">"skyblue"</span>, <span class="st">"Exposed"</span> <span class="ot">=</span> <span class="st">"salmon"</span>)) <span class="sc">+</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Unexposed"</span> <span class="ot">=</span> <span class="dv">16</span>, <span class="st">"Exposed"</span> <span class="ot">=</span> <span class="dv">17</span>)) <span class="sc">+</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Scenario"</span>, <span class="fu">gsub</span>(<span class="st">"scen"</span>, <span class="st">""</span>, scenario_name), </span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>                       <span class="st">": Pre-Post Group Mean Comparison"</span>),</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"Lines show average BPb levels before and after exposure for each group"</span>,</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Time"</span>,</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Mean Blood Lead Level (BPb)"</span>,</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>         <span class="at">color =</span> <span class="st">"Exposure Group"</span>,</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>         <span class="at">shape =</span> <span class="st">"Exposure Group"</span>) <span class="sc">+</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="co"># Create plots for Scenario 1</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>scen1_simple_plot <span class="ot">&lt;-</span> <span class="fu">create_simple_plot</span>(scen1, <span class="st">"scen1"</span>)</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>scen1_group_prepost_plot <span class="ot">&lt;-</span> <span class="fu">create_group_mean_plot</span>(scen1, <span class="st">"scen1"</span>)</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="co"># Create plots for Scenario 2</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>scen2_simple_plot <span class="ot">&lt;-</span> <span class="fu">create_simple_plot</span>(scen2, <span class="st">"scen2"</span>)</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>scen2_group_prepost_plot <span class="ot">&lt;-</span> <span class="fu">create_group_mean_plot</span>(scen2, <span class="st">"scen2"</span>)</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="co"># Create plots for Scenario 3</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>scen3_simple_plot <span class="ot">&lt;-</span> <span class="fu">create_simple_plot</span>(scen3, <span class="st">"scen3"</span>)</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>scen3_group_prepost_plot <span class="ot">&lt;-</span> <span class="fu">create_group_mean_plot</span>(scen3, <span class="st">"scen3"</span>)</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="co"># Create plots for Scenario 4</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>scen4_simple_plot <span class="ot">&lt;-</span> <span class="fu">create_simple_plot</span>(scen4, <span class="st">"scen4"</span>)</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>scen4_group_prepost_plot <span class="ot">&lt;-</span> <span class="fu">create_group_mean_plot</span>(scen4, <span class="st">"scen4"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <ol start="6" type="1">
-<li>The World Health Organization (WHO 2011) determined that the inorganic arsenic lower limit on the benchmark dose for lung cancer was calculated to be 3 μg/kg bw per day and 5.2 µg/kg bw/day for bladder cancer, respectively. The US EPA (IRIS 2025) ruled that the inorganic arsenic lower limit on the benchmark dose for cardiovascular endocrine disruption was calculated to be 6 x 10 -5 mg/kg/day. <strong>Compare</strong> the real ADDs you calculated for the three populations with these regulatory reference values.</li>
+<li><strong>Discuss</strong> whether there is difference in the simple comparison plots between scenarios, or difference in the pre-post comparison plot between scenarios.</li>
 </ol>
-</section>
-<section id="optional-questions-for-extracurricular-activities" class="level2">
-<h2 class="anchored" data-anchor-id="optional-questions-for-extracurricular-activities">Optional questions for extracurricular activities</h2>
-<p>The following questions are not required for this report. You are encourage to explore them as extracurricular activities if you are interested.</p>
-<ol start="7" type="1">
-<li><p>(In R) <strong>Extract</strong> data on rice consumption, inorganic arsenic concentration and body weight for a different country of your interest. <strong>Calculate</strong> the ADD and compare with the ones from question 4. Then <strong>compare</strong> the ADD with the reference values from question 6.</p></li>
-<li><p>Based on the ADDs you calculated in question 4 and 5, <strong>discuss</strong> which parameter (concentration, consumption, body weight) causes the greatest change in ADD when varied between populations?</p></li>
-<li><p>Based on the results of question 6, <strong>discuss</strong> if you consider inorganic arsenic in rice require immediate regulatory action for Sweden and Italy. If yes, <strong>propose</strong> one mitigation strategy for the corresponding country and briefly <strong>explain</strong> your rationale.</p></li>
-</ol>
+<!-- For each question, your answers must include the following components: -->
+<!-- 1. R code: All R scripts used for data extraction, processing, and calculations (properly commented). You are recommended to divide the chunk into multiple chunks. This allows you to have better control of the output from each chunk. -->
+<!-- 2. Written results and discussions. -->
+<!-- Other formatting requirements: -->
+<!-- 1. Include proper citations for all data sources -->
+<!-- 2. Ensure all figures and tables are properly labeled -->
+<!-- ## Average daily dose concept and equation -->
+<!-- **Definition** -->
+<!-- The Average Daily Dose (ADD) represents the average amount of a chemical substance that an individual is exposed to per unit body weight per day over a specified time period. It is a fundamental metric in exposure assessment used to characterize potential health risks. -->
+<!-- **Equation** -->
+<!-- $$ -->
+<!-- ADD=\frac{C\cdot IR\cdot EF\cdot ED}{BW\cdot AT} -->
+<!-- $$ -->
+<!-- Where: -->
+<!-- ADD = Average Daily Dose (mg/kg-day) -->
+<!-- C = Concentration of the contaminant in the medium (mg/kg for food) -->
+<!-- IR = Ingestion Rate (kg/day for food consumption) -->
+<!-- EF = Exposure Frequency (days/year) -->
+<!-- ED = Exposure Duration (years) -->
+<!-- BW = Body Weight (kg) -->
+<!-- AT = Averaging Time (days) -->
+<!-- **Simplified Equation for Dietary Exposure** -->
+<!-- For this exercise focusing on chronic dietary exposure, we will use a simplified version assuming continuous daily exposure over a lifetime: -->
+<!-- $$ -->
+<!-- ADD =\frac{C\cdot IR}{BW} -->
+<!-- $$ -->
+<!-- ## Case Study: Inorganic arsenic through rice intake -->
+<!-- Inorganic arsenic contamination in rice represents a significant global public health concern. Inorganic arsenic is classified as a Group 1 carcinogen by the International Agency for Research on Cancer (IARC) (IARC 2012). Rice serves as a staple food for over half of the world's population, making dietary exposure through rice consumption a widespread concern. -->
+<!-- The European Commission has established maximum levels for inorganic arsenic in rice products (200 µg/kg for milled rice), and the US FDA has proposed action levels, highlighting the regulatory significance of this contamination issue. -->
+<!-- ## Instructions -->
+<!-- 1. **Extract** data on rice consumption for the US, Swedish and Italian populations. You can find relevant information from the following sources:  -->
+<!-- The US EPA [Exposure factors handbook](https://www.epa.gov/expobox/about-exposure-factors-handbook)  -->
+<!-- Sweden and Italy [European Exposure facts](https://joint-research-centre.ec.europa.eu/expofacts-european-exposure-factors-sourcebook_en).  -->
+<!-- Notice the data could be reported for different subpopulations. **Choose** the most representative subpopulation based on the principles of exposure assessment you learnt before. **Convert** the extract data to average daily rice intake (kg/day).  -->
+<!-- 2. **Extract** data on inorganic arsenic concentration in rice from the US, Swedish and Italian markets. You can find relevant information from the following sources:  -->
+<!-- [US FDA Analytical Results from Inorganic Arsenic in Rice and Rice Products Sampling](https://www.fda.gov/media/86074/download) -->
+<!-- [livsmedelsverket report on Inorganic arsenic in rice and rice products on the Swedish market 2015](https://www.livsmedelsverket.se/globalassets/publikationsdatabas/rapporter/2015/inorganic-arsenic-in-rice-and-rice-products-on-the-swedish-market-2015---part-2-risk-assessment.pdf) -->
+<!-- Notice the data could be reported for different rice and rice products. **Decide** based on the principles of exposure assessment you learnt before. -->
+<!-- [Tenni et al. 2017 Total As and As Speciation in Italian Rice as Related to Producing Areas and Paddy Soils Properties](https://pubs.acs.org/doi/10.1021/acs.jafc.7b00694) -->
+<!-- Notice the data could be reported for different arsenic species and different rice grains. Consider only *inorganic* arsenic. **Convert** the extract data to average inorganic arsenic concentration in rice (ug/kg). -->
+<!-- 3. **Extract** data on body weights for the US, Swedish and Italian populations. You can find relevant information from the following sources:  -->
+<!-- The US EPA [Exposure factors handbook](https://www.epa.gov/expobox/about-exposure-factors-handbook) -->
+<!-- Sweden and Italy [European Exposure facts](https://joint-research-centre.ec.europa.eu/expofacts-european-exposure-factors-sourcebook_en).  -->
+<!-- Notice the data could be reported for different subpopulations. **Choose** the most representative subpopulation based on the principles of exposure assessment you learnt before. **Convert** the extract data to average body weights (kg). -->
+<!-- 4. (In R) **Calculate** ADDs using the simplified equation and the extracted data on rice consumption, inorganic arsenic concentration and body weight. Do the calculation for the US, Swedish and Italian population respectively. -->
+<!-- 5. (In R) **Calculate** ADDs for the following hypothetical scenarios: -->
+<!--   5a) If Sweden had the same rice consumption rate as Italy. Keep Sweden's original arsenic concentration and body weight data. -->
+<!--   5b) If arsenic concentration were regulated uniformly across the EU. Use half of the EU maximum level for inorganic arsenic in rice for both Sweden and Italy, that is 100 ug/kg. Keep original consumption and body weight data for each country. -->
+<!--   5c) If Swedish population had the same body weight as the US. Keep Sweden's original arsenic concentration and rice consumption. -->
+<!-- **Present** all ADD calculations (including the real ones from question 4) in a table for comparison. You may generate the table in excel, in R, or use a [table generator] for the QMD file (https://www.tablesgenerator.com/markdown_tables). The table must be included in your report. -->
+<!-- 6. The World Health Organization (WHO 2011) determined that the inorganic arsenic lower limit on the benchmark dose for lung cancer was calculated to be 3 μg/kg bw per day and 5.2 µg/kg bw/day for bladder cancer, respectively. The US EPA (IRIS 2025) ruled that the inorganic arsenic lower limit on the benchmark dose for cardiovascular endocrine disruption was calculated to be 6 x 10 -5 mg/kg/day. **Compare** the real ADDs you calculated for the three populations with these regulatory reference values.  -->
+<!-- ## Optional questions for extracurricular activities -->
+<!-- The following questions are not required for this report. You are encourage to explore them as extracurricular activities if you are interested.  -->
+<!-- 7. (In R) **Extract** data on rice consumption, inorganic arsenic concentration and body weight for a different country of your interest. **Calculate** the ADD and compare with the ones from question 4. Then **compare** the ADD with the reference values from question 6. -->
+<!-- 8. Based on the ADDs you calculated in question 4 and 5, **discuss** which parameter (concentration, consumption, body weight) causes the greatest change in ADD when varied between populations? -->
+<!-- 9. Based on the results of question 6, **discuss** if you consider inorganic arsenic in rice require immediate regulatory action for Sweden and Italy. If yes, **propose** one mitigation strategy for the corresponding country and briefly **explain** your rationale.  -->
 </section>
 </section>
 <section id="reference" class="level1">

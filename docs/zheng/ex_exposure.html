@@ -9,7 +9,7 @@
 <meta name="author" content="Zheng Zhou">
 <meta name="dcterms.date" content="2025-09-12">
 
-<title>Exercise: Hazard Identification and Exposure Assessment – MVEN10</title>
+<title>Exercise: Exposure Assessment – MVEN10</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -245,23 +245,6 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Hazard characterisation - Sept 22</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../zheng/ex_benchmark_dose_modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Benchmark dose modelling</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -272,7 +255,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#part-ii-reporting-exposure" id="toc-part-ii-reporting-exposure" class="nav-link active" data-scroll-target="#part-ii-reporting-exposure">Part II: Reporting Exposure</a>
+  <li><a href="#part-ii-calculating-exposure" id="toc-part-ii-calculating-exposure" class="nav-link active" data-scroll-target="#part-ii-calculating-exposure">Part II: Calculating Exposure</a>
   <ul class="collapse">
   <li><a href="#submission-requirements" id="toc-submission-requirements" class="nav-link" data-scroll-target="#submission-requirements">Submission requirements</a></li>
   <li><a href="#average-daily-dose-concept-and-equation" id="toc-average-daily-dose-concept-and-equation" class="nav-link" data-scroll-target="#average-daily-dose-concept-and-equation">Average daily dose concept and equation</a></li>
@@ -289,7 +272,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../zheng/ex_hazard.html">Hazard and Exposure assessment - Sept 12</a></li><li class="breadcrumb-item"><a href="../zheng/ex_exposure.html">Exposure</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Exercise: Hazard Identification and Exposure Assessment</h1>
+<h1 class="title">Exercise: Exposure Assessment</h1>
 <p class="subtitle lead">MVEN10 Risk Assessment in Environment and Public Health</p>
 </div>
 
@@ -319,8 +302,8 @@ window.Quarto = {
 </header>
 
 
-<section id="part-ii-reporting-exposure" class="level1">
-<h1>Part II: Reporting Exposure</h1>
+<section id="part-ii-calculating-exposure" class="level1">
+<h1>Part II: Calculating Exposure</h1>
 <p>This part is to provide hands-on practice in exposure assessment, a fundamental component of human health risk assessment. Students will learn to:</p>
 <ul>
 <li><p>Calculate Average Daily Dose (ADD) using real-world data</p></li>
@@ -332,31 +315,36 @@ window.Quarto = {
 <p>Through this exercise, you will develop practical skills in quantitative exposure assessment methodology that forms the foundation of risk characterization in environmental and occupational health.</p>
 <section id="submission-requirements" class="level2">
 <h2 class="anchored" data-anchor-id="submission-requirements">Submission requirements</h2>
-<p>You must submit a report in PDF format. You are recommended to generate the PDF document from a QMD file. The sections of the report should be indexed by questions.</p>
-<p>If you prepare the report in QMD format, you can create indexes using the following template:</p>
-<pre><code># Heading level 1
-
-## Heading level 2
-
-### Heading level 3</code></pre>
-<p>Use the following <code>YAML</code> header at the top of your QMD document:</p>
-<pre><code>title: "Exposure assessment using Real Data"
-subtitle: "Calculate Average Daily Dose"
-author: "Your name"
-date: today
-format: 
-  pdf:
-    toc: true
-    message: false
-    warning: false
-    theme: simple
-    incremental: true
-    embedded-resources: true</code></pre>
-<p>Other formatting requirements:</p>
-<ol type="1">
+<!-- You must submit a report in PDF format. You are recommended to generate the PDF document from a QMD file.  -->
+<ul>
+<li>The sections of the report should be indexed by questions.</li>
+</ul>
+<!-- If you prepare the report in QMD format, you can create indexes using the following template: -->
+<!-- ``` -->
+<!-- # Heading level 1 -->
+<!-- ## Heading level 2 -->
+<!-- ### Heading level 3 -->
+<!-- ``` -->
+<!-- Use the following `YAML` header at the top of your QMD document: -->
+<!-- ``` -->
+<!-- title: "Exposure assessment using Real Data" -->
+<!-- subtitle: "Calculate Average Daily Dose" -->
+<!-- author: "Your name" -->
+<!-- date: today -->
+<!-- format:  -->
+<!--   pdf: -->
+<!--     toc: true -->
+<!--     message: false -->
+<!--     warning: false -->
+<!--     theme: simple -->
+<!--     incremental: true -->
+<!--     embedded-resources: true -->
+<!-- ``` -->
+<!-- Other formatting requirements: -->
+<ul>
 <li><p>Include proper citations for all data sources</p></li>
-<li><p>Ensure all figures and tables are properly labeled</p></li>
-</ol>
+<li><p>Ensure all figures or tables are properly labeled</p></li>
+</ul>
 </section>
 <section id="average-daily-dose-concept-and-equation" class="level2">
 <h2 class="anchored" data-anchor-id="average-daily-dose-concept-and-equation">Average daily dose concept and equation</h2>
@@ -387,42 +375,45 @@ ADD =\frac{C\cdot IR}{BW}
 </section>
 <section id="instructions" class="level2">
 <h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
-<ol type="1">
+<ol class="example" type="1">
 <li><strong>Extract</strong> data on rice consumption for the US, Swedish and Italian populations. You can find relevant information from the following sources:</li>
 </ol>
 <p>The US EPA <a href="https://www.epa.gov/expobox/about-exposure-factors-handbook">Exposure factors handbook</a></p>
 <p>Sweden and Italy <a href="https://joint-research-centre.ec.europa.eu/expofacts-european-exposure-factors-sourcebook_en">European Exposure facts</a>.</p>
 <p>Notice the data could be reported for different subpopulations. <strong>Choose</strong> the most representative subpopulation based on the principles of exposure assessment you learnt before. <strong>Convert</strong> the extract data to average daily rice intake (kg/day).</p>
-<ol start="2" type="1">
+<ol start="2" class="example" type="1">
 <li><strong>Extract</strong> data on inorganic arsenic concentration in rice from the US, Swedish and Italian markets. You can find relevant information from the following sources:</li>
 </ol>
 <p><a href="https://www.fda.gov/media/86074/download">US FDA Analytical Results from Inorganic Arsenic in Rice and Rice Products Sampling</a></p>
 <p><a href="https://www.livsmedelsverket.se/globalassets/publikationsdatabas/rapporter/2015/inorganic-arsenic-in-rice-and-rice-products-on-the-swedish-market-2015---part-2-risk-assessment.pdf">livsmedelsverket report on Inorganic arsenic in rice and rice products on the Swedish market 2015</a> Notice the data could be reported for different rice and rice products. <strong>Decide</strong> based on the principles of exposure assessment you learnt before.</p>
 <p><a href="https://pubs.acs.org/doi/10.1021/acs.jafc.7b00694">Tenni et al.&nbsp;2017 Total As and As Speciation in Italian Rice as Related to Producing Areas and Paddy Soils Properties</a></p>
 <p>Notice the data could be reported for different arsenic species and different rice grains. Consider only <em>inorganic</em> arsenic. <strong>Convert</strong> the extract data to average inorganic arsenic concentration in rice (ug/kg).</p>
-<ol start="3" type="1">
+<ol start="3" class="example" type="1">
 <li><strong>Extract</strong> data on body weights for the US, Swedish and Italian populations. You can find relevant information from the following sources:</li>
 </ol>
 <p>The US EPA <a href="https://www.epa.gov/expobox/about-exposure-factors-handbook">Exposure factors handbook</a></p>
 <p>Sweden and Italy <a href="https://joint-research-centre.ec.europa.eu/expofacts-european-exposure-factors-sourcebook_en">European Exposure facts</a>.</p>
 <p>Notice the data could be reported for different subpopulations. <strong>Choose</strong> the most representative subpopulation based on the principles of exposure assessment you learnt before. <strong>Convert</strong> the extract data to average body weights (kg).</p>
-<ol start="4" type="1">
+<ol start="4" class="example" type="1">
 <li><p><strong>Calculate</strong> ADDs using the simplified equation and the extracted data on rice consumption, inorganic arsenic concentration and body weight. Do the calculation for the US, Swedish and Italian population respectively.</p></li>
 <li><p><strong>Calculate</strong> ADDs for the following hypothetical scenarios:</p></li>
 </ol>
-<p>5a) If Sweden had the same rice consumption rate as Italy. Keep Sweden’s original arsenic concentration and body weight data.</p>
-<p>5b) If arsenic concentration were regulated uniformly across the EU. Use half of the EU maximum level for inorganic arsenic in rice for both Sweden and Italy, that is 100 ug/kg. Keep original consumption and body weight data for each country.</p>
-<p>5c) If Swedish population had the same body weight as the US. Keep Sweden’s original arsenic concentration and rice consumption.</p>
+<ol type="a">
+<li><p>If Sweden had the same rice consumption rate as Italy. Keep Sweden’s original arsenic concentration and body weight data.</p></li>
+<li><p>If arsenic concentration were regulated uniformly across the EU. Use half of the EU maximum level for inorganic arsenic in rice for both Sweden and Italy, that is 100 ug/kg. Keep original consumption and body weight data for each country.</p></li>
+<li><p>If Swedish population had the same body weight as the US. Keep Sweden’s original arsenic concentration and rice consumption.</p></li>
+</ol>
 <p><strong>Present</strong> all ADD calculations (including the real ones from question 4) in a table for comparison. You may generate the table in excel, in R, or use a [table generator] for the QMD file (https://www.tablesgenerator.com/markdown_tables). The table must be included in your report.</p>
-<ol start="6" type="1">
+<ol start="6" class="example" type="1">
 <li>The World Health Organization (WHO 2011) determined that the inorganic arsenic lower limit on the benchmark dose for lung cancer was calculated to be 3 μg/kg bw per day and 5.2 µg/kg bw/day for bladder cancer, respectively. The US EPA (IRIS 2025) ruled that the inorganic arsenic lower limit on the benchmark dose for cardiovascular endocrine disruption was calculated to be 6 x 10 -5 mg/kg/day. <strong>Compare</strong> the real ADDs you calculated for the three populations with these regulatory reference values.</li>
 </ol>
 </section>
 <section id="optional-questions-for-extracurricular-activities" class="level2">
 <h2 class="anchored" data-anchor-id="optional-questions-for-extracurricular-activities">Optional questions for extracurricular activities</h2>
 <p>The following questions are not required for this report. You are encourage to explore them as extracurricular activities if you are interested.</p>
-<ol start="7" type="1">
-<li><p><strong>Extract</strong> data on rice consumption, inorganic arsenic concentration and body weight for a different country of your interest. <strong>Calculate</strong> the ADD and compare with the ones from question 4. Then <strong>compare</strong> the ADD with the reference values from question 6.</p></li>
+<ol start="7" class="example" type="1">
+<li><p><strong>Extract</strong> data on rice consumption, inorganic arsenic concentration and body weight for a different country of your interest.</p></li>
+<li><p><strong>Calculate</strong> the ADD and compare with the ones from question 4. Then <strong>compare</strong> the ADD with the reference values from question</p></li>
 <li><p>Based on the ADDs you calculated in question 4 and 5, <strong>discuss</strong> which parameter (concentration, consumption, body weight) causes the greatest change in ADD when varied between populations?</p></li>
 <li><p>Based on the results of question 6, <strong>discuss</strong> if you consider inorganic arsenic in rice require immediate regulatory action for Sweden and Italy. If yes, <strong>propose</strong> one mitigation strategy for the corresponding country and briefly <strong>explain</strong> your rationale.</p></li>
 </ol>

@@ -1,5 +1,5 @@
 ---
-title: "Exercise: Hazard Identification and Exposure Assessment"
+title: "Exercise: Exposure Assessment"
 subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Zheng Zhou"
 date: "09/12/2025"
@@ -10,7 +10,7 @@ date: "09/12/2025"
 #    embedded-resources: true
 ---
 
-# Part II: Reporting Exposure
+# Part II: Calculating Exposure
 
 This part is to provide hands-on practice in exposure assessment, a fundamental component of human health risk assessment. Students will learn to:
 
@@ -28,39 +28,41 @@ Through this exercise, you will develop practical skills in quantitative exposur
 
 ## Submission requirements
 
-You must submit a report in PDF format. You are recommended to generate the PDF document from a QMD file. The sections of the report should be indexed by questions. 
+<!-- You must submit a report in PDF format. You are recommended to generate the PDF document from a QMD file.  -->
 
-If you prepare the report in QMD format, you can create indexes using the following template:
+- The sections of the report should be indexed by questions. 
 
-```
-# Heading level 1
+<!-- If you prepare the report in QMD format, you can create indexes using the following template: -->
 
-## Heading level 2
+<!-- ``` -->
+<!-- # Heading level 1 -->
 
-### Heading level 3
-```
+<!-- ## Heading level 2 -->
 
-Use the following `YAML` header at the top of your QMD document:
+<!-- ### Heading level 3 -->
+<!-- ``` -->
 
-```
-title: "Exposure assessment using Real Data"
-subtitle: "Calculate Average Daily Dose"
-author: "Your name"
-date: today
-format: 
-  pdf:
-    toc: true
-    message: false
-    warning: false
-    theme: simple
-    incremental: true
-    embedded-resources: true
-```
-Other formatting requirements:
+<!-- Use the following `YAML` header at the top of your QMD document: -->
 
-1. Include proper citations for all data sources
+<!-- ``` -->
+<!-- title: "Exposure assessment using Real Data" -->
+<!-- subtitle: "Calculate Average Daily Dose" -->
+<!-- author: "Your name" -->
+<!-- date: today -->
+<!-- format:  -->
+<!--   pdf: -->
+<!--     toc: true -->
+<!--     message: false -->
+<!--     warning: false -->
+<!--     theme: simple -->
+<!--     incremental: true -->
+<!--     embedded-resources: true -->
+<!-- ``` -->
+<!-- Other formatting requirements: -->
 
-2. Ensure all figures and tables are properly labeled
+- Include proper citations for all data sources
+
+- Ensure all figures or tables are properly labeled
 
 ## Average daily dose concept and equation
 
@@ -106,7 +108,7 @@ The European Commission has established maximum levels for inorganic arsenic in 
 
 ## Instructions
 
-1. **Extract** data on rice consumption for the US, Swedish and Italian populations. You can find relevant information from the following sources: 
+(@) **Extract** data on rice consumption for the US, Swedish and Italian populations. You can find relevant information from the following sources: 
 
 The US EPA [Exposure factors handbook](https://www.epa.gov/expobox/about-exposure-factors-handbook) 
 
@@ -114,7 +116,7 @@ Sweden and Italy [European Exposure facts](https://joint-research-centre.ec.euro
 
 Notice the data could be reported for different subpopulations. **Choose** the most representative subpopulation based on the principles of exposure assessment you learnt before. **Convert** the extract data to average daily rice intake (kg/day). 
 
-2. **Extract** data on inorganic arsenic concentration in rice from the US, Swedish and Italian markets. You can find relevant information from the following sources: 
+(@) **Extract** data on inorganic arsenic concentration in rice from the US, Swedish and Italian markets. You can find relevant information from the following sources: 
 
 [US FDA Analytical Results from Inorganic Arsenic in Rice and Rice Products Sampling](https://www.fda.gov/media/86074/download)
 
@@ -125,7 +127,7 @@ Notice the data could be reported for different rice and rice products. **Decide
 
 Notice the data could be reported for different arsenic species and different rice grains. Consider only *inorganic* arsenic. **Convert** the extract data to average inorganic arsenic concentration in rice (ug/kg).
 
-3. **Extract** data on body weights for the US, Swedish and Italian populations. You can find relevant information from the following sources: 
+(@) **Extract** data on body weights for the US, Swedish and Italian populations. You can find relevant information from the following sources: 
 
 The US EPA [Exposure factors handbook](https://www.epa.gov/expobox/about-exposure-factors-handbook)
 
@@ -133,29 +135,31 @@ Sweden and Italy [European Exposure facts](https://joint-research-centre.ec.euro
 
 Notice the data could be reported for different subpopulations. **Choose** the most representative subpopulation based on the principles of exposure assessment you learnt before. **Convert** the extract data to average body weights (kg).
 
-4. **Calculate** ADDs using the simplified equation and the extracted data on rice consumption, inorganic arsenic concentration and body weight. Do the calculation for the US, Swedish and Italian population respectively.
+(@) **Calculate** ADDs using the simplified equation and the extracted data on rice consumption, inorganic arsenic concentration and body weight. Do the calculation for the US, Swedish and Italian population respectively.
 
-5. **Calculate** ADDs for the following hypothetical scenarios:
+(@) **Calculate** ADDs for the following hypothetical scenarios:
 
-  5a) If Sweden had the same rice consumption rate as Italy. Keep Sweden's original arsenic concentration and body weight data.
+  a) If Sweden had the same rice consumption rate as Italy. Keep Sweden's original arsenic concentration and body weight data.
   
-  5b) If arsenic concentration were regulated uniformly across the EU. Use half of the EU maximum level for inorganic arsenic in rice for both Sweden and Italy, that is 100 ug/kg. Keep original consumption and body weight data for each country.
+  b) If arsenic concentration were regulated uniformly across the EU. Use half of the EU maximum level for inorganic arsenic in rice for both Sweden and Italy, that is 100 ug/kg. Keep original consumption and body weight data for each country.
   
-  5c) If Swedish population had the same body weight as the US. Keep Sweden's original arsenic concentration and rice consumption.
+  c) If Swedish population had the same body weight as the US. Keep Sweden's original arsenic concentration and rice consumption.
   
 **Present** all ADD calculations (including the real ones from question 4) in a table for comparison. You may generate the table in excel, in R, or use a [table generator] for the QMD file (https://www.tablesgenerator.com/markdown_tables). The table must be included in your report.
 
-6. The World Health Organization (WHO 2011) determined that the inorganic arsenic lower limit on the benchmark dose for lung cancer was calculated to be 3 μg/kg bw per day and 5.2 µg/kg bw/day for bladder cancer, respectively. The US EPA (IRIS 2025) ruled that the inorganic arsenic lower limit on the benchmark dose for cardiovascular endocrine disruption was calculated to be 6 x 10 -5 mg/kg/day. **Compare** the real ADDs you calculated for the three populations with these regulatory reference values. 
+(@) The World Health Organization (WHO 2011) determined that the inorganic arsenic lower limit on the benchmark dose for lung cancer was calculated to be 3 μg/kg bw per day and 5.2 µg/kg bw/day for bladder cancer, respectively. The US EPA (IRIS 2025) ruled that the inorganic arsenic lower limit on the benchmark dose for cardiovascular endocrine disruption was calculated to be 6 x 10 -5 mg/kg/day. **Compare** the real ADDs you calculated for the three populations with these regulatory reference values. 
 
 ## Optional questions for extracurricular activities
 
 The following questions are not required for this report. You are encourage to explore them as extracurricular activities if you are interested. 
 
-7. **Extract** data on rice consumption, inorganic arsenic concentration and body weight for a different country of your interest. **Calculate** the ADD and compare with the ones from question 4. Then **compare** the ADD with the reference values from question 6.
+(@) **Extract** data on rice consumption, inorganic arsenic concentration and body weight for a different country of your interest. 
 
-8. Based on the ADDs you calculated in question 4 and 5, **discuss** which parameter (concentration, consumption, body weight) causes the greatest change in ADD when varied between populations?
+(@) **Calculate** the ADD and compare with the ones from question 4. Then **compare** the ADD with the reference values from question 
 
-9. Based on the results of question 6, **discuss** if you consider inorganic arsenic in rice require immediate regulatory action for Sweden and Italy. If yes, **propose** one mitigation strategy for the corresponding country and briefly **explain** your rationale. 
+(@) Based on the ADDs you calculated in question 4 and 5, **discuss** which parameter (concentration, consumption, body weight) causes the greatest change in ADD when varied between populations?
+
+(@) Based on the results of question 6, **discuss** if you consider inorganic arsenic in rice require immediate regulatory action for Sweden and Italy. If yes, **propose** one mitigation strategy for the corresponding country and briefly **explain** your rationale. 
 
 # Reference
 
