@@ -119,6 +119,7 @@ Notice the data could be reported for different subpopulations. **Choose** the m
 [US FDA Analytical Results from Inorganic Arsenic in Rice and Rice Products Sampling](https://www.fda.gov/media/86074/download)
 
 [livsmedelsverket report on Inorganic arsenic in rice and rice products on the Swedish market 2015](https://www.livsmedelsverket.se/globalassets/publikationsdatabas/rapporter/2015/inorganic-arsenic-in-rice-and-rice-products-on-the-swedish-market-2015---part-2-risk-assessment.pdf)
+
 Notice the data could be reported for different rice and rice products. **Decide** based on the principles of exposure assessment you learnt before.
 
 [Tenni et al. 2017 Total As and As Speciation in Italian Rice as Related to Producing Areas and Paddy Soils Properties](https://pubs.acs.org/doi/10.1021/acs.jafc.7b00694)
