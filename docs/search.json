@@ -1,61 +1,5 @@
 [
   {
-    "objectID": "zheng/lecture_hazardID.html",
-    "href": "zheng/lecture_hazardID.html",
-    "title": "Hazard Identification",
-    "section": "",
-    "text": "Risk = Hazard * Exposure\n\n\n\n\nRisk Assessment Paradigm"
-  },
-  {
-    "objectID": "zheng/lecture_hazardID.html#introduction",
-    "href": "zheng/lecture_hazardID.html#introduction",
-    "title": "Hazard Identification",
-    "section": "",
-    "text": "Risk = Hazard * Exposure\n\n\n\n\nRisk Assessment Paradigm"
-  },
-  {
-    "objectID": "zheng/lecture_hazardID.html#hazard-identification-and-characterization",
-    "href": "zheng/lecture_hazardID.html#hazard-identification-and-characterization",
-    "title": "Hazard Identification",
-    "section": "Hazard Identification and Characterization",
-    "text": "Hazard Identification and Characterization\nDifferent questions of interest:\n\nIdentification: YES/NO\nCharacterization: dose-response models"
-  },
-  {
-    "objectID": "zheng/lecture_hazardID.html#validity-hierarchy-of-evidence",
-    "href": "zheng/lecture_hazardID.html#validity-hierarchy-of-evidence",
-    "title": "Hazard Identification",
-    "section": "Validity: Hierarchy of Evidence",
-    "text": "Validity: Hierarchy of Evidence\n\n\n\nEvidence Pyramid (Golden and Bass 2013)\n\n\n\nOpinion without evidence\n\nNOT expert judgement; Not necessarily from experts\nStrength: useful in the lack of empirical evidence\nWeakness: low validity (not necessarily wrong!)\n\n\n\nCase report & case series\n\nDefinition\nStrength: simple in design and practice\nWeakness: no account for bias; generalizability\n\n\n\nObservational studies\n\nDefinition: observational vs interventional\nType: case control, cohort\nStrength: generalizable within study groups; less bias from comparison\nWeakness: no full account for bias\n\n\n\nControlled experiments (randomized and non-randomized)\n\nDefinition: direct intervention; group assignment\nStrength: direct evaluation of impact of intervention to reduce bias\nWeakness: time-consuming, expensive, ethical challenges\n\n\n\nSystematic reviews\n\nStrength: consider existing evidence for their results, validity and generalizability; adaptive\nWeakness: complicated and affected by review methodology"
-  },
-  {
-    "objectID": "zheng/lecture_hazardID.html#type-lines-of-empirical-evidence",
-    "href": "zheng/lecture_hazardID.html#type-lines-of-empirical-evidence",
-    "title": "Hazard Identification",
-    "section": "Type: Lines of Empirical Evidence",
-    "text": "Type: Lines of Empirical Evidence\nType: human, animal (in vivo), non-animal (in vitro, new-approach methodologies)\n\nHuman Experiments\nAtrocities within sight:\n\nduring WWI, deliberate and pseudo-scientific experiments and torture on human by Japanese and German Nazi\nTuskegee Syphilis study (1932-1972) by US government, targeting African Americans\n\n\n\nWhy we don’t conduct human experiments\n\nEthics: “Cannot deliberately expose humans to potentially harmful agents.”\n\nWatch the videos on:\nThe Nuremberg Code (1947)\nDeclaration of Helsinki (1964) by the World Medical Association\nThe Belmont Report (1979) after the Tuskegee experiment\nMandate on Institutional Review Boards(US); Swedish Ethical Review Authority (Etikprövningsmyndigheten)\n\nPotential harmful agents: observational evidence in human + controlled experiments in animal and non-animal systems\nBeneficial agents: controlled trails, voluntary participation after complete transparency\n\n\n\nEpidemiological studies\n\nDefinition: Observational studies on human\nDesign: prospective vs retrospective, sampling, extrapolation\nLimitations in interpretation: results from epidemiological studies should only be interpreted as associations, not causations\n\n\n\nAnimal studies\n\nSpecies: rodents (rats, mice), fish, earthworm, dogs, monkeys, etc.\nStrength: free from human ethical concerns; precise controls; mechanistic insights\nWeakness: intra-species difference\n\nMore toxic to animal than human: DDT (Silent Spring by Rachel Carson, 1962)\nMore toxic to human than animal: arsenic (WHO arsenic facts)\nAcute animal dosing for chronic human exposure\n\n\n\n\nNon-animal studies\n\nType: in vitro (cell/tissue cultures), in silico (computational modeling/simulations)\nExample: physiologically-based artificial organ system, human cell genome analysis (omics), quantitative structure-activity relationship models\nStrength: free of animal use (3R principles)- rapid, high-throughput, cost-effective, no ethical concerns\nWeakness: still developing, limited acceptance in regulation and application"
-  },
-  {
-    "objectID": "zheng/lecture_hazardID.html#discussion-and-exercise",
-    "href": "zheng/lecture_hazardID.html#discussion-and-exercise",
-    "title": "Hazard Identification",
-    "section": "Discussion and Exercise",
-    "text": "Discussion and Exercise\nSeparate into two groups and discussion the following questions (5 min):\n\nconsidering the strength and weakness of each line of evidence, how they compliment each other.\nfill in the following table: intersection between type and validity of evidence\n\n\n\n\n\n\n\n\n\n\n\nEvidence type\nCase report & series\nObservational studies\nControlled trails\nSystematic Reviews\n\n\n\n\nHuman experiment\n…\n…\n…\n…\n\n\nEpidemiological studies\n…\n…\n…\n…\n\n\nAnimal studies\n…\n…\n…\n…\n\n\nNon-animal studies\n…\n…\n…\n…"
-  },
-  {
-    "objectID": "zheng/lecture_hazardID.html#causal-inference",
-    "href": "zheng/lecture_hazardID.html#causal-inference",
-    "title": "Hazard Identification",
-    "section": "Causal inference",
-    "text": "Causal inference\nCentral question: inference for causality\n“Was the hazard caused by the agent of interest?”\n“Will the intervention cause a reduction in the hazard?”\n\nCorrelation is NOT Causation\nOur intuitive inference are based on correlation.\nExample1: People who use more sunscreen also have higher rates of skin cancer\nExample2: In the United States, the per capita crime rates are higher among people of brown and black skin color\nExample3: Number of people drown increases when ice cream consumption increases\nHighlights:\n\nCorrelation does not imply a causal relationship.\nLack of correlation does not imply a lack of causal relationship.\nThere may be biases that explain the observed association.\n\n\n\nThreats to validity in observational and non-randomized intervention studies\n\nSelection Bias: When individuals self-select into treatment groups, leading to systematic differences between groups.\n\nExample: People who opt for an exercise program may already be healthier than those who do not.\n\nConfounding: A third variable affects both the treatment and the outcome, leading to biased estimates.\n\nExample: A new teaching method might be adopted in schools that already have higher-performing students.\n\nMaturation: Changes in subjects occur naturally over time, not because of the treatment.\n\nExample: Children naturally improve in cognitive skills as they age, regardless of an educational intervention.\n\nHistory: External events occurring during the study may affect outcomes.\n\nExample: An economic crisis affecting income levels during a study of financial literacy interventions.\n\n\n\n\nObservational designs\nSimple Comparison\n\n\n\n\n\n\n\n\n\nEasy to implement; Comparison at one time point only.\nOne-group pre-post comparison\n\n\n\n\n\n\n\n\n\nCheck for baseline difference\nMulti-group pre-post comparisons\n\n\n\n\n\n\n\n\n\n\n\nBradford Hill considerations\nBy Austin Bradford Hill 1965, causal inference in epidemiological studies.\nNine considerations:\n\nStrength\nConsistency\nSpecificity\nTemporality: the ONLY necessary condition for causality among the nine\nBiological Gradient\nPlausibility\nCoherence\nExperiment\nAnalogy\n\nHall, 2024. Austin Bradford Hill’s ‘Environment and disease: Association or causation’.Addition.\nHill’s considerations:\n\nNot designed as a definitive criteria, thus should not be used as one\nAll Hill’s considerations satisifed without causality: ice cream consumption and drowning\n\n\n\nCounterfacuals\nIdentification question: “Was the hazard caused by the agent of interest?”\nCountefactual: “Would the same individual subject develop the same hazard, if anything else were the same, without exposure to the agent of interest?”\n“Will hazard on the same subject be reduced, if anything else were the same, without the intervention?”\nBy comparing the treatment with the counterfactual, these threats are effectively controlled.\nCounterfactuals cannot remove biases, but isolate the causal effect from biases.\n\n\nRandomized Controlled trails as approximations to counterfactuals\nChallenge to counterfactuals: Current human technology has no method to observe counterfactuals.\nApproximation: randomized assignment into intervention and control groups\nRCT question: “What would happen if everything is the same between groups except the intervention/exposed?”\nRandomized controlled trails is the GOLD STANDARD of causal inference.\n\n\nDirections to Advanced Causal Inference\nExperimental design\n\nWhat is the minimal sample size required for randomization?\nWhat if we want to introduce magnitude of treatment into randomization?\nWhat if the sample needs to be stratified to represent the population?\nEmpirical evaluation of observational evidence\n\nQuasi-experimental methods (such as instrumental variable)\n\nWhat assumption underlines these methods?\nTo what extent their conclusion could be generalized?"
-  },
-  {
-    "objectID": "zheng/lecture_hazardID.html#questions",
-    "href": "zheng/lecture_hazardID.html#questions",
-    "title": "Hazard Identification",
-    "section": "Questions?",
-    "text": "Questions?\nAfternoon at 1-3pm at Biosfären (Sal 220)"
-  },
-  {
     "objectID": "zheng/ex_hazard.html",
     "href": "zheng/ex_hazard.html",
     "title": "Exercise: Hazard Identification",
@@ -93,28 +37,44 @@
     "href": "zheng/ex_benchmark_dose_modelling.html",
     "title": "Exercise Benchmark Dose Modelling",
     "section": "",
-    "text": "This exercise is designed to 1) help you evaluate and improve your understandings of key concepts of benchmark dose modeling, 2) gain practical experience with established benchmark dose modeling tools."
+    "text": "This exercise is designed to 1) help you evaluate and improve your understandings of key concepts of benchmark dose modeling, 2) gain practical experience with established benchmark dose modeling tools.",
+    "crumbs": [
+      "Hazard characterisation - Sept 22",
+      "Benchmark dose modelling"
+    ]
   },
   {
     "objectID": "zheng/ex_benchmark_dose_modelling.html#tasks",
     "href": "zheng/ex_benchmark_dose_modelling.html#tasks",
     "title": "Exercise Benchmark Dose Modelling",
     "section": "Tasks",
-    "text": "Tasks\n(1) Explain if this data can derive a NOAEL. If yes, what is it? If no, why?\n(2) Explain if this data can derive a LOAEL. If yes, what is it? If no, why?"
+    "text": "Tasks\n(1) Explain if this data can derive a NOAEL. If yes, what is it? If no, why?\n(2) Explain if this data can derive a LOAEL. If yes, what is it? If no, why?",
+    "crumbs": [
+      "Hazard characterisation - Sept 22",
+      "Benchmark dose modelling"
+    ]
   },
   {
     "objectID": "zheng/ex_benchmark_dose_modelling.html#tasks-1",
     "href": "zheng/ex_benchmark_dose_modelling.html#tasks-1",
     "title": "Exercise Benchmark Dose Modelling",
     "section": "Tasks",
-    "text": "Tasks\n(1) Use EFSA PROAST for BMD modeling. You can use the web version: https://proastweb.rivm.nl/ or the R-package version: https://www.rivm.nl/en/proast. Generate a report.\n(2) Based on the report from (a), find the following information: 1) number of models fitted, 2) AIC of each model, 3) CED, CEDL and CEDU of each model\n(3) Use US EPA BMDS for BMD modeling: https://www.epa.gov/bmds/bmds-online. Generate a report.\n(4) Based on the report from (c), find the following information: 1) number of models fitted, 2) P-value, AIC and reason of recommendation of each model, 3) BMD, BMDL and BMDU of each model"
+    "text": "Tasks\n(1) Use EFSA PROAST for BMD modeling. You can use the web version: https://proastweb.rivm.nl/ or the R-package version: https://www.rivm.nl/en/proast. Generate a report.\n(2) Based on the report from (a), find the following information: 1) number of models fitted, 2) AIC of each model, 3) CED, CEDL and CEDU of each model\n(3) Use US EPA BMDS for BMD modeling: https://www.epa.gov/bmds/bmds-online. Generate a report.\n(4) Based on the report from (c), find the following information: 1) number of models fitted, 2) P-value, AIC and reason of recommendation of each model, 3) BMD, BMDL and BMDU of each model",
+    "crumbs": [
+      "Hazard characterisation - Sept 22",
+      "Benchmark dose modelling"
+    ]
   },
   {
     "objectID": "zheng/ex_benchmark_dose_modelling.html#tasks-2",
     "href": "zheng/ex_benchmark_dose_modelling.html#tasks-2",
     "title": "Exercise Benchmark Dose Modelling",
     "section": "Tasks",
-    "text": "Tasks\nDiscuss one strengths and one weaknesses of the NOAEL/LOAEL approach and the BMD approach, respectively.\nYou may consider the following hints:\n\nWhat information is needed for each approach?\nIf there are changes in study design, e.g., dose level setup, how will each approach be affected?\nHow difficult it is to implement each approach?\nDoes the sample size have impacts on the estimates from the two approaches?\nCan a NOAEL be derived from a LOAEL? from a BMD?\nWhat is a benchmark response and how it is chosen?\nWhat are the differences between BMD models?\nHow are uncertainty in the data considered in the two approaches?"
+    "text": "Tasks\nDiscuss one strengths and one weaknesses of the NOAEL/LOAEL approach and the BMD approach, respectively.\nYou may consider the following hints:\n\nWhat information is needed for each approach?\nIf there are changes in study design, e.g., dose level setup, how will each approach be affected?\nHow difficult it is to implement each approach?\nDoes the sample size have impacts on the estimates from the two approaches?\nCan a NOAEL be derived from a LOAEL? from a BMD?\nWhat is a benchmark response and how it is chosen?\nWhat are the differences between BMD models?\nHow are uncertainty in the data considered in the two approaches?",
+    "crumbs": [
+      "Hazard characterisation - Sept 22",
+      "Benchmark dose modelling"
+    ]
   },
   {
     "objectID": "ex/useful_functions_with_R.html",
@@ -187,7 +147,7 @@
     "href": "ex/useful_functions_with_R.html#random-sampling",
     "title": "The R-version of what we did in Introduction to useful functions in Excel",
     "section": "Random sampling",
-    "text": "Random sampling\nAll sample generators start with a random number between 0 and 1. This is also a sample from a uniform distribution.\n\nrunif(1)\n\n[1] 0.2854606\n\n\nType a function that generates a uniform random number in the interval 1 to 6.\n\nrunif(1,min=1,max=6)\n\n[1] 5.435001\n\n\nA random draw from a probability distribution can be generated by the inverse method. - Draws pp-values from a uniform distribution between 0 and 1 - Transform them into quantiles of the target distribution\nGenerates random draws from a normal distribution using the inverse method\n\nqnorm(runif(1),m,s)\n\n[1] 13.37895\n\n\nThis is already implemented as a function\n\nrnorm(1,m,s)\n\n[1] 10.23107\n\n\nDraw from a beta distribution with parameters \\(\\alpha=2\\) and \\(\\beta=8\\)\n\nrbeta(1,2,8)\n\n[1] 0.1776462",
+    "text": "Random sampling\nAll sample generators start with a random number between 0 and 1. This is also a sample from a uniform distribution.\n\nrunif(1)\n\n[1] 0.4647461\n\n\nType a function that generates a uniform random number in the interval 1 to 6.\n\nrunif(1,min=1,max=6)\n\n[1] 5.112746\n\n\nA random draw from a probability distribution can be generated by the inverse method. - Draws pp-values from a uniform distribution between 0 and 1 - Transform them into quantiles of the target distribution\nGenerates random draws from a normal distribution using the inverse method\n\nqnorm(runif(1),m,s)\n\n[1] 12.81318\n\n\nThis is already implemented as a function\n\nrnorm(1,m,s)\n\n[1] 11.87311\n\n\nDraw from a beta distribution with parameters \\(\\alpha=2\\) and \\(\\beta=8\\)\n\nrbeta(1,2,8)\n\n[1] 0.143033",
     "crumbs": [
       "Intro to excel and R - Sept 5",
       "Useful functions in R"
@@ -198,7 +158,7 @@
     "href": "ex/useful_functions_with_R.html#compare-descriptive-statistics-against-theoretical-values",
     "title": "The R-version of what we did in Introduction to useful functions in Excel",
     "section": "Compare descriptive statistics against theoretical values",
-    "text": "Compare descriptive statistics against theoretical values\nWow - now we can generate data where we know the true value on parameters and all theoretical probabilities and quantiles, and compare with what we get when deriving descriptive statistics from the random sample.\nThis sheet generates a random sample of size 20 from a beta distribution.\n\nrbeta(n=20,2,8)\n\n [1] 0.09386076 0.45643509 0.16323341 0.08545518 0.25302116 0.10229034\n [7] 0.03501232 0.22708437 0.08856372 0.38205117 0.05604158 0.18046162\n[13] 0.06301593 0.15411805 0.15423910 0.08340318 0.34706187 0.62503412\n[19] 0.29117688 0.08157190\n\n\nA beta distribution has two parameters \\(\\alpha\\) and \\(\\beta\\)\nThe expected value of a beta distributed variable is \\(\\frac{\\alpha}{\\alpha+\\beta}\\)\nCompare the calculated sample average to the theoretical expected value\n\nalpha=2\nbeta=8\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=20,alpha,beta))\n\n[1] 0.2483549\n\n\nWe can also derive the theoretical quantile, let us say the P95.\nCompare the quantile from the sample with the quantile calculated from the inverse probability distribution function\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=20,alpha,beta),probs=0.95)\n\n      95% \n0.3693029 \n\n\n\nWhich of them has the smallest difference? Why do you think it is like that?\n\n\n\n\n\n\n\nExtra\n\n\n\nIf you feel you have the time or do another time:\nExplore what happens with the difference between theoretical and statistical values when you increase sample size from 20 to a high number (close to 1000)?\n\n\nBelow I wrte a script where sample size is controlled at one place. The P95 is approximated fairly well by the sampling when I use \\(n=10 000\\).\n\nalpha=2\nbeta=8\nn=10000\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=n,alpha,beta))\n\n[1] 0.2001435\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=n,alpha,beta),probs=0.95)\n\n      95% \n0.4253041 \n\n\nLet us visualise the convergence of the approximation of the mean and 95th percentile of the beta distribution using Monte Carlo simulation.\nThe code below defines a function which calculates the mean and P95 after every increase of the sample size and plots the convergence.\n\nplot_conv &lt;- function(n){\nsample_mean=cummean(rbeta(n=n,alpha,beta))\nsample_P95=unlist(lapply(1:n,function(iter){\n  quantile(rbeta(n=iter,alpha,beta),probs=0.95)}))\ndata.frame(values=c(sample_mean,sample_P95),n=rep(1:n,2), statistic=rep(c(\"mean\",\"P95\"),each=n))  %&gt;%\n  ggplot(aes(x=n,y=values,color=statistic))+\n  geom_line()+\n  geom_hline(yintercept = alpha/(alpha+beta)) +\n  geom_hline(yintercept = qbeta(0.95,alpha,beta))\n}\n\nWe start with \\(n=10\\)\n\nplot_conv(n=10)\n\n\n\n\n\n\n\n\n..increase to \\(n=100\\)\n\nplot_conv(n=100)\n\n\n\n\n\n\n\n\n..increase to \\(n=1000\\)\n\nplot_conv(n=10^3)\n\n\n\n\n\n\n\n\n..and finally \\(n=10000\\)\n\nplot_conv(n=10^4)",
+    "text": "Compare descriptive statistics against theoretical values\nWow - now we can generate data where we know the true value on parameters and all theoretical probabilities and quantiles, and compare with what we get when deriving descriptive statistics from the random sample.\nThis sheet generates a random sample of size 20 from a beta distribution.\n\nrbeta(n=20,2,8)\n\n [1] 0.23563795 0.15801193 0.21933883 0.12660188 0.24445249 0.07938824\n [7] 0.14907527 0.13181579 0.12223000 0.10166891 0.06125634 0.10506569\n[13] 0.39200181 0.17526855 0.35354787 0.31660557 0.15436091 0.40451694\n[19] 0.20265051 0.15318176\n\n\nA beta distribution has two parameters \\(\\alpha\\) and \\(\\beta\\)\nThe expected value of a beta distributed variable is \\(\\frac{\\alpha}{\\alpha+\\beta}\\)\nCompare the calculated sample average to the theoretical expected value\n\nalpha=2\nbeta=8\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=20,alpha,beta))\n\n[1] 0.2102156\n\n\nWe can also derive the theoretical quantile, let us say the P95.\nCompare the quantile from the sample with the quantile calculated from the inverse probability distribution function\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=20,alpha,beta),probs=0.95)\n\n      95% \n0.3925769 \n\n\n\nWhich of them has the smallest difference? Why do you think it is like that?\n\n\n\n\n\n\n\nExtra\n\n\n\nIf you feel you have the time or do another time:\nExplore what happens with the difference between theoretical and statistical values when you increase sample size from 20 to a high number (close to 1000)?\n\n\nBelow I wrte a script where sample size is controlled at one place. The P95 is approximated fairly well by the sampling when I use \\(n=10 000\\).\n\nalpha=2\nbeta=8\nn=10000\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=n,alpha,beta))\n\n[1] 0.1992425\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=n,alpha,beta),probs=0.95)\n\n      95% \n0.4267434 \n\n\nLet us visualise the convergence of the approximation of the mean and 95th percentile of the beta distribution using Monte Carlo simulation.\nThe code below defines a function which calculates the mean and P95 after every increase of the sample size and plots the convergence.\n\nplot_conv &lt;- function(n){\nsample_mean=cummean(rbeta(n=n,alpha,beta))\nsample_P95=unlist(lapply(1:n,function(iter){\n  quantile(rbeta(n=iter,alpha,beta),probs=0.95)}))\ndata.frame(values=c(sample_mean,sample_P95),n=rep(1:n,2), statistic=rep(c(\"mean\",\"P95\"),each=n))  %&gt;%\n  ggplot(aes(x=n,y=values,color=statistic))+\n  geom_line()+\n  geom_hline(yintercept = alpha/(alpha+beta)) +\n  geom_hline(yintercept = qbeta(0.95,alpha,beta))\n}\n\nWe start with \\(n=10\\)\n\nplot_conv(n=10)\n\n\n\n\n\n\n\n\n..increase to \\(n=100\\)\n\nplot_conv(n=100)\n\n\n\n\n\n\n\n\n..increase to \\(n=1000\\)\n\nplot_conv(n=10^3)\n\n\n\n\n\n\n\n\n..and finally \\(n=10000\\)\n\nplot_conv(n=10^4)",
     "crumbs": [
       "Intro to excel and R - Sept 5",
       "Useful functions in R"
@@ -755,47 +715,5 @@
       "Hazard and Exposure assessment - Sept 12",
       "Exposure"
     ]
-  },
-  {
-    "objectID": "zheng/lecture_hazardCZ.html",
-    "href": "zheng/lecture_hazardCZ.html",
-    "title": "Hazard Characterization",
-    "section": "",
-    "text": "3-4pm: lecture on hazard characterization\n4-5pm: exercise on species sensitivity distribution"
-  },
-  {
-    "objectID": "zheng/lecture_hazardCZ.html#schedule",
-    "href": "zheng/lecture_hazardCZ.html#schedule",
-    "title": "Hazard Characterization",
-    "section": "",
-    "text": "3-4pm: lecture on hazard characterization\n4-5pm: exercise on species sensitivity distribution"
-  },
-  {
-    "objectID": "zheng/lecture_hazardCZ.html#dose-response-assessment",
-    "href": "zheng/lecture_hazardCZ.html#dose-response-assessment",
-    "title": "Hazard Characterization",
-    "section": "Dose-response assessment",
-    "text": "Dose-response assessment\n\nDescription of hazards\n“Ice cream consumption, exposure, intervention, experiment”\nWith or without a description of dose pertaining to the hazard:\n\nConsuming water can cause death\nConsuming 1000 liters water can cause death\nConsuming 1000 liters water in 1 hour can cause death\n\n\n\n\nA complete description of hazard must include dose\nWith enough dose, everything could be lethal\n“dosis sola facit venenum” - Paracelsus, 1538\n“Only the dose makes the poison”\nHazard characterization, aka dose-response assessment:\nAfter the identification of hazard, how the adverse outcome changes quantitatively in response to the changes in hazard?"
-  },
-  {
-    "objectID": "zheng/lecture_hazardCZ.html#why-move-away-from-noaelloael-for-dose-response-assessment",
-    "href": "zheng/lecture_hazardCZ.html#why-move-away-from-noaelloael-for-dose-response-assessment",
-    "title": "Hazard Characterization",
-    "section": "Why move away from NOAEL/LOAEL for dose-response assessment?",
-    "text": "Why move away from NOAEL/LOAEL for dose-response assessment?\nExample 1\ntolerated probability of type I error: 0.01\n\n\n\nDose\nResponse\np value\n\n\n\n\n0\n10.0\n-\n\n\n5\n10.5\n0.34\n\n\n25\n11.3\n0.002\n\n\n50\n18.3\n&lt; 0.001\n\n\n\n\nCan you find a NOAEL?\nCan you find a LOAEL?\n\nExample 2\n\n\n\nDose\nResponse\np value\n\n\n\n\n0\n10.0\n-\n\n\n10\n10.5\n0.005\n\n\n25\n11.3\n&lt; 0.001\n\n\n50\n18.3\n&lt; 0.001\n\n\n\n\nCan you find a NOAEL?\nCan you find a LOAEL?\nWhat’s the difference between example 1 and 2? How the differences affect NOAEL/LOAEL?\n\n\n\nProblems of NOAEL/LOAEL approach\n\nLimited by dosage setup in study design\nLimited use of data\nNOAEL not always available\nNo expression of uncertainty"
-  },
-  {
-    "objectID": "zheng/lecture_hazardCZ.html#benchmark-dose-modeling",
-    "href": "zheng/lecture_hazardCZ.html#benchmark-dose-modeling",
-    "title": "Hazard Characterization",
-    "section": "Benchmark dose modeling",
-    "text": "Benchmark dose modeling\n\nWhat is BMD?\n\nfit a statistical model to all dose-response data\nDetermine a BMR: a level of response of practical interest, e.g., not considerably adverse in the population\nEstimate the dose that causes the BMR using the fitted model\n\n\n\nStrength\n\nProper use of all dose-response data\nMuch less limited by dosage setup in study design\nNot requiring the data to show a NOAEL\nAllow the expression of uncertainty as distributions\n\n\n\nChallenges\n\nRequire more and complicated statistical analysis\nSensitive to selection of BMR\nSensitive to choices in statistical modeling\n\n\n\nExample benchmark dose models\n\n\n\n\n\n\n\n\n\n\nMonotonic, threshold\n\nThreshold: a level of dose beyond which the level of responses changes significantly\n\nMost ideal shape for decision making\nRequire more data for modeling\nMajority of chemicals: non-mutagenic, safe below threshold\nBMD around the threshold\n\n\nMonotonic, no threshold\n\n\nEasy to model\nMutagenic chemicals: one molecular can cause cancer, no safe level\nBMD around the dose that causes considerable risk, e.g., &gt;= 1 cancer in 100,000 population\n\n\nNon-monotonic\n\n\nHormesis\nEssential chemicals"
-  },
-  {
-    "objectID": "zheng/lecture_hazardCZ.html#bmd-tools",
-    "href": "zheng/lecture_hazardCZ.html#bmd-tools",
-    "title": "Hazard Characterization",
-    "section": "BMD tools",
-    "text": "BMD tools\nWe will exercise with:\nEFSA PROAST web (by RIVM): https://proastweb.rivm.nl/\nBMDS online (by US EPA): https://www.epa.gov/bmds/bmds-online\nOther options, not in our exercise:\nPROAST full (R package): https://www.rivm.nl/en/proast\nEFSA Bayesian BMD (by Hasselt University, Belgium): https://r4eu.efsa.europa.eu/app/bmdbayesian"
   }
 ]
