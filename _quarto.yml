@@ -9,11 +9,11 @@ website:
     search: true
     contents: 
        - section: "General"
-         contents:
+         contents: 
          - text: "Probability distributions"
            file: ex/probability_distribution.qmd
            target: "_blank"
-       - section: "Intro to excel and R - Sept 5"
+       - section: "Intro to excel and R - Sept 4"
          contents:
          - text: "Useful functions in Excel"
            file: ex/useful_functions.qmd
@@ -24,32 +24,66 @@ website:
          - text: "Useful functions in R"
            file: ex/useful_functions_with_R.qmd
            target: "_blank"
-       - section: "Probability models - Sept 8"
-         contents: 
-         - text: "Interval and 1D Monte Carlo"
-           file: ex/ex_daily_intake_equation.qmd
-           target: "_blank"
-         - text: "Exercise Probability"
-           file: ex/chance_belief_frequency.qmd
-           target: "_blank"
-       - section: "Hazard and Exposure assessment - Sept 12" 
-         contents: 
-         - text: "Hazard"
-           file: zheng/ex_hazard.qmd
-           target: "_blank"
-         - text: "Exposure"
-           file: zheng/ex_exposure.qmd
-           target: "_blank"
-       - section: "Hazard characterisation - Sept 15" 
-         contents: 
-         - text: "Species Sensitivity Distribution"
-           file: ex/ex_species_sensitivity_distribution.qmd
-           target: "_blank"
-       - section: "Hazard characterisation - Sept 22"
-         contents:
-         - text: "Benchmark dose modelling"
-           file: zheng/ex_benchmark_dose_modelling.qmd
-           target: "_blank"
+       # - section: "Probability models - Sept 7"
+       #   contents: 
+       #   - text: "Interval and 1D Monte Carlo"
+       #     file: ex/ex_daily_intake_equation.qmd
+       #     target: "_blank"
+       #   - text: "Exercise Probability"
+       #     file: ex/chance_belief_frequency.qmd
+       #     target: "_blank"
+       # - section: "Exposure assessment - Sept 11" 
+       #   contents: 
+       #   - text: "Exposure ENVIRON"
+       #     file: ex/ex_environ_exposure_assessment.qmd
+       #     target: "_blank"
+       #   - text: "Exposure DATABASES"
+       #     file: ex/ex_exposure_assessment_databases.qmd
+       #     target: "_blank"
+       #   - text: "Exposure FATE"
+       #     file: ex/ex_environ_fate_assessment.qmd
+       #     target: "_blank"
+       # - section: "Hazard assessment - Sept 14" 
+       #   contents: 
+       #   - text: "Dose response modelling"
+       #     file: 
+       #     target: "_blank"
+       #     contents:
+       #   - text: "Benchmark dose modelling"
+       #     file: zheng/ex_benchmark_dose_modelling.qmd
+       #     target: "_blank"
+       # - section: "Hazard assessment - Sept 16" 
+       #   contents: 
+       #   - text: "Species Sensitivity Distribution"
+       #     file: ex/ex_species_sensitivity_distribution.qmd
+       #     target: "_blank"
+       # - section: "Environmental health risk assessment - Sept 18"
+       #   contents:
+       #   - text: "Environmental health risk assessment"
+       #    # file: zheng/ex_benchmark_dose_modelling.qmd
+       #     target: "_blank"
+       # - section: "Lecture Hazard characterisation - Sept 23"
+       #   contents:
+       #   - text: "Benchmark dose modelling"
+       #     file: zheng/ex_benchmark_dose_modelling.qmd
+       #     target: "_blank"
+       # - section: "Species Distribution Modelling - Sept 25"
+       #   contents:
+       #   - text: "Species Distribution Modelling "
+       #    # file: zheng/ex_benchmark_dose_modelling.qmd
+       #     target: "_blank"
+       # - section: "Model uncertainty - Sept 30"
+       #   contents:
+       #   - text: "Model uncertainty "
+       #    # file: zheng/ex_benchmark_dose_modelling.qmd
+       #     target: "_blank"
+       # - section: "Expert judgement - Oct 2"
+       #   contents:
+       #   - text: "Expert judgement  "
+       #  # file: zheng/ex_benchmark_dose_modelling.qmd
+       #   target: "_blank"
+        
+        
 
       
 format:
