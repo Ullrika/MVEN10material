@@ -24,6 +24,7 @@ website:
          - text: "Useful functions in R"
            file: ex/useful_functions_with_R.qmd
            target: "_blank"
+       
        # - section: "Probability models - Sept 7"
        #   contents: 
        #   - text: "Interval and 1D Monte Carlo"
