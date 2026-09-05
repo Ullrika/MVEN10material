@@ -24,15 +24,14 @@ website:
          - text: "Useful functions in R"
            file: ex/useful_functions_with_R.qmd
            target: "_blank"
-       
-       # - section: "Probability models - Sept 7"
-       #   contents: 
-       #   - text: "Interval and 1D Monte Carlo"
-       #     file: ex/ex_daily_intake_equation.qmd
-       #     target: "_blank"
-       #   - text: "Exercise Probability"
-       #     file: ex/chance_belief_frequency.qmd
-       #     target: "_blank"
+       - section: "Probability models - Sept 7"
+         contents: 
+         - text: "Interval and 1D Monte Carlo"
+           file: ex/ex_daily_intake_equation.qmd
+           target: "_blank"
+         - text: "Exercise Probability"
+           file: ex/chance_belief_frequency.qmd
+           target: "_blank"
        # - section: "Exposure assessment - Sept 11" 
        #   contents: 
        #   - text: "Exposure ENVIRON"
