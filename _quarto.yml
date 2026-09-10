@@ -40,46 +40,28 @@ website:
          - text: "Exposure FATE"
            file: ex/ex_environ_fate_assessment.qmd
            target: "_blank"
-           
-       # - section: "Hazard assessment - Sept 14" 
-       #   contents: 
-       #   - text: "Dose response modelling"
-       #     file: 
-       #     target: "_blank"
-       #     contents:
-       #   - text: "Benchmark dose modelling"
-       #     file: zheng/ex_benchmark_dose_modelling.qmd
-       #     target: "_blank"
-       # - section: "Hazard assessment - Sept 16" 
-       #   contents: 
-       #   - text: "Species Sensitivity Distribution"
-       #     file: ex/ex_species_sensitivity_distribution.qmd
-       #     target: "_blank"
-       # - section: "Environmental health risk assessment - Sept 18"
-       #   contents:
-       #   - text: "Environmental health risk assessment"
-       #    # file: zheng/ex_benchmark_dose_modelling.qmd
-       #     target: "_blank"
-       # - section: "Lecture Hazard characterisation - Sept 23"
-       #   contents:
-       #   - text: "Benchmark dose modelling"
-       #     file: zheng/ex_benchmark_dose_modelling.qmd
-       #     target: "_blank"
-       # - section: "Species Distribution Modelling - Sept 25"
-       #   contents:
-       #   - text: "Species Distribution Modelling "
-       #    # file: zheng/ex_benchmark_dose_modelling.qmd
-       #     target: "_blank"
-       # - section: "Model uncertainty - Sept 30"
-       #   contents:
-       #   - text: "Model uncertainty "
-       #    # file: zheng/ex_benchmark_dose_modelling.qmd
-       #     target: "_blank"
-       # - section: "Expert judgement - Oct 2"
-       #   contents:
-       #   - text: "Expert judgement  "
-       #  # file: zheng/ex_benchmark_dose_modelling.qmd
-       #   target: "_blank"
+       - section: "Hazard assessment" 
+         contents: 
+         - text: "Dose response modelling - Sept 14"
+           target: "_blank"
+         - text: "Species Sensitivity Distribution - Sept 16"
+           file: ex/ex_species_sensitivity_distribution.qmd
+           target: "_blank"
+       - section: "Environmental health risk assessment - Sept 18"
+         contents:
+         - text: "Environmental health risk assessment"
+           target: "_blank"
+       - section: "Species Distribution Modelling - Sept 25"
+         contents:
+         - text: "Species Distribution Modelling "
+           target: "_blank"
+       - section: "Hazard Modelling"
+         contents:
+         - text: "Dose response modelling - Sept 14"
+           file: zheng/ex_benchmark_dose_modelling.qmd
+           target: "_blank"
+       - section: "Model uncertainty - Sept 30"
+       - section: "Expert judgement - Oct 2 and 5"
         
         
 

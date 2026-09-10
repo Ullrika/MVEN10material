@@ -8,7 +8,7 @@ author: "Ullrika Sahlin"
 
 ### Background
 
-The Species Sensitivity Distribution methodology is a common way in hazard assessment for setting safe limits on chemical concentrations in freshwaters. It usually require experimentally determined NOEC values for a number of species from different taxonomic groups. 
+The Species Sensitivity Distribution methodology is a common way in hazard assessment for setting safe limits on chemical concentrations in fresh waters. It usually require experimentally determined NOEC values for a number of species from different taxonomic groups. 
 
 The species sensitivity distribution (SSD) is a statistical approach that is used to estimate either the concentration of a chemical that is hazardous to no more than x% of all species (the HCx) or the proportion of species potentially affected by a given concentration of a chemical. 
 
@@ -197,5 +197,5 @@ Write in the report:
 
 - Compare to a hazardous concentration derived from two species and an appropriate assessment factor. Select two species from your data and select the assessment factor from the table in the beginning of this document. 
 
-(@) Submit on the assignment in canvas
+(@) Submit on the report on canvas
 

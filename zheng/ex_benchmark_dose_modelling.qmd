@@ -17,7 +17,7 @@ This exercise is designed to 1) help you evaluate and improve your understanding
 
 # Submission requirements
 
-No report is required for this exercise. 
+If present, no report is required for this exercise. 
 
 # Question 1: NOAEL/LOAEL
 
