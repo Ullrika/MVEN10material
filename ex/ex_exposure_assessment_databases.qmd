@@ -26,11 +26,11 @@ Data from studies and surveys have been collected into databases that are availa
 
 ### Duration
 
-30 minutes
+40 minutes
 
 ### Reporting
 
-Make a report with your answers to the questions and main dicussion points and submit to canvas. 
+Add your your answers to the questions and main discussion points to the report that you then submit to canvas. You are expected to combine the answers to this exercise and the environmental exposure assessment exercise into one report. Put your name on the report! 
 
 ### References
 
@@ -62,7 +62,7 @@ The US EPA [Exposure factors handbook](https://www.epa.gov/expobox/about-exposur
 
 (@) Discuss the difference between **soil** and **dust** (see definitions on Page 5-2 [10 in the PDF])
 
-(@) Goto Table 5-3 and estract a high exposure to Aluminium via soil and dust combined for a child between 1 to 4 years old. 
+(@) Goto Table 5-3 and extract a high exposure to Aluminium via soil and dust combined for a child between 1 to 4 years old. 
 
 (@) Discuss if high exposure should be evaluated on the 95th Percentile or the Maximum. 
 
@@ -81,11 +81,13 @@ The [Comprehensive Food Consumption Database](https://www.efsa.europa.eu/en/data
 
 (@) Enter the foodex2-level-1 window
 
-(@) Filter the data according to Exposure hierarchy L1 - by deselecting (All) and then selecting **Coffee, cocoa, tea and infusions** only
+(@) Filter the data (see tab to the right). Select (All) in Exposure hierarchy L1 - this action deselects all. Then select **Coffee, cocoa, tea and infusions** only
 
 ![](../img/food1.png)
 
-(@) Discuss the difference between the four categories of data.
+(@) Discuss the difference between the chronic vs acute
+
+(@) Discuss the difference between consumers only vs all subjects
 
 (@) Expand the data sheet for Chronic Food Consumption Grams per kilogram of body weight per day (g/kg bw per day) - Consumers only
 
@@ -93,5 +95,5 @@ The [Comprehensive Food Consumption Database](https://www.efsa.europa.eu/en/data
 
 - Adult and pregnant women
 
-(@) Discuss how to define a high consumer and how to derive the estimate. You are welcome to ask for advice. Report back your suggestion and results.
+(@) Discuss how to define a high consumer and how to derive the estimate. Report back how you motivate your suggestion and the derived estimate.
 

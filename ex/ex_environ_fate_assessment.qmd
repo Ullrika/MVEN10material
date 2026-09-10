@@ -6,7 +6,7 @@ author: "Ullrika Sahlin"
 
 ## Exercise overview
 
-We go through this in class.
+Simple box was briefly shown in the lecture. 
 
 ### Background
 
@@ -23,6 +23,10 @@ An assessments starts with the source and level of emissions. The exposure asses
 ### Content
 
 -   SimpleBox vs 4.04
+
+### Reporting
+
+Add your answers to the questions and main discussion points to the report that you submit to canvas. You are expected to combine the answers to this exercise and the environmental exposure database exercise into one report. Put your name on the report! 
 
 ### References
 
@@ -75,15 +79,15 @@ The model will now use substance specific parameters for the calculations.
 
 (@) Goto sheet **output** and note the concentration at REGIONAL SCALE in Fresh water sediments (mass in **cell C23**, concentration in **cell M23**) or look at the **Graphic output: steady-state mass flows**)
 
-I get mass 6.7 kg and concentration 1.4e-7 g.kg(w)-1
+I get mass 6.7 kg and concentration 1.4e-7 g.kg(w)-1. Do you get the same? 
 
 (@) Study the  **Graphic output: steady-state mass flows** in the same sheet but further to the right. Identify the mass/concentration in fresh water sediment in the graph. 
 
-I see that the mass in freshwater sediment is 0.7% of the total concentration in the system.
+I see that the mass in freshwater sediment is 0.7% of the total concentration in the system. Do you get the same? 
 
 (@) Were do the majority of the caffeine end up at steady state? 
 
-I see that 81.1% of the mass of caffeine is in open freshwater. 
+I see that 81.1% of the mass of caffeine is in open freshwater. Do you get the same
 
->We will talk more about this model during a seminar/lecture. 
+
 

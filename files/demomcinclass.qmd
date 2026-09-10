@@ -1,0 +1,19 @@
+---
+title: "Untitled"
+---
+
+```{r}
+n = 10^4 # number of MC iterations
+
+# sample from inputs
+c <- rnorm(n,0.0063,0.00063)
+r <- rnorm(n,5,0.5)
+ef <- runif(n,0.12,0.18)
+bw <- rnorm(n,25.11,2.51)
+
+# propagate to output
+dose <- c*r*ef/bw
+
+hist(dose)
+```
+

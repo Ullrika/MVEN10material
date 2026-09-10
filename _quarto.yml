@@ -32,17 +32,15 @@ website:
          - text: "Exercise Probability"
            file: ex/chance_belief_frequency.qmd
            target: "_blank"
-       # - section: "Exposure assessment - Sept 11" 
-       #   contents: 
-       #   - text: "Exposure ENVIRON"
-       #     file: ex/ex_environ_exposure_assessment.qmd
-       #     target: "_blank"
-       #   - text: "Exposure DATABASES"
-       #     file: ex/ex_exposure_assessment_databases.qmd
-       #     target: "_blank"
-       #   - text: "Exposure FATE"
-       #     file: ex/ex_environ_fate_assessment.qmd
-       #     target: "_blank"
+       - section: "Exposure assessment - Sept 11" 
+         contents: 
+         - text: "Exposure DATABASES"
+           file: ex/ex_exposure_assessment_databases.qmd
+           target: "_blank"
+         - text: "Exposure FATE"
+           file: ex/ex_environ_fate_assessment.qmd
+           target: "_blank"
+           
        # - section: "Hazard assessment - Sept 14" 
        #   contents: 
        #   - text: "Dose response modelling"

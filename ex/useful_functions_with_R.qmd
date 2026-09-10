@@ -26,7 +26,6 @@ Load data and save the variable to an object called **x**
 #| message: false
  
 df = as_tibble(read_csv("../data/breast-cancer.csv"))%>% select(radius_mean)
-
 ```
 
 ## Descriptive statistics
@@ -49,19 +48,19 @@ length(x)
 
 Calculate the three summary statistics described in the green area of the sheet.
 
--   The third quartile in the sample, P75
+- The third quartile in the sample, P75
 
 ```{r}
 quantile(x,probs=0.75)
 ```
 
--   The 5% quantile (or 5th percentile), P05
+- The 5% quantile (or 5th percentile), P05
 
 ```{r}
 quantile(x,probs=0.05)
 ```
 
--   The coefficient of variation is the ratio between the sample standard deviation and the sample mean
+- The coefficient of variation is the ratio between the sample standard deviation and the sample mean
 
 ```{r}
 sd(x)/mean(x)*100
@@ -194,7 +193,7 @@ This is already implemented as a function
 rnorm(1,m,s)
 ```
 
-Draw from a beta distribution with parameters $\alpha=2$ and $\beta=8$
+Draw from a beta distribution with parameters $\alpha=2$\$\\alpha=2\$\$\\alpha=2\$ and $\beta=8$
 
 ```{r}
 rbeta(1,2,8)
@@ -232,7 +231,7 @@ qbeta(0.95,alpha,beta)
 quantile(rbeta(n=20,alpha,beta),probs=0.95)
 ```
 
--   Which of them has the smallest difference? Why do you think it is like that?
+- Which of them has the smallest difference? Why do you think it is like that?
 
 ::: {.callout-warning title="Extra"}
 If you feel you have the time or do another time:
