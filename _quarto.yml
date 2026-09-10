@@ -4,6 +4,7 @@ project:
 
 website:
   title: "MVEN10"
+  site-url: "https://ullrika.github.io/MVEN10material/"
   sidebar:
     style: "docked"
     search: true
