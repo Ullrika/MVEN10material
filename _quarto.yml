@@ -9,64 +9,61 @@ website:
     style: "docked"
     search: true
     contents: 
-       - section: "General"
-         contents: 
-         - text: "Probability distributions"
-           file: ex/probability_distribution.qmd
-           target: "_blank"
-       - section: "Intro to excel and R - Sept 4"
-         contents:
-         - text: "Useful functions in Excel"
-           file: ex/useful_functions.qmd
-           target: "_blank"
-         - text: "Intro to Quarto and R"
-           file: ex/introduction_to_quarto_and_R.qmd
-           target: "_blank"
-         - text: "Useful functions in R"
-           file: ex/useful_functions_with_R.qmd
-           target: "_blank"
-       - section: "Probability models - Sept 7"
-         contents: 
-         - text: "Interval and 1D Monte Carlo"
-           file: ex/ex_daily_intake_equation.qmd
-           target: "_blank"
-         - text: "Exercise Probability"
-           file: ex/chance_belief_frequency.qmd
-           target: "_blank"
-       - section: "Exposure assessment - Sept 11" 
-         contents: 
-         - text: "Exposure DATABASES"
-           file: ex/ex_exposure_assessment_databases.qmd
-           target: "_blank"
-         - text: "Exposure FATE"
-           file: ex/ex_environ_fate_assessment.qmd
-           target: "_blank"
-       - section: "Hazard assessment" 
-         contents: 
-         - text: "Dose response modelling - Sept 14"
-           target: "_blank"
-         - text: "Species Sensitivity Distribution - Sept 16"
-           file: ex/ex_species_sensitivity_distribution.qmd
-           target: "_blank"
-       - section: "Environmental health risk assessment - Sept 18"
-         contents:
-         - text: "Environmental health risk assessment"
-           target: "_blank"
-       - section: "Species Distribution Modelling - Sept 25"
-         contents:
-         - text: "Species Distribution Modelling "
-           target: "_blank"
-       - section: "Hazard Modelling"
-         contents:
-         - text: "Dose response modelling - Sept 14"
-           file: zheng/ex_benchmark_dose_modelling.qmd
-           target: "_blank"
-       - section: "Model uncertainty - Sept 30"
-       - section: "Expert judgement - Oct 2 and 5"
+      - section: "General"
+        contents: 
+          - text: "Probability distributions"
+            file: ex/probability_distribution.qmd
+            target: "_blank"
+      - section: "Intro to excel and R - Sept 4"
+        contents:
+          - text: "Useful functions in Excel"
+            file: ex/useful_functions.qmd
+            target: "_blank"
+          - text: "Intro to Quarto and R"
+            file: ex/introduction_to_quarto_and_R.qmd
+            target: "_blank"
+          - text: "Useful functions in R"
+            file: ex/useful_functions_with_R.qmd
+            target: "_blank"
+      - section: "Probability models - Sept 7"
+        contents: 
+          - text: "Interval and 1D Monte Carlo"
+            file: ex/ex_daily_intake_equation.qmd
+            target: "_blank"
+          - text: "Exercise Probability"
+            file: ex/chance_belief_frequency.qmd
+            target: "_blank"
+      - section: "Exposure assessment - Sept 11" 
+        contents: 
+          - text: "Exposure DATABASES"
+            file: ex/ex_exposure_assessment_databases.qmd
+            target: "_blank"
+          - text: "Exposure FATE"
+            file: ex/ex_environ_fate_assessment.qmd
+            target: "_blank"
+      - section: "Hazard assessment" 
+        contents: 
+          - text: "Dose response modelling - Sept 14"
+            target: "_blank"
+          - text: "Species Sensitivity Distribution - Sept 16"
+            file: ex/ex_species_sensitivity_distribution.qmd
+            target: "_blank"
+      - section: "Environmental health risk assessment - Sept 18"
+        contents:
+          - text: "Environmental health risk assessment"
+            target: "_blank"
+      - section: "Species Distribution Modelling - Sept 25"
+        contents:
+          - text: "Species Distribution Modelling "
+            target: "_blank"
+      - section: "Hazard Modelling"
+        contents:
+          - text: "Dose response modelling - Sept 14"
+            file: zheng/ex_benchmark_dose_modelling.qmd
+            target: "_blank"
+      - section: "Model uncertainty - Sept 30"
+      - section: "Expert judgement - Oct 2 and 5"
         
-        
-
-      
 format:
   html:
     theme: cosmo
