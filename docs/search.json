@@ -27,8 +27,8 @@
     "section": "",
     "text": "This exercise is designed to 1) help you evaluate and improve your understandings of key concepts of benchmark dose modeling, 2) gain practical experience with established benchmark dose modeling tools.",
     "crumbs": [
-      "Hazard Modelling",
-      "Dose response modelling - Sept 14"
+      "Hazard assessment",
+      "Benchmark dose modelling - Sept 23"
     ]
   },
   {
@@ -38,8 +38,8 @@
     "section": "Tasks",
     "text": "Tasks\n(1) Explain if this data can derive a NOAEL. If yes, what is it? If no, why?\n(2) Explain if this data can derive a LOAEL. If yes, what is it? If no, why?",
     "crumbs": [
-      "Hazard Modelling",
-      "Dose response modelling - Sept 14"
+      "Hazard assessment",
+      "Benchmark dose modelling - Sept 23"
     ]
   },
   {
@@ -49,8 +49,8 @@
     "section": "Tasks",
     "text": "Tasks\n(1) Use EFSA PROAST for BMD modeling. You can use the web version: https://proastweb.rivm.nl/ or the R-package version: https://www.rivm.nl/en/proast. Generate a report.\n(2) Based on the report from (a), find the following information: 1) number of models fitted, 2) AIC of each model, 3) CED, CEDL and CEDU of each model\n(3) Use US EPA BMDS for BMD modeling: https://www.epa.gov/bmds/bmds-online. Generate a report.\n(4) Based on the report from (c), find the following information: 1) number of models fitted, 2) P-value, AIC and reason of recommendation of each model, 3) BMD, BMDL and BMDU of each model",
     "crumbs": [
-      "Hazard Modelling",
-      "Dose response modelling - Sept 14"
+      "Hazard assessment",
+      "Benchmark dose modelling - Sept 23"
     ]
   },
   {
@@ -60,8 +60,8 @@
     "section": "Tasks",
     "text": "Tasks\nDiscuss one strengths and one weaknesses of the NOAEL/LOAEL approach and the BMD approach, respectively.\nYou may consider the following hints:\n\nWhat information is needed for each approach?\nIf there are changes in study design, e.g., dose level setup, how will each approach be affected?\nHow difficult it is to implement each approach?\nDoes the sample size have impacts on the estimates from the two approaches?\nCan a NOAEL be derived from a LOAEL? from a BMD?\nWhat is a benchmark response and how it is chosen?\nWhat are the differences between BMD models?\nHow are uncertainty in the data considered in the two approaches?",
     "crumbs": [
-      "Hazard Modelling",
-      "Dose response modelling - Sept 14"
+      "Hazard assessment",
+      "Benchmark dose modelling - Sept 23"
     ]
   },
   {
@@ -327,39 +327,6 @@
     "text": "Assess exposure from emissions of hexachlorobenzene to agricultural soil\nYou will use the version of SimpleBox that comes with the Targeted Risk Assessment tool from ECETOC\n\nDownload the excel file for SimpleBox-TRAM and open it. Enable Content!\n\n\n\n SimpleBox-TRAM\n\n\n\nGoto sheet chembase and note the ID number for hexachlorobenzene.\nGoto sheet input and write down the row number ID in cell I44.\n\nThe model will now use substance specific parameters for the calculations.\n\nSet USE volume at local scale to 1 in cell I85\nSet the value on EMISSION to agricultural soil to be 2\nGoto sheet level 3 output and note the concentration at local level in fresh water in cell D13\nStudy the graphical output, i.e. the steady-state mass flows in the same sheet starting in cell BL1.\nAnswer the following questions:\n\n\nWhat is the exposure scenario?\nWhat is the Predicted Environmental Concentration in fresh water of hexachlorobenzene under the exposure scenario?"
   },
   {
-    "objectID": "ex/chance_belief_frequency.html",
-    "href": "ex/chance_belief_frequency.html",
-    "title": "Chance, belief and frequency",
-    "section": "",
-    "text": "Work in groups of 3-4\n\n\n\nProbability is a mathematical concept defined basic rules.\n\n\n\n\n\n\nNoteThe basic rules of probability\n\n\n\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\n\n\nThere are different ways to interpret and use probability, sometimes within the same assessment. In this exercise you will be exposed to probability as a\n\nTheoretical probability: The number of outcomes favouring the event, divided by the total number of outcomes, assuming the outcomes are all equally likely.\nFrequency: The proportion of times, in the long run of identical circumstances that the event occurs.\nSubjective probability: A persons confidence that an event will occur, expressed as a number between 0 and 1.\n\n\n\n\n\nTo understand common interpretations of probability and for what they are used\n\n\n\n\n\nExperiment to illustrate the frequency interpretation of probability\nTheoretical probability vs Expected frequency\nSubjective probability\n\n\n\n\n30 minutes\n\n\n\nNo reporting required\n\n\n\nI have used examples and text from the book Teaching probability by Jenny Gage and David Spiegelhalter from 2016. Cambridge University Press.",
-    "crumbs": [
-      "Probability models - Sept 7",
-      "Exercise Probability"
-    ]
-  },
-  {
-    "objectID": "ex/chance_belief_frequency.html#exercise-overview",
-    "href": "ex/chance_belief_frequency.html#exercise-overview",
-    "title": "Chance, belief and frequency",
-    "section": "",
-    "text": "Work in groups of 3-4\n\n\n\nProbability is a mathematical concept defined basic rules.\n\n\n\n\n\n\nNoteThe basic rules of probability\n\n\n\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\n\n\nThere are different ways to interpret and use probability, sometimes within the same assessment. In this exercise you will be exposed to probability as a\n\nTheoretical probability: The number of outcomes favouring the event, divided by the total number of outcomes, assuming the outcomes are all equally likely.\nFrequency: The proportion of times, in the long run of identical circumstances that the event occurs.\nSubjective probability: A persons confidence that an event will occur, expressed as a number between 0 and 1.\n\n\n\n\n\nTo understand common interpretations of probability and for what they are used\n\n\n\n\n\nExperiment to illustrate the frequency interpretation of probability\nTheoretical probability vs Expected frequency\nSubjective probability\n\n\n\n\n30 minutes\n\n\n\nNo reporting required\n\n\n\nI have used examples and text from the book Teaching probability by Jenny Gage and David Spiegelhalter from 2016. Cambridge University Press.",
-    "crumbs": [
-      "Probability models - Sept 7",
-      "Exercise Probability"
-    ]
-  },
-  {
-    "objectID": "ex/chance_belief_frequency.html#frequency",
-    "href": "ex/chance_belief_frequency.html#frequency",
-    "title": "Chance, belief and frequency",
-    "section": "Frequency",
-    "text": "Frequency\nThe experiment is setup as follows:\n\nAssign one student to flip the symmetric coin of the type Antoninus Pius - Bronze Sestertius - Roman Empire using the virtual coin flipper on random.org\nRecord if the outcome is heads or tails.\nAssign another student to throw a six sided dice using the virtual dice roller on random.org\nRecord if the outcome is a number in the range 1 to 5 or a six\nRepeat N=5 times\n\nAssign one student to record the outcomes in this frequency tree (replace N and # with numbers).\n\nAnswer the following questions:\n\nWhat is the observed frequency of the event “heads followed by a six”?\n\n\nExpected frequency\n\nIs this a reliable estimate of the expected frequency? If not, what can one do to make it more reliable?\nWhat do you expect the frequency to be if N would be a very large number?\n\n\n\n\n\n\n\nTip\n\n\n\nDefine the events A = “heads” and B = “six”.\nSpecify P(A) and P(B).\nCalculate P(A and B) using the multiplication rule for two independent events.\nDon’t forget to multiply by N to get the expected frequency.\n\n\nRepeat the experiment with N = 100 to verify if estimates of the expected frequencies become more reliable with a larger number of observations.\n\n\n\n\n\n\nTip\n\n\n\nYou can use the prepared spreadsheet in frequency_experiment.xlsx\n\n\n Download xlsx file\n\n\nFirst you have to figure out how to expand the formulas for 100 iterations.\n\n\n\n\nChance\nNow let us go back to the step where you specified the probabilities P(A) and P(B). How did you do that? One way to do it is to look at the outcome space, find the outcomes that correspond to the event and divide by the total number of outcomes.\nFor the coin the outcome space is “heads” and “tails”, i.e. n = 2. The event of a getting “heads” can occur in one of the outcomes, i.e. m = 1. Under the assumption that all outcomes are equally likely, the theoretical probability for “heads” is \\(\\frac{m}{n} = \\frac{1}{2}\\).\nFor the dice, the outcome space is 1, 2, 3, 4, 5, and 6, i.e. n = 6. The event of getting a “six” can occur in one way, i.e. m = 1. The theoretical probability for the event “six” is therefore \\(\\frac{1}{6}\\).\n\n\n\n\n\n\nNote\n\n\n\nNotice that theoretical probabilities can only be used in balanced situations such as dice, cards, or lottery tickets where it justified to assume symmetry (equal probability) for all possible outcomes.\n\n\n\n\nRelative frequency\nIf we divide the frequency of an event by the number of trials N, we get the relative frequency which is a good estimate of a probability for the event to occur at the next iteration of the same experiment.\nLet \\(m\\) be the number of times the event has occurred. \\(E(\\frac{m}{N})=\\frac{E(m)}{N}=\\frac{N\\cdot P(event)}{N} = P(event)\\)\nRelative frequencies can be used to estimate the probability for an event as long as the observations are equally likely across the full outcome space.\n\n\n\n\n\n\nNoteMake sure N is large\n\n\n\nThe more observations (i.e. larger N) the better estimate.\nThe more extreme event, i.e. very low or high probability of occurring, the more observations are needed.\nBe very skeptical to estimates of probabilities that are either 0 and 1, when the event is possible to occur.\n\n\n\n\nBelief (Personal probability)\nTake one of the thumbtacks provided in the exercise and a cup. Put the thumbtack in the cup, shake and place the cup upside down on a table without revealing the outcome.\n\nWhat outcomes are possible?\n\nFocus on the outcome that the thumbtack is having its head down with the needle pointing upwards.\n\nLet everyone in the group state their personal probability of this event as a number between 0 and 1, where 0 means that it is impossible to occur and 1 means that it is certain to occur.\n\n\n\n\n\n\n\nTipCromwell’s rule\n\n\n\nProbabilities 1 (“the event will definitely occur”) or 0 (“the event will definitely not occur”) should be avoided, except when applied to statements that are logically true or false.\n\n\n\nDiscuss if and why the probabilities differ.\n\nThis is an example of probability as a subjective probability that is purely a personal judgement based on available evidence and assumptions.\nMore evidence ought to result in smaller divergence in judgements. One way to illustrate this is to lift the cup and let everyone revise their judgement.\n\nDo that!\n\nGiven that the evidence is revealing the outcome, the subjective probabilities held by the students in the group should now be either 1 or 0.\nIn risk assessment, we seldom have such full certainty as in this example. Probabilities are almost inevitably based on judgements and assumptions such as random sampling.\n\n\n\n\n\n\nTipA general advice\n\n\n\nProbability can be thought of as an expected frequency. Instead of saying that “the probability of the event is 0.20 (or 20%)”, you can say “out of 100 situations like this, we would expect the event to occur 20 times”.\nBy carefully stating the denominator (reference class), ambiguity about the meaning of probability can be avoided.\nThis advice applies to any of the interpretations.",
-    "crumbs": [
-      "Probability models - Sept 7",
-      "Exercise Probability"
-    ]
-  },
-  {
     "objectID": "ex/ex_daily_intake_equation.html",
     "href": "ex/ex_daily_intake_equation.html",
     "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
@@ -412,6 +379,215 @@
     "crumbs": [
       "Probability models - Sept 7",
       "Interval and 1D Monte Carlo"
+    ]
+  },
+  {
+    "objectID": "ex/chance_belief_frequency.html",
+    "href": "ex/chance_belief_frequency.html",
+    "title": "Chance, belief and frequency",
+    "section": "",
+    "text": "Work in groups of 3-4\n\n\n\nProbability is a mathematical concept defined basic rules.\n\n\n\n\n\n\nNoteThe basic rules of probability\n\n\n\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\n\n\nThere are different ways to interpret and use probability, sometimes within the same assessment. In this exercise you will be exposed to probability as a\n\nTheoretical probability: The number of outcomes favouring the event, divided by the total number of outcomes, assuming the outcomes are all equally likely.\nFrequency: The proportion of times, in the long run of identical circumstances that the event occurs.\nSubjective probability: A persons confidence that an event will occur, expressed as a number between 0 and 1.\n\n\n\n\n\nTo understand common interpretations of probability and for what they are used\n\n\n\n\n\nExperiment to illustrate the frequency interpretation of probability\nTheoretical probability vs Expected frequency\nSubjective probability\n\n\n\n\n30 minutes\n\n\n\nNo reporting required\n\n\n\nI have used examples and text from the book Teaching probability by Jenny Gage and David Spiegelhalter from 2016. Cambridge University Press.",
+    "crumbs": [
+      "Probability models - Sept 7",
+      "Exercise Probability"
+    ]
+  },
+  {
+    "objectID": "ex/chance_belief_frequency.html#exercise-overview",
+    "href": "ex/chance_belief_frequency.html#exercise-overview",
+    "title": "Chance, belief and frequency",
+    "section": "",
+    "text": "Work in groups of 3-4\n\n\n\nProbability is a mathematical concept defined basic rules.\n\n\n\n\n\n\nNoteThe basic rules of probability\n\n\n\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\n\n\nThere are different ways to interpret and use probability, sometimes within the same assessment. In this exercise you will be exposed to probability as a\n\nTheoretical probability: The number of outcomes favouring the event, divided by the total number of outcomes, assuming the outcomes are all equally likely.\nFrequency: The proportion of times, in the long run of identical circumstances that the event occurs.\nSubjective probability: A persons confidence that an event will occur, expressed as a number between 0 and 1.\n\n\n\n\n\nTo understand common interpretations of probability and for what they are used\n\n\n\n\n\nExperiment to illustrate the frequency interpretation of probability\nTheoretical probability vs Expected frequency\nSubjective probability\n\n\n\n\n30 minutes\n\n\n\nNo reporting required\n\n\n\nI have used examples and text from the book Teaching probability by Jenny Gage and David Spiegelhalter from 2016. Cambridge University Press.",
+    "crumbs": [
+      "Probability models - Sept 7",
+      "Exercise Probability"
+    ]
+  },
+  {
+    "objectID": "ex/chance_belief_frequency.html#frequency",
+    "href": "ex/chance_belief_frequency.html#frequency",
+    "title": "Chance, belief and frequency",
+    "section": "Frequency",
+    "text": "Frequency\nThe experiment is setup as follows:\n\nAssign one student to flip the symmetric coin of the type Antoninus Pius - Bronze Sestertius - Roman Empire using the virtual coin flipper on random.org\nRecord if the outcome is heads or tails.\nAssign another student to throw a six sided dice using the virtual dice roller on random.org\nRecord if the outcome is a number in the range 1 to 5 or a six\nRepeat N=5 times\n\nAssign one student to record the outcomes in this frequency tree (replace N and # with numbers).\n\nAnswer the following questions:\n\nWhat is the observed frequency of the event “heads followed by a six”?\n\n\nExpected frequency\n\nIs this a reliable estimate of the expected frequency? If not, what can one do to make it more reliable?\nWhat do you expect the frequency to be if N would be a very large number?\n\n\n\n\n\n\n\nTip\n\n\n\nDefine the events A = “heads” and B = “six”.\nSpecify P(A) and P(B).\nCalculate P(A and B) using the multiplication rule for two independent events.\nDon’t forget to multiply by N to get the expected frequency.\n\n\nRepeat the experiment with N = 100 to verify if estimates of the expected frequencies become more reliable with a larger number of observations.\n\n\n\n\n\n\nTip\n\n\n\nYou can use the prepared spreadsheet in frequency_experiment.xlsx\n\n\n Download xlsx file\n\n\nFirst you have to figure out how to expand the formulas for 100 iterations.\n\n\n\n\nChance\nNow let us go back to the step where you specified the probabilities P(A) and P(B). How did you do that? One way to do it is to look at the outcome space, find the outcomes that correspond to the event and divide by the total number of outcomes.\nFor the coin the outcome space is “heads” and “tails”, i.e. n = 2. The event of a getting “heads” can occur in one of the outcomes, i.e. m = 1. Under the assumption that all outcomes are equally likely, the theoretical probability for “heads” is \\(\\frac{m}{n} = \\frac{1}{2}\\).\nFor the dice, the outcome space is 1, 2, 3, 4, 5, and 6, i.e. n = 6. The event of getting a “six” can occur in one way, i.e. m = 1. The theoretical probability for the event “six” is therefore \\(\\frac{1}{6}\\).\n\n\n\n\n\n\nNote\n\n\n\nNotice that theoretical probabilities can only be used in balanced situations such as dice, cards, or lottery tickets where it justified to assume symmetry (equal probability) for all possible outcomes.\n\n\n\n\nRelative frequency\nIf we divide the frequency of an event by the number of trials N, we get the relative frequency which is a good estimate of a probability for the event to occur at the next iteration of the same experiment.\nLet \\(m\\) be the number of times the event has occurred. \\(E(\\frac{m}{N})=\\frac{E(m)}{N}=\\frac{N\\cdot P(event)}{N} = P(event)\\)\nRelative frequencies can be used to estimate the probability for an event as long as the observations are equally likely across the full outcome space.\n\n\n\n\n\n\nNoteMake sure N is large\n\n\n\nThe more observations (i.e. larger N) the better estimate.\nThe more extreme event, i.e. very low or high probability of occurring, the more observations are needed.\nBe very skeptical to estimates of probabilities that are either 0 and 1, when the event is possible to occur.\n\n\n\n\nBelief (Personal probability)\nTake one of the thumbtacks provided in the exercise and a cup. Put the thumbtack in the cup, shake and place the cup upside down on a table without revealing the outcome.\n\nWhat outcomes are possible?\n\nFocus on the outcome that the thumbtack is having its head down with the needle pointing upwards.\n\nLet everyone in the group state their personal probability of this event as a number between 0 and 1, where 0 means that it is impossible to occur and 1 means that it is certain to occur.\n\n\n\n\n\n\n\nTipCromwell’s rule\n\n\n\nProbabilities 1 (“the event will definitely occur”) or 0 (“the event will definitely not occur”) should be avoided, except when applied to statements that are logically true or false.\n\n\n\nDiscuss if and why the probabilities differ.\n\nThis is an example of probability as a subjective probability that is purely a personal judgement based on available evidence and assumptions.\nMore evidence ought to result in smaller divergence in judgements. One way to illustrate this is to lift the cup and let everyone revise their judgement.\n\nDo that!\n\nGiven that the evidence is revealing the outcome, the subjective probabilities held by the students in the group should now be either 1 or 0.\nIn risk assessment, we seldom have such full certainty as in this example. Probabilities are almost inevitably based on judgements and assumptions such as random sampling.\n\n\n\n\n\n\nTipA general advice\n\n\n\nProbability can be thought of as an expected frequency. Instead of saying that “the probability of the event is 0.20 (or 20%)”, you can say “out of 100 situations like this, we would expect the event to occur 20 times”.\nBy carefully stating the denominator (reference class), ambiguity about the meaning of probability can be avoided.\nThis advice applies to any of the interpretations.",
+    "crumbs": [
+      "Probability models - Sept 7",
+      "Exercise Probability"
+    ]
+  },
+  {
+    "objectID": "ex/ex_dose_response_modelling.html",
+    "href": "ex/ex_dose_response_modelling.html",
+    "title": "Dose response modelling",
+    "section": "",
+    "text": "We will search for effects and fit different dose response models to toxicity data R.\n\n\nDose response modelling is a key component of hazard assessment. It is includes testing if there is an effect and using models to find a lowest dose where there is no effect. in this exercise, we do basic dose response analysis. In a later exercise, we introduce benchmark dose modelling which is using more advanced methods to consider uncertainty.",
+    "crumbs": [
+      "Hazard assessment",
+      "Dose response modelling - Sept 14"
+    ]
+  },
+  {
+    "objectID": "ex/ex_dose_response_modelling.html#background",
+    "href": "ex/ex_dose_response_modelling.html#background",
+    "title": "Dose response modelling",
+    "section": "",
+    "text": "Dose response modelling is a key component of hazard assessment. It is includes testing if there is an effect and using models to find a lowest dose where there is no effect. in this exercise, we do basic dose response analysis. In a later exercise, we introduce benchmark dose modelling which is using more advanced methods to consider uncertainty.",
+    "crumbs": [
+      "Hazard assessment",
+      "Dose response modelling - Sept 14"
+    ]
+  },
+  {
+    "objectID": "ex/ex_dose_response_modelling.html#content",
+    "href": "ex/ex_dose_response_modelling.html#content",
+    "title": "Dose response modelling",
+    "section": "Content",
+    "text": "Content\n\nPlotting dose response data\nTesting for an effect using hypothesis testing\nFitting dose response curves",
+    "crumbs": [
+      "Hazard assessment",
+      "Dose response modelling - Sept 14"
+    ]
+  },
+  {
+    "objectID": "ex/ex_dose_response_modelling.html#reporting",
+    "href": "ex/ex_dose_response_modelling.html#reporting",
+    "title": "Dose response modelling",
+    "section": "Reporting",
+    "text": "Reporting\nIf present, no report needed. In case you do this on your own, make sure you provide",
+    "crumbs": [
+      "Hazard assessment",
+      "Dose response modelling - Sept 14"
+    ]
+  },
+  {
+    "objectID": "ex/ex_dose_response_modelling.html#references",
+    "href": "ex/ex_dose_response_modelling.html#references",
+    "title": "Dose response modelling",
+    "section": "References",
+    "text": "References\nTutorial example from dose response modelling in R from the TAME Toolkit A part of the code is taken and modified from a TAME tutorial on dose response modelling. The original code is found here",
+    "crumbs": [
+      "Hazard assessment",
+      "Dose response modelling - Sept 14"
+    ]
+  },
+  {
+    "objectID": "ex/ex_dose_response_modelling.html#install-required-r-packages",
+    "href": "ex/ex_dose_response_modelling.html#install-required-r-packages",
+    "title": "Dose response modelling",
+    "section": "Install required R packages",
+    "text": "Install required R packages\n\nif (!require(\"Hmisc\")) install.packages(\"Hmisc\");\nif (!require(\"drc\")) install.packages(\"drc\");\nif (!require(\"remotes\")) install.packages(\"remotes\");\nif (!require(\"bmd\")) remotes::install_github(\"DoseResponse/bmd\")\nif (!require(\"tidyr\")) install.packages(\"tidyr\");",
+    "crumbs": [
+      "Hazard assessment",
+      "Dose response modelling - Sept 14"
+    ]
+  },
+  {
+    "objectID": "ex/ex_dose_response_modelling.html#load-r-packages-for-this-session",
+    "href": "ex/ex_dose_response_modelling.html#load-r-packages-for-this-session",
+    "title": "Dose response modelling",
+    "section": "Load R packages for this session",
+    "text": "Load R packages for this session\n\n# The describe function in the Hmisc package will be used to summarize a \n# description of the dataset\nlibrary(Hmisc)\n\n# drc package will be used create and plot dose response models\nlibrary(drc) \n\n#bmd package will be used to calculate the benchmark dose\nlibrary(bmd) \n\n#dplyr and tidyr packages for data wrangling\nlibrary(dplyr)\nlibrary(tidyr)\n\n#ggplot package for plotting\nlibrary(ggplot2)",
+    "crumbs": [
+      "Hazard assessment",
+      "Dose response modelling - Sept 14"
+    ]
+  },
+  {
+    "objectID": "ex/ex_dose_response_modelling.html#load-example-dataset",
+    "href": "ex/ex_dose_response_modelling.html#load-example-dataset",
+    "title": "Dose response modelling",
+    "section": "Load example dataset",
+    "text": "Load example dataset\nLet’s start by loading the dataset needed for this training module. This dataset is a mock example that was generated for the purposes of this training module, in order to best capture variable types of dose-response relationships and resulting curve fits.\n\n\n Download csv file\n\n\nThis specific dataset analyzes the relationship between exposure to a fictional chemical, chemical Z, in drinking water and tumor incidence in the stomach, intestine (small and/or large), kidney, and liver in mice. These mice were evaluated in a traditional two-year animal bioassay setting.\nNote that animals are assumed to drink equivalent amounts of water each day for simplicity.\n\ndose_response.data &lt;- read.csv(\"../data/DoseResponseData.csv\") # replace path to where you placed the csv file\n\nView data\n\nView(dose_response.data) # when rendering you might want to uncomment this command, by putting a # infront of it\n\nWith this, we can see that data are included for various chemical Z doses (noted in the first column), followed by a column noting the total number of animals tested per dose (in the second column). Then, columns are included describing the number of animals, followed by incidence, of tumor formation across each tissue target of interest (i.e., stomach, intestine, kidney, and liver).\nViewing a quick summary of the values contained within this dataset\n\nsummary(dose_response.data)\n\n ChemicalZ_ugperL TotalNoAnimals_Tested NoAnimals_StomachTumor\n Min.   :   0     Min.   :10            Min.   :2.000         \n 1st Qu.: 100     1st Qu.:10            1st Qu.:2.000         \n Median : 300     Median :10            Median :2.000         \n Mean   : 370     Mean   :10            Mean   :2.462         \n 3rd Qu.: 600     3rd Qu.:10            3rd Qu.:3.000         \n Max.   :1000     Max.   :10            Max.   :3.000         \n Incidence_StomachTumor NoAnimals_IntestinalTumor Incidence_IntestinalTumor\n Min.   :0.2000         Min.   :0.000             Min.   :0.0000           \n 1st Qu.:0.2000         1st Qu.:0.000             1st Qu.:0.0000           \n Median :0.2000         Median :0.000             Median :0.0000           \n Mean   :0.2462         Mean   :2.308             Mean   :0.2308           \n 3rd Qu.:0.3000         3rd Qu.:5.000             3rd Qu.:0.5000           \n Max.   :0.3000         Max.   :7.000             Max.   :0.7000           \n NoAnimals_KidneyTumor Incidence_KidneyTumor NoAnimals_LiverTumor\n Min.   :0.000         Min.   :0.0000        Min.   :0.000       \n 1st Qu.:1.000         1st Qu.:0.1000        1st Qu.:0.000       \n Median :3.000         Median :0.3000        Median :2.000       \n Mean   :3.692         Mean   :0.3692        Mean   :1.385       \n 3rd Qu.:6.000         3rd Qu.:0.6000        3rd Qu.:3.000       \n Max.   :9.000         Max.   :0.9000        Max.   :3.000       \n Incidence_LiverTumor\n Min.   :0.0000      \n 1st Qu.:0.0000      \n Median :0.2000      \n Mean   :0.1385      \n 3rd Qu.:0.3000      \n Max.   :0.3000      \n\n\n\n\nWith this data summary, we can answer Environmental Health Question 1:  Which target tissue demonstrated the overall highest incidence of tumor formation from any single dose of Chemical Z?\n\n\nAnswer: The kidney indicates a maximum of 9 animals with tumors developing from a single dose, representing an alarming incidence rate of 90%.\n\n\nOverall, we can see that there are 4 disease outcomes included in this dataset:\n\nstomach tumors\nintestinal tumors\nkidney tumors\nliver tumors\n\nAll with observed incidences that depend upon the exposure concentration of Chemical Z",
+    "crumbs": [
+      "Hazard assessment",
+      "Dose response modelling - Sept 14"
+    ]
+  },
+  {
+    "objectID": "ex/ex_dose_response_modelling.html#plotting-dose-response-data",
+    "href": "ex/ex_dose_response_modelling.html#plotting-dose-response-data",
+    "title": "Dose response modelling",
+    "section": "Plotting dose response data",
+    "text": "Plotting dose response data\nLet’s plot each tumor incidence against exposure concentration together in a 2x2 plot.\nHere, the y-axis will range from 0 to 1, with 0 indicating no incidence of tumors and 1 indicating all animals that were tested acquired tumors.\n\n# select columns and modfify the data structure into long format to allow for efficient plotting\ndf &lt;- dose_response.data %&gt;%\n  select(!starts_with(\"NoAnimals\")) %&gt;% \n  pivot_longer(cols=starts_with(\"Incidence\"), names_to = \"Target_tissue\", values_to = \"Incidence\")\n\n# plot using ggplot\nggplot(df,aes(x=ChemicalZ_ugperL,y=Incidence)) +\n  geom_point() +\n  facet_wrap(~Target_tissue) #this command makes it into one subplot per endpoint",
+    "crumbs": [
+      "Hazard assessment",
+      "Dose response modelling - Sept 14"
+    ]
+  },
+  {
+    "objectID": "ex/ex_dose_response_modelling.html#testing-for-an-effect",
+    "href": "ex/ex_dose_response_modelling.html#testing-for-an-effect",
+    "title": "Dose response modelling",
+    "section": "Testing for an effect",
+    "text": "Testing for an effect\nEven though points show a pattern with dose, it is important to show by performing a statistical test that differences over dose is deviating from random noise. For this we derive a simple statistical test.\nLet use \\(\\mu_i\\) to denote the expected incidence in dose group \\(i\\), where \\(i=1,\\ldots,n\\) where \\(n\\) is the number of dose groups.\nWe want to test if all expected values are equal versus they are not. In hypothesis testing this is formulated by a null hypothesis that we compared to an alternative hypothesis.\n\\(H_0: \\mu_1=\\mu_2=\\ldots=\\mu_{n}\\) against \\(H_1: \\text{at least one not equal}\\)\nOne way to proceed is to assume that incidence at different doses are normally distributed and have the same variance (which is not entirely correct) and perform an ANalysis Of VAriance (ANOVA).\nWe decide that we reject the null hypothesis (\\(H_0\\)) when the p-value is less than our defined significance level of 5%.\nIn the code below we perform this test for the four target tissues. For each test output, the p-value is denoted by Pr(&gt;F).\n\nanova(lm(Incidence_IntestinalTumor ~ ChemicalZ_ugperL, data = dose_response.data))\n\nAnalysis of Variance Table\n\nResponse: Incidence_IntestinalTumor\n                 Df  Sum Sq Mean Sq F value    Pr(&gt;F)    \nChemicalZ_ugperL  1 0.80940 0.80940   34.47 0.0001075 ***\nResiduals        11 0.25829 0.02348                      \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nanova(lm(Incidence_KidneyTumor ~ ChemicalZ_ugperL, data = dose_response.data))\n\nAnalysis of Variance Table\n\nResponse: Incidence_KidneyTumor\n                 Df  Sum Sq Mean Sq F value    Pr(&gt;F)    \nChemicalZ_ugperL  1 1.11841 1.11841    1325 8.102e-13 ***\nResiduals        11 0.00928 0.00084                      \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nanova(lm(Incidence_LiverTumor ~ ChemicalZ_ugperL, data = dose_response.data))\n\nAnalysis of Variance Table\n\nResponse: Incidence_LiverTumor\n                 Df   Sum Sq  Mean Sq F value   Pr(&gt;F)    \nChemicalZ_ugperL  1 0.167493 0.167493  29.117 0.000218 ***\nResiduals        11 0.063276 0.005752                     \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nanova(lm(Incidence_StomachTumor ~ ChemicalZ_ugperL, data = dose_response.data))\n\nAnalysis of Variance Table\n\nResponse: Incidence_StomachTumor\n                 Df   Sum Sq   Mean Sq F value Pr(&gt;F)\nChemicalZ_ugperL  1 0.000007 0.0000070  0.0024 0.9619\nResiduals        11 0.032301 0.0029364               \n\n\n\nThere is a range of statistical tests available for this question. Some make assumptions of the distribution of responses, others dont (also refereed to as non-parametric tests). Some tests are better than others. Which test that is most suitable and most efficient depends also on the type of response. We are not going into detail with the types of tests in this course. The key point is that it is important to apply some kind of test at this stage.\n\n\n\nWith these plots and statistical tests, we can answer Environmental Health Question 2:  Which target tissue’s tumor incidence seems to not be related to dose?\n\n\nAnswer: Stomach.\n\n\n\nWe can also answer Environmental Health Question 3:  When we generate scatter plots illustrating exposure concentration vs disease outcome, without curves fitted to the data, are we able to derive benchmark doses?\n\n\nAnswer: No, a curve fit is still needed to describe the overall trend in the dataset, which can then be used in the final calculation of a benchmark dose.",
+    "crumbs": [
+      "Hazard assessment",
+      "Dose response modelling - Sept 14"
+    ]
+  },
+  {
+    "objectID": "ex/ex_dose_response_modelling.html#alternative-models",
+    "href": "ex/ex_dose_response_modelling.html#alternative-models",
+    "title": "Dose response modelling",
+    "section": "Alternative models",
+    "text": "Alternative models\nIt is notable that there are many different packages that can be used to fit curves to data. Here, we incorporate the drc package to fit several types of potential curve fit models to this example dataset.\nThe drm function is specifically used from the drc package. Common parameters to consider when constructing the curve fit models in drm include the following:\n1. Formula\nThis parameter describes the formula used to fit the data, formatted similar to a standard regression formula line of code. For the purposes of the current training module, this formula will be to fit to describe tumor incidence on chemical exposure concentration, which looks like this in the final code: Incidence_StomachTumor ~ ChemicalZ_ugperL\n2. Data\nThis parameter specifies the dataset you are evaluating. For the current training module, we will be referring to the full dataframe, dose_response.data\n3. Weights\nThis parameter contributes to determining how many observations are used at each dose/concentration, which can inform the model type. For the current training module, the weights in the dataset reflect the total number of animals tested at each exposure concentration.\n4. Function (fct)\nThis parameter specifies which type of curve fit function you want to implement. Example functions include various types of log-logistic, generalized log-logistic, weibull, asymptotic regression, and Michaelis-Menten models. Note that getMeanFunctions() can be called for the full list of available functions:\n\ngetMeanFunctions()\n\nLog-logistic (ED50 as parameter) with lower limit at 0 and upper limit at 1 \n(2 parameters) \nIn 'drc':  LL.2 \n\nLog-logistic (ED50 as parameter) with lower limit at 0 \n(3 parameters) \nIn 'drc':  LL.3 \n\nLog-logistic (ED50 as parameter) with upper limit at 1 \n(3 parameters) \nIn 'drc':  LL.3u \n\nLog-logistic (ED50 as parameter) \n(4 parameters) \nIn 'drc':  LL.4 \n\nGeneralized log-logistic (ED50 as parameter) \n(5 parameters) \nIn 'drc':  LL.5 \n\nWeibull (type 1) with lower limit at 0 and upper limit at 1 \n(2 parameters) \nIn 'drc':  W1.2 \n\nWeibull (type 1) with lower limit at 0 \n(3 parameters) \nIn 'drc':  W1.3 \n\nWeibull (type 1) \n(4 parameters) \nIn 'drc':  W1.4 \n\nWeibull (type 2) with lower limit at 0 and upper limit at 1 \n(2 parameters) \nIn 'drc':  W2.2 \n\nWeibull (type 2) with lower limit at 0 \n(3 parameters) \nIn 'drc':  W2.3 \n\nWeibull (type 2) \n(4 parameters) \nIn 'drc':  W2.4 \n\nBrain-Cousens (hormesis) with lower limit fixed at 0 \n(4 parameters) \nIn 'drc':  BC.4 \n\nBrain-Cousens (hormesis) \n(5 parameters) \nIn 'drc':  BC.5 \n\nLog-logistic (log(ED50) as parameter) with lower limit at 0 and upper limit at 1 \n(2 parameters) \nIn 'drc':  LL2.2 \n\nLog-logistic (log(ED50) as parameter) with lower limit at 0 \n(3 parameters) \nIn 'drc':  LL2.3 \n\nLog-logistic (log(ED50) as parameter) with upper limit at 1 \n(3 parameters) \nIn 'drc':  LL2.3u \n\nLog-logistic (log(ED50) as parameter) \n(4 parameters) \nIn 'drc':  LL2.4 \n\nGeneralised log-logistic (log(ED50) as parameter) \n(5 parameters) \nIn 'drc':  LL2.5 \n\nAsymptotic regression with lower limit at 0 \n(2 parameters) \nIn 'drc':  AR.2 \n\nShifted asymptotic regression \n(3 parameters) \nIn 'drc':  AR.3 \n\nMichaelis-Menten \n(2 parameters) \nIn 'drc':  MM.2 \n\nShifted Michaelis-Menten \n(3 parameters) \nIn 'drc':  MM.3 \n\n\n5. Type\nThis parameter specifies the data type of the response (e.g., binomial, continuous, etc). For the current training module, we will select the binomial type of response, which in this package refers to the modeling of data types that are not fully continuous, including this quantile-based incidence rate outcome.",
+    "crumbs": [
+      "Hazard assessment",
+      "Dose response modelling - Sept 14"
+    ]
+  },
+  {
+    "objectID": "ex/ex_dose_response_modelling.html#first-try-fitting-a-log-logistic-ll-model",
+    "href": "ex/ex_dose_response_modelling.html#first-try-fitting-a-log-logistic-ll-model",
+    "title": "Dose response modelling",
+    "section": "First try fitting a log-logistic (LL) model",
+    "text": "First try fitting a log-logistic (LL) model\nBecause log-logistic (LL) models are commonly used to evaluate dose-response relationships, let’s first start by trying to fit a 2 parameter LL function.\nRunning the model, on the intestinal tumor incidence outcome as an example\n\nLL2.model.int &lt;- with(dose_response.data,\n                  drm(Incidence_IntestinalTumor~ChemicalZ_ugperL,\n                  weights=TotalNoAnimals_Tested, \n                  fct=LL.2(), type=\"binomial\"))\n\nIt’s easy to plot these results using the plot function\n\nplot(LL2.model.int, type=\"all\", ylim=c(0,1));",
+    "crumbs": [
+      "Hazard assessment",
+      "Dose response modelling - Sept 14"
+    ]
+  },
+  {
+    "objectID": "ex/ex_dose_response_modelling.html#lets-next-try-fitting-a-weibull-model",
+    "href": "ex/ex_dose_response_modelling.html#lets-next-try-fitting-a-weibull-model",
+    "title": "Dose response modelling",
+    "section": "Let’s next try fitting a Weibull model",
+    "text": "Let’s next try fitting a Weibull model\nRunning the Weibull curve model, on the intestinal tumor incidence outcome as an example\n\nW23.model.int &lt;- with(dose_response.data,\n                  drm(Incidence_IntestinalTumor~ChemicalZ_ugperL,\n                  weights=TotalNoAnimals_Tested,\n                  fct=W2.3(), type=\"binomial\"))\n\nLet’s plot the results of this function\n\nplot(W23.model.int, type=\"all\", ylim=c(0,1));",
+    "crumbs": [
+      "Hazard assessment",
+      "Dose response modelling - Sept 14"
+    ]
+  },
+  {
+    "objectID": "ex/ex_dose_response_modelling.html#lets-try-fitting-another-model-fit-based-on-asymptotic-regression-modeling",
+    "href": "ex/ex_dose_response_modelling.html#lets-try-fitting-another-model-fit-based-on-asymptotic-regression-modeling",
+    "title": "Dose response modelling",
+    "section": "Let’s try fitting another model fit based on asymptotic regression modeling",
+    "text": "Let’s try fitting another model fit based on asymptotic regression modeling\nRunning the asymptotic regression model, on the intestinal tumor incidence outcome as an example\n\nAR2.model.int &lt;- with(dose_response.data,\n                  drm(Incidence_IntestinalTumor~ChemicalZ_ugperL,\n                  weights=TotalNoAnimals_Tested, \n                  fct=AR.2(), type=\"binomial\"))\n\nLet’s plot the results of this function\n\nplot(AR2.model.int, type=\"all\", ylim=c(0,1));",
+    "crumbs": [
+      "Hazard assessment",
+      "Dose response modelling - Sept 14"
+    ]
+  },
+  {
+    "objectID": "ex/ex_dose_response_modelling.html#important-note-on-the-variety-of-curve-fit-models-to-consider",
+    "href": "ex/ex_dose_response_modelling.html#important-note-on-the-variety-of-curve-fit-models-to-consider",
+    "title": "Dose response modelling",
+    "section": "Important note on the variety of curve fit models to consider",
+    "text": "Important note on the variety of curve fit models to consider\nThere are many different types of curve fit models to consider when running your analyses. For example, additional functions are available from other packages, such as the aomisc package, which has an associated Github page and R-bloggers article. This package contains a collection of functions that are not included in the current drc pacakage. There are many other options available as well, if you search CRAN, Bioconductor, Github, and general search engines.",
+    "crumbs": [
+      "Hazard assessment",
+      "Dose response modelling - Sept 14"
+    ]
+  },
+  {
+    "objectID": "ex/ex_dose_response_modelling.html#comparing-curve-fits",
+    "href": "ex/ex_dose_response_modelling.html#comparing-curve-fits",
+    "title": "Dose response modelling",
+    "section": "Comparing Curve Fits",
+    "text": "Comparing Curve Fits\nGiven the variety of models that can be used to fit dose-response data, it is important to consider the results of each model curve fit and identify which model best fits the data.\nThere are many ways to identify best fitting curves. The most commonly implemented strategies include the following:\n1. Visual Inspection. Model curve fits can be evaluated visually, to gauge whether or not resulting curves fit the data.\n2. Akaike Information Criterion (AIC). AIC values are commonly used for model selection, and represent an estimator of prediction error and relative quality of statistical models for a given set of data. AIC incorporates the trade-off between a model’s goodness of fit and the simplicity, such that it weighs the risk of overfitting vs underfitting. In applications, it is common to choose models with the lowest AIC, pending they describe the data sufficiently.\nThe AIC function can simply be used here to calculate each resulting model’s AIC. Remember, the lower AIC represents the better model curve fit.\n\n# Results from the log-logistic model\nAIC(LL2.model.int)   \n\n[1] 30.85574\n\n# Results from the Weibull model\nAIC(W23.model.int) \n\n[1] 22.87452\n\n# Results from the asymptotic regression model\nAIC(AR2.model.int)   \n\n[1] 40.37098\n\n\nThese results demonstrate, quantitatively, that the Weibull model likely describes this dataset the best (out of the evaluated models), since it has the lowest AIC value.\nLet’s finally produce a summary visualization that display the results of these three model curve fits across this intestinal dataset, with all the curve fits in one plot.\n\n# First defining a vector of text to use in the legend, summary of the three curve fits and their AICs\nIntestinalCurveFitAICs &lt;- c(\"Log-Logistic, AIC=30.9\", \"Weibull, AIC=22.9\", \"Asymptotic Regression, AIC=40.4\")\n\n# Generating the plot\nplot(LL2.model.int, type=\"all\", ylim=c(0,1))\n# Can add the next models on top of current plot with different line types and weights\nplot(W23.model.int, add=TRUE,col=\"red\",lty=4, lwd=1.5)\nplot(AR2.model.int, add=TRUE,col=\"blue\",lty=2, lwd=1.5)\n\n# A way to coerce the dots back to black for final view:\nplot(LL2.model.int, add=TRUE,col=\"black\")\n\n# Can add a legend as well, specifying the same paramters for linetype (lty) and color (col)\nlegend(x=1, y=.8, legend=IntestinalCurveFitAICs,\n       col=c(\"black\", \"red\", \"blue\"), lty=c(1,4,2))",
+    "crumbs": [
+      "Hazard assessment",
+      "Dose response modelling - Sept 14"
     ]
   },
   {
@@ -661,7 +837,7 @@
     "href": "ex/useful_functions_with_R.html#random-sampling",
     "title": "The R-version of what we did in Introduction to useful functions in Excel",
     "section": "Random sampling",
-    "text": "Random sampling\nAll sample generators start with a random number between 0 and 1. This is also a sample from a uniform distribution.\n\nrunif(1)\n\n[1] 0.1164945\n\n\nType a function that generates a uniform random number in the interval 1 to 6.\n\nrunif(1,min=1,max=6)\n\n[1] 3.232069\n\n\nA random draw from a probability distribution can be generated by the inverse method. - Draws pp-values from a uniform distribution between 0 and 1 - Transform them into quantiles of the target distribution\nGenerates random draws from a normal distribution using the inverse method\n\nqnorm(runif(1),m,s)\n\n[1] 11.46351\n\n\nThis is already implemented as a function\n\nrnorm(1,m,s)\n\n[1] 13.19249\n\n\nDraw from a beta distribution with parameters \\(\\alpha=2\\)$\\alpha=2$$\\alpha=2$ and \\(\\beta=8\\)\n\nrbeta(1,2,8)\n\n[1] 0.1463837",
+    "text": "Random sampling\nAll sample generators start with a random number between 0 and 1. This is also a sample from a uniform distribution.\n\nrunif(1)\n\n[1] 0.1082886\n\n\nType a function that generates a uniform random number in the interval 1 to 6.\n\nrunif(1,min=1,max=6)\n\n[1] 1.175875\n\n\nA random draw from a probability distribution can be generated by the inverse method. - Draws pp-values from a uniform distribution between 0 and 1 - Transform them into quantiles of the target distribution\nGenerates random draws from a normal distribution using the inverse method\n\nqnorm(runif(1),m,s)\n\n[1] 12.80718\n\n\nThis is already implemented as a function\n\nrnorm(1,m,s)\n\n[1] 13.31326\n\n\nDraw from a beta distribution with parameters \\(\\alpha=2\\)$\\alpha=2$$\\alpha=2$ and \\(\\beta=8\\)\n\nrbeta(1,2,8)\n\n[1] 0.312579",
     "crumbs": [
       "Intro to excel and R - Sept 4",
       "Useful functions in R"
@@ -672,7 +848,7 @@
     "href": "ex/useful_functions_with_R.html#compare-descriptive-statistics-against-theoretical-values",
     "title": "The R-version of what we did in Introduction to useful functions in Excel",
     "section": "Compare descriptive statistics against theoretical values",
-    "text": "Compare descriptive statistics against theoretical values\nWow - now we can generate data where we know the true value on parameters and all theoretical probabilities and quantiles, and compare with what we get when deriving descriptive statistics from the random sample.\nThis sheet generates a random sample of size 20 from a beta distribution.\n\nrbeta(n=20,2,8)\n\n [1] 0.03964825 0.09618032 0.16028818 0.23790826 0.37602550 0.15302396\n [7] 0.02134618 0.06303565 0.10219898 0.39077361 0.08569412 0.43108806\n[13] 0.22748666 0.08221924 0.11948701 0.10186709 0.49719735 0.21072554\n[19] 0.37598568 0.15199328\n\n\nA beta distribution has two parameters \\(\\alpha\\) and \\(\\beta\\)\nThe expected value of a beta distributed variable is \\(\\frac{\\alpha}{\\alpha+\\beta}\\)\nCompare the calculated sample average to the theoretical expected value\n\nalpha=2\nbeta=8\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=20,alpha,beta))\n\n[1] 0.1822183\n\n\nWe can also derive the theoretical quantile, let us say the P95.\nCompare the quantile from the sample with the quantile calculated from the inverse probability distribution function\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=20,alpha,beta),probs=0.95)\n\n      95% \n0.3892841 \n\n\n\nWhich of them has the smallest difference? Why do you think it is like that?\n\n\n\n\n\n\n\nWarningExtra\n\n\n\nIf you feel you have the time or do another time:\nExplore what happens with the difference between theoretical and statistical values when you increase sample size from 20 to a high number (close to 1000)?\n\n\nBelow I wrte a script where sample size is controlled at one place. The P95 is approximated fairly well by the sampling when I use \\(n=10 000\\).\n\nalpha=2\nbeta=8\nn=10000\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=n,alpha,beta))\n\n[1] 0.1990133\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=n,alpha,beta),probs=0.95)\n\n     95% \n0.423604 \n\n\nLet us visualise the convergence of the approximation of the mean and 95th percentile of the beta distribution using Monte Carlo simulation.\nThe code below defines a function which calculates the mean and P95 after every increase of the sample size and plots the convergence.\n\nplot_conv &lt;- function(n){\nsample_mean=cummean(rbeta(n=n,alpha,beta))\nsample_P95=unlist(lapply(1:n,function(iter){\n  quantile(rbeta(n=iter,alpha,beta),probs=0.95)}))\ndata.frame(values=c(sample_mean,sample_P95),n=rep(1:n,2), statistic=rep(c(\"mean\",\"P95\"),each=n))  %&gt;%\n  ggplot(aes(x=n,y=values,color=statistic))+\n  geom_line()+\n  geom_hline(yintercept = alpha/(alpha+beta)) +\n  geom_hline(yintercept = qbeta(0.95,alpha,beta))\n}\n\nWe start with \\(n=10\\)\n\nplot_conv(n=10)\n\n\n\n\n\n\n\n\n..increase to \\(n=100\\)\n\nplot_conv(n=100)\n\n\n\n\n\n\n\n\n..increase to \\(n=1000\\)\n\nplot_conv(n=10^3)\n\n\n\n\n\n\n\n\n..and finally \\(n=10000\\)\n\nplot_conv(n=10^4)",
+    "text": "Compare descriptive statistics against theoretical values\nWow - now we can generate data where we know the true value on parameters and all theoretical probabilities and quantiles, and compare with what we get when deriving descriptive statistics from the random sample.\nThis sheet generates a random sample of size 20 from a beta distribution.\n\nrbeta(n=20,2,8)\n\n [1] 0.09685274 0.26543904 0.26724734 0.29983335 0.21278171 0.28164681\n [7] 0.08781268 0.14324524 0.52533334 0.08337162 0.18858563 0.34423994\n[13] 0.32368407 0.14003456 0.02176387 0.16777948 0.18413704 0.19491585\n[19] 0.02106512 0.19176258\n\n\nA beta distribution has two parameters \\(\\alpha\\) and \\(\\beta\\)\nThe expected value of a beta distributed variable is \\(\\frac{\\alpha}{\\alpha+\\beta}\\)\nCompare the calculated sample average to the theoretical expected value\n\nalpha=2\nbeta=8\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=20,alpha,beta))\n\n[1] 0.2401903\n\n\nWe can also derive the theoretical quantile, let us say the P95.\nCompare the quantile from the sample with the quantile calculated from the inverse probability distribution function\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=20,alpha,beta),probs=0.95)\n\n      95% \n0.3773913 \n\n\n\nWhich of them has the smallest difference? Why do you think it is like that?\n\n\n\n\n\n\n\nWarningExtra\n\n\n\nIf you feel you have the time or do another time:\nExplore what happens with the difference between theoretical and statistical values when you increase sample size from 20 to a high number (close to 1000)?\n\n\nBelow I wrte a script where sample size is controlled at one place. The P95 is approximated fairly well by the sampling when I use \\(n=10 000\\).\n\nalpha=2\nbeta=8\nn=10000\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=n,alpha,beta))\n\n[1] 0.199737\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=n,alpha,beta),probs=0.95)\n\n      95% \n0.4328561 \n\n\nLet us visualise the convergence of the approximation of the mean and 95th percentile of the beta distribution using Monte Carlo simulation.\nThe code below defines a function which calculates the mean and P95 after every increase of the sample size and plots the convergence.\n\nplot_conv &lt;- function(n){\nsample_mean=cummean(rbeta(n=n,alpha,beta))\nsample_P95=unlist(lapply(1:n,function(iter){\n  quantile(rbeta(n=iter,alpha,beta),probs=0.95)}))\ndata.frame(values=c(sample_mean,sample_P95),n=rep(1:n,2), statistic=rep(c(\"mean\",\"P95\"),each=n))  %&gt;%\n  ggplot(aes(x=n,y=values,color=statistic))+\n  geom_line()+\n  geom_hline(yintercept = alpha/(alpha+beta)) +\n  geom_hline(yintercept = qbeta(0.95,alpha,beta))\n}\n\nWe start with \\(n=10\\)\n\nplot_conv(n=10)\n\n\n\n\n\n\n\n\n..increase to \\(n=100\\)\n\nplot_conv(n=100)\n\n\n\n\n\n\n\n\n..increase to \\(n=1000\\)\n\nplot_conv(n=10^3)\n\n\n\n\n\n\n\n\n..and finally \\(n=10000\\)\n\nplot_conv(n=10^4)",
     "crumbs": [
       "Intro to excel and R - Sept 4",
       "Useful functions in R"

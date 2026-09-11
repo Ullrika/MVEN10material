@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ullrika Sahlin">
+
+<title>Dose response modelling – MVEN10</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-787e033c7b6f65c9dfccb6078e5d2d34.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../site_libs/font-awesome-6.7.2/js/script.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ex/ex_dose_response_modelling.html">Hazard assessment</a></li><li class="breadcrumb-item"><a href="../ex/ex_dose_response_modelling.html">Dose response modelling - Sept 14</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">MVEN10</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">General</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/probability_distribution.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Probability distributions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Intro to excel and R - Sept 4</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/useful_functions.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Useful functions in Excel</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/introduction_to_quarto_and_R.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Intro to Quarto and R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/useful_functions_with_R.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Useful functions in R</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Probability models - Sept 7</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/ex_daily_intake_equation.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Interval and 1D Monte Carlo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/chance_belief_frequency.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Exercise Probability</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Exposure assessment - Sept 11</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/ex_exposure_assessment_databases.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Exposure DATABASES</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/ex_environ_fate_assessment.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Exposure FATE</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Hazard assessment</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/ex_dose_response_modelling.html" class="sidebar-item-text sidebar-link active" target="_blank">
+ <span class="menu-text">Dose response modelling - Sept 14</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/ex_species_sensitivity_distribution.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Species Sensitivity Distribution - Sept 16</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../zheng/ex_benchmark_dose_modelling.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Benchmark dose modelling - Sept 23</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Environmental health risk assessment - Sept 18</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">Environmental health risk assessment</span>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Species Distribution Modelling - Sept 25</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">Species Distribution Modelling </span>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Model uncertainty - Sept 30</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Expert judgement - Oct 2 and 5</span></span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#exercise-overview" id="toc-exercise-overview" class="nav-link active" data-scroll-target="#exercise-overview">Exercise overview</a>
+  <ul class="collapse">
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
+  </ul></li>
+  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose">Purpose</a>
+  <ul class="collapse">
+  <li><a href="#content" id="toc-content" class="nav-link" data-scroll-target="#content">Content</a></li>
+  <li><a href="#reporting" id="toc-reporting" class="nav-link" data-scroll-target="#reporting">Reporting</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  <li><a href="#get-started" id="toc-get-started" class="nav-link" data-scroll-target="#get-started">Get started</a>
+  <ul class="collapse">
+  <li><a href="#install-required-r-packages" id="toc-install-required-r-packages" class="nav-link" data-scroll-target="#install-required-r-packages">Install required R packages</a></li>
+  <li><a href="#load-r-packages-for-this-session" id="toc-load-r-packages-for-this-session" class="nav-link" data-scroll-target="#load-r-packages-for-this-session">Load R packages for this session</a></li>
+  </ul></li>
+  <li><a href="#dose-response-data" id="toc-dose-response-data" class="nav-link" data-scroll-target="#dose-response-data">Dose response data</a>
+  <ul class="collapse">
+  <li><a href="#load-example-dataset" id="toc-load-example-dataset" class="nav-link" data-scroll-target="#load-example-dataset">Load example dataset</a></li>
+  <li><a href="#plotting-dose-response-data" id="toc-plotting-dose-response-data" class="nav-link" data-scroll-target="#plotting-dose-response-data">Plotting dose response data</a></li>
+  <li><a href="#testing-for-an-effect" id="toc-testing-for-an-effect" class="nav-link" data-scroll-target="#testing-for-an-effect">Testing for an effect</a></li>
+  </ul></li>
+  <li><a href="#dose-response-curve-fitting" id="toc-dose-response-curve-fitting" class="nav-link" data-scroll-target="#dose-response-curve-fitting">Dose response curve fitting</a>
+  <ul class="collapse">
+  <li><a href="#alternative-models" id="toc-alternative-models" class="nav-link" data-scroll-target="#alternative-models">Alternative models</a></li>
+  <li><a href="#first-try-fitting-a-log-logistic-ll-model" id="toc-first-try-fitting-a-log-logistic-ll-model" class="nav-link" data-scroll-target="#first-try-fitting-a-log-logistic-ll-model">First try fitting a log-logistic (LL) model</a></li>
+  <li><a href="#lets-next-try-fitting-a-weibull-model" id="toc-lets-next-try-fitting-a-weibull-model" class="nav-link" data-scroll-target="#lets-next-try-fitting-a-weibull-model">Let’s next try fitting a Weibull model</a></li>
+  <li><a href="#lets-try-fitting-another-model-fit-based-on-asymptotic-regression-modeling" id="toc-lets-try-fitting-another-model-fit-based-on-asymptotic-regression-modeling" class="nav-link" data-scroll-target="#lets-try-fitting-another-model-fit-based-on-asymptotic-regression-modeling">Let’s try fitting another model fit based on asymptotic regression modeling</a></li>
+  <li><a href="#important-note-on-the-variety-of-curve-fit-models-to-consider" id="toc-important-note-on-the-variety-of-curve-fit-models-to-consider" class="nav-link" data-scroll-target="#important-note-on-the-variety-of-curve-fit-models-to-consider">Important note on the variety of curve fit models to consider</a></li>
+  <li><a href="#comparing-curve-fits" id="toc-comparing-curve-fits" class="nav-link" data-scroll-target="#comparing-curve-fits">Comparing Curve Fits</a></li>
+  </ul></li>
+  <li><a href="#instructions-for-reporting" id="toc-instructions-for-reporting" class="nav-link" data-scroll-target="#instructions-for-reporting">Instructions for reporting</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ex/ex_dose_response_modelling.html">Hazard assessment</a></li><li class="breadcrumb-item"><a href="../ex/ex_dose_response_modelling.html">Dose response modelling - Sept 14</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Dose response modelling</h1>
+<p class="subtitle lead">MVEN10 Risk Assessment in Environment and Public Health</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ullrika Sahlin </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="exercise-overview" class="level1">
+<h1>Exercise overview</h1>
+<p>We will search for effects and fit different dose response models to toxicity data R.</p>
+<section id="background" class="level2">
+<h2 class="anchored" data-anchor-id="background">Background</h2>
+<p>Dose response modelling is a key component of hazard assessment. It is includes testing if there is an effect and using models to find a lowest dose where there is no effect. in this exercise, we do basic dose response analysis. In a later exercise, we introduce benchmark dose modelling which is using more advanced methods to consider uncertainty.</p>
+</section>
+</section>
+<section id="purpose" class="level1">
+<h1>Purpose</h1>
+<ul>
+<li>To extract output values from a common environmental exposure assessment model</li>
+</ul>
+<section id="content" class="level2">
+<h2 class="anchored" data-anchor-id="content">Content</h2>
+<ul>
+<li><p>Plotting dose response data</p></li>
+<li><p>Testing for an effect using hypothesis testing</p></li>
+<li><p>Fitting dose response curves</p></li>
+</ul>
+</section>
+<section id="reporting" class="level2">
+<h2 class="anchored" data-anchor-id="reporting">Reporting</h2>
+<p>If present, no report needed. In case you do this on your own, make sure you provide</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p>Tutorial example from dose response modelling in R from the <a href="https://uncsrp.github.io/Data-Analysis-Training-Modules/dose-response-modeling.html">TAME Toolkit</a> A part of the code is taken and modified from a TAME tutorial on dose response modelling. The original code is found <a href="https://github.com/UNCSRP/Data-Analysis-Training-Modules/blob/main/Chapter%202/2.1%20Dose%20Response/Module2_1_DoseResponse.Rmd">here</a></p>
+</section>
+</section>
+<section id="get-started" class="level1">
+<h1>Get started</h1>
+<section id="install-required-r-packages" class="level2">
+<h2 class="anchored" data-anchor-id="install-required-r-packages">Install required R packages</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"Hmisc"</span>)) <span class="fu">install.packages</span>(<span class="st">"Hmisc"</span>);</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"drc"</span>)) <span class="fu">install.packages</span>(<span class="st">"drc"</span>);</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"remotes"</span>)) <span class="fu">install.packages</span>(<span class="st">"remotes"</span>);</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"bmd"</span>)) remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"DoseResponse/bmd"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"tidyr"</span>)) <span class="fu">install.packages</span>(<span class="st">"tidyr"</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="load-r-packages-for-this-session" class="level2">
+<h2 class="anchored" data-anchor-id="load-r-packages-for-this-session">Load R packages for this session</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The describe function in the Hmisc package will be used to summarize a </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># description of the dataset</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># drc package will be used create and plot dose response models</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(drc) </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#bmd package will be used to calculate the benchmark dose</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bmd) </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#dplyr and tidyr packages for data wrangling</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplot package for plotting</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="dose-response-data" class="level1">
+<h1>Dose response data</h1>
+<section id="load-example-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="load-example-dataset">Load example dataset</h2>
+<p>Let’s start by loading the dataset needed for this training module. This dataset is a mock example that was generated for the purposes of this training module, in order to best capture variable types of dose-response relationships and resulting curve fits.</p>
+<div class="cell">
+<div class="cell-output-display">
+<button class="btn btn-info" onclick="
+    async function downloadFile(event) {
+      event.preventDefault();
+      try {
+        const response = await fetch('data:text/csv;base64,77u/Q2hlbWljYWxaX3VncGVyTCxUb3RhbE5vQW5pbWFsc19UZXN0ZWQsTm9BbmltYWxzX1N0b21hY2hUdW1vcixJbmNpZGVuY2VfU3RvbWFjaFR1bW9yLE5vQW5pbWFsc19JbnRlc3RpbmFsVHVtb3IsSW5jaWRlbmNlX0ludGVzdGluYWxUdW1vcixOb0FuaW1hbHNfS2lkbmV5VHVtb3IsSW5jaWRlbmNlX0tpZG5leVR1bW9yLE5vQW5pbWFsc19MaXZlclR1bW9yLEluY2lkZW5jZV9MaXZlclR1bW9yDQowLDEwLDMsMC4zLDAsMCwwLDAsMCwwDQoxMCwxMCwyLDAuMiwwLDAsMCwwLDAsMA0KNTAsMTAsMywwLjMsMCwwLDEsMC4xLDAsMA0KMTAwLDEwLDMsMC4zLDAsMCwxLDAuMSwwLDANCjE1MCwxMCwyLDAuMiwwLDAsMiwwLjIsMCwwDQoyMDAsMTAsMiwwLjIsMCwwLDIsMC4yLDAsMA0KMzAwLDEwLDMsMC4zLDAsMCwzLDAuMywyLDAuMg0KNDAwLDEwLDIsMC4yLDEsMC4xLDQsMC40LDMsMC4zDQo1MDAsMTAsMiwwLjIsNCwwLjQsNSwwLjUsMiwwLjINCjYwMCwxMCwyLDAuMiw3LDAuNyw2LDAuNiwzLDAuMw0KNzAwLDEwLDIsMC4yLDcsMC43LDcsMC43LDMsMC4zDQo4MDAsMTAsMywwLjMsNiwwLjYsOCwwLjgsMiwwLjINCjEwMDAsMTAsMywwLjMsNSwwLjUsOSwwLjksMywwLjM=');
+        if (!response.ok) throw new Error('Network response failed');
+        const blob = await response.blob();
+        const blobUrl = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = 'DoseResponseData.csv';
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.dispatchEvent(new MouseEvent('click'));
+        document.body.removeChild(a);
+        setTimeout(() => {
+          window.URL.revokeObjectURL(blobUrl);
+        }, 100);
+        return false;
+      } catch (error) {
+        console.error('Download failed:', error);
+        alert('Download failed. Please try again.');
+      }
+    }
+    downloadFile(event);
+  "><i class="fa fa-save"></i> Download csv file</button>
+</div>
+</div>
+<p>This specific dataset analyzes the relationship between exposure to a fictional chemical, <strong>chemical Z</strong>, in drinking water and tumor incidence in the stomach, intestine (small and/or large), kidney, and liver in mice. These mice were evaluated in a traditional two-year animal bioassay setting.</p>
+<p><em>Note that animals are assumed to drink equivalent amounts of water each day for simplicity.</em></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dose_response.data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../data/DoseResponseData.csv"</span>) <span class="co"># replace path to where you placed the csv file</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>View data</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dose_response.data) <span class="co"># when rendering you might want to uncomment this command, by putting a # infront of it</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>With this, we can see that data are included for various chemical Z doses (noted in the first column), followed by a column noting the total number of animals tested per dose (in the second column). Then, columns are included describing the number of animals, followed by incidence, of tumor formation across each tissue target of interest (i.e., stomach, intestine, kidney, and liver).</p>
+<p>Viewing a quick summary of the values contained within this dataset</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dose_response.data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> ChemicalZ_ugperL TotalNoAnimals_Tested NoAnimals_StomachTumor
+ Min.   :   0     Min.   :10            Min.   :2.000         
+ 1st Qu.: 100     1st Qu.:10            1st Qu.:2.000         
+ Median : 300     Median :10            Median :2.000         
+ Mean   : 370     Mean   :10            Mean   :2.462         
+ 3rd Qu.: 600     3rd Qu.:10            3rd Qu.:3.000         
+ Max.   :1000     Max.   :10            Max.   :3.000         
+ Incidence_StomachTumor NoAnimals_IntestinalTumor Incidence_IntestinalTumor
+ Min.   :0.2000         Min.   :0.000             Min.   :0.0000           
+ 1st Qu.:0.2000         1st Qu.:0.000             1st Qu.:0.0000           
+ Median :0.2000         Median :0.000             Median :0.0000           
+ Mean   :0.2462         Mean   :2.308             Mean   :0.2308           
+ 3rd Qu.:0.3000         3rd Qu.:5.000             3rd Qu.:0.5000           
+ Max.   :0.3000         Max.   :7.000             Max.   :0.7000           
+ NoAnimals_KidneyTumor Incidence_KidneyTumor NoAnimals_LiverTumor
+ Min.   :0.000         Min.   :0.0000        Min.   :0.000       
+ 1st Qu.:1.000         1st Qu.:0.1000        1st Qu.:0.000       
+ Median :3.000         Median :0.3000        Median :2.000       
+ Mean   :3.692         Mean   :0.3692        Mean   :1.385       
+ 3rd Qu.:6.000         3rd Qu.:0.6000        3rd Qu.:3.000       
+ Max.   :9.000         Max.   :0.9000        Max.   :3.000       
+ Incidence_LiverTumor
+ Min.   :0.0000      
+ 1st Qu.:0.0000      
+ Median :0.2000      
+ Mean   :0.1385      
+ 3rd Qu.:0.3000      
+ Max.   :0.3000      </code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="question">
+<p><i>With this data summary, we can answer <strong>Environmental Health Question 1</strong>: </i> Which target tissue demonstrated the overall highest incidence of tumor formation from any single dose of Chemical Z?</p>
+</div>
+<div class="answer">
+<p><strong>Answer</strong>: The kidney indicates a maximum of 9 animals with tumors developing from a single dose, representing an alarming incidence rate of 90%.</p>
+</div>
+<p><br></p>
+<p><strong>Overall</strong>, we can see that there are 4 disease outcomes included in this dataset:</p>
+<ul>
+<li>stomach tumors</li>
+<li>intestinal tumors</li>
+<li>kidney tumors</li>
+<li>liver tumors</li>
+</ul>
+<p>All with observed incidences that depend upon the exposure concentration of <em>Chemical Z</em></p>
+</section>
+<section id="plotting-dose-response-data" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-dose-response-data">Plotting dose response data</h2>
+<p>Let’s plot each tumor incidence against exposure concentration together in a 2x2 plot.<br>
+Here, the y-axis will range from 0 to 1, with 0 indicating no incidence of tumors and 1 indicating all animals that were tested acquired tumors.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select columns and modfify the data structure into long format to allow for efficient plotting</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> dose_response.data <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">!</span><span class="fu">starts_with</span>(<span class="st">"NoAnimals"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="fu">starts_with</span>(<span class="st">"Incidence"</span>), <span class="at">names_to =</span> <span class="st">"Target_tissue"</span>, <span class="at">values_to =</span> <span class="st">"Incidence"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># plot using ggplot</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df,<span class="fu">aes</span>(<span class="at">x=</span>ChemicalZ_ugperL,<span class="at">y=</span>Incidence)) <span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Target_tissue) <span class="co">#this command makes it into one subplot per endpoint</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ex_dose_response_modelling_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="testing-for-an-effect" class="level2">
+<h2 class="anchored" data-anchor-id="testing-for-an-effect">Testing for an effect</h2>
+<p>Even though points show a pattern with dose, it is important to show by performing a statistical test that differences over dose is deviating from random noise. For this we derive a simple statistical test.</p>
+<p>Let use <span class="math inline">\(\mu_i\)</span> to denote the expected incidence in dose group <span class="math inline">\(i\)</span>, where <span class="math inline">\(i=1,\ldots,n\)</span> where <span class="math inline">\(n\)</span> is the number of dose groups.</p>
+<p>We want to test if all expected values are equal versus they are not. In hypothesis testing this is formulated by a null hypothesis that we compared to an alternative hypothesis.</p>
+<p><span class="math inline">\(H_0: \mu_1=\mu_2=\ldots=\mu_{n}\)</span> against <span class="math inline">\(H_1: \text{at least one not equal}\)</span></p>
+<p>One way to proceed is to assume that incidence at different doses are normally distributed and have the same variance (which is not entirely correct) and perform an ANalysis Of VAriance (ANOVA).</p>
+<p>We decide that we reject the null hypothesis (<span class="math inline">\(H_0\)</span>) when the p-value is less than our defined significance level of 5%.</p>
+<p>In the code below we perform this test for the four target tissues. For each test output, the p-value is denoted by Pr(&gt;F).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(Incidence_IntestinalTumor <span class="sc">~</span> ChemicalZ_ugperL, <span class="at">data =</span> dose_response.data))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: Incidence_IntestinalTumor
+                 Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+ChemicalZ_ugperL  1 0.80940 0.80940   34.47 0.0001075 ***
+Residuals        11 0.25829 0.02348                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(Incidence_KidneyTumor <span class="sc">~</span> ChemicalZ_ugperL, <span class="at">data =</span> dose_response.data))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: Incidence_KidneyTumor
+                 Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+ChemicalZ_ugperL  1 1.11841 1.11841    1325 8.102e-13 ***
+Residuals        11 0.00928 0.00084                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(Incidence_LiverTumor <span class="sc">~</span> ChemicalZ_ugperL, <span class="at">data =</span> dose_response.data))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: Incidence_LiverTumor
+                 Df   Sum Sq  Mean Sq F value   Pr(&gt;F)    
+ChemicalZ_ugperL  1 0.167493 0.167493  29.117 0.000218 ***
+Residuals        11 0.063276 0.005752                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(Incidence_StomachTumor <span class="sc">~</span> ChemicalZ_ugperL, <span class="at">data =</span> dose_response.data))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: Incidence_StomachTumor
+                 Df   Sum Sq   Mean Sq F value Pr(&gt;F)
+ChemicalZ_ugperL  1 0.000007 0.0000070  0.0024 0.9619
+Residuals        11 0.032301 0.0029364               </code></pre>
+</div>
+</div>
+<div class="{callout-note}">
+<p>There is a range of statistical tests available for this question. Some make assumptions of the distribution of responses, others dont (also refereed to as non-parametric tests). Some tests are better than others. Which test that is most suitable and most efficient depends also on the type of response. We are not going into detail with the types of tests in this course. The key point is that it is important to apply some kind of test at this stage.</p>
+</div>
+<p><br></p>
+<div class="question">
+<p><i>With these plots and statistical tests, we can answer <strong>Environmental Health Question 2</strong>: </i> Which target tissue’s tumor incidence seems to not be related to dose?</p>
+</div>
+<div class="answer">
+<p><strong>Answer</strong>: Stomach.</p>
+</div>
+<p><br></p>
+<div class="question">
+<p><i>We can also answer <strong>Environmental Health Question 3</strong>: </i> When we generate scatter plots illustrating exposure concentration vs disease outcome, without curves fitted to the data, are we able to derive benchmark doses?</p>
+</div>
+<div class="answer">
+<p><strong>Answer</strong>: No, a curve fit is still needed to describe the overall trend in the dataset, which can then be used in the final calculation of a benchmark dose.</p>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="dose-response-curve-fitting" class="level1">
+<h1>Dose response curve fitting</h1>
+<section id="alternative-models" class="level2">
+<h2 class="anchored" data-anchor-id="alternative-models">Alternative models</h2>
+<p>It is notable that there are many different packages that can be used to fit curves to data. Here, we incorporate the <em>drc</em> package to fit several types of potential curve fit models to this example dataset.</p>
+<p>The <em>drm</em> function is specifically used from the <em>drc</em> package. Common parameters to consider when constructing the curve fit models in <em>drm</em> include the following:</p>
+<p><strong>1. Formula</strong></p>
+<p>This parameter describes the formula used to fit the data, formatted similar to a standard regression formula line of code. For the purposes of the current training module, this formula will be to fit to describe tumor incidence on chemical exposure concentration, which looks like this in the final code: <em>Incidence_StomachTumor ~ ChemicalZ_ugperL</em></p>
+<p><strong>2. Data</strong></p>
+<p>This parameter specifies the dataset you are evaluating. For the current training module, we will be referring to the full dataframe, <em>dose_response.data</em></p>
+<p><strong>3. Weights</strong></p>
+<p>This parameter contributes to determining how many observations are used at each dose/concentration, which can inform the model type. For the current training module, the weights in the dataset reflect the total number of animals tested at each exposure concentration.</p>
+<p><strong>4. Function (fct)</strong></p>
+<p>This parameter specifies which type of curve fit function you want to implement. Example functions include various types of log-logistic, generalized log-logistic, weibull, asymptotic regression, and Michaelis-Menten models. Note that <em>getMeanFunctions()</em> can be called for the full list of available functions:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getMeanFunctions</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Log-logistic (ED50 as parameter) with lower limit at 0 and upper limit at 1 
+(2 parameters) 
+In 'drc':  LL.2 
+
+Log-logistic (ED50 as parameter) with lower limit at 0 
+(3 parameters) 
+In 'drc':  LL.3 
+
+Log-logistic (ED50 as parameter) with upper limit at 1 
+(3 parameters) 
+In 'drc':  LL.3u 
+
+Log-logistic (ED50 as parameter) 
+(4 parameters) 
+In 'drc':  LL.4 
+
+Generalized log-logistic (ED50 as parameter) 
+(5 parameters) 
+In 'drc':  LL.5 
+
+Weibull (type 1) with lower limit at 0 and upper limit at 1 
+(2 parameters) 
+In 'drc':  W1.2 
+
+Weibull (type 1) with lower limit at 0 
+(3 parameters) 
+In 'drc':  W1.3 
+
+Weibull (type 1) 
+(4 parameters) 
+In 'drc':  W1.4 
+
+Weibull (type 2) with lower limit at 0 and upper limit at 1 
+(2 parameters) 
+In 'drc':  W2.2 
+
+Weibull (type 2) with lower limit at 0 
+(3 parameters) 
+In 'drc':  W2.3 
+
+Weibull (type 2) 
+(4 parameters) 
+In 'drc':  W2.4 
+
+Brain-Cousens (hormesis) with lower limit fixed at 0 
+(4 parameters) 
+In 'drc':  BC.4 
+
+Brain-Cousens (hormesis) 
+(5 parameters) 
+In 'drc':  BC.5 
+
+Log-logistic (log(ED50) as parameter) with lower limit at 0 and upper limit at 1 
+(2 parameters) 
+In 'drc':  LL2.2 
+
+Log-logistic (log(ED50) as parameter) with lower limit at 0 
+(3 parameters) 
+In 'drc':  LL2.3 
+
+Log-logistic (log(ED50) as parameter) with upper limit at 1 
+(3 parameters) 
+In 'drc':  LL2.3u 
+
+Log-logistic (log(ED50) as parameter) 
+(4 parameters) 
+In 'drc':  LL2.4 
+
+Generalised log-logistic (log(ED50) as parameter) 
+(5 parameters) 
+In 'drc':  LL2.5 
+
+Asymptotic regression with lower limit at 0 
+(2 parameters) 
+In 'drc':  AR.2 
+
+Shifted asymptotic regression 
+(3 parameters) 
+In 'drc':  AR.3 
+
+Michaelis-Menten 
+(2 parameters) 
+In 'drc':  MM.2 
+
+Shifted Michaelis-Menten 
+(3 parameters) 
+In 'drc':  MM.3 </code></pre>
+</div>
+</div>
+<p><strong>5. Type</strong></p>
+<p>This parameter specifies the data type of the response (e.g., binomial, continuous, etc). For the current training module, we will select the binomial type of response, which in this package refers to the modeling of data types that are not fully continuous, including this quantile-based incidence rate outcome.</p>
+</section>
+<section id="first-try-fitting-a-log-logistic-ll-model" class="level2">
+<h2 class="anchored" data-anchor-id="first-try-fitting-a-log-logistic-ll-model">First try fitting a log-logistic (LL) model</h2>
+<p>Because log-logistic (LL) models are commonly used to evaluate dose-response relationships, let’s first start by trying to fit a 2 parameter LL function.</p>
+<p>Running the model, on the intestinal tumor incidence outcome as an example</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>LL2.model.int <span class="ot">&lt;-</span> <span class="fu">with</span>(dose_response.data,</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">drm</span>(Incidence_IntestinalTumor<span class="sc">~</span>ChemicalZ_ugperL,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">weights=</span>TotalNoAnimals_Tested, </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fct=</span><span class="fu">LL.2</span>(), <span class="at">type=</span><span class="st">"binomial"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>It’s easy to plot these results using the plot function</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(LL2.model.int, <span class="at">type=</span><span class="st">"all"</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>));</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ex_dose_response_modelling_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="lets-next-try-fitting-a-weibull-model" class="level2">
+<h2 class="anchored" data-anchor-id="lets-next-try-fitting-a-weibull-model">Let’s next try fitting a Weibull model</h2>
+<p>Running the Weibull curve model, on the intestinal tumor incidence outcome as an example</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>W23.model.int <span class="ot">&lt;-</span> <span class="fu">with</span>(dose_response.data,</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">drm</span>(Incidence_IntestinalTumor<span class="sc">~</span>ChemicalZ_ugperL,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">weights=</span>TotalNoAnimals_Tested,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fct=</span><span class="fu">W2.3</span>(), <span class="at">type=</span><span class="st">"binomial"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Let’s plot the results of this function</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(W23.model.int, <span class="at">type=</span><span class="st">"all"</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>));</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ex_dose_response_modelling_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="lets-try-fitting-another-model-fit-based-on-asymptotic-regression-modeling" class="level2">
+<h2 class="anchored" data-anchor-id="lets-try-fitting-another-model-fit-based-on-asymptotic-regression-modeling">Let’s try fitting another model fit based on asymptotic regression modeling</h2>
+<p>Running the asymptotic regression model, on the intestinal tumor incidence outcome as an example</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>AR2.model.int <span class="ot">&lt;-</span> <span class="fu">with</span>(dose_response.data,</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">drm</span>(Incidence_IntestinalTumor<span class="sc">~</span>ChemicalZ_ugperL,</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">weights=</span>TotalNoAnimals_Tested, </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fct=</span><span class="fu">AR.2</span>(), <span class="at">type=</span><span class="st">"binomial"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Let’s plot the results of this function</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(AR2.model.int, <span class="at">type=</span><span class="st">"all"</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>));</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ex_dose_response_modelling_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="important-note-on-the-variety-of-curve-fit-models-to-consider" class="level2 {callout-note}">
+<h2 class="anchored" data-anchor-id="important-note-on-the-variety-of-curve-fit-models-to-consider">Important note on the variety of curve fit models to consider</h2>
+<p>There are many different types of curve fit models to consider when running your analyses. For example, additional functions are available from other packages, such as the <strong>aomisc package</strong>, which has an associated <a href="https://github.com/OnofriAndreaPG/aomisc">Github page</a> and <a href="https://www.r-bloggers.com/2020/02/a-collection-of-self-starters-for-nonlinear-regression-in-r/">R-bloggers article</a>. This package contains a collection of functions that are not included in the current drc pacakage. There are many other options available as well, if you search CRAN, Bioconductor, Github, and general search engines.</p>
+</section>
+<p><br></p>
+<div class="question">
+<p><i>With this, we can now answer <strong>Environmental Health Question 4</strong>: </i> Upon visual inspection of example log-logistic vs.&nbsp;Weibull model curve fits on the intestinal tumor response data, can we confidently determine which of these two models best fits these data?</p>
+</div>
+<div class="answer">
+<p><strong>Answer</strong>: No, both of these models appear to fit this dataset to a large extent. A more quantitative approach based on AIC is required to identify the best fitting model (see below).</p>
+</div>
+<p><br></p>
+<section id="comparing-curve-fits" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-curve-fits">Comparing Curve Fits</h2>
+<p>Given the variety of models that can be used to fit dose-response data, it is important to consider the results of each model curve fit and identify which model best fits the data.</p>
+<p>There are many ways to identify best fitting curves. The most commonly implemented strategies include the following:</p>
+<p><strong>1. Visual Inspection.</strong> Model curve fits can be evaluated visually, to gauge whether or not resulting curves fit the data.</p>
+<p><strong>2. Akaike Information Criterion (AIC).</strong> AIC values are commonly used for model selection, and represent an estimator of prediction error and relative quality of statistical models for a given set of data. AIC incorporates the trade-off between a model’s goodness of fit and the simplicity, such that it weighs the risk of overfitting vs underfitting. In applications, it is common to choose models with the lowest AIC, pending they describe the data sufficiently.</p>
+<p>The AIC function can simply be used here to calculate each resulting model’s AIC. Remember, the lower AIC represents the better model curve fit.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Results from the log-logistic model</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(LL2.model.int)   </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30.85574</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Results from the Weibull model</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(W23.model.int) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 22.87452</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Results from the asymptotic regression model</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(AR2.model.int)   </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 40.37098</code></pre>
+</div>
+</div>
+<p>These results demonstrate, quantitatively, that the Weibull model likely describes this dataset the best (out of the evaluated models), since it has the lowest AIC value.</p>
+<p>Let’s finally produce a summary visualization that display the results of these three model curve fits across this intestinal dataset, with all the curve fits in one plot.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First defining a vector of text to use in the legend, summary of the three curve fits and their AICs</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>IntestinalCurveFitAICs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Log-Logistic, AIC=30.9"</span>, <span class="st">"Weibull, AIC=22.9"</span>, <span class="st">"Asymptotic Regression, AIC=40.4"</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Generating the plot</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(LL2.model.int, <span class="at">type=</span><span class="st">"all"</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Can add the next models on top of current plot with different line types and weights</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(W23.model.int, <span class="at">add=</span><span class="cn">TRUE</span>,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">lty=</span><span class="dv">4</span>, <span class="at">lwd=</span><span class="fl">1.5</span>)</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(AR2.model.int, <span class="at">add=</span><span class="cn">TRUE</span>,<span class="at">col=</span><span class="st">"blue"</span>,<span class="at">lty=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="fl">1.5</span>)</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co"># A way to coerce the dots back to black for final view:</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(LL2.model.int, <span class="at">add=</span><span class="cn">TRUE</span>,<span class="at">col=</span><span class="st">"black"</span>)</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Can add a legend as well, specifying the same paramters for linetype (lty) and color (col)</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x=</span><span class="dv">1</span>, <span class="at">y=</span>.<span class="dv">8</span>, <span class="at">legend=</span>IntestinalCurveFitAICs,</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"red"</span>, <span class="st">"blue"</span>), <span class="at">lty=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ex_dose_response_modelling_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="instructions-for-reporting" class="level1">
+<h1>Instructions for reporting</h1>
+<p>This section applies if you are not present during the exercise.</p>
+<p>Write a text here where you reflect on your own learning.</p>
+<ol class="example" type="1">
+<li><p>Why is there a need for a statistical test to answer Environmental Health Question 2? What might happen if this is not done?</p></li>
+<li><p>Go back and add <code>col=Target_tissue</code> in the <code>aes</code> specification where you use <code>ggplot</code> to plot the dose response data. In your view, in what way does this improve the visualisation?</p></li>
+<li><p>Why do we add <code>type="binomial"</code> in the model specifications?</p></li>
+<li><p>The AIC balance between model fit and model complexity. Here, model complexity is defined by the number of parameters. What are the number of parameters for the three fitted models.</p></li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/ullrika\.github\.io\/MVEN10material\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

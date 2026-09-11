@@ -44,9 +44,13 @@ website:
       - section: "Hazard assessment" 
         contents: 
           - text: "Dose response modelling - Sept 14"
+            file: ex/ex_dose_response_modelling.qmd
             target: "_blank"
           - text: "Species Sensitivity Distribution - Sept 16"
             file: ex/ex_species_sensitivity_distribution.qmd
+            target: "_blank"
+          - text: "Benchmark dose modelling - Sept 23"
+            file: zheng/ex_benchmark_dose_modelling.qmd
             target: "_blank"
       - section: "Environmental health risk assessment - Sept 18"
         contents:
@@ -55,11 +59,6 @@ website:
       - section: "Species Distribution Modelling - Sept 25"
         contents:
           - text: "Species Distribution Modelling "
-            target: "_blank"
-      - section: "Hazard Modelling"
-        contents:
-          - text: "Dose response modelling - Sept 14"
-            file: zheng/ex_benchmark_dose_modelling.qmd
             target: "_blank"
       - section: "Model uncertainty - Sept 30"
       - section: "Expert judgement - Oct 2 and 5"
