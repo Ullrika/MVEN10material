@@ -106,8 +106,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="../site_libs/font-awesome-6.7.2/js/script.js"></script>
-
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -475,36 +473,6 @@ window.Quarto = {
 <section id="load-example-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="load-example-dataset">Load example dataset</h2>
 <p>Let’s start by loading the dataset needed for this training module. This dataset is a mock example that was generated for the purposes of this training module, in order to best capture variable types of dose-response relationships and resulting curve fits.</p>
-<div class="cell">
-<div class="cell-output-display">
-<button class="btn btn-info" onclick="
-    async function downloadFile(event) {
-      event.preventDefault();
-      try {
-        const response = await fetch('data:text/csv;base64,77u/Q2hlbWljYWxaX3VncGVyTCxUb3RhbE5vQW5pbWFsc19UZXN0ZWQsTm9BbmltYWxzX1N0b21hY2hUdW1vcixJbmNpZGVuY2VfU3RvbWFjaFR1bW9yLE5vQW5pbWFsc19JbnRlc3RpbmFsVHVtb3IsSW5jaWRlbmNlX0ludGVzdGluYWxUdW1vcixOb0FuaW1hbHNfS2lkbmV5VHVtb3IsSW5jaWRlbmNlX0tpZG5leVR1bW9yLE5vQW5pbWFsc19MaXZlclR1bW9yLEluY2lkZW5jZV9MaXZlclR1bW9yDQowLDEwLDMsMC4zLDAsMCwwLDAsMCwwDQoxMCwxMCwyLDAuMiwwLDAsMCwwLDAsMA0KNTAsMTAsMywwLjMsMCwwLDEsMC4xLDAsMA0KMTAwLDEwLDMsMC4zLDAsMCwxLDAuMSwwLDANCjE1MCwxMCwyLDAuMiwwLDAsMiwwLjIsMCwwDQoyMDAsMTAsMiwwLjIsMCwwLDIsMC4yLDAsMA0KMzAwLDEwLDMsMC4zLDAsMCwzLDAuMywyLDAuMg0KNDAwLDEwLDIsMC4yLDEsMC4xLDQsMC40LDMsMC4zDQo1MDAsMTAsMiwwLjIsNCwwLjQsNSwwLjUsMiwwLjINCjYwMCwxMCwyLDAuMiw3LDAuNyw2LDAuNiwzLDAuMw0KNzAwLDEwLDIsMC4yLDcsMC43LDcsMC43LDMsMC4zDQo4MDAsMTAsMywwLjMsNiwwLjYsOCwwLjgsMiwwLjINCjEwMDAsMTAsMywwLjMsNSwwLjUsOSwwLjksMywwLjM=');
-        if (!response.ok) throw new Error('Network response failed');
-        const blob = await response.blob();
-        const blobUrl = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = blobUrl;
-        a.download = 'DoseResponseData.csv';
-        a.style.display = 'none';
-        document.body.appendChild(a);
-        a.dispatchEvent(new MouseEvent('click'));
-        document.body.removeChild(a);
-        setTimeout(() => {
-          window.URL.revokeObjectURL(blobUrl);
-        }, 100);
-        return false;
-      } catch (error) {
-        console.error('Download failed:', error);
-        alert('Download failed. Please try again.');
-      }
-    }
-    downloadFile(event);
-  "><i class="fa fa-save"></i> Download csv file</button>
-</div>
-</div>
 <p>This specific dataset analyzes the relationship between exposure to a fictional chemical, <strong>chemical Z</strong>, in drinking water and tumor incidence in the stomach, intestine (small and/or large), kidney, and liver in mice. These mice were evaluated in a traditional two-year animal bioassay setting.</p>
 <p><em>Note that animals are assumed to drink equivalent amounts of water each day for simplicity.</em></p>
 <div class="cell">
@@ -518,36 +486,6 @@ window.Quarto = {
 <p>Viewing a quick summary of the values contained within this dataset</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dose_response.data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> ChemicalZ_ugperL TotalNoAnimals_Tested NoAnimals_StomachTumor
- Min.   :   0     Min.   :10            Min.   :2.000         
- 1st Qu.: 100     1st Qu.:10            1st Qu.:2.000         
- Median : 300     Median :10            Median :2.000         
- Mean   : 370     Mean   :10            Mean   :2.462         
- 3rd Qu.: 600     3rd Qu.:10            3rd Qu.:3.000         
- Max.   :1000     Max.   :10            Max.   :3.000         
- Incidence_StomachTumor NoAnimals_IntestinalTumor Incidence_IntestinalTumor
- Min.   :0.2000         Min.   :0.000             Min.   :0.0000           
- 1st Qu.:0.2000         1st Qu.:0.000             1st Qu.:0.0000           
- Median :0.2000         Median :0.000             Median :0.0000           
- Mean   :0.2462         Mean   :2.308             Mean   :0.2308           
- 3rd Qu.:0.3000         3rd Qu.:5.000             3rd Qu.:0.5000           
- Max.   :0.3000         Max.   :7.000             Max.   :0.7000           
- NoAnimals_KidneyTumor Incidence_KidneyTumor NoAnimals_LiverTumor
- Min.   :0.000         Min.   :0.0000        Min.   :0.000       
- 1st Qu.:1.000         1st Qu.:0.1000        1st Qu.:0.000       
- Median :3.000         Median :0.3000        Median :2.000       
- Mean   :3.692         Mean   :0.3692        Mean   :1.385       
- 3rd Qu.:6.000         3rd Qu.:0.6000        3rd Qu.:3.000       
- Max.   :9.000         Max.   :0.9000        Max.   :3.000       
- Incidence_LiverTumor
- Min.   :0.0000      
- 1st Qu.:0.0000      
- Median :0.2000      
- Mean   :0.1385      
- 3rd Qu.:0.3000      
- Max.   :0.3000      </code></pre>
-</div>
 </div>
 <p><br></p>
 <div class="question">
@@ -571,22 +509,15 @@ window.Quarto = {
 <p>Let’s plot each tumor incidence against exposure concentration together in a 2x2 plot.<br>
 Here, the y-axis will range from 0 to 1, with 0 indicating no incidence of tumors and 1 indicating all animals that were tested acquired tumors.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select columns and modfify the data structure into long format to allow for efficient plotting</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> dose_response.data <span class="sc">%&gt;%</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">!</span><span class="fu">starts_with</span>(<span class="st">"NoAnimals"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="fu">starts_with</span>(<span class="st">"Incidence"</span>), <span class="at">names_to =</span> <span class="st">"Target_tissue"</span>, <span class="at">values_to =</span> <span class="st">"Incidence"</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># plot using ggplot</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df,<span class="fu">aes</span>(<span class="at">x=</span>ChemicalZ_ugperL,<span class="at">y=</span>Incidence)) <span class="sc">+</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Target_tissue) <span class="co">#this command makes it into one subplot per endpoint</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="ex_dose_response_modelling_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select columns and modfify the data structure into long format to allow for efficient plotting</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> dose_response.data <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">!</span><span class="fu">starts_with</span>(<span class="st">"NoAnimals"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="fu">starts_with</span>(<span class="st">"Incidence"</span>), <span class="at">names_to =</span> <span class="st">"Target_tissue"</span>, <span class="at">values_to =</span> <span class="st">"Incidence"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># plot using ggplot</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df,<span class="fu">aes</span>(<span class="at">x=</span>ChemicalZ_ugperL,<span class="at">y=</span>Incidence)) <span class="sc">+</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Target_tissue) <span class="co">#this command makes it into one subplot per endpoint</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="testing-for-an-effect" class="level2">
@@ -599,48 +530,10 @@ Here, the y-axis will range from 0 to 1, with 0 indicating no incidence of tumor
 <p>We decide that we reject the null hypothesis (<span class="math inline">\(H_0\)</span>) when the p-value is less than our defined significance level of 5%.</p>
 <p>In the code below we perform this test for the four target tissues. For each test output, the p-value is denoted by Pr(&gt;F).</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(Incidence_IntestinalTumor <span class="sc">~</span> ChemicalZ_ugperL, <span class="at">data =</span> dose_response.data))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Analysis of Variance Table
-
-Response: Incidence_IntestinalTumor
-                 Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
-ChemicalZ_ugperL  1 0.80940 0.80940   34.47 0.0001075 ***
-Residuals        11 0.25829 0.02348                      
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(Incidence_KidneyTumor <span class="sc">~</span> ChemicalZ_ugperL, <span class="at">data =</span> dose_response.data))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Analysis of Variance Table
-
-Response: Incidence_KidneyTumor
-                 Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
-ChemicalZ_ugperL  1 1.11841 1.11841    1325 8.102e-13 ***
-Residuals        11 0.00928 0.00084                      
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(Incidence_LiverTumor <span class="sc">~</span> ChemicalZ_ugperL, <span class="at">data =</span> dose_response.data))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Analysis of Variance Table
-
-Response: Incidence_LiverTumor
-                 Df   Sum Sq  Mean Sq F value   Pr(&gt;F)    
-ChemicalZ_ugperL  1 0.167493 0.167493  29.117 0.000218 ***
-Residuals        11 0.063276 0.005752                     
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(Incidence_StomachTumor <span class="sc">~</span> ChemicalZ_ugperL, <span class="at">data =</span> dose_response.data))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Analysis of Variance Table
-
-Response: Incidence_StomachTumor
-                 Df   Sum Sq   Mean Sq F value Pr(&gt;F)
-ChemicalZ_ugperL  1 0.000007 0.0000070  0.0024 0.9619
-Residuals        11 0.032301 0.0029364               </code></pre>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(Incidence_IntestinalTumor <span class="sc">~</span> ChemicalZ_ugperL, <span class="at">data =</span> dose_response.data))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(Incidence_KidneyTumor <span class="sc">~</span> ChemicalZ_ugperL, <span class="at">data =</span> dose_response.data))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(Incidence_LiverTumor <span class="sc">~</span> ChemicalZ_ugperL, <span class="at">data =</span> dose_response.data))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(Incidence_StomachTumor <span class="sc">~</span> ChemicalZ_ugperL, <span class="at">data =</span> dose_response.data))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="{callout-note}">
 <p>There is a range of statistical tests available for this question. Some make assumptions of the distribution of responses, others dont (also refereed to as non-parametric tests). Some tests are better than others. Which test that is most suitable and most efficient depends also on the type of response. We are not going into detail with the types of tests in this course. The key point is that it is important to apply some kind of test at this stage.</p>
@@ -677,96 +570,7 @@ Residuals        11 0.032301 0.0029364               </code></pre>
 <p><strong>4. Function (fct)</strong></p>
 <p>This parameter specifies which type of curve fit function you want to implement. Example functions include various types of log-logistic, generalized log-logistic, weibull, asymptotic regression, and Michaelis-Menten models. Note that <em>getMeanFunctions()</em> can be called for the full list of available functions:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getMeanFunctions</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Log-logistic (ED50 as parameter) with lower limit at 0 and upper limit at 1 
-(2 parameters) 
-In 'drc':  LL.2 
-
-Log-logistic (ED50 as parameter) with lower limit at 0 
-(3 parameters) 
-In 'drc':  LL.3 
-
-Log-logistic (ED50 as parameter) with upper limit at 1 
-(3 parameters) 
-In 'drc':  LL.3u 
-
-Log-logistic (ED50 as parameter) 
-(4 parameters) 
-In 'drc':  LL.4 
-
-Generalized log-logistic (ED50 as parameter) 
-(5 parameters) 
-In 'drc':  LL.5 
-
-Weibull (type 1) with lower limit at 0 and upper limit at 1 
-(2 parameters) 
-In 'drc':  W1.2 
-
-Weibull (type 1) with lower limit at 0 
-(3 parameters) 
-In 'drc':  W1.3 
-
-Weibull (type 1) 
-(4 parameters) 
-In 'drc':  W1.4 
-
-Weibull (type 2) with lower limit at 0 and upper limit at 1 
-(2 parameters) 
-In 'drc':  W2.2 
-
-Weibull (type 2) with lower limit at 0 
-(3 parameters) 
-In 'drc':  W2.3 
-
-Weibull (type 2) 
-(4 parameters) 
-In 'drc':  W2.4 
-
-Brain-Cousens (hormesis) with lower limit fixed at 0 
-(4 parameters) 
-In 'drc':  BC.4 
-
-Brain-Cousens (hormesis) 
-(5 parameters) 
-In 'drc':  BC.5 
-
-Log-logistic (log(ED50) as parameter) with lower limit at 0 and upper limit at 1 
-(2 parameters) 
-In 'drc':  LL2.2 
-
-Log-logistic (log(ED50) as parameter) with lower limit at 0 
-(3 parameters) 
-In 'drc':  LL2.3 
-
-Log-logistic (log(ED50) as parameter) with upper limit at 1 
-(3 parameters) 
-In 'drc':  LL2.3u 
-
-Log-logistic (log(ED50) as parameter) 
-(4 parameters) 
-In 'drc':  LL2.4 
-
-Generalised log-logistic (log(ED50) as parameter) 
-(5 parameters) 
-In 'drc':  LL2.5 
-
-Asymptotic regression with lower limit at 0 
-(2 parameters) 
-In 'drc':  AR.2 
-
-Shifted asymptotic regression 
-(3 parameters) 
-In 'drc':  AR.3 
-
-Michaelis-Menten 
-(2 parameters) 
-In 'drc':  MM.2 
-
-Shifted Michaelis-Menten 
-(3 parameters) 
-In 'drc':  MM.3 </code></pre>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getMeanFunctions</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>5. Type</strong></p>
 <p>This parameter specifies the data type of the response (e.g., binomial, continuous, etc). For the current training module, we will select the binomial type of response, which in this package refers to the modeling of data types that are not fully continuous, including this quantile-based incidence rate outcome.</p>
@@ -776,63 +580,42 @@ In 'drc':  MM.3 </code></pre>
 <p>Because log-logistic (LL) models are commonly used to evaluate dose-response relationships, let’s first start by trying to fit a 2 parameter LL function.</p>
 <p>Running the model, on the intestinal tumor incidence outcome as an example</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>LL2.model.int <span class="ot">&lt;-</span> <span class="fu">with</span>(dose_response.data,</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">drm</span>(Incidence_IntestinalTumor<span class="sc">~</span>ChemicalZ_ugperL,</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">weights=</span>TotalNoAnimals_Tested, </span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fct=</span><span class="fu">LL.2</span>(), <span class="at">type=</span><span class="st">"binomial"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>LL2.model.int <span class="ot">&lt;-</span> <span class="fu">with</span>(dose_response.data,</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">drm</span>(Incidence_IntestinalTumor<span class="sc">~</span>ChemicalZ_ugperL,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">weights=</span>TotalNoAnimals_Tested, </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fct=</span><span class="fu">LL.2</span>(), <span class="at">type=</span><span class="st">"binomial"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>It’s easy to plot these results using the plot function</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(LL2.model.int, <span class="at">type=</span><span class="st">"all"</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>));</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="ex_dose_response_modelling_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(LL2.model.int, <span class="at">type=</span><span class="st">"all"</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>));</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="lets-next-try-fitting-a-weibull-model" class="level2">
 <h2 class="anchored" data-anchor-id="lets-next-try-fitting-a-weibull-model">Let’s next try fitting a Weibull model</h2>
 <p>Running the Weibull curve model, on the intestinal tumor incidence outcome as an example</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>W23.model.int <span class="ot">&lt;-</span> <span class="fu">with</span>(dose_response.data,</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">drm</span>(Incidence_IntestinalTumor<span class="sc">~</span>ChemicalZ_ugperL,</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">weights=</span>TotalNoAnimals_Tested,</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fct=</span><span class="fu">W2.3</span>(), <span class="at">type=</span><span class="st">"binomial"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>W23.model.int <span class="ot">&lt;-</span> <span class="fu">with</span>(dose_response.data,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">drm</span>(Incidence_IntestinalTumor<span class="sc">~</span>ChemicalZ_ugperL,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">weights=</span>TotalNoAnimals_Tested,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fct=</span><span class="fu">W2.3</span>(), <span class="at">type=</span><span class="st">"binomial"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Let’s plot the results of this function</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(W23.model.int, <span class="at">type=</span><span class="st">"all"</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>));</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="ex_dose_response_modelling_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(W23.model.int, <span class="at">type=</span><span class="st">"all"</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>));</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="lets-try-fitting-another-model-fit-based-on-asymptotic-regression-modeling" class="level2">
 <h2 class="anchored" data-anchor-id="lets-try-fitting-another-model-fit-based-on-asymptotic-regression-modeling">Let’s try fitting another model fit based on asymptotic regression modeling</h2>
 <p>Running the asymptotic regression model, on the intestinal tumor incidence outcome as an example</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>AR2.model.int <span class="ot">&lt;-</span> <span class="fu">with</span>(dose_response.data,</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">drm</span>(Incidence_IntestinalTumor<span class="sc">~</span>ChemicalZ_ugperL,</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">weights=</span>TotalNoAnimals_Tested, </span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fct=</span><span class="fu">AR.2</span>(), <span class="at">type=</span><span class="st">"binomial"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>AR2.model.int <span class="ot">&lt;-</span> <span class="fu">with</span>(dose_response.data,</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">drm</span>(Incidence_IntestinalTumor<span class="sc">~</span>ChemicalZ_ugperL,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">weights=</span>TotalNoAnimals_Tested, </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fct=</span><span class="fu">AR.2</span>(), <span class="at">type=</span><span class="st">"binomial"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Let’s plot the results of this function</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(AR2.model.int, <span class="at">type=</span><span class="st">"all"</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>));</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="ex_dose_response_modelling_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(AR2.model.int, <span class="at">type=</span><span class="st">"all"</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>));</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="important-note-on-the-variety-of-curve-fit-models-to-consider" class="level2 {callout-note}">
@@ -855,47 +638,33 @@ In 'drc':  MM.3 </code></pre>
 <p><strong>2. Akaike Information Criterion (AIC).</strong> AIC values are commonly used for model selection, and represent an estimator of prediction error and relative quality of statistical models for a given set of data. AIC incorporates the trade-off between a model’s goodness of fit and the simplicity, such that it weighs the risk of overfitting vs underfitting. In applications, it is common to choose models with the lowest AIC, pending they describe the data sufficiently.</p>
 <p>The AIC function can simply be used here to calculate each resulting model’s AIC. Remember, the lower AIC represents the better model curve fit.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Results from the log-logistic model</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(LL2.model.int)   </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 30.85574</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Results from the Weibull model</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(W23.model.int) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 22.87452</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Results from the asymptotic regression model</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(AR2.model.int)   </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 40.37098</code></pre>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Results from the log-logistic model</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(LL2.model.int)   </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Results from the Weibull model</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(W23.model.int) </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Results from the asymptotic regression model</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(AR2.model.int)   </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>These results demonstrate, quantitatively, that the Weibull model likely describes this dataset the best (out of the evaluated models), since it has the lowest AIC value.</p>
 <p>Let’s finally produce a summary visualization that display the results of these three model curve fits across this intestinal dataset, with all the curve fits in one plot.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First defining a vector of text to use in the legend, summary of the three curve fits and their AICs</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>IntestinalCurveFitAICs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Log-Logistic, AIC=30.9"</span>, <span class="st">"Weibull, AIC=22.9"</span>, <span class="st">"Asymptotic Regression, AIC=40.4"</span>)</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Generating the plot</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(LL2.model.int, <span class="at">type=</span><span class="st">"all"</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Can add the next models on top of current plot with different line types and weights</span></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(W23.model.int, <span class="at">add=</span><span class="cn">TRUE</span>,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">lty=</span><span class="dv">4</span>, <span class="at">lwd=</span><span class="fl">1.5</span>)</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(AR2.model.int, <span class="at">add=</span><span class="cn">TRUE</span>,<span class="at">col=</span><span class="st">"blue"</span>,<span class="at">lty=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="fl">1.5</span>)</span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co"># A way to coerce the dots back to black for final view:</span></span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(LL2.model.int, <span class="at">add=</span><span class="cn">TRUE</span>,<span class="at">col=</span><span class="st">"black"</span>)</span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Can add a legend as well, specifying the same paramters for linetype (lty) and color (col)</span></span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x=</span><span class="dv">1</span>, <span class="at">y=</span>.<span class="dv">8</span>, <span class="at">legend=</span>IntestinalCurveFitAICs,</span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"red"</span>, <span class="st">"blue"</span>), <span class="at">lty=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="ex_dose_response_modelling_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First defining a vector of text to use in the legend, summary of the three curve fits and their AICs</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>IntestinalCurveFitAICs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Log-Logistic, AIC=30.9"</span>, <span class="st">"Weibull, AIC=22.9"</span>, <span class="st">"Asymptotic Regression, AIC=40.4"</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Generating the plot</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(LL2.model.int, <span class="at">type=</span><span class="st">"all"</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Can add the next models on top of current plot with different line types and weights</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(W23.model.int, <span class="at">add=</span><span class="cn">TRUE</span>,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">lty=</span><span class="dv">4</span>, <span class="at">lwd=</span><span class="fl">1.5</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(AR2.model.int, <span class="at">add=</span><span class="cn">TRUE</span>,<span class="at">col=</span><span class="st">"blue"</span>,<span class="at">lty=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="fl">1.5</span>)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># A way to coerce the dots back to black for final view:</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(LL2.model.int, <span class="at">add=</span><span class="cn">TRUE</span>,<span class="at">col=</span><span class="st">"black"</span>)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Can add a legend as well, specifying the same paramters for linetype (lty) and color (col)</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x=</span><span class="dv">1</span>, <span class="at">y=</span>.<span class="dv">8</span>, <span class="at">legend=</span>IntestinalCurveFitAICs,</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"red"</span>, <span class="st">"blue"</span>), <span class="at">lty=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>

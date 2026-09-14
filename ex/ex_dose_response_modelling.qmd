@@ -3,6 +3,7 @@ title: "Dose response modelling"
 subtitle: "MVEN10 Risk Assessment in Environment and Public Health"
 author: "Ullrika Sahlin"
 warning: false
+output: false
 ---
 
 # Exercise overview
