@@ -14,9 +14,13 @@ We will search for effects and fit different dose response models to toxicity da
 
 Dose response modelling is a key component of hazard assessment. It is includes testing if there is an effect and using models to find a lowest dose where there is no effect. in this exercise, we do basic dose response analysis. In a later exercise, we introduce benchmark dose modelling which is using more advanced methods to consider uncertainty. 
 
+I recommend you have Rstudio installed on your computer. You will need this for future exercises. (added after the exercise was held)
+
 # Purpose
 
 -   To extract output values from a common environmental exposure assessment model
+
+- To practice working in the quarto environment (added after exercise was held)
 
 ## Content
 
@@ -46,6 +50,10 @@ if (!require("drc")) install.packages("drc");
 if (!require("remotes")) install.packages("remotes");
 if (!require("bmd")) remotes::install_github("DoseResponse/bmd")
 if (!require("tidyr")) install.packages("tidyr");
+
+if (!require("dplyr")) install.packages("dplyr");
+
+if (!require("ggplot2")) install.packages("ggplot2");
 ```
 
 ## Load R packages for this session 
@@ -77,6 +85,8 @@ Let's start by loading the dataset needed for this training module. This dataset
 
 ```{r}
 #| echo: false
+#| eval: true
+#| output: true
 downloadthis::download_file(
   path = "../data/DoseResponseData.csv",
   button_label = "Download csv file",

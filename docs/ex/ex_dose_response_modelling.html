@@ -106,6 +106,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/font-awesome-6.7.2/js/script.js"></script>
+
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -410,12 +412,14 @@ window.Quarto = {
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
 <p>Dose response modelling is a key component of hazard assessment. It is includes testing if there is an effect and using models to find a lowest dose where there is no effect. in this exercise, we do basic dose response analysis. In a later exercise, we introduce benchmark dose modelling which is using more advanced methods to consider uncertainty.</p>
+<p>I recommend you have Rstudio installed on your computer. You will need this for future exercises. (added after the exercise was held)</p>
 </section>
 </section>
 <section id="purpose" class="level1">
 <h1>Purpose</h1>
 <ul>
-<li>To extract output values from a common environmental exposure assessment model</li>
+<li><p>To extract output values from a common environmental exposure assessment model</p></li>
+<li><p>To practice working in the quarto environment (added after exercise was held)</p></li>
 </ul>
 <section id="content" class="level2">
 <h2 class="anchored" data-anchor-id="content">Content</h2>
@@ -443,7 +447,11 @@ window.Quarto = {
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"drc"</span>)) <span class="fu">install.packages</span>(<span class="st">"drc"</span>);</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"remotes"</span>)) <span class="fu">install.packages</span>(<span class="st">"remotes"</span>);</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"bmd"</span>)) remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"DoseResponse/bmd"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"tidyr"</span>)) <span class="fu">install.packages</span>(<span class="st">"tidyr"</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"tidyr"</span>)) <span class="fu">install.packages</span>(<span class="st">"tidyr"</span>);</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"dplyr"</span>)) <span class="fu">install.packages</span>(<span class="st">"dplyr"</span>);</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"ggplot2"</span>)) <span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="load-r-packages-for-this-session" class="level2">
@@ -473,6 +481,36 @@ window.Quarto = {
 <section id="load-example-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="load-example-dataset">Load example dataset</h2>
 <p>Let’s start by loading the dataset needed for this training module. This dataset is a mock example that was generated for the purposes of this training module, in order to best capture variable types of dose-response relationships and resulting curve fits.</p>
+<div class="cell">
+<div class="cell-output-display">
+<button class="btn btn-info" onclick="
+    async function downloadFile(event) {
+      event.preventDefault();
+      try {
+        const response = await fetch('data:text/csv;base64,77u/Q2hlbWljYWxaX3VncGVyTCxUb3RhbE5vQW5pbWFsc19UZXN0ZWQsTm9BbmltYWxzX1N0b21hY2hUdW1vcixJbmNpZGVuY2VfU3RvbWFjaFR1bW9yLE5vQW5pbWFsc19JbnRlc3RpbmFsVHVtb3IsSW5jaWRlbmNlX0ludGVzdGluYWxUdW1vcixOb0FuaW1hbHNfS2lkbmV5VHVtb3IsSW5jaWRlbmNlX0tpZG5leVR1bW9yLE5vQW5pbWFsc19MaXZlclR1bW9yLEluY2lkZW5jZV9MaXZlclR1bW9yDQowLDEwLDMsMC4zLDAsMCwwLDAsMCwwDQoxMCwxMCwyLDAuMiwwLDAsMCwwLDAsMA0KNTAsMTAsMywwLjMsMCwwLDEsMC4xLDAsMA0KMTAwLDEwLDMsMC4zLDAsMCwxLDAuMSwwLDANCjE1MCwxMCwyLDAuMiwwLDAsMiwwLjIsMCwwDQoyMDAsMTAsMiwwLjIsMCwwLDIsMC4yLDAsMA0KMzAwLDEwLDMsMC4zLDAsMCwzLDAuMywyLDAuMg0KNDAwLDEwLDIsMC4yLDEsMC4xLDQsMC40LDMsMC4zDQo1MDAsMTAsMiwwLjIsNCwwLjQsNSwwLjUsMiwwLjINCjYwMCwxMCwyLDAuMiw3LDAuNyw2LDAuNiwzLDAuMw0KNzAwLDEwLDIsMC4yLDcsMC43LDcsMC43LDMsMC4zDQo4MDAsMTAsMywwLjMsNiwwLjYsOCwwLjgsMiwwLjINCjEwMDAsMTAsMywwLjMsNSwwLjUsOSwwLjksMywwLjM=');
+        if (!response.ok) throw new Error('Network response failed');
+        const blob = await response.blob();
+        const blobUrl = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = 'DoseResponseData.csv';
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.dispatchEvent(new MouseEvent('click'));
+        document.body.removeChild(a);
+        setTimeout(() => {
+          window.URL.revokeObjectURL(blobUrl);
+        }, 100);
+        return false;
+      } catch (error) {
+        console.error('Download failed:', error);
+        alert('Download failed. Please try again.');
+      }
+    }
+    downloadFile(event);
+  "><i class="fa fa-save"></i> Download csv file</button>
+</div>
+</div>
 <p>This specific dataset analyzes the relationship between exposure to a fictional chemical, <strong>chemical Z</strong>, in drinking water and tumor incidence in the stomach, intestine (small and/or large), kidney, and liver in mice. These mice were evaluated in a traditional two-year animal bioassay setting.</p>
 <p><em>Note that animals are assumed to drink equivalent amounts of water each day for simplicity.</em></p>
 <div class="cell">

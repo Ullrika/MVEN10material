@@ -79,7 +79,7 @@ The [Comprehensive Food Consumption Database](https://www.efsa.europa.eu/en/data
 
 (@) Goto the site for the food consumption database. 
 
-(@) Enter the foodex2-level-1 window
+(@) Enter the foodex2-level-1 window. If it doesnt work, try another web browser (chrome does not seem to work. Firefox and explorer works)
 
 (@) Filter the data (see tab to the right). Select (All) in Exposure hierarchy L1 - this action deselects all. Then select **Coffee, cocoa, tea and infusions** only
 
