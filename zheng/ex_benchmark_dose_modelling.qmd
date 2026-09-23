@@ -54,7 +54,7 @@ Using the same dose-response data provided in question. Recall the three steps o
 
 **(2)** Based on the report from **(a)**, *find* the following information: 1) number of models fitted, 2) AIC of each model, 3) CED, CEDL and CEDU of each model
 
-**(3)** *Use* US EPA BMDS for BMD modeling: [https://www.epa.gov/bmds/bmds-online](https://www.epa.gov/bmds/bmds-online). Generate a report.
+**(3)** *Use* US EPA BMDS for BMD modeling: [https://www.epa.gov/bmds/bmds-online](https://www.epa.gov/bmds). Generate a report.
 
 **(4)** Based on the report from **(c)**, *find* the following information: 1) number of models fitted, 2) P-value, AIC and reason of recommendation of each model, 3) BMD, BMDL and BMDU of each model 
  
