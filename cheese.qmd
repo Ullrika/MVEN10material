@@ -1,0 +1,114 @@
+---
+title: "listeria"
+echo: false
+warning: false
+---
+
+```{r}
+library(ggplot2)
+```
+
+
+## Model
+
+$$C(2.5)=\frac{C_{max}}{1+(C_{max}/C(0)-1) \cdot \exp(-EGR(T)\cdot t)}$$
+$$EGR(T)=EGR(5)\left(\frac{T-T_{min}}{5-T_{min}}\right)^2$$
+
+## Set up and run Monte Carlo simulation
+
+```{r}
+# Parameters
+niter = 2000
+#log10C0 <- rnorm(niter, -1.19, 0.968) # used in class, values comes from Maartens simulation
+log10C0 <- rbeta(niter, 0.194, 3.177)*(7--1.69)+-1.69 # taken from table C.4 RTE category Cheese. This table presents fits of generalised beta distributions
+C0 = 10^log10C0
+
+#EGRT20 <- rnorm(niter,0.137,0.0137) # used in class
+
+
+```
+
+
+Parameters in table 2 are given as mean and sd of a lognormal distribution on the real-space scale. In R the parametrisation of the lognormal is done through the mean and standard deviation on the logged scale. we have to transform the parameters to be able to generate random numbers. 
+
+From real-space to log-space: 
+
+$$\sigma^2 = \ln (1 + (s/m)^2)$$
+$$\mu = \ln(m)-\sigma^2/2$$
+In case someone wants to do it the other way around: From log-space to real-space: 
+
+$$m=e^{\mu+\sigma^2/2}$$
+
+$$s = m \cdot \sqrt{e^{\sigma^2}-1}$$
+
+
+```{r}
+# draw sample from EGRT5
+
+m = 0.0117 # from table 2
+s = 0.00816 # from table 2
+sigma2 = log10(1+(s/m)^2)
+sigma=sqrt(sigma2)
+mu=log10(m)-sigma2/2
+
+EGRT5 <- rlnorm(niter,mu,sigma) 
+
+# transform to EGRT20
+Tmin = -1.18
+EGRT20 =  EGRT5*(20-Tmin)/(5-Tmin)^2 # equation 8
+
+#EGRT = 0.137 # point estimate
+
+log10Cmax = 7.83
+Cmax = 10^log10Cmax
+t = 2.5
+
+# Output
+Ct = Cmax/(1+(Cmax/C0)-1)*exp(-EGRT20*t)
+log10Ct = log10(Ct)
+```
+
+Confirm sample statistics
+
+```{r}
+mean(log10C0)
+sd(log10C0)
+mean(EGRT20)
+hist(EGRT20)
+```
+
+# Summarise and visualise uncertainty
+
+```{r}
+#| eval: false
+hist(Ct)
+```
+
+```{r}
+df_MC <- data.frame(log10Ct = log10Ct) 
+
+ggplot(df_MC, aes(x = log10Ct)) +
+  geom_histogram(binwidth = 0.25) +
+  geom_vline(xintercept=2,colour = "red")
+```
+
+
+```{r}
+mean(log10Ct)
+10^mean(log10Ct)
+
+```
+
+
+
+```{r}
+quantile(log10(Ct),probs=c(0.05,0.95)) # 90% prob int
+mean(log10(Ct)) # mean considering uncertainty
+```
+
+
+```{r}
+mean(log10(Ct)<2)
+```
+
+I am `r mean(log10(Ct)<2)*100`\% certain that your cheese is safe.

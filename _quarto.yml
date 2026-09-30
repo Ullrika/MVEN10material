@@ -61,6 +61,10 @@ website:
           - text: "Species Distribution Modelling "
             target: "_blank"
       - section: "Model uncertainty - Sept 30"
+        contents: 
+          - text: "PVA"
+          - file: ex/PVA_stud.qmd
+            target: "_blank"
       - section: "Expert judgement - Oct 2 and 5"
         
 format:

@@ -1,0 +1,341 @@
+---
+title: Population Viability Analysis
+subtitle: MVEN10
+author: Ullrika
+date: today
+format: html
+editor: source
+warning: false
+echo: false
+---
+
+```{r}
+# load required libraries 
+
+library(ggplot2)
+library(dplyr)
+```
+
+## Model specification 
+
+$$B_t = B_{t-1} e^{(\pi -\delta B_{t-1}+S_t)} - C_t$$
+
+$$S_t \sim N(0,\sigma)$$
+
+
+(@) Identify state variables, assessment variables and model parameters. 
+
+## PVA with fixed parameter values
+
+```{r}
+# initial or fixed state variables
+B0 = 250 # Initial biomass of cod
+C = 23 # Catch (fixed fishing pressure the time period)
+
+# parameters
+pi = 0.5 # growth rate
+delta = 0.002 # mortality rate
+sigma = 0.25 # standard deviation for environmental variability
+
+# assessment variables
+endT = 30 # Period of simulation - set to 3 generation lengths
+time = 0:endT  # Time period is set to three generation lengths
+qext = 10 # Quasi-extinction threshold
+```
+
+```{r}
+# model 
+niter = 100 #number of times I want to repeat the simulation
+below = rep(0,niter) # counter of quasi extinctions
+
+
+for(i in 1:niter){
+  
+B = rep(0,endT +1) #create a vector of zeros
+B[1] = B0 #assign the starting biomass value
+for(t in 1:endT ){
+  B[t+1] = B[t]*exp(pi-delta*B[t]+rnorm(1,0,sigma)) - C
+  B[t+1] = max(0,B[t+1])
+}
+
+below[i] = max(B < qext) #this take the value one if below the quasi extinction threshold
+
+# plot 
+if(i == 1){
+plot(time,B, ylab = "biomass", type = "l", ylim = c(0,500))
+abline(h = qext, col = "red")
+}else{
+ lines(time,B) 
+}
+
+}
+ext_risk = mean(below) # quasi extinction risk i.e. the likelihood for extinction 
+mtext(ext_risk,side=3) # adds this information to the plot
+
+```
+
+## Evaluate robustness in the PVA
+
+(@) Find the number of iterations where the estimate of the quasi-extinction risk has a reasonable standard deviation.
+
+```{r}
+# create a function of the above generated code to run a simulation given known parameter values and where the number of iterations is an input argument
+calc_risk <- function(niter_ale){
+#niter_ale is the number of times I want to repeat the simulation to capture variability
+
+# parameters (fixed)
+par = data.frame(pi = 0.5, delta = 0.002, sigma = 0.25)
+
+# model 
+below = rep(0,niter_ale) #counter of quasi extinction
+
+for(i in 1:niter_ale){
+  
+B = rep(0,endT +1)
+B[1] = B0
+for(t in 1:endT ){
+  B[t+1] = B[t]*exp(par$pi-par$delta*B[t]+rnorm(1,0,par$sigma)) - C
+  B[t+1] = max(0,B[t+1])
+}
+
+below[i] = max(B < qext) #one if below threshold
+
+}
+ext_risk = mean(below) #quasi extinction risk i.e. the likelihood for extinction 
+
+return(ext_risk)
+}
+```
+
+## Robustness check
+
+```{r}
+#| eval: false
+
+# run the function n=200 times for different choices of niter (10, 50, 100, 500, 1000)
+rob_risk <- replicate(n=200,calc_risk(niter_ale=10)) #takes long time to run if you increase any of the two numbers
+#summary(rob_risk)
+sd(rob_risk)
+```
+
+
+
+(@) Make a plot showing the standard deviation for different number of iterations 
+
+```{r}
+## here is way to loop through the different options and save into a data frame 
+
+df_rob <- do.call('rbind',lapply(c(10, 50, 100, 500, 1000),function(j){
+  rob_risk <- replicate(n=200,calc_risk(niter_ale=j)) 
+  data.frame(niter_ale = j, sd = sd(rob_risk))
+}))
+
+ggplot(df_rob, aes(x=niter_ale, y=sd)) +
+  geom_line()
+```
+
+(@) Make a plot showing the estimated quasi-extinction risk with error bars for different number of iterations. Add "quasi-extinction risk" as y-label. Add "number of iterations for variability" as x-label.
+
+```{r}
+## here is way to loop through the different options and save into a data frame 
+
+df_rob2 <- do.call('rbind',lapply(c(10, 50, 100, 200, 500),function(j){
+  rob_risk <- replicate(n=200,calc_risk(niter_ale=j)) 
+  data.frame(niter_ale = j, sd = sd(rob_risk), m = mean(rob_risk))
+}))
+
+ggplot(df_rob2, aes(x=niter_ale, y=m)) +
+  geom_point(colour = "brown") +
+  geom_errorbar(aes(x=niter_ale,ymin=m-sd,ymax=m+sd)) +
+  ylab("quasi-extinction risk") +
+  xlab("number of iterations for variability")
+```
+
+## Consider uncertainty in parameters 
+
+So far we used point estimates of the parameters. Now we will include uncertainty in parameters. Since we have both uncertainty and variability, this will be a 2D Monte Carlo simulation. 
+
+```{r}
+
+# Draw random numbers to represent uncertainty in parameters
+
+niter_epi = 200 # number of random draws. we can change this later on
+
+# draws saved into a data frame
+df_MC <- data.frame(
+  pi = rnorm(n = niter_epi, mean = 0.5, sd = 0.05),
+  delta = rnorm(n = niter_epi, mean = 0.002, sd = 0.0002),
+  sigma = abs(rnorm(n = niter_epi, mean = 0.25, sd = 0.1)) # put absolute to avoid getting negative values which are not possible for a standard deviation
+  )
+
+
+```
+
+Here I have copied and pasted in the function for the assessment, I use the selected number of iterations for variability from above (niter_ale) and have given it a different name (calc_risk_2D). The input argument is now iter_epi. 
+
+(@) Add uncertainty in the parameters into the Monte Carlo simulation of the PVA. Replace parameter values by the iter_epi'th draw in df_par. 
+
+```{r}
+
+calc_risk_2D <- function(iter_epi){
+  
+niter_ale = 500 # put in your selected value here
+
+# parameters
+#par = data.frame(pi = 0.5, delta = 0.002, sigma = 0.25) # replace this
+par = df_MC[iter_epi,]
+
+# model 
+below = rep(0,niter_ale) #counter of quasi extinction
+
+
+for(i in 1:niter_ale){
+  
+B = rep(0,endT +1)
+B[1] = B0
+for(t in 1:endT ){
+  B[t+1] = B[t]*exp(par$pi-par$delta*B[t]+rnorm(1,0,par$sigma)) - C
+  B[t+1] = max(0,B[t+1])
+}
+
+below[i] = max(B < qext) #one if below threshold
+
+
+}
+ext_risk = mean(below) #quasi extinction risk i.e. the likelihood for extinction 
+
+return(ext_risk)
+}
+```
+
+(@) Run the PVA simulation for all niter_epi draws from parameter uncertainty and save to an object
+
+```{r}
+unc_risk <- sapply(1:niter_epi,calc_risk_2D)
+unc_risk
+```
+
+(@) Visualise uncertainty in the risk estimate using a histogram 
+
+```{r}
+df_MC$risk <- unc_risk # saving the output in the same dataframe as unc in parameters
+
+ggplot(df_MC,aes(x=risk)) +
+  geom_histogram(binwidth = 0.05) +
+  geom_vline(xintercept=0.10, col = "red") +
+  xlim(NA,1)
+```
+
+(@) Visualise uncertainty in the risk estimate using a boxplot. Add "Uncertainty in quasi-extinction risk" as a title. Add "Quasi extinction risk" as y-label. Make y axis go from 0 to 1. Flip axis.
+
+```{r}
+df_MC$C <- as.character(C) # add the value of the catch variable in the data frame
+
+ggplot(df_MC,aes(x=C, y=risk)) +
+  geom_boxplot() +
+  labs(title="Uncertainty in quasi-extinction risk")+
+  ylab("Quasi extinction risk") +
+  ylim(0,1) +
+  coord_flip() 
+  
+```
+
+(@) Summarise uncertainty in the quasi-extinction risk by a 90% probability interval and a mean value. 
+
+```{r}
+probint = quantile(df_MC$risk,probs=c(0.05,0.95))
+m = mean(df_MC$risk)
+```
+
+(@) Add the results into the following text.  
+
+The quasi-extinction risk for a catch of `r df_MC$C[1]` is assessed to be `r m` with an 90% uncertainty interval (`r probint[1]` , `r probint[2]`). 
+
+## Sensitivity analysis 
+
+One way to identify which parameters that has the strongest contribution to uncertainty in the output is to perform a sensitivity analysis. I recommend to perform sensitivity analysis by visualisatio and a quantitative measure. 
+
+(@) Visualise the influence of parameter on calculated risk using scatter plots
+
+```{r}
+plot(df_MC[,c("pi","delta","sigma","risk")])
+```
+
+(@) Calculate the spearman rang correlation 
+
+```{r}
+cor(df_MC[,c("pi","delta","sigma","risk")], method = "spearman")
+```
+
+(@) Why is the influence from growth negative? 
+
+(@) Which parameter has the strongest influence on the calculated risk? 
+
+Which parameter that has the strongest influence depends on the role it has in a model and how much uncertainty it has compared to the other parameters. 
+
+## Decision analysis
+
+Decision makers wants to find the fishing pressure for which the experts are at least 80\% certain that the quasi-extinction risk is below 10. 
+
+We search for the highest fishing pressure where this applies, but testing different values on C and summarising uncertainty by its 80\% quantile. 
+
+```{r}
+df_DA <- do.call('rbind',lapply(c(10,12,14,15,16,17,18,20),function(c_val){
+C = c_val
+
+calc_risk_2D <- function(iter_epi){
+  
+niter_ale = 500 # our selected value where we consider the estimate is reasonably robust with respect to variability
+
+# parameters
+#par = data.frame(pi = 0.5, delta = 0.002, sigma = 0.25) # replace this
+par = df_MC[iter_epi,]
+
+# model 
+below = rep(0,niter_ale) #counter of quasi extinction
+
+
+for(i in 1:niter_ale){
+  
+B = rep(0,endT +1)
+B[1] = B0
+for(t in 1:endT ){
+  B[t+1] = B[t]*exp(par$pi-par$delta*B[t]+rnorm(1,0,par$sigma)) - C
+  B[t+1] = max(0,B[t+1])
+}
+
+below[i] = max(B < qext) #one if below threshold
+
+
+}
+ext_risk = mean(below) #quasi extinction risk i.e. the likelihood for extinction 
+
+return(ext_risk)
+}
+
+unc_risk <- sapply(1:niter_epi,calc_risk_2D)
+df_MC$risk <- unc_risk # saving the output in the same dataframe as unc in parameters
+df_MC$C <- as.character(c_val) # to make this into a non-numeric entry
+return(df_MC)
+})
+)
+```
+
+Visualise the simulated values. 
+
+```{r}
+ggplot(df_DA,aes(x=C, y=risk)) +
+  geom_boxplot() +
+  ylab("Quasi-extinction risk") +
+  xlab("Catch") +
+  labs(title="Uncertainty in the quantity of interest") +
+  geom_hline(yintercept=0.1,colour="red")
+```
+
+### Summarise uncertainty for different catch values 
+
+```{r}
+df_DA %>% #for this you need dplyr
+  group_by(C) %>%
+  summarise(av_risk=mean(risk),sd_risk = sd(risk),q80=quantile(risk,probs=0.8))
+```
