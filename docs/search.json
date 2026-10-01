@@ -466,7 +466,7 @@
     "href": "cheese.html#set-up-and-run-monte-carlo-simulation",
     "title": "listeria",
     "section": "Set up and run Monte Carlo simulation",
-    "text": "Set up and run Monte Carlo simulation\nParameters in table 2 are given as mean and sd of a lognormal distribution on the real-space scale. In R the parametrisation of the lognormal is done through the mean and standard deviation on the logged scale. we have to transform the parameters to be able to generate random numbers.\nFrom real-space to log-space:\n\\[\\sigma^2 = \\ln (1 + (s/m)^2)\\] \\[\\mu = \\ln(m)-\\sigma^2/2\\] In case someone wants to do it the other way around: From log-space to real-space:\n\\[m=e^{\\mu+\\sigma^2/2}\\]\n\\[s = m \\cdot \\sqrt{e^{\\sigma^2}-1}\\]\nConfirm sample statistics\n\n\n[1] -1.220973\n\n\n[1] 0.9062126\n\n\n[1] 0.08033783"
+    "text": "Set up and run Monte Carlo simulation\nParameters in table 2 are given as mean and sd of a lognormal distribution on the real-space scale. In R the parametrisation of the lognormal is done through the mean and standard deviation on the logged scale. we have to transform the parameters to be able to generate random numbers.\nFrom real-space to log-space:\n\\[\\sigma^2 = \\ln (1 + (s/m)^2)\\] \\[\\mu = \\ln(m)-\\sigma^2/2\\] In case someone wants to do it the other way around: From log-space to real-space:\n\\[m=e^{\\mu+\\sigma^2/2}\\]\n\\[s = m \\cdot \\sqrt{e^{\\sigma^2}-1}\\]\nConfirm sample statistics\n\n\n[1] -1.174027\n\n\n[1] 1.004714\n\n\n[1] 0.08218803"
   },
   {
     "objectID": "ex/chance_belief_frequency.html",
@@ -737,49 +737,44 @@
     "href": "ex/ex_risk_ranking.html#linquistic-uncertainty",
     "title": "Risk ranking and subjective risk assessment",
     "section": "Linquistic uncertainty",
-    "text": "Linquistic uncertainty\n\nImpact on biodiversity is high\n\n\nThere is a 30% probability of rain tomorrow\n\n\nProminent in qualitative risk assessment due to the use of qualitative expressions\nCan be avoided by using well defined questions, quantities and outcomes and meaningful scales"
+    "text": "Linquistic uncertainty\n\nThere is life on Mars\n\n\nImpact on biodiversity is high\n\n\nThere is a 30% probability of rain tomorrow\n\n\nProminent in qualitative risk assessment due to the use of qualitative expressions\nCan be avoided by using well defined questions, quantities and outcomes and meaningful scales",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Subjective risk ranking"
+    ]
   },
   {
     "objectID": "ex/ex_risk_ranking.html#subjective-risk-assessment",
     "href": "ex/ex_risk_ranking.html#subjective-risk-assessment",
     "title": "Risk ranking and subjective risk assessment",
     "section": "Subjective Risk Assessment",
-    "text": "Subjective Risk Assessment\nA tool from Mark and his colleagues to reduce linguistic uncertainty\nSRA tool manual\n\nLikelihood and impact scales"
+    "text": "Subjective Risk Assessment\nA tool from Mark and his colleagues to reduce linguistic uncertainty\nSRA tool manual\n\nLikelihood and impact scales",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Subjective risk ranking"
+    ]
   },
   {
     "objectID": "ex/ex_risk_ranking.html#subjective-risk-assessment-1",
     "href": "ex/ex_risk_ranking.html#subjective-risk-assessment-1",
     "title": "Risk ranking and subjective risk assessment",
     "section": "Subjective Risk Assessment",
-    "text": "Subjective Risk Assessment\nRain - Rain tomorrow\nRocket - Next moon rocket crash on earth\nTrump - Trump becomes the next president of USA\n\nUse these likelihood and impact scalesMake judgements with single scores e.g. 3 or ranges, e.g. 2-4"
+    "text": "Subjective Risk Assessment\nRain - There will be rain tomorrow\nSpace - Aliens from space will arrive to the earth in our lifetime\nTrump - Trump becomes the next president of USA\n\nUse these likelihood and impact scalesMake judgements with single scores e.g. 3 or ranges, e.g. 2-4",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Subjective risk ranking"
+    ]
   },
   {
     "objectID": "ex/ex_risk_ranking.html#delphi-process-to-aggregate-judgements-from-a-group-of-experts",
     "href": "ex/ex_risk_ranking.html#delphi-process-to-aggregate-judgements-from-a-group-of-experts",
     "title": "Risk ranking and subjective risk assessment",
     "section": "Delphi process to aggregate judgements from a group of experts",
-    "text": "Delphi process to aggregate judgements from a group of experts\n\nMake individual judgements\nCompare where there are large differences in judgements. - Discuss and resolve the reason for differences. Here is where linguistic uncertainties can be reduced.\nRedo individual judgements\nAggregate the judgements"
-  },
-  {
-    "objectID": "ex/ex_risk_ranking.html#interpretation-of-probability",
-    "href": "ex/ex_risk_ranking.html#interpretation-of-probability",
-    "title": "Risk ranking and subjective risk assessment",
-    "section": "Interpretation of probability",
-    "text": "Interpretation of probability\nTutorial on uncertainty where Ullrika explains probability distribution\n\nthe frequency with which sampled values arise within a specified range or for a specified category\n\n\na quantification of a judgement on the likelihood of a particular range or category\n\n\n\n\n\n\n\nNote\n\n\nThe mathematical theory for probability is the same for both interpretations!"
-  },
-  {
-    "objectID": "ex/ex_risk_ranking.html#probability-distributions",
-    "href": "ex/ex_risk_ranking.html#probability-distributions",
-    "title": "Risk ranking and subjective risk assessment",
-    "section": "Probability distributions",
-    "text": "Probability distributions\nVisualising probability distributions"
-  },
-  {
-    "objectID": "ex/ex_risk_ranking.html#uncertainty-and-variability",
-    "href": "ex/ex_risk_ranking.html#uncertainty-and-variability",
-    "title": "Risk ranking and subjective risk assessment",
-    "section": "Uncertainty and variability",
-    "text": "Uncertainty and variability"
+    "text": "Delphi process to aggregate judgements from a group of experts\n\nMake individual judgements\nCompare where there are large differences in judgements.\nDiscuss and resolve the reason for differences. Here is where linguistic uncertainties can be reduced.\nRedo individual judgements\nAggregate the judgements",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Subjective risk ranking"
+    ]
   },
   {
     "objectID": "ex/introduction_to_quarto_and_R.html",
@@ -844,7 +839,7 @@
     "text": "\\[B_t = B_{t-1} e^{(\\pi -\\delta B_{t-1}+S_t)} - C_t\\]\n\\[S_t \\sim N(0,\\sigma)\\]\n\nIdentify state variables, assessment variables and model parameters.",
     "crumbs": [
       "Model uncertainty - Sept 30",
-      "Population Viability Analysis"
+      "Population Viabiltiy Analysis"
     ]
   },
   {
@@ -855,7 +850,7 @@
     "text": "\\[B_t = B_{t-1} e^{(\\pi -\\delta B_{t-1}+S_t)} - C_t\\]\n\\[S_t \\sim N(0,\\sigma)\\]\n\nIdentify state variables, assessment variables and model parameters.",
     "crumbs": [
       "Model uncertainty - Sept 30",
-      "Population Viability Analysis"
+      "Population Viabiltiy Analysis"
     ]
   },
   {
@@ -866,7 +861,7 @@
     "text": "PVA with fixed parameter values",
     "crumbs": [
       "Model uncertainty - Sept 30",
-      "Population Viability Analysis"
+      "Population Viabiltiy Analysis"
     ]
   },
   {
@@ -877,7 +872,7 @@
     "text": "Evaluate robustness in the PVA\n\nFind the number of iterations where the estimate of the quasi-extinction risk has a reasonable standard deviation.",
     "crumbs": [
       "Model uncertainty - Sept 30",
-      "Population Viability Analysis"
+      "Population Viabiltiy Analysis"
     ]
   },
   {
@@ -888,7 +883,7 @@
     "text": "Robustness check\n\nMake a plot showing the standard deviation for different number of iterations\n\n\n\n\n\n\n\n\n\n\n\nMake a plot showing the estimated quasi-extinction risk with error bars for different number of iterations. Add “quasi-extinction risk” as y-label. Add “number of iterations for variability” as x-label.",
     "crumbs": [
       "Model uncertainty - Sept 30",
-      "Population Viability Analysis"
+      "Population Viabiltiy Analysis"
     ]
   },
   {
@@ -896,10 +891,10 @@
     "href": "ex/PVA_stud.html#consider-uncertainty-in-parameters",
     "title": "Population Viability Analysis",
     "section": "Consider uncertainty in parameters",
-    "text": "Consider uncertainty in parameters\nSo far we used point estimates of the parameters. Now we will include uncertainty in parameters. Since we have both uncertainty and variability, this will be a 2D Monte Carlo simulation.\nHere I have copied and pasted in the function for the assessment, I use the selected number of iterations for variability from above (niter_ale) and have given it a different name (calc_risk_2D). The input argument is now iter_epi.\n\nAdd uncertainty in the parameters into the Monte Carlo simulation of the PVA. Replace parameter values by the iter_epi’th draw in df_par.\n\n\nRun the PVA simulation for all niter_epi draws from parameter uncertainty and save to an object\n\n\n\n  [1] 0.006 0.058 0.000 0.014 0.068 0.280 0.222 0.000 0.450 0.084 0.002 0.000\n [13] 0.060 0.088 0.000 0.898 0.024 0.196 0.000 0.276 0.000 0.446 0.768 0.006\n [25] 0.592 0.594 0.126 0.108 0.092 0.646 0.032 0.000 0.622 0.200 0.270 0.744\n [37] 0.018 0.476 0.008 0.000 0.254 0.268 0.000 0.368 0.012 0.190 0.122 0.132\n [49] 0.470 0.114 0.540 0.036 0.038 0.058 0.026 0.000 0.116 0.632 0.000 0.422\n [61] 0.146 0.014 0.302 0.006 0.290 0.016 0.532 0.058 0.358 0.044 0.270 0.002\n [73] 0.000 0.144 0.002 0.310 0.328 0.016 0.464 0.072 0.020 0.000 0.442 0.000\n [85] 0.000 0.136 0.322 0.000 0.726 0.250 0.046 0.000 0.000 0.022 0.358 0.006\n [97] 0.254 0.008 0.002 0.222 0.014 0.360 0.032 0.008 0.368 0.098 0.096 0.064\n[109] 0.606 0.300 0.000 0.026 0.558 0.008 0.742 0.658 0.236 0.000 0.144 0.000\n[121] 0.004 0.000 0.308 0.716 0.388 0.056 0.000 0.328 0.006 0.034 0.130 0.168\n[133] 0.104 0.000 0.576 0.496 0.364 0.000 0.002 0.158 0.548 0.016 0.000 0.354\n[145] 0.000 0.166 0.086 0.040 0.134 0.000 0.002 0.004 0.474 0.338 0.594 0.000\n[157] 0.674 0.776 0.000 0.214 0.080 0.324 0.002 0.000 0.024 0.070 0.282 0.032\n[169] 0.000 0.064 0.164 0.022 0.018 0.068 0.010 0.008 0.480 0.000 0.118 0.092\n[181] 0.192 0.586 0.114 0.358 0.276 0.098 0.000 0.506 0.162 0.020 0.160 0.050\n[193] 0.000 0.000 0.346 0.670 0.036 0.000 0.000 0.154\n\n\n\nVisualise uncertainty in the risk estimate using a histogram\n\n\n\n\n\n\n\n\n\n\n\nVisualise uncertainty in the risk estimate using a boxplot. Add “Uncertainty in quasi-extinction risk” as a title. Add “Quasi extinction risk” as y-label. Make y axis go from 0 to 1. Flip axis.\n\n\n\n\n\n\n\n\n\n\n\nSummarise uncertainty in the quasi-extinction risk by a 90% probability interval and a mean value.\n\n\nAdd the results into the following text.\n\nThe quasi-extinction risk for a catch of 23 is assessed to be 0.18311 with an 90% uncertainty interval (0 , 0.6466).",
+    "text": "Consider uncertainty in parameters\nSo far we used point estimates of the parameters. Now we will include uncertainty in parameters. Since we have both uncertainty and variability, this will be a 2D Monte Carlo simulation.\nHere I have copied and pasted in the function for the assessment, I use the selected number of iterations for variability from above (niter_ale) and have given it a different name (calc_risk_2D). The input argument is now iter_epi.\n\nAdd uncertainty in the parameters into the Monte Carlo simulation of the PVA. Replace parameter values by the iter_epi’th draw in df_par.\n\n\nRun the PVA simulation for all niter_epi draws from parameter uncertainty and save to an object\n\n\n\n  [1] 0.018 0.022 0.002 0.068 0.006 0.002 0.000 0.796 0.308 0.000 0.214 0.012\n [13] 0.202 0.024 0.028 0.020 0.000 0.000 0.010 0.004 0.072 0.330 0.010 0.136\n [25] 0.202 0.288 0.088 0.218 0.264 0.158 0.108 0.000 0.024 0.694 0.070 0.024\n [37] 0.002 0.710 0.188 0.024 0.384 0.020 0.320 0.560 0.654 0.002 0.010 0.050\n [49] 0.000 0.004 0.046 0.056 0.060 0.360 0.406 0.298 0.348 0.902 0.112 0.072\n [61] 0.552 0.360 0.004 0.268 0.042 0.560 0.616 0.042 0.002 0.234 0.244 0.000\n [73] 0.050 0.650 0.072 0.170 0.252 0.078 0.000 0.000 0.102 0.030 0.854 0.334\n [85] 0.092 0.054 0.110 0.000 0.000 0.266 0.276 0.064 0.008 0.022 0.000 0.236\n [97] 0.376 0.074 0.002 0.086 0.048 0.804 0.010 0.262 0.114 0.676 0.408 0.000\n[109] 0.538 0.032 0.060 0.930 0.190 0.732 0.248 0.026 0.506 0.006 0.000 0.310\n[121] 0.040 0.538 0.172 0.000 0.000 0.778 0.158 0.008 0.170 0.000 0.000 0.238\n[133] 0.178 0.000 0.154 0.086 0.200 0.000 0.252 0.010 0.006 0.096 0.000 0.294\n[145] 0.224 0.018 0.632 0.014 0.492 0.000 0.040 0.000 0.082 0.004 0.006 0.074\n[157] 0.318 0.104 0.000 0.162 0.068 0.000 0.268 0.000 0.382 0.000 0.486 0.038\n[169] 0.016 0.000 0.000 0.038 0.016 0.096 0.076 0.724 0.046 0.214 0.000 0.078\n[181] 0.130 0.414 0.000 0.036 0.046 0.226 0.068 0.096 0.134 0.068 0.000 0.058\n[193] 0.002 0.002 0.242 0.000 0.402 0.796 0.352 0.002\n\n\n\nVisualise uncertainty in the risk estimate using a histogram\n\n\n\n\n\n\n\n\n\n\n\nVisualise uncertainty in the risk estimate using a boxplot. Add “Uncertainty in quasi-extinction risk” as a title. Add “Quasi extinction risk” as y-label. Make y axis go from 0 to 1. Flip axis.\n\n\n\n\n\n\n\n\n\n\n\nSummarise uncertainty in the quasi-extinction risk by a 90% probability interval and a mean value.\n\n\nAdd the results into the following text.\n\nThe quasi-extinction risk for a catch of 23 is assessed to be 0.1713 with an 90% uncertainty interval (0 , 0.6948).",
     "crumbs": [
       "Model uncertainty - Sept 30",
-      "Population Viability Analysis"
+      "Population Viabiltiy Analysis"
     ]
   },
   {
@@ -907,10 +902,10 @@
     "href": "ex/PVA_stud.html#sensitivity-analysis",
     "title": "Population Viability Analysis",
     "section": "Sensitivity analysis",
-    "text": "Sensitivity analysis\nOne way to identify which parameters that has the strongest contribution to uncertainty in the output is to perform a sensitivity analysis. I recommend to perform sensitivity analysis by visualisatio and a quantitative measure.\n\nVisualise the influence of parameter on calculated risk using scatter plots\n\n\n\n\n\n\n\n\n\n\n\nCalculate the spearman rang correlation\n\n\n\n               pi       delta       sigma       risk\npi     1.00000000 -0.01731793  0.02431411 -0.5710597\ndelta -0.01731793  1.00000000 -0.11058876  0.2064209\nsigma  0.02431411 -0.11058876  1.00000000  0.6966861\nrisk  -0.57105971  0.20642087  0.69668606  1.0000000\n\n\n\nWhy is the influence from growth negative?\nWhich parameter has the strongest influence on the calculated risk?\n\nWhich parameter that has the strongest influence depends on the role it has in a model and how much uncertainty it has compared to the other parameters.",
+    "text": "Sensitivity analysis\nOne way to identify which parameters that has the strongest contribution to uncertainty in the output is to perform a sensitivity analysis. I recommend to perform sensitivity analysis by visualisatio and a quantitative measure.\n\nVisualise the influence of parameter on calculated risk using scatter plots\n\n\n\n\n\n\n\n\n\n\n\nCalculate the spearman rang correlation\n\n\n\n               pi       delta       sigma       risk\npi     1.00000000  0.04475062 -0.05693092 -0.5892143\ndelta  0.04475062  1.00000000 -0.13604590  0.1508709\nsigma -0.05693092 -0.13604590  1.00000000  0.7248521\nrisk  -0.58921428  0.15087090  0.72485209  1.0000000\n\n\n\nWhy is the influence from growth negative?\nWhich parameter has the strongest influence on the calculated risk?\n\nWhich parameter that has the strongest influence depends on the role it has in a model and how much uncertainty it has compared to the other parameters.",
     "crumbs": [
       "Model uncertainty - Sept 30",
-      "Population Viability Analysis"
+      "Population Viabiltiy Analysis"
     ]
   },
   {
@@ -918,10 +913,10 @@
     "href": "ex/PVA_stud.html#decision-analysis",
     "title": "Population Viability Analysis",
     "section": "Decision analysis",
-    "text": "Decision analysis\nDecision makers wants to find the fishing pressure for which the experts are at least 80% certain that the quasi-extinction risk is below 10.\nWe search for the highest fishing pressure where this applies, but testing different values on C and summarising uncertainty by its 80% quantile.\nVisualise the simulated values.\n\n\n\n\n\n\n\n\n\n\nSummarise uncertainty for different catch values\n\n\n# A tibble: 8 × 4\n  C     av_risk sd_risk    q80\n  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;\n1 10    0.00708  0.0219 0.004 \n2 12    0.0144   0.0370 0.014 \n3 14    0.0264   0.0582 0.0304\n4 15    0.0360   0.0735 0.044 \n5 16    0.0466   0.0871 0.0728\n6 17    0.0602   0.105  0.096 \n7 18    0.0735   0.121  0.126 \n8 20    0.111    0.161  0.202",
+    "text": "Decision analysis\nDecision makers wants to find the fishing pressure for which the experts are at least 80% certain that the quasi-extinction risk is below 10.\nWe search for the highest fishing pressure where this applies, but testing different values on C and summarising uncertainty by its 80% quantile.\nVisualise the simulated values.\n\n\n\n\n\n\n\n\n\n\nSummarise uncertainty for different catch values\n\n\n# A tibble: 8 × 4\n  C     av_risk sd_risk    q80\n  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;\n1 10    0.00826  0.0349 0.002 \n2 12    0.0148   0.0517 0.008 \n3 14    0.0256   0.0713 0.02  \n4 15    0.0337   0.0879 0.03  \n5 16    0.0432   0.0994 0.048 \n6 17    0.0545   0.115  0.0732\n7 18    0.0679   0.132  0.0928\n8 20    0.102    0.170  0.160",
     "crumbs": [
       "Model uncertainty - Sept 30",
-      "Population Viability Analysis"
+      "Population Viabiltiy Analysis"
     ]
   },
   {
@@ -995,7 +990,7 @@
     "href": "ex/useful_functions_with_R.html#random-sampling",
     "title": "The R-version of what we did in Introduction to useful functions in Excel",
     "section": "Random sampling",
-    "text": "Random sampling\nAll sample generators start with a random number between 0 and 1. This is also a sample from a uniform distribution.\n\nrunif(1)\n\n[1] 0.6821323\n\n\nType a function that generates a uniform random number in the interval 1 to 6.\n\nrunif(1,min=1,max=6)\n\n[1] 5.809136\n\n\nA random draw from a probability distribution can be generated by the inverse method. - Draws pp-values from a uniform distribution between 0 and 1 - Transform them into quantiles of the target distribution\nGenerates random draws from a normal distribution using the inverse method\n\nqnorm(runif(1),m,s)\n\n[1] 14.1954\n\n\nThis is already implemented as a function\n\nrnorm(1,m,s)\n\n[1] 13.70568\n\n\nDraw from a beta distribution with parameters \\(\\alpha=2\\)$\\alpha=2$$\\alpha=2$ and \\(\\beta=8\\)\n\nrbeta(1,2,8)\n\n[1] 0.1174739",
+    "text": "Random sampling\nAll sample generators start with a random number between 0 and 1. This is also a sample from a uniform distribution.\n\nrunif(1)\n\n[1] 0.8418135\n\n\nType a function that generates a uniform random number in the interval 1 to 6.\n\nrunif(1,min=1,max=6)\n\n[1] 4.860641\n\n\nA random draw from a probability distribution can be generated by the inverse method. - Draws pp-values from a uniform distribution between 0 and 1 - Transform them into quantiles of the target distribution\nGenerates random draws from a normal distribution using the inverse method\n\nqnorm(runif(1),m,s)\n\n[1] 18.33499\n\n\nThis is already implemented as a function\n\nrnorm(1,m,s)\n\n[1] 17.78571\n\n\nDraw from a beta distribution with parameters \\(\\alpha=2\\)$\\alpha=2$$\\alpha=2$ and \\(\\beta=8\\)\n\nrbeta(1,2,8)\n\n[1] 0.3928127",
     "crumbs": [
       "Intro to excel and R - Sept 4",
       "Useful functions in R"
@@ -1006,7 +1001,7 @@
     "href": "ex/useful_functions_with_R.html#compare-descriptive-statistics-against-theoretical-values",
     "title": "The R-version of what we did in Introduction to useful functions in Excel",
     "section": "Compare descriptive statistics against theoretical values",
-    "text": "Compare descriptive statistics against theoretical values\nWow - now we can generate data where we know the true value on parameters and all theoretical probabilities and quantiles, and compare with what we get when deriving descriptive statistics from the random sample.\nThis sheet generates a random sample of size 20 from a beta distribution.\n\nrbeta(n=20,2,8)\n\n [1] 0.12578213 0.09397690 0.42044803 0.32540216 0.12250889 0.53056085\n [7] 0.04307007 0.39222315 0.05576870 0.15568212 0.31079481 0.25863212\n[13] 0.07043056 0.17159123 0.11168504 0.36794827 0.22509442 0.03501150\n[19] 0.05526111 0.37391316\n\n\nA beta distribution has two parameters \\(\\alpha\\) and \\(\\beta\\)\nThe expected value of a beta distributed variable is \\(\\frac{\\alpha}{\\alpha+\\beta}\\)\nCompare the calculated sample average to the theoretical expected value\n\nalpha=2\nbeta=8\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=20,alpha,beta))\n\n[1] 0.1880636\n\n\nWe can also derive the theoretical quantile, let us say the P95.\nCompare the quantile from the sample with the quantile calculated from the inverse probability distribution function\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=20,alpha,beta),probs=0.95)\n\n     95% \n0.475579 \n\n\n\nWhich of them has the smallest difference? Why do you think it is like that?\n\n\n\n\n\n\n\nWarningExtra\n\n\n\nIf you feel you have the time or do another time:\nExplore what happens with the difference between theoretical and statistical values when you increase sample size from 20 to a high number (close to 1000)?\n\n\nBelow I wrte a script where sample size is controlled at one place. The P95 is approximated fairly well by the sampling when I use \\(n=10 000\\).\n\nalpha=2\nbeta=8\nn=10000\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=n,alpha,beta))\n\n[1] 0.2009122\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=n,alpha,beta),probs=0.95)\n\n      95% \n0.4342207 \n\n\nLet us visualise the convergence of the approximation of the mean and 95th percentile of the beta distribution using Monte Carlo simulation.\nThe code below defines a function which calculates the mean and P95 after every increase of the sample size and plots the convergence.\n\nplot_conv &lt;- function(n){\nsample_mean=cummean(rbeta(n=n,alpha,beta))\nsample_P95=unlist(lapply(1:n,function(iter){\n  quantile(rbeta(n=iter,alpha,beta),probs=0.95)}))\ndata.frame(values=c(sample_mean,sample_P95),n=rep(1:n,2), statistic=rep(c(\"mean\",\"P95\"),each=n))  %&gt;%\n  ggplot(aes(x=n,y=values,color=statistic))+\n  geom_line()+\n  geom_hline(yintercept = alpha/(alpha+beta)) +\n  geom_hline(yintercept = qbeta(0.95,alpha,beta))\n}\n\nWe start with \\(n=10\\)\n\nplot_conv(n=10)\n\n\n\n\n\n\n\n\n..increase to \\(n=100\\)\n\nplot_conv(n=100)\n\n\n\n\n\n\n\n\n..increase to \\(n=1000\\)\n\nplot_conv(n=10^3)\n\n\n\n\n\n\n\n\n..and finally \\(n=10000\\)\n\nplot_conv(n=10^4)",
+    "text": "Compare descriptive statistics against theoretical values\nWow - now we can generate data where we know the true value on parameters and all theoretical probabilities and quantiles, and compare with what we get when deriving descriptive statistics from the random sample.\nThis sheet generates a random sample of size 20 from a beta distribution.\n\nrbeta(n=20,2,8)\n\n [1] 0.28596133 0.11701550 0.13509262 0.34851548 0.26009179 0.03633218\n [7] 0.24380959 0.08521492 0.22913659 0.29467000 0.24202299 0.11169567\n[13] 0.20067080 0.30788888 0.21463549 0.12034354 0.12438919 0.02876111\n[19] 0.23448571 0.06343913\n\n\nA beta distribution has two parameters \\(\\alpha\\) and \\(\\beta\\)\nThe expected value of a beta distributed variable is \\(\\frac{\\alpha}{\\alpha+\\beta}\\)\nCompare the calculated sample average to the theoretical expected value\n\nalpha=2\nbeta=8\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=20,alpha,beta))\n\n[1] 0.1893635\n\n\nWe can also derive the theoretical quantile, let us say the P95.\nCompare the quantile from the sample with the quantile calculated from the inverse probability distribution function\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=20,alpha,beta),probs=0.95)\n\n      95% \n0.3309539 \n\n\n\nWhich of them has the smallest difference? Why do you think it is like that?\n\n\n\n\n\n\n\nWarningExtra\n\n\n\nIf you feel you have the time or do another time:\nExplore what happens with the difference between theoretical and statistical values when you increase sample size from 20 to a high number (close to 1000)?\n\n\nBelow I wrte a script where sample size is controlled at one place. The P95 is approximated fairly well by the sampling when I use \\(n=10 000\\).\n\nalpha=2\nbeta=8\nn=10000\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=n,alpha,beta))\n\n[1] 0.1989137\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=n,alpha,beta),probs=0.95)\n\n      95% \n0.4269243 \n\n\nLet us visualise the convergence of the approximation of the mean and 95th percentile of the beta distribution using Monte Carlo simulation.\nThe code below defines a function which calculates the mean and P95 after every increase of the sample size and plots the convergence.\n\nplot_conv &lt;- function(n){\nsample_mean=cummean(rbeta(n=n,alpha,beta))\nsample_P95=unlist(lapply(1:n,function(iter){\n  quantile(rbeta(n=iter,alpha,beta),probs=0.95)}))\ndata.frame(values=c(sample_mean,sample_P95),n=rep(1:n,2), statistic=rep(c(\"mean\",\"P95\"),each=n))  %&gt;%\n  ggplot(aes(x=n,y=values,color=statistic))+\n  geom_line()+\n  geom_hline(yintercept = alpha/(alpha+beta)) +\n  geom_hline(yintercept = qbeta(0.95,alpha,beta))\n}\n\nWe start with \\(n=10\\)\n\nplot_conv(n=10)\n\n\n\n\n\n\n\n\n..increase to \\(n=100\\)\n\nplot_conv(n=100)\n\n\n\n\n\n\n\n\n..increase to \\(n=1000\\)\n\nplot_conv(n=10^3)\n\n\n\n\n\n\n\n\n..and finally \\(n=10000\\)\n\nplot_conv(n=10^4)",
     "crumbs": [
       "Intro to excel and R - Sept 4",
       "Useful functions in R"

@@ -10,6 +10,8 @@ editor: visual
 
 ## Linquistic uncertainty
 
+> There is life on Mars
+
 > Impact on biodiversity is high
 
 > There is a 30% probability of rain tomorrow
@@ -28,9 +30,9 @@ A tool from Mark and his colleagues to reduce linguistic uncertainty
 
 ## Subjective Risk Assessment
 
-Rain - Rain tomorrow
+Rain - There will be rain tomorrow
 
-Rocket - Next moon rocket crash on earth
+Space - Aliens from space will arrive to the earth in our lifetime
 
 Trump - Trump becomes the next president of USA
 
@@ -41,26 +43,12 @@ Make judgements with single scores e.g. 3 or ranges, e.g. 2-4
 ## Delphi process to aggregate judgements from a group of experts
 
 - Make individual judgements
-- Compare where there are large differences in judgements. - Discuss and resolve the reason for differences. Here is where linguistic uncertainties can be reduced.
+
+- Compare where there are large differences in judgements. 
+
+- Discuss and resolve the reason for differences. Here is where linguistic uncertainties can be reduced.
+
 - Redo individual judgements
+
 - Aggregate the judgements
 
-## Interpretation of probability
-
-[Tutorial on uncertainty where Ullrika explains probability distribution](https://multimedia.efsa.europa.eu/uncertainty-tutorial/uncertainty-communication/expressions-distribution.html)
-
-> the frequency with which sampled values arise within a specified range or for a specified category
-
-> a quantification of a judgement on the likelihood of a particular range or category
-
-::: callout-note
-The mathematical theory for probability is the same for both interpretations!
-:::
-
-## Probability distributions
-
-[Visualising probability distributions](https://multimedia.efsa.europa.eu/uncertainty-tutorial/uncertainty-communication/expressions-distribution.html#communicating-uncertainty-about-a-quantity-of-interest-by-a-probability-distribution)
-
-## Uncertainty and variability
-
-![](../img/uncvar.png)
