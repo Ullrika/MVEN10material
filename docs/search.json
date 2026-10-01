@@ -358,147 +358,58 @@
     ]
   },
   {
-    "objectID": "ex/ex_environ_exposure_assessment.html",
-    "href": "ex/ex_environ_exposure_assessment.html",
+    "objectID": "ex/ex_environ_fate_assessment.html",
+    "href": "ex/ex_environ_fate_assessment.html",
     "title": "Exercise Environmental exposure assessment",
     "section": "",
-    "text": "Do in groups of 1-3\n\n\nPredictive models of exposure of chemical substances in the environment are common in risk assessment.\nThere are several mass-balance models to support exposure assessment.\nAn assessments starts with the source and level of emissions. The exposure assessment models derive masses of chemical substances after reaching steady state."
+    "text": "Simple box was briefly shown in the lecture.\n\n\nPredictive models of exposure of chemical substances in the environment are common in risk assessment.\nThere are several mass-balance models to support exposure assessment.\nAn assessments starts with the source and level of emissions. The exposure assessment models derive masses of chemical substances after reaching steady state.",
+    "crumbs": [
+      "Exposure assessment - Sept 11",
+      "Exposure FATE"
+    ]
   },
   {
-    "objectID": "ex/ex_environ_exposure_assessment.html#exercise-overview",
-    "href": "ex/ex_environ_exposure_assessment.html#exercise-overview",
+    "objectID": "ex/ex_environ_fate_assessment.html#exercise-overview",
+    "href": "ex/ex_environ_fate_assessment.html#exercise-overview",
     "title": "Exercise Environmental exposure assessment",
     "section": "",
-    "text": "Do in groups of 1-3\n\n\nPredictive models of exposure of chemical substances in the environment are common in risk assessment.\nThere are several mass-balance models to support exposure assessment.\nAn assessments starts with the source and level of emissions. The exposure assessment models derive masses of chemical substances after reaching steady state."
+    "text": "Simple box was briefly shown in the lecture.\n\n\nPredictive models of exposure of chemical substances in the environment are common in risk assessment.\nThere are several mass-balance models to support exposure assessment.\nAn assessments starts with the source and level of emissions. The exposure assessment models derive masses of chemical substances after reaching steady state.",
+    "crumbs": [
+      "Exposure assessment - Sept 11",
+      "Exposure FATE"
+    ]
   },
   {
-    "objectID": "ex/ex_environ_exposure_assessment.html#purpose",
-    "href": "ex/ex_environ_exposure_assessment.html#purpose",
+    "objectID": "ex/ex_environ_fate_assessment.html#purpose",
+    "href": "ex/ex_environ_fate_assessment.html#purpose",
     "title": "Exercise Environmental exposure assessment",
     "section": "Purpose",
-    "text": "Purpose\n\nTo extract output values from a common environmental exposure assessment model\n\n\nContent\n\nExcel and SimpleBox-TRAM vs 3.24.\n\n\n\nDuration\n30 minutes\n\n\nReporting\nMake a report with your answers to the questions and main dicussion points and submit to canvas.\n\n\nReferences"
+    "text": "Purpose\n\nTo extract output values from a common environmental exposure assessment model\n\n\nContent\n\nSimpleBox vs 4.04\n\n\n\nReporting\nAdd your answers to the questions and main discussion points to the report that you submit to canvas. You are expected to combine the answers to this exercise and the environmental exposure database exercise into one report. Put your name on the report!\n\n\nReferences",
+    "crumbs": [
+      "Exposure assessment - Sept 11",
+      "Exposure FATE"
+    ]
   },
   {
-    "objectID": "ex/ex_environ_exposure_assessment.html#simplebox",
-    "href": "ex/ex_environ_exposure_assessment.html#simplebox",
+    "objectID": "ex/ex_environ_fate_assessment.html#simplebox",
+    "href": "ex/ex_environ_fate_assessment.html#simplebox",
     "title": "Exercise Environmental exposure assessment",
     "section": "SimpleBox",
-    "text": "SimpleBox\nSimpleBox is a multimedia mass balance model for evaluating the fate of chemical substances developed by RIVM.\nThe environment is modelled as consisting of well-mixed environmental compartments (air, water, sediment, soil, etc.), at three spatial scales. Emissions to the compartments, transfer and partitioning between the compartments, and removal from the compartments are used to compute the steady state and quasi-dynamic masses of chemical substance in the environment.\nThe SimpleBox model simulates the environmental fates of different substances in different landscape settings, of which the characteristics are provided with the model database. In its default settings, SimpleBox returns results for a typical chemical, given a typical emission, to a typical environment.\n\nGo to the website at RIVM and read about the SimpleBox model\nWhat does RIVM stands for?\nWho has developed SimpleBox?"
+    "text": "SimpleBox\nSimpleBox is a multimedia mass balance model for evaluating the fate of chemical substances developed by RIVM.\nThe environment is modelled as consisting of well-mixed environmental compartments (air, water, sediment, soil), at three spatial scales. Emissions to the compartments, transfer and partitioning between the compartments, and removal from the compartments are used to compute the steady state and quasi-dynamic masses of chemical substance in the environment.\nThe SimpleBox model simulates the environmental fates of different substances in different landscape settings, of which the characteristics are provided with the model database. In its default settings, SimpleBox returns results for a typical chemical, given a typical emission, to a typical environment.\n\nGo to the website at RIVM and read about the SimpleBox model\nWhat does RIVM stands for?\nWho has developed SimpleBox?",
+    "crumbs": [
+      "Exposure assessment - Sept 11",
+      "Exposure FATE"
+    ]
   },
   {
-    "objectID": "ex/ex_environ_exposure_assessment.html#assess-exposure-from-emissions-of-hexachlorobenzene-to-agricultural-soil",
-    "href": "ex/ex_environ_exposure_assessment.html#assess-exposure-from-emissions-of-hexachlorobenzene-to-agricultural-soil",
+    "objectID": "ex/ex_environ_fate_assessment.html#assess-exposure-from-emissions-of-caffeine-to-agricultural-soil-and-freshwater",
+    "href": "ex/ex_environ_fate_assessment.html#assess-exposure-from-emissions-of-caffeine-to-agricultural-soil-and-freshwater",
     "title": "Exercise Environmental exposure assessment",
-    "section": "Assess exposure from emissions of hexachlorobenzene to agricultural soil",
-    "text": "Assess exposure from emissions of hexachlorobenzene to agricultural soil\nYou will use the version of SimpleBox that comes with the Targeted Risk Assessment tool from ECETOC\n\nDownload the excel file for SimpleBox-TRAM and open it. Enable Content!\n\n\n\n SimpleBox-TRAM\n\n\n\nGoto sheet chembase and note the ID number for hexachlorobenzene.\nGoto sheet input and write down the row number ID in cell I44.\n\nThe model will now use substance specific parameters for the calculations.\n\nSet USE volume at local scale to 1 in cell I85\nSet the value on EMISSION to agricultural soil to be 2\nGoto sheet level 3 output and note the concentration at local level in fresh water in cell D13\nStudy the graphical output, i.e. the steady-state mass flows in the same sheet starting in cell BL1.\nAnswer the following questions:\n\n\nWhat is the exposure scenario?\nWhat is the Predicted Environmental Concentration in fresh water of hexachlorobenzene under the exposure scenario?"
-  },
-  {
-    "objectID": "ex/ex_daily_intake_equation.html",
-    "href": "ex/ex_daily_intake_equation.html",
-    "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
-    "section": "",
-    "text": "Do individually\n\n\nAll estimates (derived from data, modelling or from experts) have associated uncertainty. This uncertainty can be described in different ways and propagated through the assessment model.\n\n\n\n\nTo apply interval arithmetic\nTo explore the principle of 1 dimensional Monte Carlo simulation\n\n\n\n\nThe daily dose equation with values taken from the course book by Burgman.\n\n\n\n30 minutes\n\n\n\nBe prepared to report back at the end of the exercise.\n\n\n\nThe course book chapter 9 and 10 (specifically 9.3.2 and 10.8.1.)",
+    "section": "Assess exposure from emissions of Caffeine to agricultural soil and freshwater",
+    "text": "Assess exposure from emissions of Caffeine to agricultural soil and freshwater\n\nGo to the git-repository for SimpleBox and download the Spreadsheet xl_version of SimpleBox (click xl-version and download the file named “SimpleBox4.04_20240405.xlsm”).\nOpen the xlsm-file and enable content!\n\nIf it doesn’t work then use this to download the file\n\n\n SimpleBox\n\n\n\nGoto sheet substances and note the ID number for caffeine.\nGoto sheet input and write down the row number ID in cell I6.\n\nThe model will now use substance specific parameters for the calculations.\n\nSelect EUSES settings as Exposure Scenario\nSet the value on EMISSION to fresh water at REGIONAL SCALE to 1 in cell I82\nSet the value on EMISSION to agricultural soil at REGIONAL SCALE to 1 in cell I85\nGoto sheet output and note the concentration at REGIONAL SCALE in Fresh water sediments (mass in cell C23, concentration in cell M23) or look at the Graphic output: steady-state mass flows)\n\nI get mass 6.7 kg and concentration 1.4e-7 g.kg(w)-1. Do you get the same?\n\nStudy the Graphic output: steady-state mass flows in the same sheet but further to the right. Identify the mass/concentration in fresh water sediment in the graph.\n\nI see that the mass in freshwater sediment is 0.7% of the total concentration in the system. Do you get the same?\n\nWere do the majority of the caffeine end up at steady state?\n\nI see that 81.1% of the mass of caffeine is in open freshwater. Do you get the same",
     "crumbs": [
-      "Probability models - Sept 7",
-      "Interval and 1D Monte Carlo"
-    ]
-  },
-  {
-    "objectID": "ex/ex_daily_intake_equation.html#exercise-overview",
-    "href": "ex/ex_daily_intake_equation.html#exercise-overview",
-    "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
-    "section": "",
-    "text": "Do individually\n\n\nAll estimates (derived from data, modelling or from experts) have associated uncertainty. This uncertainty can be described in different ways and propagated through the assessment model.\n\n\n\n\nTo apply interval arithmetic\nTo explore the principle of 1 dimensional Monte Carlo simulation\n\n\n\n\nThe daily dose equation with values taken from the course book by Burgman.\n\n\n\n30 minutes\n\n\n\nBe prepared to report back at the end of the exercise.\n\n\n\nThe course book chapter 9 and 10 (specifically 9.3.2 and 10.8.1.)",
-    "crumbs": [
-      "Probability models - Sept 7",
-      "Interval and 1D Monte Carlo"
-    ]
-  },
-  {
-    "objectID": "ex/ex_daily_intake_equation.html#the-daily-dose-equation",
-    "href": "ex/ex_daily_intake_equation.html#the-daily-dose-equation",
-    "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
-    "section": "The daily dose equation",
-    "text": "The daily dose equation\n\\[Dose = \\frac{C \\cdot IR \\cdot EF}{bw}\\]\nThe following estimates are provided:\nConcentration mg/l (C): 0.00063\nIntake rate l/day (IR): 5\nExposure frequency unitless (EF): 0.15\nBody weight mg (bw): 25.11\n\nCalculate the daily intake dose!",
-    "crumbs": [
-      "Probability models - Sept 7",
-      "Interval and 1D Monte Carlo"
-    ]
-  },
-  {
-    "objectID": "ex/ex_daily_intake_equation.html#interval-artithmetic",
-    "href": "ex/ex_daily_intake_equation.html#interval-artithmetic",
-    "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
-    "section": "Interval artithmetic",
-    "text": "Interval artithmetic\n\nTo consider uncertainty in estimates, we express uncertainty by intervals defined by a lower and upper bounds.\nConcentration mg/l (C): [0.000007, 0.0033]\nIntake rate l/day (IR): [4,6]\nExposure frequency unitless (EF): [0.12,0.18]\nBody weight mg (bw): [8.43,45.14]\n\nCalculate intervals for daily intake dose using interval arithmetic.",
-    "crumbs": [
-      "Probability models - Sept 7",
-      "Interval and 1D Monte Carlo"
-    ]
-  },
-  {
-    "objectID": "ex/ex_daily_intake_equation.html#d-monte-carlo-simulation",
-    "href": "ex/ex_daily_intake_equation.html#d-monte-carlo-simulation",
-    "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
-    "section": "1D Monte Carlo simulation",
-    "text": "1D Monte Carlo simulation\nTo consider uncertainty in estimates, we express uncertainty by probability distributions defined by a distribution type and associated parameters.\nThe aim is that you should be able to do this in Excel and R.\nConcentration mg/l (C): \\(C\\sim N(0.00063,0.000063)\\)\nIntake rate l/day (IR): \\(IR \\sim N(5,0.5)\\)\nExposure frequency unitless (EF): \\(EF \\sim U(0.12,0.18)\\)\nBody weight mg (bw): \\(bw \\sim N(25.11,2.51)\\)\nUse 1D Monte Carlo simulation to\n\napproximate the expected value of the daily intake\napproximate the standard deviation of the daily intake\nderive an approximate 90% probability interval for daily intake\nthe probability that the daily intake is above the thresholds for the tolerably level\n\n\nSolution for Monte Carlo simulation done in Excel\nDownload the file, open it and go to sheet 1.\n\n\n Download xlsx file\n\n\n\n\nSolution for Monte Carlo simulation done in R\nI let you work on this",
-    "crumbs": [
-      "Probability models - Sept 7",
-      "Interval and 1D Monte Carlo"
-    ]
-  },
-  {
-    "objectID": "cheese.html",
-    "href": "cheese.html",
-    "title": "listeria",
-    "section": "",
-    "text": "\\[C(2.5)=\\frac{C_{max}}{1+(C_{max}/C(0)-1) \\cdot \\exp(-EGR(T)\\cdot t)}\\] \\[EGR(T)=EGR(5)\\left(\\frac{T-T_{min}}{5-T_{min}}\\right)^2\\]"
-  },
-  {
-    "objectID": "cheese.html#model",
-    "href": "cheese.html#model",
-    "title": "listeria",
-    "section": "",
-    "text": "\\[C(2.5)=\\frac{C_{max}}{1+(C_{max}/C(0)-1) \\cdot \\exp(-EGR(T)\\cdot t)}\\] \\[EGR(T)=EGR(5)\\left(\\frac{T-T_{min}}{5-T_{min}}\\right)^2\\]"
-  },
-  {
-    "objectID": "cheese.html#set-up-and-run-monte-carlo-simulation",
-    "href": "cheese.html#set-up-and-run-monte-carlo-simulation",
-    "title": "listeria",
-    "section": "Set up and run Monte Carlo simulation",
-    "text": "Set up and run Monte Carlo simulation\nParameters in table 2 are given as mean and sd of a lognormal distribution on the real-space scale. In R the parametrisation of the lognormal is done through the mean and standard deviation on the logged scale. we have to transform the parameters to be able to generate random numbers.\nFrom real-space to log-space:\n\\[\\sigma^2 = \\ln (1 + (s/m)^2)\\] \\[\\mu = \\ln(m)-\\sigma^2/2\\] In case someone wants to do it the other way around: From log-space to real-space:\n\\[m=e^{\\mu+\\sigma^2/2}\\]\n\\[s = m \\cdot \\sqrt{e^{\\sigma^2}-1}\\]\nConfirm sample statistics\n\n\n[1] -1.174027\n\n\n[1] 1.004714\n\n\n[1] 0.08218803"
-  },
-  {
-    "objectID": "ex/chance_belief_frequency.html",
-    "href": "ex/chance_belief_frequency.html",
-    "title": "Chance, belief and frequency",
-    "section": "",
-    "text": "Work in groups of 3-4\n\n\n\nProbability is a mathematical concept defined basic rules.\n\n\n\n\n\n\nNoteThe basic rules of probability\n\n\n\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\n\n\nThere are different ways to interpret and use probability, sometimes within the same assessment. In this exercise you will be exposed to probability as a\n\nTheoretical probability: The number of outcomes favouring the event, divided by the total number of outcomes, assuming the outcomes are all equally likely.\nFrequency: The proportion of times, in the long run of identical circumstances that the event occurs.\nSubjective probability: A persons confidence that an event will occur, expressed as a number between 0 and 1.\n\n\n\n\n\nTo understand common interpretations of probability and for what they are used\n\n\n\n\n\nExperiment to illustrate the frequency interpretation of probability\nTheoretical probability vs Expected frequency\nSubjective probability\n\n\n\n\n30 minutes\n\n\n\nNo reporting required\n\n\n\nI have used examples and text from the book Teaching probability by Jenny Gage and David Spiegelhalter from 2016. Cambridge University Press.",
-    "crumbs": [
-      "Probability models - Sept 7",
-      "Exercise Probability"
-    ]
-  },
-  {
-    "objectID": "ex/chance_belief_frequency.html#exercise-overview",
-    "href": "ex/chance_belief_frequency.html#exercise-overview",
-    "title": "Chance, belief and frequency",
-    "section": "",
-    "text": "Work in groups of 3-4\n\n\n\nProbability is a mathematical concept defined basic rules.\n\n\n\n\n\n\nNoteThe basic rules of probability\n\n\n\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\n\n\nThere are different ways to interpret and use probability, sometimes within the same assessment. In this exercise you will be exposed to probability as a\n\nTheoretical probability: The number of outcomes favouring the event, divided by the total number of outcomes, assuming the outcomes are all equally likely.\nFrequency: The proportion of times, in the long run of identical circumstances that the event occurs.\nSubjective probability: A persons confidence that an event will occur, expressed as a number between 0 and 1.\n\n\n\n\n\nTo understand common interpretations of probability and for what they are used\n\n\n\n\n\nExperiment to illustrate the frequency interpretation of probability\nTheoretical probability vs Expected frequency\nSubjective probability\n\n\n\n\n30 minutes\n\n\n\nNo reporting required\n\n\n\nI have used examples and text from the book Teaching probability by Jenny Gage and David Spiegelhalter from 2016. Cambridge University Press.",
-    "crumbs": [
-      "Probability models - Sept 7",
-      "Exercise Probability"
-    ]
-  },
-  {
-    "objectID": "ex/chance_belief_frequency.html#frequency",
-    "href": "ex/chance_belief_frequency.html#frequency",
-    "title": "Chance, belief and frequency",
-    "section": "Frequency",
-    "text": "Frequency\nThe experiment is setup as follows:\n\nAssign one student to flip the symmetric coin of the type Antoninus Pius - Bronze Sestertius - Roman Empire using the virtual coin flipper on random.org\nRecord if the outcome is heads or tails.\nAssign another student to throw a six sided dice using the virtual dice roller on random.org\nRecord if the outcome is a number in the range 1 to 5 or a six\nRepeat N=5 times\n\nAssign one student to record the outcomes in this frequency tree (replace N and # with numbers).\n\nAnswer the following questions:\n\nWhat is the observed frequency of the event “heads followed by a six”?\n\n\nExpected frequency\n\nIs this a reliable estimate of the expected frequency? If not, what can one do to make it more reliable?\nWhat do you expect the frequency to be if N would be a very large number?\n\n\n\n\n\n\n\nTip\n\n\n\nDefine the events A = “heads” and B = “six”.\nSpecify P(A) and P(B).\nCalculate P(A and B) using the multiplication rule for two independent events.\nDon’t forget to multiply by N to get the expected frequency.\n\n\nRepeat the experiment with N = 100 to verify if estimates of the expected frequencies become more reliable with a larger number of observations.\n\n\n\n\n\n\nTip\n\n\n\nYou can use the prepared spreadsheet in frequency_experiment.xlsx\n\n\n Download xlsx file\n\n\nFirst you have to figure out how to expand the formulas for 100 iterations.\n\n\n\n\nChance\nNow let us go back to the step where you specified the probabilities P(A) and P(B). How did you do that? One way to do it is to look at the outcome space, find the outcomes that correspond to the event and divide by the total number of outcomes.\nFor the coin the outcome space is “heads” and “tails”, i.e. n = 2. The event of a getting “heads” can occur in one of the outcomes, i.e. m = 1. Under the assumption that all outcomes are equally likely, the theoretical probability for “heads” is \\(\\frac{m}{n} = \\frac{1}{2}\\).\nFor the dice, the outcome space is 1, 2, 3, 4, 5, and 6, i.e. n = 6. The event of getting a “six” can occur in one way, i.e. m = 1. The theoretical probability for the event “six” is therefore \\(\\frac{1}{6}\\).\n\n\n\n\n\n\nNote\n\n\n\nNotice that theoretical probabilities can only be used in balanced situations such as dice, cards, or lottery tickets where it justified to assume symmetry (equal probability) for all possible outcomes.\n\n\n\n\nRelative frequency\nIf we divide the frequency of an event by the number of trials N, we get the relative frequency which is a good estimate of a probability for the event to occur at the next iteration of the same experiment.\nLet \\(m\\) be the number of times the event has occurred. \\(E(\\frac{m}{N})=\\frac{E(m)}{N}=\\frac{N\\cdot P(event)}{N} = P(event)\\)\nRelative frequencies can be used to estimate the probability for an event as long as the observations are equally likely across the full outcome space.\n\n\n\n\n\n\nNoteMake sure N is large\n\n\n\nThe more observations (i.e. larger N) the better estimate.\nThe more extreme event, i.e. very low or high probability of occurring, the more observations are needed.\nBe very skeptical to estimates of probabilities that are either 0 and 1, when the event is possible to occur.\n\n\n\n\nBelief (Personal probability)\nTake one of the thumbtacks provided in the exercise and a cup. Put the thumbtack in the cup, shake and place the cup upside down on a table without revealing the outcome.\n\nWhat outcomes are possible?\n\nFocus on the outcome that the thumbtack is having its head down with the needle pointing upwards.\n\nLet everyone in the group state their personal probability of this event as a number between 0 and 1, where 0 means that it is impossible to occur and 1 means that it is certain to occur.\n\n\n\n\n\n\n\nTipCromwell’s rule\n\n\n\nProbabilities 1 (“the event will definitely occur”) or 0 (“the event will definitely not occur”) should be avoided, except when applied to statements that are logically true or false.\n\n\n\nDiscuss if and why the probabilities differ.\n\nThis is an example of probability as a subjective probability that is purely a personal judgement based on available evidence and assumptions.\nMore evidence ought to result in smaller divergence in judgements. One way to illustrate this is to lift the cup and let everyone revise their judgement.\n\nDo that!\n\nGiven that the evidence is revealing the outcome, the subjective probabilities held by the students in the group should now be either 1 or 0.\nIn risk assessment, we seldom have such full certainty as in this example. Probabilities are almost inevitably based on judgements and assumptions such as random sampling.\n\n\n\n\n\n\nTipA general advice\n\n\n\nProbability can be thought of as an expected frequency. Instead of saying that “the probability of the event is 0.20 (or 20%)”, you can say “out of 100 situations like this, we would expect the event to occur 20 times”.\nBy carefully stating the denominator (reference class), ambiguity about the meaning of probability can be avoided.\nThis advice applies to any of the interpretations.",
-    "crumbs": [
-      "Probability models - Sept 7",
-      "Exercise Probability"
+      "Exposure assessment - Sept 11",
+      "Exposure FATE"
     ]
   },
   {
@@ -678,102 +589,433 @@
     ]
   },
   {
-    "objectID": "ex/ex_environ_fate_assessment.html",
-    "href": "ex/ex_environ_fate_assessment.html",
-    "title": "Exercise Environmental exposure assessment",
+    "objectID": "ex/chance_belief_frequency.html",
+    "href": "ex/chance_belief_frequency.html",
+    "title": "Chance, belief and frequency",
     "section": "",
-    "text": "Simple box was briefly shown in the lecture.\n\n\nPredictive models of exposure of chemical substances in the environment are common in risk assessment.\nThere are several mass-balance models to support exposure assessment.\nAn assessments starts with the source and level of emissions. The exposure assessment models derive masses of chemical substances after reaching steady state.",
+    "text": "Work in groups of 3-4\n\n\n\nProbability is a mathematical concept defined basic rules.\n\n\n\n\n\n\nNoteThe basic rules of probability\n\n\n\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\n\n\nThere are different ways to interpret and use probability, sometimes within the same assessment. In this exercise you will be exposed to probability as a\n\nTheoretical probability: The number of outcomes favouring the event, divided by the total number of outcomes, assuming the outcomes are all equally likely.\nFrequency: The proportion of times, in the long run of identical circumstances that the event occurs.\nSubjective probability: A persons confidence that an event will occur, expressed as a number between 0 and 1.\n\n\n\n\n\nTo understand common interpretations of probability and for what they are used\n\n\n\n\n\nExperiment to illustrate the frequency interpretation of probability\nTheoretical probability vs Expected frequency\nSubjective probability\n\n\n\n\n30 minutes\n\n\n\nNo reporting required\n\n\n\nI have used examples and text from the book Teaching probability by Jenny Gage and David Spiegelhalter from 2016. Cambridge University Press.",
     "crumbs": [
-      "Exposure assessment - Sept 11",
-      "Exposure FATE"
+      "Probability models - Sept 7",
+      "Exercise Probability"
     ]
   },
   {
-    "objectID": "ex/ex_environ_fate_assessment.html#exercise-overview",
-    "href": "ex/ex_environ_fate_assessment.html#exercise-overview",
-    "title": "Exercise Environmental exposure assessment",
+    "objectID": "ex/chance_belief_frequency.html#exercise-overview",
+    "href": "ex/chance_belief_frequency.html#exercise-overview",
+    "title": "Chance, belief and frequency",
     "section": "",
-    "text": "Simple box was briefly shown in the lecture.\n\n\nPredictive models of exposure of chemical substances in the environment are common in risk assessment.\nThere are several mass-balance models to support exposure assessment.\nAn assessments starts with the source and level of emissions. The exposure assessment models derive masses of chemical substances after reaching steady state.",
+    "text": "Work in groups of 3-4\n\n\n\nProbability is a mathematical concept defined basic rules.\n\n\n\n\n\n\nNoteThe basic rules of probability\n\n\n\nDefinition: The probability of an event A, denoted P(A), is a number between 0 and 1, with P(A) = 0 corresponding to A being impossible, and P(A) = 1 to A being certain.\nComplement rule: P(not A) = 1 - P(A)\nAddition rule:\nfor mutually exclusive events A, B: P(A or B) = P(A) + P(B)\nfor non-mutually exclusive events A, B: P(A or B) = P(A) + P(B) - P(A and B)\nMultiplication rule:\nfor independent events A, B: P(A and B) = P(A) x P(B)\nfor dependent events A, B: P(A and B) = P(A|B) x P(B) where P(A|B) is the conditional probability of A given B\n\n\nThere are different ways to interpret and use probability, sometimes within the same assessment. In this exercise you will be exposed to probability as a\n\nTheoretical probability: The number of outcomes favouring the event, divided by the total number of outcomes, assuming the outcomes are all equally likely.\nFrequency: The proportion of times, in the long run of identical circumstances that the event occurs.\nSubjective probability: A persons confidence that an event will occur, expressed as a number between 0 and 1.\n\n\n\n\n\nTo understand common interpretations of probability and for what they are used\n\n\n\n\n\nExperiment to illustrate the frequency interpretation of probability\nTheoretical probability vs Expected frequency\nSubjective probability\n\n\n\n\n30 minutes\n\n\n\nNo reporting required\n\n\n\nI have used examples and text from the book Teaching probability by Jenny Gage and David Spiegelhalter from 2016. Cambridge University Press.",
     "crumbs": [
-      "Exposure assessment - Sept 11",
-      "Exposure FATE"
+      "Probability models - Sept 7",
+      "Exercise Probability"
     ]
   },
   {
-    "objectID": "ex/ex_environ_fate_assessment.html#purpose",
-    "href": "ex/ex_environ_fate_assessment.html#purpose",
+    "objectID": "ex/chance_belief_frequency.html#frequency",
+    "href": "ex/chance_belief_frequency.html#frequency",
+    "title": "Chance, belief and frequency",
+    "section": "Frequency",
+    "text": "Frequency\nThe experiment is setup as follows:\n\nAssign one student to flip the symmetric coin of the type Antoninus Pius - Bronze Sestertius - Roman Empire using the virtual coin flipper on random.org\nRecord if the outcome is heads or tails.\nAssign another student to throw a six sided dice using the virtual dice roller on random.org\nRecord if the outcome is a number in the range 1 to 5 or a six\nRepeat N=5 times\n\nAssign one student to record the outcomes in this frequency tree (replace N and # with numbers).\n\nAnswer the following questions:\n\nWhat is the observed frequency of the event “heads followed by a six”?\n\n\nExpected frequency\n\nIs this a reliable estimate of the expected frequency? If not, what can one do to make it more reliable?\nWhat do you expect the frequency to be if N would be a very large number?\n\n\n\n\n\n\n\nTip\n\n\n\nDefine the events A = “heads” and B = “six”.\nSpecify P(A) and P(B).\nCalculate P(A and B) using the multiplication rule for two independent events.\nDon’t forget to multiply by N to get the expected frequency.\n\n\nRepeat the experiment with N = 100 to verify if estimates of the expected frequencies become more reliable with a larger number of observations.\n\n\n\n\n\n\nTip\n\n\n\nYou can use the prepared spreadsheet in frequency_experiment.xlsx\n\n\n Download xlsx file\n\n\nFirst you have to figure out how to expand the formulas for 100 iterations.\n\n\n\n\nChance\nNow let us go back to the step where you specified the probabilities P(A) and P(B). How did you do that? One way to do it is to look at the outcome space, find the outcomes that correspond to the event and divide by the total number of outcomes.\nFor the coin the outcome space is “heads” and “tails”, i.e. n = 2. The event of a getting “heads” can occur in one of the outcomes, i.e. m = 1. Under the assumption that all outcomes are equally likely, the theoretical probability for “heads” is \\(\\frac{m}{n} = \\frac{1}{2}\\).\nFor the dice, the outcome space is 1, 2, 3, 4, 5, and 6, i.e. n = 6. The event of getting a “six” can occur in one way, i.e. m = 1. The theoretical probability for the event “six” is therefore \\(\\frac{1}{6}\\).\n\n\n\n\n\n\nNote\n\n\n\nNotice that theoretical probabilities can only be used in balanced situations such as dice, cards, or lottery tickets where it justified to assume symmetry (equal probability) for all possible outcomes.\n\n\n\n\nRelative frequency\nIf we divide the frequency of an event by the number of trials N, we get the relative frequency which is a good estimate of a probability for the event to occur at the next iteration of the same experiment.\nLet \\(m\\) be the number of times the event has occurred. \\(E(\\frac{m}{N})=\\frac{E(m)}{N}=\\frac{N\\cdot P(event)}{N} = P(event)\\)\nRelative frequencies can be used to estimate the probability for an event as long as the observations are equally likely across the full outcome space.\n\n\n\n\n\n\nNoteMake sure N is large\n\n\n\nThe more observations (i.e. larger N) the better estimate.\nThe more extreme event, i.e. very low or high probability of occurring, the more observations are needed.\nBe very skeptical to estimates of probabilities that are either 0 and 1, when the event is possible to occur.\n\n\n\n\nBelief (Personal probability)\nTake one of the thumbtacks provided in the exercise and a cup. Put the thumbtack in the cup, shake and place the cup upside down on a table without revealing the outcome.\n\nWhat outcomes are possible?\n\nFocus on the outcome that the thumbtack is having its head down with the needle pointing upwards.\n\nLet everyone in the group state their personal probability of this event as a number between 0 and 1, where 0 means that it is impossible to occur and 1 means that it is certain to occur.\n\n\n\n\n\n\n\nTipCromwell’s rule\n\n\n\nProbabilities 1 (“the event will definitely occur”) or 0 (“the event will definitely not occur”) should be avoided, except when applied to statements that are logically true or false.\n\n\n\nDiscuss if and why the probabilities differ.\n\nThis is an example of probability as a subjective probability that is purely a personal judgement based on available evidence and assumptions.\nMore evidence ought to result in smaller divergence in judgements. One way to illustrate this is to lift the cup and let everyone revise their judgement.\n\nDo that!\n\nGiven that the evidence is revealing the outcome, the subjective probabilities held by the students in the group should now be either 1 or 0.\nIn risk assessment, we seldom have such full certainty as in this example. Probabilities are almost inevitably based on judgements and assumptions such as random sampling.\n\n\n\n\n\n\nTipA general advice\n\n\n\nProbability can be thought of as an expected frequency. Instead of saying that “the probability of the event is 0.20 (or 20%)”, you can say “out of 100 situations like this, we would expect the event to occur 20 times”.\nBy carefully stating the denominator (reference class), ambiguity about the meaning of probability can be avoided.\nThis advice applies to any of the interpretations.",
+    "crumbs": [
+      "Probability models - Sept 7",
+      "Exercise Probability"
+    ]
+  },
+  {
+    "objectID": "cheese.html",
+    "href": "cheese.html",
+    "title": "listeria",
+    "section": "",
+    "text": "\\[C(2.5)=\\frac{C_{max}}{1+(C_{max}/C(0)-1) \\cdot \\exp(-EGR(T)\\cdot t)}\\] \\[EGR(T)=EGR(5)\\left(\\frac{T-T_{min}}{5-T_{min}}\\right)^2\\]"
+  },
+  {
+    "objectID": "cheese.html#model",
+    "href": "cheese.html#model",
+    "title": "listeria",
+    "section": "",
+    "text": "\\[C(2.5)=\\frac{C_{max}}{1+(C_{max}/C(0)-1) \\cdot \\exp(-EGR(T)\\cdot t)}\\] \\[EGR(T)=EGR(5)\\left(\\frac{T-T_{min}}{5-T_{min}}\\right)^2\\]"
+  },
+  {
+    "objectID": "cheese.html#set-up-and-run-monte-carlo-simulation",
+    "href": "cheese.html#set-up-and-run-monte-carlo-simulation",
+    "title": "listeria",
+    "section": "Set up and run Monte Carlo simulation",
+    "text": "Set up and run Monte Carlo simulation\nParameters in table 2 are given as mean and sd of a lognormal distribution on the real-space scale. In R the parametrisation of the lognormal is done through the mean and standard deviation on the logged scale. we have to transform the parameters to be able to generate random numbers.\nFrom real-space to log-space:\n\\[\\sigma^2 = \\ln (1 + (s/m)^2)\\] \\[\\mu = \\ln(m)-\\sigma^2/2\\] In case someone wants to do it the other way around: From log-space to real-space:\n\\[m=e^{\\mu+\\sigma^2/2}\\]\n\\[s = m \\cdot \\sqrt{e^{\\sigma^2}-1}\\]\nConfirm sample statistics\n\n\n[1] -1.205791\n\n\n[1] 0.8967438\n\n\n[1] 0.08026977"
+  },
+  {
+    "objectID": "ex/ex_daily_intake_equation.html",
+    "href": "ex/ex_daily_intake_equation.html",
+    "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
+    "section": "",
+    "text": "Do individually\n\n\nAll estimates (derived from data, modelling or from experts) have associated uncertainty. This uncertainty can be described in different ways and propagated through the assessment model.\n\n\n\n\nTo apply interval arithmetic\nTo explore the principle of 1 dimensional Monte Carlo simulation\n\n\n\n\nThe daily dose equation with values taken from the course book by Burgman.\n\n\n\n30 minutes\n\n\n\nBe prepared to report back at the end of the exercise.\n\n\n\nThe course book chapter 9 and 10 (specifically 9.3.2 and 10.8.1.)",
+    "crumbs": [
+      "Probability models - Sept 7",
+      "Interval and 1D Monte Carlo"
+    ]
+  },
+  {
+    "objectID": "ex/ex_daily_intake_equation.html#exercise-overview",
+    "href": "ex/ex_daily_intake_equation.html#exercise-overview",
+    "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
+    "section": "",
+    "text": "Do individually\n\n\nAll estimates (derived from data, modelling or from experts) have associated uncertainty. This uncertainty can be described in different ways and propagated through the assessment model.\n\n\n\n\nTo apply interval arithmetic\nTo explore the principle of 1 dimensional Monte Carlo simulation\n\n\n\n\nThe daily dose equation with values taken from the course book by Burgman.\n\n\n\n30 minutes\n\n\n\nBe prepared to report back at the end of the exercise.\n\n\n\nThe course book chapter 9 and 10 (specifically 9.3.2 and 10.8.1.)",
+    "crumbs": [
+      "Probability models - Sept 7",
+      "Interval and 1D Monte Carlo"
+    ]
+  },
+  {
+    "objectID": "ex/ex_daily_intake_equation.html#the-daily-dose-equation",
+    "href": "ex/ex_daily_intake_equation.html#the-daily-dose-equation",
+    "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
+    "section": "The daily dose equation",
+    "text": "The daily dose equation\n\\[Dose = \\frac{C \\cdot IR \\cdot EF}{bw}\\]\nThe following estimates are provided:\nConcentration mg/l (C): 0.00063\nIntake rate l/day (IR): 5\nExposure frequency unitless (EF): 0.15\nBody weight mg (bw): 25.11\n\nCalculate the daily intake dose!",
+    "crumbs": [
+      "Probability models - Sept 7",
+      "Interval and 1D Monte Carlo"
+    ]
+  },
+  {
+    "objectID": "ex/ex_daily_intake_equation.html#interval-artithmetic",
+    "href": "ex/ex_daily_intake_equation.html#interval-artithmetic",
+    "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
+    "section": "Interval artithmetic",
+    "text": "Interval artithmetic\n\nTo consider uncertainty in estimates, we express uncertainty by intervals defined by a lower and upper bounds.\nConcentration mg/l (C): [0.000007, 0.0033]\nIntake rate l/day (IR): [4,6]\nExposure frequency unitless (EF): [0.12,0.18]\nBody weight mg (bw): [8.43,45.14]\n\nCalculate intervals for daily intake dose using interval arithmetic.",
+    "crumbs": [
+      "Probability models - Sept 7",
+      "Interval and 1D Monte Carlo"
+    ]
+  },
+  {
+    "objectID": "ex/ex_daily_intake_equation.html#d-monte-carlo-simulation",
+    "href": "ex/ex_daily_intake_equation.html#d-monte-carlo-simulation",
+    "title": "Exercise Interval arithmetic and 1D Monte Carlo Simulation",
+    "section": "1D Monte Carlo simulation",
+    "text": "1D Monte Carlo simulation\nTo consider uncertainty in estimates, we express uncertainty by probability distributions defined by a distribution type and associated parameters.\nThe aim is that you should be able to do this in Excel and R.\nConcentration mg/l (C): \\(C\\sim N(0.00063,0.000063)\\)\nIntake rate l/day (IR): \\(IR \\sim N(5,0.5)\\)\nExposure frequency unitless (EF): \\(EF \\sim U(0.12,0.18)\\)\nBody weight mg (bw): \\(bw \\sim N(25.11,2.51)\\)\nUse 1D Monte Carlo simulation to\n\napproximate the expected value of the daily intake\napproximate the standard deviation of the daily intake\nderive an approximate 90% probability interval for daily intake\nthe probability that the daily intake is above the thresholds for the tolerably level\n\n\nSolution for Monte Carlo simulation done in Excel\nDownload the file, open it and go to sheet 1.\n\n\n Download xlsx file\n\n\n\n\nSolution for Monte Carlo simulation done in R\nI let you work on this",
+    "crumbs": [
+      "Probability models - Sept 7",
+      "Interval and 1D Monte Carlo"
+    ]
+  },
+  {
+    "objectID": "ex/ex_environ_exposure_assessment.html",
+    "href": "ex/ex_environ_exposure_assessment.html",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "",
+    "text": "Do in groups of 1-3\n\n\nPredictive models of exposure of chemical substances in the environment are common in risk assessment.\nThere are several mass-balance models to support exposure assessment.\nAn assessments starts with the source and level of emissions. The exposure assessment models derive masses of chemical substances after reaching steady state."
+  },
+  {
+    "objectID": "ex/ex_environ_exposure_assessment.html#exercise-overview",
+    "href": "ex/ex_environ_exposure_assessment.html#exercise-overview",
+    "title": "Exercise Environmental exposure assessment",
+    "section": "",
+    "text": "Do in groups of 1-3\n\n\nPredictive models of exposure of chemical substances in the environment are common in risk assessment.\nThere are several mass-balance models to support exposure assessment.\nAn assessments starts with the source and level of emissions. The exposure assessment models derive masses of chemical substances after reaching steady state."
+  },
+  {
+    "objectID": "ex/ex_environ_exposure_assessment.html#purpose",
+    "href": "ex/ex_environ_exposure_assessment.html#purpose",
     "title": "Exercise Environmental exposure assessment",
     "section": "Purpose",
-    "text": "Purpose\n\nTo extract output values from a common environmental exposure assessment model\n\n\nContent\n\nSimpleBox vs 4.04\n\n\n\nReporting\nAdd your answers to the questions and main discussion points to the report that you submit to canvas. You are expected to combine the answers to this exercise and the environmental exposure database exercise into one report. Put your name on the report!\n\n\nReferences",
-    "crumbs": [
-      "Exposure assessment - Sept 11",
-      "Exposure FATE"
-    ]
+    "text": "Purpose\n\nTo extract output values from a common environmental exposure assessment model\n\n\nContent\n\nExcel and SimpleBox-TRAM vs 3.24.\n\n\n\nDuration\n30 minutes\n\n\nReporting\nMake a report with your answers to the questions and main dicussion points and submit to canvas.\n\n\nReferences"
   },
   {
-    "objectID": "ex/ex_environ_fate_assessment.html#simplebox",
-    "href": "ex/ex_environ_fate_assessment.html#simplebox",
+    "objectID": "ex/ex_environ_exposure_assessment.html#simplebox",
+    "href": "ex/ex_environ_exposure_assessment.html#simplebox",
     "title": "Exercise Environmental exposure assessment",
     "section": "SimpleBox",
-    "text": "SimpleBox\nSimpleBox is a multimedia mass balance model for evaluating the fate of chemical substances developed by RIVM.\nThe environment is modelled as consisting of well-mixed environmental compartments (air, water, sediment, soil), at three spatial scales. Emissions to the compartments, transfer and partitioning between the compartments, and removal from the compartments are used to compute the steady state and quasi-dynamic masses of chemical substance in the environment.\nThe SimpleBox model simulates the environmental fates of different substances in different landscape settings, of which the characteristics are provided with the model database. In its default settings, SimpleBox returns results for a typical chemical, given a typical emission, to a typical environment.\n\nGo to the website at RIVM and read about the SimpleBox model\nWhat does RIVM stands for?\nWho has developed SimpleBox?",
-    "crumbs": [
-      "Exposure assessment - Sept 11",
-      "Exposure FATE"
-    ]
+    "text": "SimpleBox\nSimpleBox is a multimedia mass balance model for evaluating the fate of chemical substances developed by RIVM.\nThe environment is modelled as consisting of well-mixed environmental compartments (air, water, sediment, soil, etc.), at three spatial scales. Emissions to the compartments, transfer and partitioning between the compartments, and removal from the compartments are used to compute the steady state and quasi-dynamic masses of chemical substance in the environment.\nThe SimpleBox model simulates the environmental fates of different substances in different landscape settings, of which the characteristics are provided with the model database. In its default settings, SimpleBox returns results for a typical chemical, given a typical emission, to a typical environment.\n\nGo to the website at RIVM and read about the SimpleBox model\nWhat does RIVM stands for?\nWho has developed SimpleBox?"
   },
   {
-    "objectID": "ex/ex_environ_fate_assessment.html#assess-exposure-from-emissions-of-caffeine-to-agricultural-soil-and-freshwater",
-    "href": "ex/ex_environ_fate_assessment.html#assess-exposure-from-emissions-of-caffeine-to-agricultural-soil-and-freshwater",
+    "objectID": "ex/ex_environ_exposure_assessment.html#assess-exposure-from-emissions-of-hexachlorobenzene-to-agricultural-soil",
+    "href": "ex/ex_environ_exposure_assessment.html#assess-exposure-from-emissions-of-hexachlorobenzene-to-agricultural-soil",
     "title": "Exercise Environmental exposure assessment",
-    "section": "Assess exposure from emissions of Caffeine to agricultural soil and freshwater",
-    "text": "Assess exposure from emissions of Caffeine to agricultural soil and freshwater\n\nGo to the git-repository for SimpleBox and download the Spreadsheet xl_version of SimpleBox (click xl-version and download the file named “SimpleBox4.04_20240405.xlsm”).\nOpen the xlsm-file and enable content!\n\nIf it doesn’t work then use this to download the file\n\n\n SimpleBox\n\n\n\nGoto sheet substances and note the ID number for caffeine.\nGoto sheet input and write down the row number ID in cell I6.\n\nThe model will now use substance specific parameters for the calculations.\n\nSelect EUSES settings as Exposure Scenario\nSet the value on EMISSION to fresh water at REGIONAL SCALE to 1 in cell I82\nSet the value on EMISSION to agricultural soil at REGIONAL SCALE to 1 in cell I85\nGoto sheet output and note the concentration at REGIONAL SCALE in Fresh water sediments (mass in cell C23, concentration in cell M23) or look at the Graphic output: steady-state mass flows)\n\nI get mass 6.7 kg and concentration 1.4e-7 g.kg(w)-1. Do you get the same?\n\nStudy the Graphic output: steady-state mass flows in the same sheet but further to the right. Identify the mass/concentration in fresh water sediment in the graph.\n\nI see that the mass in freshwater sediment is 0.7% of the total concentration in the system. Do you get the same?\n\nWere do the majority of the caffeine end up at steady state?\n\nI see that 81.1% of the mass of caffeine is in open freshwater. Do you get the same",
-    "crumbs": [
-      "Exposure assessment - Sept 11",
-      "Exposure FATE"
-    ]
+    "section": "Assess exposure from emissions of hexachlorobenzene to agricultural soil",
+    "text": "Assess exposure from emissions of hexachlorobenzene to agricultural soil\nYou will use the version of SimpleBox that comes with the Targeted Risk Assessment tool from ECETOC\n\nDownload the excel file for SimpleBox-TRAM and open it. Enable Content!\n\n\n\n SimpleBox-TRAM\n\n\n\nGoto sheet chembase and note the ID number for hexachlorobenzene.\nGoto sheet input and write down the row number ID in cell I44.\n\nThe model will now use substance specific parameters for the calculations.\n\nSet USE volume at local scale to 1 in cell I85\nSet the value on EMISSION to agricultural soil to be 2\nGoto sheet level 3 output and note the concentration at local level in fresh water in cell D13\nStudy the graphical output, i.e. the steady-state mass flows in the same sheet starting in cell BL1.\nAnswer the following questions:\n\n\nWhat is the exposure scenario?\nWhat is the Predicted Environmental Concentration in fresh water of hexachlorobenzene under the exposure scenario?"
   },
   {
-    "objectID": "ex/ex_risk_ranking.html#linquistic-uncertainty",
-    "href": "ex/ex_risk_ranking.html#linquistic-uncertainty",
-    "title": "Risk ranking and subjective risk assessment",
-    "section": "Linquistic uncertainty",
-    "text": "Linquistic uncertainty\n\nThere is life on Mars\n\n\nImpact on biodiversity is high\n\n\nThere is a 30% probability of rain tomorrow\n\n\nProminent in qualitative risk assessment due to the use of qualitative expressions\nCan be avoided by using well defined questions, quantities and outcomes and meaningful scales",
+    "objectID": "ex/ex_expert_judgement.html#linguistic-uncertainty",
+    "href": "ex/ex_expert_judgement.html#linguistic-uncertainty",
+    "title": "Expert judgement",
+    "section": "Linguistic uncertainty",
+    "text": "Linguistic uncertainty\n\nThere is life on Mars\n\n\nImpact on biodiversity is high\n\n\nThere is a 30% probability of rain tomorrow\n\n\nProminent in qualitative risk assessment due to the use of qualitative expressions\nCan be avoided by using well defined questions, quantities and outcomes and meaningful scales",
     "crumbs": [
       "Expert judgement - Oct 2 and 5",
-      "Subjective risk ranking"
+      "Expert judgement"
     ]
   },
   {
-    "objectID": "ex/ex_risk_ranking.html#subjective-risk-assessment",
-    "href": "ex/ex_risk_ranking.html#subjective-risk-assessment",
-    "title": "Risk ranking and subjective risk assessment",
+    "objectID": "ex/ex_expert_judgement.html#subjective-risk-assessment",
+    "href": "ex/ex_expert_judgement.html#subjective-risk-assessment",
+    "title": "Expert judgement",
     "section": "Subjective Risk Assessment",
     "text": "Subjective Risk Assessment\nA tool from Mark and his colleagues to reduce linguistic uncertainty\nSRA tool manual\n\nLikelihood and impact scales",
     "crumbs": [
       "Expert judgement - Oct 2 and 5",
-      "Subjective risk ranking"
+      "Expert judgement"
     ]
   },
   {
-    "objectID": "ex/ex_risk_ranking.html#subjective-risk-assessment-1",
-    "href": "ex/ex_risk_ranking.html#subjective-risk-assessment-1",
-    "title": "Risk ranking and subjective risk assessment",
+    "objectID": "ex/ex_expert_judgement.html#subjective-risk-assessment-1",
+    "href": "ex/ex_expert_judgement.html#subjective-risk-assessment-1",
+    "title": "Expert judgement",
     "section": "Subjective Risk Assessment",
     "text": "Subjective Risk Assessment\nRain - There will be rain tomorrow\nSpace - Aliens from space will arrive to the earth in our lifetime\nTrump - Trump becomes the next president of USA\n\nUse these likelihood and impact scalesMake judgements with single scores e.g. 3 or ranges, e.g. 2-4",
     "crumbs": [
       "Expert judgement - Oct 2 and 5",
-      "Subjective risk ranking"
+      "Expert judgement"
     ]
   },
   {
-    "objectID": "ex/ex_risk_ranking.html#delphi-process-to-aggregate-judgements-from-a-group-of-experts",
-    "href": "ex/ex_risk_ranking.html#delphi-process-to-aggregate-judgements-from-a-group-of-experts",
-    "title": "Risk ranking and subjective risk assessment",
+    "objectID": "ex/ex_expert_judgement.html#delphi-process-to-aggregate-judgements-from-a-group-of-experts",
+    "href": "ex/ex_expert_judgement.html#delphi-process-to-aggregate-judgements-from-a-group-of-experts",
+    "title": "Expert judgement",
     "section": "Delphi process to aggregate judgements from a group of experts",
     "text": "Delphi process to aggregate judgements from a group of experts\n\nMake individual judgements\nCompare where there are large differences in judgements.\nDiscuss and resolve the reason for differences. Here is where linguistic uncertainties can be reduced.\nRedo individual judgements\nAggregate the judgements",
     "crumbs": [
       "Expert judgement - Oct 2 and 5",
-      "Subjective risk ranking"
+      "Expert judgement"
+    ]
+  },
+  {
+    "objectID": "ex/ex_expert_judgement.html#expert-elicitation",
+    "href": "ex/ex_expert_judgement.html#expert-elicitation",
+    "title": "Expert judgement",
+    "section": "Expert Elicitation",
+    "text": "Expert Elicitation\n\n\nFormal, structured approaches designed to\n\nretrieve judgements from a group of experts by a systematic, documented and reviewable process\nminimise cognitive biases",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Expert judgement"
+    ]
+  },
+  {
+    "objectID": "ex/ex_expert_judgement.html#expert-knowledge-elicitation",
+    "href": "ex/ex_expert_judgement.html#expert-knowledge-elicitation",
+    "title": "Expert judgement",
+    "section": "Expert knowledge elicitation",
+    "text": "Expert knowledge elicitation\n\nFraming\nAnchoring and Adjustment\nHeuristics Availability\nMotivational biases\nNumeracy\nGroup thinking\nRange-Frequency\nOverconfidence",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Expert judgement"
+    ]
+  },
+  {
+    "objectID": "ex/ex_expert_judgement.html#anchoring",
+    "href": "ex/ex_expert_judgement.html#anchoring",
+    "title": "Expert judgement",
+    "section": "Anchoring",
+    "text": "Anchoring",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Expert judgement"
+    ]
+  },
+  {
+    "objectID": "ex/ex_expert_judgement.html#anchoring-1",
+    "href": "ex/ex_expert_judgement.html#anchoring-1",
+    "title": "Expert judgement",
+    "section": "Anchoring",
+    "text": "Anchoring\nTwo scales to collect judgements on the probability of an offence",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Expert judgement"
+    ]
+  },
+  {
+    "objectID": "ex/ex_expert_judgement.html#wisdom-of-the-crowd",
+    "href": "ex/ex_expert_judgement.html#wisdom-of-the-crowd",
+    "title": "Expert judgement",
+    "section": "Wisdom of the crowd",
+    "text": "Wisdom of the crowd\nQuestion to students in previous class:\nHow long time does it take to drive from Lund to Umeå in hours?\n\nWisdom of the crowd",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Expert judgement"
+    ]
+  },
+  {
+    "objectID": "ex/ex_expert_judgement.html#aggregating-expert-judgement",
+    "href": "ex/ex_expert_judgement.html#aggregating-expert-judgement",
+    "title": "Expert judgement",
+    "section": "Aggregating expert judgement",
+    "text": "Aggregating expert judgement\n\n\n\nMathematical aggregation: with or without expert calibration\nBehavioural aggregation: facilitated interaction\nDelphi method: multiple rounds of individual judgements followed by summary of judgements after every round until convergence is obtained\nCombinations of these e.g. IDEA and the SAHLIN-protocol*\n\n*in development",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Expert judgement"
+    ]
+  },
+  {
+    "objectID": "ex/ex_expert_judgement.html#what-makes-a-good-expert",
+    "href": "ex/ex_expert_judgement.html#what-makes-a-good-expert",
+    "title": "Expert judgement",
+    "section": "What makes a good expert",
+    "text": "What makes a good expert\n\nNot necessarily the most senior, high-powered or knowledgeable people\n\nThe ideal group of experts will\n\nhave sufficient diversity of experience and opinion to achieve the desired coverage, and\nbe willing to share their opinions and to listen to the opinions of others\n\n\nFrom the SHELF elicitation framework",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Expert judgement"
+    ]
+  },
+  {
+    "objectID": "ex/ex_expert_judgement.html#what-might-not-make-a-good-expert",
+    "href": "ex/ex_expert_judgement.html#what-might-not-make-a-good-expert",
+    "title": "Expert judgement",
+    "section": "What might not make a good expert",
+    "text": "What might not make a good expert\n\nAn expert who is highly-respected but is arrogant and unwilling to acknowledge any contrary opinion\nA very senior person who has become a manager and lacks recent experience ‘at the coal-face’\nA junior person who is unwilling to contribute their views, or who will simply defer to more senior members of the group\nA representative of a stakeholder organisation who will always assert the organisation’s position\nAn expert whose knowledge and opinions are expected to be very close to those of another expert in the group",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Expert judgement"
+    ]
+  },
+  {
+    "objectID": "ex/ex_expert_judgement.html#sheffield-elicitation-framework",
+    "href": "ex/ex_expert_judgement.html#sheffield-elicitation-framework",
+    "title": "Expert judgement",
+    "section": "Sheffield elicitation framework",
+    "text": "Sheffield elicitation framework\nshelf.sites.sheffield.ac.uk\n\nQuartile method\nProbability method\nRoulette method\nFitting distributions to judgements\nConsensus judgement (RIO)",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Expert judgement"
+    ]
+  },
+  {
+    "objectID": "ex/ex_expert_judgement.html#question",
+    "href": "ex/ex_expert_judgement.html#question",
+    "title": "Expert judgement",
+    "section": "Question",
+    "text": "Question\n\n\n\nWhat is Ullrika’s monthly salary right now?\n\nEvidence dossier:\n\nUllrika is Associate professor at the Faculty of Science at Lund university\nShe is 50 years old\nShe is a woman",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Expert judgement"
+    ]
+  },
+  {
+    "objectID": "ex/ex_overall_uncertainty.html#scientific-assessments",
+    "href": "ex/ex_overall_uncertainty.html#scientific-assessments",
+    "title": "Overall uncertainty",
+    "section": "Scientific assessments",
+    "text": "Scientific assessments\nScientific assessment is an integration of diverse evidence, applying rigorous expert judgment to evidence and its uncertainties, exploring futures and their connections to choices, and incorporating interactions among experts and decision makers in assessment processes.",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Assessment of overall uncertainty"
+    ]
+  },
+  {
+    "objectID": "ex/ex_overall_uncertainty.html#scientific-assessments-1",
+    "href": "ex/ex_overall_uncertainty.html#scientific-assessments-1",
+    "title": "Overall uncertainty",
+    "section": "Scientific assessments",
+    "text": "Scientific assessments",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Assessment of overall uncertainty"
+    ]
+  },
+  {
+    "objectID": "ex/ex_overall_uncertainty.html#unknown-unknowns",
+    "href": "ex/ex_overall_uncertainty.html#unknown-unknowns",
+    "title": "Overall uncertainty",
+    "section": "Unknown unknowns",
+    "text": "Unknown unknowns",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Assessment of overall uncertainty"
+    ]
+  },
+  {
+    "objectID": "ex/ex_overall_uncertainty.html#small-world",
+    "href": "ex/ex_overall_uncertainty.html#small-world",
+    "title": "Overall uncertainty",
+    "section": "Small world",
+    "text": "Small world",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Assessment of overall uncertainty"
+    ]
+  },
+  {
+    "objectID": "ex/ex_overall_uncertainty.html#characterising-uncertainty-in-a-conclusion",
+    "href": "ex/ex_overall_uncertainty.html#characterising-uncertainty-in-a-conclusion",
+    "title": "Overall uncertainty",
+    "section": "Characterising uncertainty in a conclusion",
+    "text": "Characterising uncertainty in a conclusion\nFor a well-defined question,\n\nIdentify sources of uncertainty affecting the assessment\nExpress quantitatively the overall impact of as many as possible of the identified uncertainties, and describing qualitatively any that remain unquantified\nIf useful, break the assessment into parts",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Assessment of overall uncertainty"
+    ]
+  },
+  {
+    "objectID": "ex/ex_overall_uncertainty.html#characterising-uncertainty",
+    "href": "ex/ex_overall_uncertainty.html#characterising-uncertainty",
+    "title": "Overall uncertainty",
+    "section": "Characterising uncertainty",
+    "text": "Characterising uncertainty\n\n\nEFSA recommends that assessors always try to express their uncertainty in a conclusion quantitatively using (subjective) probability.\n\nTo the extent that is scientifically achievable\nLeaving unknown unknowns\n\nThe judgement on ”overall uncertainty” should consider the combined impact of all sources of uncertainty,\n\nwhich requires expert judgement.",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Assessment of overall uncertainty"
+    ]
+  },
+  {
+    "objectID": "ex/ex_overall_uncertainty.html#whose-probabilities",
+    "href": "ex/ex_overall_uncertainty.html#whose-probabilities",
+    "title": "Overall uncertainty",
+    "section": "Whose probabilities?",
+    "text": "Whose probabilities?\nRequirement for using probability to describe uncertainty:\n\nOwnership: The P should be one that the scientists are willing to claim as their own.\nJustification: The scientists should be able to justify their choice of P. I would argue that a P is not adequately justified unless, in arriving at that P, scientists strive to take into account all of the available evidence regarding the predictive variable—this might include modeling results, background theory, and observational data—as well as what is known (or not known) about the limitations of those sources of evidence, their interdependencies, and so forth.",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Assessment of overall uncertainty"
+    ]
+  },
+  {
+    "objectID": "ex/ex_overall_uncertainty.html#whose-probabilities-1",
+    "href": "ex/ex_overall_uncertainty.html#whose-probabilities-1",
+    "title": "Overall uncertainty",
+    "section": "Whose probabilities?",
+    "text": "Whose probabilities?\nRequirement for using probability to describe uncertainty:\n\nRobustness: The P should be robust in each of two senses;\nnot be highly sensitive to contentious assumptions\nnot be expected to change substantially without any drastic changes in the background knowledge",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Assessment of overall uncertainty"
+    ]
+  },
+  {
+    "objectID": "ex/ex_overall_uncertainty.html#verbal-and-quantitative-expressions",
+    "href": "ex/ex_overall_uncertainty.html#verbal-and-quantitative-expressions",
+    "title": "Overall uncertainty",
+    "section": "Verbal and quantitative expressions",
+    "text": "Verbal and quantitative expressions",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Assessment of overall uncertainty"
+    ]
+  },
+  {
+    "objectID": "ex/ex_overall_uncertainty.html#probability-scales",
+    "href": "ex/ex_overall_uncertainty.html#probability-scales",
+    "title": "Overall uncertainty",
+    "section": "Probability scales",
+    "text": "Probability scales",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Assessment of overall uncertainty"
+    ]
+  },
+  {
+    "objectID": "ex/ex_overall_uncertainty.html#probability-scales-1",
+    "href": "ex/ex_overall_uncertainty.html#probability-scales-1",
+    "title": "Overall uncertainty",
+    "section": "Probability scales",
+    "text": "Probability scales",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Assessment of overall uncertainty"
+    ]
+  },
+  {
+    "objectID": "ex/ex_overall_uncertainty.html#probability-scales-2",
+    "href": "ex/ex_overall_uncertainty.html#probability-scales-2",
+    "title": "Overall uncertainty",
+    "section": "Probability scales",
+    "text": "Probability scales",
+    "crumbs": [
+      "Expert judgement - Oct 2 and 5",
+      "Assessment of overall uncertainty"
     ]
   },
   {
@@ -891,7 +1133,7 @@
     "href": "ex/PVA_stud.html#consider-uncertainty-in-parameters",
     "title": "Population Viability Analysis",
     "section": "Consider uncertainty in parameters",
-    "text": "Consider uncertainty in parameters\nSo far we used point estimates of the parameters. Now we will include uncertainty in parameters. Since we have both uncertainty and variability, this will be a 2D Monte Carlo simulation.\nHere I have copied and pasted in the function for the assessment, I use the selected number of iterations for variability from above (niter_ale) and have given it a different name (calc_risk_2D). The input argument is now iter_epi.\n\nAdd uncertainty in the parameters into the Monte Carlo simulation of the PVA. Replace parameter values by the iter_epi’th draw in df_par.\n\n\nRun the PVA simulation for all niter_epi draws from parameter uncertainty and save to an object\n\n\n\n  [1] 0.018 0.022 0.002 0.068 0.006 0.002 0.000 0.796 0.308 0.000 0.214 0.012\n [13] 0.202 0.024 0.028 0.020 0.000 0.000 0.010 0.004 0.072 0.330 0.010 0.136\n [25] 0.202 0.288 0.088 0.218 0.264 0.158 0.108 0.000 0.024 0.694 0.070 0.024\n [37] 0.002 0.710 0.188 0.024 0.384 0.020 0.320 0.560 0.654 0.002 0.010 0.050\n [49] 0.000 0.004 0.046 0.056 0.060 0.360 0.406 0.298 0.348 0.902 0.112 0.072\n [61] 0.552 0.360 0.004 0.268 0.042 0.560 0.616 0.042 0.002 0.234 0.244 0.000\n [73] 0.050 0.650 0.072 0.170 0.252 0.078 0.000 0.000 0.102 0.030 0.854 0.334\n [85] 0.092 0.054 0.110 0.000 0.000 0.266 0.276 0.064 0.008 0.022 0.000 0.236\n [97] 0.376 0.074 0.002 0.086 0.048 0.804 0.010 0.262 0.114 0.676 0.408 0.000\n[109] 0.538 0.032 0.060 0.930 0.190 0.732 0.248 0.026 0.506 0.006 0.000 0.310\n[121] 0.040 0.538 0.172 0.000 0.000 0.778 0.158 0.008 0.170 0.000 0.000 0.238\n[133] 0.178 0.000 0.154 0.086 0.200 0.000 0.252 0.010 0.006 0.096 0.000 0.294\n[145] 0.224 0.018 0.632 0.014 0.492 0.000 0.040 0.000 0.082 0.004 0.006 0.074\n[157] 0.318 0.104 0.000 0.162 0.068 0.000 0.268 0.000 0.382 0.000 0.486 0.038\n[169] 0.016 0.000 0.000 0.038 0.016 0.096 0.076 0.724 0.046 0.214 0.000 0.078\n[181] 0.130 0.414 0.000 0.036 0.046 0.226 0.068 0.096 0.134 0.068 0.000 0.058\n[193] 0.002 0.002 0.242 0.000 0.402 0.796 0.352 0.002\n\n\n\nVisualise uncertainty in the risk estimate using a histogram\n\n\n\n\n\n\n\n\n\n\n\nVisualise uncertainty in the risk estimate using a boxplot. Add “Uncertainty in quasi-extinction risk” as a title. Add “Quasi extinction risk” as y-label. Make y axis go from 0 to 1. Flip axis.\n\n\n\n\n\n\n\n\n\n\n\nSummarise uncertainty in the quasi-extinction risk by a 90% probability interval and a mean value.\n\n\nAdd the results into the following text.\n\nThe quasi-extinction risk for a catch of 23 is assessed to be 0.1713 with an 90% uncertainty interval (0 , 0.6948).",
+    "text": "Consider uncertainty in parameters\nSo far we used point estimates of the parameters. Now we will include uncertainty in parameters. Since we have both uncertainty and variability, this will be a 2D Monte Carlo simulation.\nHere I have copied and pasted in the function for the assessment, I use the selected number of iterations for variability from above (niter_ale) and have given it a different name (calc_risk_2D). The input argument is now iter_epi.\n\nAdd uncertainty in the parameters into the Monte Carlo simulation of the PVA. Replace parameter values by the iter_epi’th draw in df_par.\n\n\nRun the PVA simulation for all niter_epi draws from parameter uncertainty and save to an object\n\n\n\n  [1] 0.000 0.000 0.116 0.344 0.272 0.016 0.284 0.260 0.436 0.000 0.128 0.292\n [13] 0.130 0.696 0.724 0.686 0.780 0.002 0.000 0.000 0.000 0.050 0.538 0.034\n [25] 0.232 0.642 0.036 0.136 0.734 0.022 0.000 0.004 0.000 0.002 0.440 0.008\n [37] 0.000 0.000 0.564 0.004 0.100 0.034 0.222 0.432 0.492 0.000 0.606 0.126\n [49] 0.682 0.000 0.660 0.000 0.276 0.194 0.010 0.204 0.682 0.310 0.214 0.242\n [61] 0.678 0.010 0.214 0.214 0.296 0.062 0.132 0.118 0.082 0.156 0.142 0.074\n [73] 0.452 0.058 0.830 0.000 0.252 0.394 0.016 0.622 0.936 0.010 0.014 0.000\n [85] 0.344 0.000 0.468 0.550 0.000 0.360 0.000 0.976 0.000 0.400 0.360 0.008\n [97] 0.592 0.038 0.000 0.036 0.314 0.166 0.000 0.000 0.038 0.454 0.462 0.384\n[109] 0.000 0.000 0.000 0.036 0.118 0.306 0.006 0.028 0.274 0.000 0.002 0.000\n[121] 0.000 0.006 0.360 0.658 0.172 0.000 0.106 0.362 0.000 0.454 0.000 0.000\n[133] 0.006 0.000 0.000 0.078 0.620 0.000 0.598 0.262 0.174 0.450 0.252 0.514\n[145] 0.352 0.006 0.012 0.012 0.000 0.000 0.162 0.104 0.000 0.714 0.036 0.332\n[157] 0.314 0.434 0.426 0.118 0.420 0.518 0.000 0.298 0.038 0.428 0.928 0.002\n[169] 0.084 0.260 0.038 0.318 0.110 0.000 0.046 0.116 0.032 0.480 0.332 0.008\n[181] 0.000 0.020 0.030 0.000 0.422 0.388 0.000 0.018 0.002 0.036 0.060 0.840\n[193] 0.380 0.142 0.174 0.338 0.204 0.132 0.004 0.142\n\n\n\nVisualise uncertainty in the risk estimate using a histogram\n\n\n\n\n\n\n\n\n\n\n\nVisualise uncertainty in the risk estimate using a boxplot. Add “Uncertainty in quasi-extinction risk” as a title. Add “Quasi extinction risk” as y-label. Make y axis go from 0 to 1. Flip axis.\n\n\n\n\n\n\n\n\n\n\n\nSummarise uncertainty in the quasi-extinction risk by a 90% probability interval and a mean value.\n\n\nAdd the results into the following text.\n\nThe quasi-extinction risk for a catch of 23 is assessed to be 0.21231 with an 90% uncertainty interval (0 , 0.6865).",
     "crumbs": [
       "Model uncertainty - Sept 30",
       "Population Viabiltiy Analysis"
@@ -902,7 +1144,7 @@
     "href": "ex/PVA_stud.html#sensitivity-analysis",
     "title": "Population Viability Analysis",
     "section": "Sensitivity analysis",
-    "text": "Sensitivity analysis\nOne way to identify which parameters that has the strongest contribution to uncertainty in the output is to perform a sensitivity analysis. I recommend to perform sensitivity analysis by visualisatio and a quantitative measure.\n\nVisualise the influence of parameter on calculated risk using scatter plots\n\n\n\n\n\n\n\n\n\n\n\nCalculate the spearman rang correlation\n\n\n\n               pi       delta       sigma       risk\npi     1.00000000  0.04475062 -0.05693092 -0.5892143\ndelta  0.04475062  1.00000000 -0.13604590  0.1508709\nsigma -0.05693092 -0.13604590  1.00000000  0.7248521\nrisk  -0.58921428  0.15087090  0.72485209  1.0000000\n\n\n\nWhy is the influence from growth negative?\nWhich parameter has the strongest influence on the calculated risk?\n\nWhich parameter that has the strongest influence depends on the role it has in a model and how much uncertainty it has compared to the other parameters.",
+    "text": "Sensitivity analysis\nOne way to identify which parameters that has the strongest contribution to uncertainty in the output is to perform a sensitivity analysis. I recommend to perform sensitivity analysis by visualisatio and a quantitative measure.\n\nVisualise the influence of parameter on calculated risk using scatter plots\n\n\n\n\n\n\n\n\n\n\n\nCalculate the spearman rang correlation\n\n\n\n               pi      delta       sigma       risk\npi     1.00000000 0.02941574 -0.04373959 -0.5467808\ndelta  0.02941574 1.00000000  0.17514588  0.2954410\nsigma -0.04373959 0.17514588  1.00000000  0.7687774\nrisk  -0.54678080 0.29544096  0.76877744  1.0000000\n\n\n\nWhy is the influence from growth negative?\nWhich parameter has the strongest influence on the calculated risk?\n\nWhich parameter that has the strongest influence depends on the role it has in a model and how much uncertainty it has compared to the other parameters.",
     "crumbs": [
       "Model uncertainty - Sept 30",
       "Population Viabiltiy Analysis"
@@ -913,7 +1155,7 @@
     "href": "ex/PVA_stud.html#decision-analysis",
     "title": "Population Viability Analysis",
     "section": "Decision analysis",
-    "text": "Decision analysis\nDecision makers wants to find the fishing pressure for which the experts are at least 80% certain that the quasi-extinction risk is below 10.\nWe search for the highest fishing pressure where this applies, but testing different values on C and summarising uncertainty by its 80% quantile.\nVisualise the simulated values.\n\n\n\n\n\n\n\n\n\n\nSummarise uncertainty for different catch values\n\n\n# A tibble: 8 × 4\n  C     av_risk sd_risk    q80\n  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;\n1 10    0.00826  0.0349 0.002 \n2 12    0.0148   0.0517 0.008 \n3 14    0.0256   0.0713 0.02  \n4 15    0.0337   0.0879 0.03  \n5 16    0.0432   0.0994 0.048 \n6 17    0.0545   0.115  0.0732\n7 18    0.0679   0.132  0.0928\n8 20    0.102    0.170  0.160",
+    "text": "Decision analysis\nDecision makers wants to find the fishing pressure for which the experts are at least 80% certain that the quasi-extinction risk is below 10.\nWe search for the highest fishing pressure where this applies, but testing different values on C and summarising uncertainty by its 80% quantile.\nVisualise the simulated values.\n\n\n\n\n\n\n\n\n\n\nSummarise uncertainty for different catch values\n\n\n# A tibble: 8 × 4\n  C     av_risk sd_risk    q80\n  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;\n1 10     0.0105  0.0436 0.008 \n2 12     0.0212  0.0627 0.0204\n3 14     0.0366  0.0853 0.0492\n4 15     0.0478  0.0962 0.0712\n5 16     0.0608  0.112  0.103 \n6 17     0.0764  0.131  0.127 \n7 18     0.0940  0.149  0.172 \n8 20     0.136   0.188  0.256",
     "crumbs": [
       "Model uncertainty - Sept 30",
       "Population Viabiltiy Analysis"
@@ -990,7 +1232,7 @@
     "href": "ex/useful_functions_with_R.html#random-sampling",
     "title": "The R-version of what we did in Introduction to useful functions in Excel",
     "section": "Random sampling",
-    "text": "Random sampling\nAll sample generators start with a random number between 0 and 1. This is also a sample from a uniform distribution.\n\nrunif(1)\n\n[1] 0.8418135\n\n\nType a function that generates a uniform random number in the interval 1 to 6.\n\nrunif(1,min=1,max=6)\n\n[1] 4.860641\n\n\nA random draw from a probability distribution can be generated by the inverse method. - Draws pp-values from a uniform distribution between 0 and 1 - Transform them into quantiles of the target distribution\nGenerates random draws from a normal distribution using the inverse method\n\nqnorm(runif(1),m,s)\n\n[1] 18.33499\n\n\nThis is already implemented as a function\n\nrnorm(1,m,s)\n\n[1] 17.78571\n\n\nDraw from a beta distribution with parameters \\(\\alpha=2\\)$\\alpha=2$$\\alpha=2$ and \\(\\beta=8\\)\n\nrbeta(1,2,8)\n\n[1] 0.3928127",
+    "text": "Random sampling\nAll sample generators start with a random number between 0 and 1. This is also a sample from a uniform distribution.\n\nrunif(1)\n\n[1] 0.9569401\n\n\nType a function that generates a uniform random number in the interval 1 to 6.\n\nrunif(1,min=1,max=6)\n\n[1] 1.502182\n\n\nA random draw from a probability distribution can be generated by the inverse method. - Draws pp-values from a uniform distribution between 0 and 1 - Transform them into quantiles of the target distribution\nGenerates random draws from a normal distribution using the inverse method\n\nqnorm(runif(1),m,s)\n\n[1] 15.27149\n\n\nThis is already implemented as a function\n\nrnorm(1,m,s)\n\n[1] 14.50806\n\n\nDraw from a beta distribution with parameters \\(\\alpha=2\\)$\\alpha=2$$\\alpha=2$ and \\(\\beta=8\\)\n\nrbeta(1,2,8)\n\n[1] 0.1567028",
     "crumbs": [
       "Intro to excel and R - Sept 4",
       "Useful functions in R"
@@ -1001,7 +1243,7 @@
     "href": "ex/useful_functions_with_R.html#compare-descriptive-statistics-against-theoretical-values",
     "title": "The R-version of what we did in Introduction to useful functions in Excel",
     "section": "Compare descriptive statistics against theoretical values",
-    "text": "Compare descriptive statistics against theoretical values\nWow - now we can generate data where we know the true value on parameters and all theoretical probabilities and quantiles, and compare with what we get when deriving descriptive statistics from the random sample.\nThis sheet generates a random sample of size 20 from a beta distribution.\n\nrbeta(n=20,2,8)\n\n [1] 0.28596133 0.11701550 0.13509262 0.34851548 0.26009179 0.03633218\n [7] 0.24380959 0.08521492 0.22913659 0.29467000 0.24202299 0.11169567\n[13] 0.20067080 0.30788888 0.21463549 0.12034354 0.12438919 0.02876111\n[19] 0.23448571 0.06343913\n\n\nA beta distribution has two parameters \\(\\alpha\\) and \\(\\beta\\)\nThe expected value of a beta distributed variable is \\(\\frac{\\alpha}{\\alpha+\\beta}\\)\nCompare the calculated sample average to the theoretical expected value\n\nalpha=2\nbeta=8\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=20,alpha,beta))\n\n[1] 0.1893635\n\n\nWe can also derive the theoretical quantile, let us say the P95.\nCompare the quantile from the sample with the quantile calculated from the inverse probability distribution function\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=20,alpha,beta),probs=0.95)\n\n      95% \n0.3309539 \n\n\n\nWhich of them has the smallest difference? Why do you think it is like that?\n\n\n\n\n\n\n\nWarningExtra\n\n\n\nIf you feel you have the time or do another time:\nExplore what happens with the difference between theoretical and statistical values when you increase sample size from 20 to a high number (close to 1000)?\n\n\nBelow I wrte a script where sample size is controlled at one place. The P95 is approximated fairly well by the sampling when I use \\(n=10 000\\).\n\nalpha=2\nbeta=8\nn=10000\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=n,alpha,beta))\n\n[1] 0.1989137\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=n,alpha,beta),probs=0.95)\n\n      95% \n0.4269243 \n\n\nLet us visualise the convergence of the approximation of the mean and 95th percentile of the beta distribution using Monte Carlo simulation.\nThe code below defines a function which calculates the mean and P95 after every increase of the sample size and plots the convergence.\n\nplot_conv &lt;- function(n){\nsample_mean=cummean(rbeta(n=n,alpha,beta))\nsample_P95=unlist(lapply(1:n,function(iter){\n  quantile(rbeta(n=iter,alpha,beta),probs=0.95)}))\ndata.frame(values=c(sample_mean,sample_P95),n=rep(1:n,2), statistic=rep(c(\"mean\",\"P95\"),each=n))  %&gt;%\n  ggplot(aes(x=n,y=values,color=statistic))+\n  geom_line()+\n  geom_hline(yintercept = alpha/(alpha+beta)) +\n  geom_hline(yintercept = qbeta(0.95,alpha,beta))\n}\n\nWe start with \\(n=10\\)\n\nplot_conv(n=10)\n\n\n\n\n\n\n\n\n..increase to \\(n=100\\)\n\nplot_conv(n=100)\n\n\n\n\n\n\n\n\n..increase to \\(n=1000\\)\n\nplot_conv(n=10^3)\n\n\n\n\n\n\n\n\n..and finally \\(n=10000\\)\n\nplot_conv(n=10^4)",
+    "text": "Compare descriptive statistics against theoretical values\nWow - now we can generate data where we know the true value on parameters and all theoretical probabilities and quantiles, and compare with what we get when deriving descriptive statistics from the random sample.\nThis sheet generates a random sample of size 20 from a beta distribution.\n\nrbeta(n=20,2,8)\n\n [1] 0.03753032 0.10969908 0.22905000 0.42608358 0.12031126 0.20418005\n [7] 0.25854886 0.34819625 0.12277778 0.21129350 0.15268074 0.19397023\n[13] 0.24562256 0.18946243 0.39901771 0.32769069 0.28457652 0.26652862\n[19] 0.45596760 0.15016066\n\n\nA beta distribution has two parameters \\(\\alpha\\) and \\(\\beta\\)\nThe expected value of a beta distributed variable is \\(\\frac{\\alpha}{\\alpha+\\beta}\\)\nCompare the calculated sample average to the theoretical expected value\n\nalpha=2\nbeta=8\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=20,alpha,beta))\n\n[1] 0.2396734\n\n\nWe can also derive the theoretical quantile, let us say the P95.\nCompare the quantile from the sample with the quantile calculated from the inverse probability distribution function\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=20,alpha,beta),probs=0.95)\n\n      95% \n0.2756034 \n\n\n\nWhich of them has the smallest difference? Why do you think it is like that?\n\n\n\n\n\n\n\nWarningExtra\n\n\n\nIf you feel you have the time or do another time:\nExplore what happens with the difference between theoretical and statistical values when you increase sample size from 20 to a high number (close to 1000)?\n\n\nBelow I wrte a script where sample size is controlled at one place. The P95 is approximated fairly well by the sampling when I use \\(n=10 000\\).\n\nalpha=2\nbeta=8\nn=10000\nalpha/(alpha+beta)\n\n[1] 0.2\n\nmean(rbeta(n=n,alpha,beta))\n\n[1] 0.1997399\n\nqbeta(0.95,alpha,beta)\n\n[1] 0.4291355\n\nquantile(rbeta(n=n,alpha,beta),probs=0.95)\n\n      95% \n0.4325758 \n\n\nLet us visualise the convergence of the approximation of the mean and 95th percentile of the beta distribution using Monte Carlo simulation.\nThe code below defines a function which calculates the mean and P95 after every increase of the sample size and plots the convergence.\n\nplot_conv &lt;- function(n){\nsample_mean=cummean(rbeta(n=n,alpha,beta))\nsample_P95=unlist(lapply(1:n,function(iter){\n  quantile(rbeta(n=iter,alpha,beta),probs=0.95)}))\ndata.frame(values=c(sample_mean,sample_P95),n=rep(1:n,2), statistic=rep(c(\"mean\",\"P95\"),each=n))  %&gt;%\n  ggplot(aes(x=n,y=values,color=statistic))+\n  geom_line()+\n  geom_hline(yintercept = alpha/(alpha+beta)) +\n  geom_hline(yintercept = qbeta(0.95,alpha,beta))\n}\n\nWe start with \\(n=10\\)\n\nplot_conv(n=10)\n\n\n\n\n\n\n\n\n..increase to \\(n=100\\)\n\nplot_conv(n=100)\n\n\n\n\n\n\n\n\n..increase to \\(n=1000\\)\n\nplot_conv(n=10^3)\n\n\n\n\n\n\n\n\n..and finally \\(n=10000\\)\n\nplot_conv(n=10^4)",
     "crumbs": [
       "Intro to excel and R - Sept 4",
       "Useful functions in R"

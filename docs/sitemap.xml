@@ -29,11 +29,15 @@
     <lastmod>2026-09-15T06:04:33.614Z</lastmod>
   </url>
   <url>
-    <loc>https://ullrika.github.io/MVEN10material/ex/ex_environ_exposure_assessment.html</loc>
-    <lastmod>2026-09-10T06:42:47.572Z</lastmod>
+    <loc>https://ullrika.github.io/MVEN10material/ex/ex_environ_fate_assessment.html</loc>
+    <lastmod>2026-09-10T06:46:25.189Z</lastmod>
   </url>
   <url>
-    <loc>https://ullrika.github.io/MVEN10material/ex/ex_daily_intake_equation.html</loc>
+    <loc>https://ullrika.github.io/MVEN10material/ex/ex_dose_response_modelling.html</loc>
+    <lastmod>2026-09-15T06:04:33.688Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ullrika.github.io/MVEN10material/ex/chance_belief_frequency.html</loc>
     <lastmod>2026-07-08T15:45:45.458Z</lastmod>
   </url>
   <url>
@@ -41,20 +45,20 @@
     <lastmod>2026-09-30T14:50:20.583Z</lastmod>
   </url>
   <url>
-    <loc>https://ullrika.github.io/MVEN10material/ex/chance_belief_frequency.html</loc>
+    <loc>https://ullrika.github.io/MVEN10material/ex/ex_daily_intake_equation.html</loc>
     <lastmod>2026-07-08T15:45:45.458Z</lastmod>
   </url>
   <url>
-    <loc>https://ullrika.github.io/MVEN10material/ex/ex_dose_response_modelling.html</loc>
-    <lastmod>2026-09-15T06:04:33.688Z</lastmod>
+    <loc>https://ullrika.github.io/MVEN10material/ex/ex_environ_exposure_assessment.html</loc>
+    <lastmod>2026-09-10T06:42:47.572Z</lastmod>
   </url>
   <url>
-    <loc>https://ullrika.github.io/MVEN10material/ex/ex_environ_fate_assessment.html</loc>
-    <lastmod>2026-09-10T06:46:25.189Z</lastmod>
+    <loc>https://ullrika.github.io/MVEN10material/ex/ex_expert_judgement.html</loc>
+    <lastmod>2026-10-01T16:46:40.373Z</lastmod>
   </url>
   <url>
-    <loc>https://ullrika.github.io/MVEN10material/ex/ex_risk_ranking.html</loc>
-    <lastmod>2026-10-01T06:43:03.244Z</lastmod>
+    <loc>https://ullrika.github.io/MVEN10material/ex/ex_overall_uncertainty.html</loc>
+    <lastmod>2026-10-01T16:47:32.348Z</lastmod>
   </url>
   <url>
     <loc>https://ullrika.github.io/MVEN10material/ex/introduction_to_quarto_and_R.html</loc>
