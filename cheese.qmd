@@ -1,6 +1,6 @@
 ---
-title: "listeria"
-echo: false
+title: "Monte Carlo simulation - listeria"
+#echo: false
 warning: false
 ---
 
@@ -8,24 +8,38 @@ warning: false
 library(ggplot2)
 ```
 
+## Reproducing
+
+It turns out that this is a good exericse is the challenges that can come from reproducing the work by someone else. It is also a way to learn the importance of documentation. 
+
 
 ## Model
 
-$$C(2.5)=\frac{C_{max}}{1+(C_{max}/C(0)-1) \cdot \exp(-EGR(T)\cdot t)}$$
+Ullrika have said - "Don't trust anyone - anyone can be wrong". It also applies to her. 
+
+In this case the model equation in the study material has an error: $EGRT(T\cdot t)$ should be $EGRT(T)\cdot t$
+
+The model consists of two equations: 
+
+$$C(t)=\frac{C_{max}}{1+(C_{max}/C(0)-1) \cdot \exp(-EGR(T)\cdot t)}$$
 $$EGR(T)=EGR(5)\left(\frac{T-T_{min}}{5-T_{min}}\right)^2$$
+**State variables:** $C(t)$
+
+**Parameters:** $EGRT(5)$ and $C(0)$ are uncertain. $C_{max}$ and $T_{min}$ are set to be fixed. 
+
+**Other assessment values:** $t = 2.5$
+
 
 ## Set up and run Monte Carlo simulation
 
 ```{r}
-# Parameters
+# Uncertainty in parameters
 niter = 2000
 #log10C0 <- rnorm(niter, -1.19, 0.968) # used in class, values comes from Maartens simulation
-log10C0 <- rbeta(niter, 0.194, 3.177)*(7--1.69)+-1.69 # taken from table C.4 RTE category Cheese. This table presents fits of generalised beta distributions
+log10C0 <- rbeta(niter, 0.194, 3.177)*(7--1.69)+-1.69 # taken from table C.4 RTE category Cheese. This table presents fits of generalised beta distribution
 C0 = 10^log10C0
 
 #EGRT20 <- rnorm(niter,0.137,0.0137) # used in class
-
-
 ```
 
 

@@ -14,6 +14,17 @@ editor: visual
 
 > Impact on biodiversity is high
 
+- Vagueness: natural and scientific language allows borderline cases e.g. the number of mature plants
+
+- Ambiguity: some words have more than one meaning and it is not clear which meaning is intended e.g. cover
+
+- Underspecificity: unwanted generality in data
+
+
+## Linguistic uncertainty 
+
+> The factory constitute a moderate risk
+
 > There is a 30% probability of rain tomorrow
 
 - Prominent in qualitative risk assessment due to the use of qualitative expressions
@@ -26,17 +37,15 @@ A tool from Mark and his colleagues to reduce linguistic uncertainty
 
 [SRA tool manual](https://cebra.unimelb.edu.au/__data/assets/pdf_file/0007/2488507/SRA3-manual-sra_ver.3_manual.pdf)
 
-![Likelihood and impact scales](../img/aus_standards.png)
-
 ## Subjective Risk Assessment
 
-Rain - There will be rain tomorrow
+**Rain** - There will be rain tomorrow
 
-Space - Aliens from space will arrive to the earth in our lifetime
+**Space** - Aliens from space will arrive to the earth in our lifetime
 
-Trump - Trump becomes the next president of USA
+**Trump** - Trump becomes the next president of USA
 
-![Use these likelihood and impact scales](../img/aus_standards.png)
+Use the AUSTRALIAN SCALES!
 
 Make judgements with single scores e.g. 3 or ranges, e.g. 2-4
 
@@ -90,19 +99,17 @@ Formal, structured approaches designed to
 
 ![](../img/scale_1.png)
 
-
 ## Anchoring
 
 Two scales to collect judgements on the probability of an offence
 
 ![](../img/scale_2.png)
 
+## Wisdom of the crowd
 
-## Wisdom of the crowd 
+Question to students in previous class:
 
-Question to students in previous class: 
-
-**How long time does it take to drive from Lund to Umeå in hours?** 
+**How long time does it take to drive from Lund to Umeå in hours?**
 
 ![Wisdom of the crowd](../img/LundUmea2.png)
 
@@ -110,23 +117,21 @@ Question to students in previous class:
 
 ::::: columns
 ::: column
-
 - Mathematical aggregation: with or without expert calibration
 
 - Behavioural aggregation: facilitated interaction
 
 - Delphi method: multiple rounds of individual judgements followed by summary of judgements after every round until convergence is obtained
 
-- Combinations of these e.g. IDEA and the SAHLIN-protocol*
+- Combinations of these e.g. IDEA and the SAHLIN-protocol\*
 
-*in development
+\*in development
 :::
 
 ::: column
 ![](../img/behav.png)
 :::
 :::::
-
 
 ## What makes a good expert {.smaller}
 
@@ -172,25 +177,18 @@ From the SHELF elicitation framework
 
 ::::: columns
 ::: column
+1.  What is Ullrika's monthly salary right now?
 
-1. What is Ullrika's monthly salary right now? 
-
-Evidence dossier: 
+Evidence dossier:
 
 - Ullrika is Associate professor at the Faculty of Science at Lund university
 
 - She is 50 years old
 
 - She is a woman
-
 :::
 
 ::: column
-
 ![](../img/salaries.png)
-
 :::
 :::::
-
-
-
