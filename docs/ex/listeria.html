@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Ullrika">
 
 <title>Monte Carlo simulation - listeria – MVEN10</title>
 <style>
@@ -61,23 +62,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-787e033c7b6f65c9dfccb6078e5d2d34.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-787e033c7b6f65c9dfccb6078e5d2d34.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -136,7 +137,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -148,9 +149,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      MVEN10
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ex/listeria.html">Expert judgement - Oct 2 and 5</a></li><li class="breadcrumb-item"><a href="../ex/listeria.html">Monte Carlo simulation Listeria</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,7 +164,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">MVEN10</a> 
+      <a href="../">MVEN10</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -186,7 +185,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/probability_distribution.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/probability_distribution.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Probability distributions</span></a>
   </div>
 </li>
@@ -203,19 +202,19 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/useful_functions.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/useful_functions.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Useful functions in Excel</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/introduction_to_quarto_and_R.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/introduction_to_quarto_and_R.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Intro to Quarto and R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/useful_functions_with_R.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/useful_functions_with_R.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Useful functions in R</span></a>
   </div>
 </li>
@@ -232,13 +231,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/ex_daily_intake_equation.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/ex_daily_intake_equation.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Interval and 1D Monte Carlo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/chance_belief_frequency.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/chance_belief_frequency.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Exercise Probability</span></a>
   </div>
 </li>
@@ -255,13 +254,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/ex_exposure_assessment_databases.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/ex_exposure_assessment_databases.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Exposure DATABASES</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/ex_environ_fate_assessment.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/ex_environ_fate_assessment.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Exposure FATE</span></a>
   </div>
 </li>
@@ -278,19 +277,19 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/ex_dose_response_modelling.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/ex_dose_response_modelling.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Dose response modelling - Sept 14</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/ex_species_sensitivity_distribution.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/ex_species_sensitivity_distribution.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Species Sensitivity Distribution - Sept 16</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./zheng/ex_benchmark_dose_modelling.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../zheng/ex_benchmark_dose_modelling.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Benchmark dose modelling - Sept 23</span></a>
   </div>
 </li>
@@ -335,7 +334,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/PVA_stud.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/PVA_stud.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Population Viabiltiy Analysis</span></a>
   </div>
 </li>
@@ -351,17 +350,20 @@ window.Quarto = {
       </div>
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">Monte Carlo simulation Listeria</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../ex/listeria.html" class="sidebar-item-text sidebar-link active" target="_blank">
+ <span class="menu-text">Monte Carlo simulation Listeria</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/ex_expert_judgement.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/ex_expert_judgement.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Expert judgement</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ex/ex_overall_uncertainty.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/ex_overall_uncertainty.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Assessment of overall uncertainty</span></a>
   </div>
 </li>
@@ -377,17 +379,31 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#reproducing" id="toc-reproducing" class="nav-link active" data-scroll-target="#reproducing">Reproducing</a></li>
+  <li><a href="#a-challenge-in-reproducing-an-assessment" id="toc-a-challenge-in-reproducing-an-assessment" class="nav-link active" data-scroll-target="#a-challenge-in-reproducing-an-assessment">A challenge in reproducing an assessment</a></li>
   <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">Model</a></li>
-  <li><a href="#set-up-and-run-monte-carlo-simulation" id="toc-set-up-and-run-monte-carlo-simulation" class="nav-link" data-scroll-target="#set-up-and-run-monte-carlo-simulation">Set up and run Monte Carlo simulation</a></li>
-  <li><a href="#summarise-and-visualise-uncertainty" id="toc-summarise-and-visualise-uncertainty" class="nav-link" data-scroll-target="#summarise-and-visualise-uncertainty">Summarise and visualise uncertainty</a></li>
+  <li><a href="#set-up-and-run-monte-carlo-simulation" id="toc-set-up-and-run-monte-carlo-simulation" class="nav-link" data-scroll-target="#set-up-and-run-monte-carlo-simulation">Set up and run Monte Carlo simulation</a>
+  <ul class="collapse">
+  <li><a href="#fixed-parameters" id="toc-fixed-parameters" class="nav-link" data-scroll-target="#fixed-parameters">Fixed parameters</a></li>
+  <li><a href="#uncertainty-in-initial-concentration" id="toc-uncertainty-in-initial-concentration" class="nav-link" data-scroll-target="#uncertainty-in-initial-concentration">Uncertainty in initial concentration</a></li>
+  </ul></li>
+  <li><a href="#uncertainty-in-growth-at-5-degrees" id="toc-uncertainty-in-growth-at-5-degrees" class="nav-link" data-scroll-target="#uncertainty-in-growth-at-5-degrees">Uncertainty in growth at 5 degrees</a></li>
+  <li><a href="#propagate-uncertainty" id="toc-propagate-uncertainty" class="nav-link" data-scroll-target="#propagate-uncertainty">Propagate uncertainty</a></li>
+  <li><a href="#summarise-and-visualise-uncertainty" id="toc-summarise-and-visualise-uncertainty" class="nav-link" data-scroll-target="#summarise-and-visualise-uncertainty">Summarise and visualise uncertainty</a>
+  <ul class="collapse">
+  <li><a href="#function-for-the-mc" id="toc-function-for-the-mc" class="nav-link" data-scroll-target="#function-for-the-mc">Function for the MC</a>
+  <ul class="collapse">
+  <li><a href="#summary-that-one-can-provide" id="toc-summary-that-one-can-provide" class="nav-link" data-scroll-target="#summary-that-one-can-provide">Summary that one can provide</a></li>
+  <li><a href="#useful-summary-for-decision-maker" id="toc-useful-summary-for-decision-maker" class="nav-link" data-scroll-target="#useful-summary-for-decision-maker">Useful summary for decision maker</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#answer-to-the-question" id="toc-answer-to-the-question" class="nav-link" data-scroll-target="#answer-to-the-question">Answer to the question</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ex/listeria.html">Expert judgement - Oct 2 and 5</a></li><li class="breadcrumb-item"><a href="../ex/listeria.html">Monte Carlo simulation Listeria</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Monte Carlo simulation - listeria</h1>
 </div>
@@ -396,6 +412,12 @@ window.Quarto = {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ullrika </p>
+          </div>
+  </div>
     
   
     
@@ -409,131 +431,198 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="reproducing" class="level2">
-<h2 class="anchored" data-anchor-id="reproducing">Reproducing</h2>
-<p>It turns out that this is a good exericse is the challenges that can come from reproducing the work by someone else. It is also a way to learn the importance of documentation.</p>
+<section id="a-challenge-in-reproducing-an-assessment" class="level2">
+<h2 class="anchored" data-anchor-id="a-challenge-in-reproducing-an-assessment">A challenge in reproducing an assessment</h2>
+<p>It turns out that this is a good exercise is the challenges that can come from reproducing the work by someone else. It is also a way to learn the importance of documentation.</p>
 </section>
 <section id="model" class="level2">
 <h2 class="anchored" data-anchor-id="model">Model</h2>
+<blockquote class="blockquote">
 <p>Ullrika have said - “Don’t trust anyone - anyone can be wrong”. It also applies to her.</p>
+</blockquote>
 <p>In this case the model equation in the study material has an error: <span class="math inline">\(EGRT(T\cdot t)\)</span> should be <span class="math inline">\(EGRT(T)\cdot t\)</span></p>
 <p>The model consists of two equations:</p>
 <p><span class="math display">\[C(t)=\frac{C_{max}}{1+(C_{max}/C(0)-1) \cdot \exp(-EGR(T)\cdot t)}\]</span> <span class="math display">\[EGR(T)=EGR(5)\left(\frac{T-T_{min}}{5-T_{min}}\right)^2\]</span> <strong>State variables:</strong> <span class="math inline">\(C(t)\)</span></p>
-<p><strong>Parameters:</strong> <span class="math inline">\(EGRT(5)\)</span> and <span class="math inline">\(C(0)\)</span> are uncertain. <span class="math inline">\(C_{max}\)</span> and <span class="math inline">\(T_{min}\)</span> are set to be fixed.</p>
+<p><strong>Parameters:</strong> <span class="math inline">\(EGRT(5)\)</span> and <span class="math inline">\(C(0)\)</span> which are treated as uncertain. <span class="math inline">\(C_{max}\)</span> and <span class="math inline">\(T_{min}\)</span> which are set to be fixed.</p>
 <p><strong>Other assessment values:</strong> <span class="math inline">\(t = 2.5\)</span></p>
 </section>
 <section id="set-up-and-run-monte-carlo-simulation" class="level2">
 <h2 class="anchored" data-anchor-id="set-up-and-run-monte-carlo-simulation">Set up and run Monte Carlo simulation</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uncertainty in parameters</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>niter <span class="ot">=</span> <span class="dv">2000</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#log10C0 &lt;- rnorm(niter, -1.19, 0.968) # used in class, values comes from Maartens simulation</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>log10C0 <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(niter, <span class="fl">0.194</span>, <span class="fl">3.177</span>)<span class="sc">*</span>(<span class="dv">7</span><span class="sc">--</span><span class="fl">1.69</span>)<span class="sc">+-</span><span class="fl">1.69</span> <span class="co"># taken from table C.4 RTE category Cheese. This table presents fits of generalised beta distribution</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>C0 <span class="ot">=</span> <span class="dv">10</span><span class="sc">^</span>log10C0</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#EGRT20 &lt;- rnorm(niter,0.137,0.0137) # used in class</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>niter <span class="ot">=</span> <span class="dv">2000</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>t <span class="ot">=</span> <span class="fl">2.5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Parameters in table 2 are given as mean and sd of a lognormal distribution on the real-space scale. In R the parametrisation of the lognormal is done through the mean and standard deviation on the logged scale. we have to transform the parameters to be able to generate random numbers.</p>
-<p>From real-space to log-space:</p>
-<p><span class="math display">\[\sigma^2 = \ln (1 + (s/m)^2)\]</span> <span class="math display">\[\mu = \ln(m)-\sigma^2/2\]</span> In case someone wants to do it the other way around: From log-space to real-space:</p>
+<section id="fixed-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-parameters">Fixed parameters</h3>
+<p><span class="math inline">\(log10 C_{max} = 7.83\)</span> from table 2 lowest row</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>log10Cmax <span class="ot">=</span> <span class="fl">7.83</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Cmax <span class="ot">=</span> <span class="dv">10</span><span class="sc">^</span>log10Cmax</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><span class="math inline">\(T_{min} = -1.18\)</span> from the text</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Tmin <span class="ot">=</span> <span class="sc">-</span><span class="fl">1.18</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="uncertainty-in-initial-concentration" class="level3">
+<h3 class="anchored" data-anchor-id="uncertainty-in-initial-concentration">Uncertainty in initial concentration</h3>
+<p>Initial concentration on the log10 cpu/g scale is modelled by a generalised beta distribution in the interval with the lower (L) and upper (U) bounds -1.69 to 7. Parameter values taken from Table C.4 RTE category Cheese.</p>
+<p><span class="math display">\[\frac{C(0)-L}{U-L}= \frac{C(0)-(-1.69)}{7-(-1.69)} \sim beta(0.194,3.177)\]</span></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>log10C0 <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(niter, <span class="fl">0.194</span>, <span class="fl">3.177</span>)<span class="sc">*</span>(<span class="dv">7</span><span class="sc">--</span><span class="fl">1.69</span>)<span class="sc">+-</span><span class="fl">1.69</span> <span class="co"># log10 cpu/g</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>C0 <span class="ot">=</span> <span class="dv">10</span><span class="sc">^</span>log10C0 <span class="co">#transform to original scale</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#log10C0 &lt;- rnorm(niter, -1.19, 0.968) # used in class, values comes from Maartens simulation</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#EGRT20 &lt;- rnorm(niter,0.137,0.0137) # used in class</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="uncertainty-in-growth-at-5-degrees" class="level2">
+<h2 class="anchored" data-anchor-id="uncertainty-in-growth-at-5-degrees">Uncertainty in growth at 5 degrees</h2>
+<div class="{note}">
+<p>The lognormal distribution</p>
+<p>To say that <span class="math inline">\(Y\)</span> is lognormal distributed implies that the log of <span class="math inline">\(Y\)</span> is normally distributed.</p>
+<p><span class="math display">\[log Y \sim N(\mu,\sigma)\]</span></p>
+<p>where <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> are the expected value and standard deviation on the log scale.</p>
+<p>Let us denote the expected value and standard deviation <span class="math inline">\(Y\)</span> on its original (real scale) by <span class="math inline">\(m\)</span> and <span class="math inline">\(s\)</span>.</p>
+<p>It is common to use the parameters on the log scale to parametrise a lognormal distribution (this is what we do in R). In this case, it is not clear whether the parameters for the lognormal in Table 2 are given on the real and on the log scale. Since they are positive, I suspect they are given on the real scale.</p>
+<p>I also know that the biohaz group that worked with this often used the software <span class="citation" data-cites="risk">@risk</span> to perform Monte Carlo simulation. This software one has two ways of parametrising the lognormal distribution, on the real or on the log scale.</p>
+<p>To transform from real-space to log-space we can do the following</p>
+<p><span class="math display">\[\sigma^2 = \ln (1 + (s/m)^2)\]</span> <span class="math display">\[\mu = \ln(m)-\sigma^2/2\]</span></p>
+<p>In case someone wants to do it the other way around: From log-space to real-space:</p>
 <p><span class="math display">\[m=e^{\mu+\sigma^2/2}\]</span></p>
 <p><span class="math display">\[s = m \cdot \sqrt{e^{\sigma^2}-1}\]</span></p>
+</div>
+<p>When we compare the two distributions, we see that treating the numbers in table 2 as mean and standard deviation on the real scale generates a reasonable distribution.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># draw sample from EGRT5</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>m <span class="ot">=</span> <span class="fl">0.0117</span> <span class="co"># from table 2</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>s <span class="ot">=</span> <span class="fl">0.00816</span> <span class="co"># from table 2</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>sigma2 <span class="ot">=</span> <span class="fu">log10</span>(<span class="dv">1</span><span class="sc">+</span>(s<span class="sc">/</span>m)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>sigma<span class="ot">=</span><span class="fu">sqrt</span>(sigma2)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>mu<span class="ot">=</span><span class="fu">log10</span>(m)<span class="sc">-</span>sigma2<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>EGRT5 <span class="ot">&lt;-</span> <span class="fu">rlnorm</span>(niter,mu,sigma) </span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># transform to EGRT20</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>Tmin <span class="ot">=</span> <span class="sc">-</span><span class="fl">1.18</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>EGRT20 <span class="ot">=</span>  EGRT5<span class="sc">*</span>(<span class="dv">20</span><span class="sc">-</span>Tmin)<span class="sc">/</span>(<span class="dv">5</span><span class="sc">-</span>Tmin)<span class="sc">^</span><span class="dv">2</span> <span class="co"># equation 8</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#EGRT = 0.137 # point estimate</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>log10Cmax <span class="ot">=</span> <span class="fl">7.83</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>Cmax <span class="ot">=</span> <span class="dv">10</span><span class="sc">^</span>log10Cmax</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>t <span class="ot">=</span> <span class="fl">2.5</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Output</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>Ct <span class="ot">=</span> Cmax<span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span>(Cmax<span class="sc">/</span>C0)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>EGRT20<span class="sc">*</span>t)</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>log10Ct <span class="ot">=</span> <span class="fu">log10</span>(Ct)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Confirm sample statistics</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(log10C0)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.178568</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(log10C0)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9715562</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(EGRT20)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.08097771</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(EGRT20)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">=</span> <span class="fl">0.0117</span> <span class="co"># from table 2</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>s <span class="ot">=</span> <span class="fl">0.00816</span> <span class="co"># from table 2</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>sigma2 <span class="ot">=</span> <span class="fu">log10</span>(<span class="dv">1</span><span class="sc">+</span>(s<span class="sc">/</span>m)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>sigma<span class="ot">=</span><span class="fu">sqrt</span>(sigma2)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>mu<span class="ot">=</span><span class="fu">log10</span>(m)<span class="sc">-</span>sigma2<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># draw sample from EGRT5</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>EGRT5 <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="fu">rnorm</span>(niter,mu,sigma) </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>EGRT5_logscale <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="fu">rnorm</span>(niter,m,s) </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">vals =</span> <span class="fu">c</span>(EGRT5,EGRT5_logscale), <span class="at">scale =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"parameters on real scale"</span>,<span class="st">"parameters on log scale"</span>),<span class="at">each=</span>niter)),</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>vals,<span class="at">fill=</span>scale)) <span class="sc">+</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>scale, <span class="at">ncol =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="cheese_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="listeria_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
+<section id="propagate-uncertainty" class="level2">
+<h2 class="anchored" data-anchor-id="propagate-uncertainty">Propagate uncertainty</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># transform to EGRT20</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>EGRT20 <span class="ot">=</span>  EGRT5<span class="sc">*</span>(<span class="dv">20</span><span class="sc">-</span>Tmin)<span class="sc">/</span>(<span class="dv">5</span><span class="sc">-</span>Tmin)<span class="sc">^</span><span class="dv">2</span> <span class="co"># equation 8</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#mean(EGRT20)# I get around 0.09</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#EGRT = 0.137 # the point estimate in the paper, he get a higher one. It looks like his distribution has higher values than ours. </span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Output</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>Ct <span class="ot">=</span> Cmax<span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span>(Cmax<span class="sc">/</span>C0)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>EGRT20<span class="sc">*</span>t)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>log10Ct <span class="ot">=</span> <span class="fu">log10</span>(Ct)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
 <section id="summarise-and-visualise-uncertainty" class="level1">
 <h1>Summarise and visualise uncertainty</h1>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(Ct)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(Ct) <span class="co"># a bit ugly graph</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_MC <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">log10Ct =</span> log10Ct) </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_MC, <span class="fu">aes</span>(<span class="at">x =</span> log10Ct)) <span class="sc">+</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">2</span>,<span class="at">colour =</span> <span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_MC <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">log10Ct =</span> log10Ct) </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_MC, <span class="fu">aes</span>(<span class="at">x =</span> log10Ct)) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">2</span>,<span class="at">colour =</span> <span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="cheese_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="listeria_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>The histogram is a bit edgy. I would go back and increase the number of iterations to make it more smooth. When doing so, I reflect on the value of writing up the MC-simulation as a function.</p>
+<section id="function-for-the-mc" class="level2">
+<h2 class="anchored" data-anchor-id="function-for-the-mc">Function for the MC</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(log10Ct)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.266489</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">^</span><span class="fu">mean</span>(log10Ct)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.05413912</code></pre>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>run_MC <span class="ot">&lt;-</span> <span class="cf">function</span>(niter){</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># parameter uncertainty</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>log10C0 <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(niter, <span class="fl">0.194</span>, <span class="fl">3.177</span>)<span class="sc">*</span>(<span class="dv">7</span><span class="sc">--</span><span class="fl">1.69</span>)<span class="sc">+-</span><span class="fl">1.69</span> <span class="co"># log10 cpu/g</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>C0 <span class="ot">=</span> <span class="dv">10</span><span class="sc">^</span>log10C0 <span class="co">#transform to original scale</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>m <span class="ot">=</span> <span class="fl">0.0117</span> <span class="co"># from table 2</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>s <span class="ot">=</span> <span class="fl">0.00816</span> <span class="co"># from table 2</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>sigma2 <span class="ot">=</span> <span class="fu">log10</span>(<span class="dv">1</span><span class="sc">+</span>(s<span class="sc">/</span>m)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>sigma<span class="ot">=</span><span class="fu">sqrt</span>(sigma2)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>mu<span class="ot">=</span><span class="fu">log10</span>(m)<span class="sc">-</span>sigma2<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># draw sample from EGRT5</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>EGRT5 <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="fu">rnorm</span>(niter,mu,sigma) </span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>EGRT5_logscale <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="fu">rnorm</span>(niter,m,s) </span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co"># propagate </span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>EGRT20 <span class="ot">=</span>  EGRT5<span class="sc">*</span>(<span class="dv">20</span><span class="sc">-</span>Tmin)<span class="sc">/</span>(<span class="dv">5</span><span class="sc">-</span>Tmin)<span class="sc">^</span><span class="dv">2</span> <span class="co"># equation 8</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>Ct <span class="ot">=</span> Cmax<span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span>(Cmax<span class="sc">/</span>C0)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>EGRT20<span class="sc">*</span>t)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>log10Ct <span class="ot">=</span> <span class="fu">log10</span>(Ct)</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(<span class="fu">data.frame</span>(<span class="at">log10C0=</span>log10C0,<span class="at">EGRT5=</span>EGRT5,<span class="at">EGRT20=</span>EGRT20,<span class="at">log10Ct=</span>log10Ct))</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(<span class="fu">log10</span>(Ct),<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.05</span>,<span class="fl">0.95</span>)) <span class="co"># 90% prob int</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_104 <span class="ot">&lt;-</span> <span class="fu">run_MC</span>(<span class="dv">10</span><span class="sc">^</span><span class="dv">4</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_104, <span class="fu">aes</span>(<span class="at">x =</span> log10Ct)) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">2</span>,<span class="at">colour =</span> <span class="st">"red"</span>) <span class="co">#+</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="listeria_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">#labs(title=paste("P(log10 Ct &lt; 2)=",round(100*mean(df_104$log10C0&lt;2),1),"%")) # a way to add the calculated probability in the graph</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="summary-that-one-can-provide" class="level3">
+<h3 class="anchored" data-anchor-id="summary-that-one-can-provide">Summary that one can provide</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(<span class="fu">log10</span>(Ct),<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.05</span>,<span class="fl">0.95</span>)) <span class="co"># 90% prob int</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        5%        95% 
--1.8237463  0.9171346 </code></pre>
+-1.7067906  0.9531708 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">log10</span>(Ct)) <span class="co"># mean considering uncertainty</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">log10</span>(Ct)) <span class="co"># mean considering uncertainty</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.266489</code></pre>
+<pre><code>[1] -1.200891</code></pre>
 </div>
 </div>
+</section>
+<section id="useful-summary-for-decision-maker" class="level3">
+<h3 class="anchored" data-anchor-id="useful-summary-for-decision-maker">Useful summary for decision maker</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">log10</span>(Ct)<span class="sc">&lt;</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(log10Ct<span class="sc">&lt;</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.981</code></pre>
+<pre><code>[1] 0.975</code></pre>
 </div>
 </div>
-<p>I am 98.1% certain that your cheese is safe.</p>
+</section>
+</section>
+</section>
+<section id="answer-to-the-question" class="level1">
+<h1>Answer to the question</h1>
+<p>I am 97.5% certain that your cheese is safe.</p>
 
 
 </section>

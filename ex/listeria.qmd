@@ -1,0 +1,210 @@
+---
+title: Monte Carlo simulation - listeria
+author: Ullrika
+#echo: false
+warning: false
+---
+
+```{r}
+library(ggplot2)
+```
+
+## A challenge in reproducing an assessment
+
+It turns out that this is a good exercise is the challenges that can come from reproducing the work by someone else. It is also a way to learn the importance of documentation. 
+
+
+
+## Model
+
+>Ullrika have said - "Don't trust anyone - anyone can be wrong". It also applies to her. 
+
+In this case the model equation in the study material has an error: $EGRT(T\cdot t)$ should be $EGRT(T)\cdot t$
+
+The model consists of two equations: 
+
+$$C(t)=\frac{C_{max}}{1+(C_{max}/C(0)-1) \cdot \exp(-EGR(T)\cdot t)}$$
+$$EGR(T)=EGR(5)\left(\frac{T-T_{min}}{5-T_{min}}\right)^2$$
+**State variables:** $C(t)$
+
+**Parameters:** $EGRT(5)$ and $C(0)$ which are treated as uncertain. $C_{max}$ and $T_{min}$ which are set to be fixed. 
+
+**Other assessment values:** $t = 2.5$
+
+
+## Set up and run Monte Carlo simulation
+
+```{r}
+niter = 2000
+t = 2.5
+```
+
+### Fixed parameters
+
+$log10 C_{max} = 7.83$ from table 2 lowest row
+
+```{r}
+log10Cmax = 7.83
+Cmax = 10^log10Cmax
+```
+
+$T_{min} = -1.18$ from the text
+
+```{r}
+Tmin = -1.18
+```
+
+
+### Uncertainty in initial concentration
+
+Initial concentration on the log10 cpu/g scale is modelled by a generalised beta distribution in the interval with the lower (L) and upper (U) bounds -1.69 to 7. Parameter values taken from Table C.4 RTE category Cheese. 
+
+$$\frac{C(0)-L}{U-L}= \frac{C(0)-(-1.69)}{7-(-1.69)} \sim beta(0.194,3.177)$$
+
+```{r}
+log10C0 <- rbeta(niter, 0.194, 3.177)*(7--1.69)+-1.69 # log10 cpu/g
+C0 = 10^log10C0 #transform to original scale
+
+#log10C0 <- rnorm(niter, -1.19, 0.968) # used in class, values comes from Maartens simulation
+#EGRT20 <- rnorm(niter,0.137,0.0137) # used in class
+```
+
+
+## Uncertainty in growth at 5 degrees
+
+::: {note}
+The lognormal distribution
+
+To say that $Y$ is lognormal distributed implies that the log of $Y$ is normally distributed. 
+
+$$log Y \sim N(\mu,\sigma)$$ 
+
+where $\mu$ and $\sigma$ are the expected value and standard deviation on the log scale. 
+
+Let us denote the expected value and standard deviation $Y$ on its original (real scale) by $m$ and $s$. 
+
+It is common to use the parameters on the log scale to parametrise a lognormal distribution (this is what we do in R). In this case, it is not clear whether the parameters for the lognormal in Table 2 are given on the real and on the log scale. Since they are positive, I suspect they are given on the real scale. 
+
+I also know that the biohaz group that worked with this often used the software @risk to perform Monte Carlo simulation. This software one has two ways of parametrising the lognormal distribution, on the real or on the log scale. 
+
+To transform from real-space to log-space we can do the following 
+
+$$\sigma^2 = \ln (1 + (s/m)^2)$$
+$$\mu = \ln(m)-\sigma^2/2$$
+
+In case someone wants to do it the other way around: From log-space to real-space: 
+
+$$m=e^{\mu+\sigma^2/2}$$
+
+$$s = m \cdot \sqrt{e^{\sigma^2}-1}$$
+
+:::
+
+When we compare the two distributions, we see that treating the numbers in table 2 as mean and standard deviation on the real scale generates a reasonable distribution.   
+
+```{r}
+#| warning: false
+
+m = 0.0117 # from table 2
+s = 0.00816 # from table 2
+
+sigma2 = log10(1+(s/m)^2)
+sigma=sqrt(sigma2)
+mu=log10(m)-sigma2/2
+
+# draw sample from EGRT5
+EGRT5 <- 10^rnorm(niter,mu,sigma) 
+EGRT5_logscale <- 10^rnorm(niter,m,s) 
+
+ggplot(data.frame(vals = c(EGRT5,EGRT5_logscale), scale = rep(c("parameters on real scale","parameters on log scale"),each=niter)),
+       aes(x=vals,fill=scale)) +
+         geom_histogram() +
+  facet_wrap(~scale, ncol = 1)
+```
+
+## Propagate uncertainty 
+
+```{r}
+# transform to EGRT20
+EGRT20 =  EGRT5*(20-Tmin)/(5-Tmin)^2 # equation 8
+#mean(EGRT20)# I get around 0.09
+#EGRT = 0.137 # the point estimate in the paper, he get a higher one. It looks like his distribution has higher values than ours. 
+
+
+# Output
+Ct = Cmax/(1+(Cmax/C0)-1)*exp(-EGRT20*t)
+log10Ct = log10(Ct)
+```
+
+# Summarise and visualise uncertainty
+
+```{r}
+#| eval: false
+hist(Ct) # a bit ugly graph
+```
+
+
+
+```{r}
+df_MC <- data.frame(log10Ct = log10Ct) 
+
+ggplot(df_MC, aes(x = log10Ct)) +
+  geom_histogram(binwidth = 0.25) +
+  geom_vline(xintercept=2,colour = "red")
+```
+
+
+The histogram is a bit edgy. I would go back and increase the number of iterations to make it more smooth. When doing so, I reflect on the value of writing up the MC-simulation as a function.  
+
+## Function for the MC 
+
+```{r}
+run_MC <- function(niter){
+# parameter uncertainty
+  
+log10C0 <- rbeta(niter, 0.194, 3.177)*(7--1.69)+-1.69 # log10 cpu/g
+C0 = 10^log10C0 #transform to original scale
+
+m = 0.0117 # from table 2
+s = 0.00816 # from table 2
+
+sigma2 = log10(1+(s/m)^2)
+sigma=sqrt(sigma2)
+mu=log10(m)-sigma2/2
+
+# draw sample from EGRT5
+EGRT5 <- 10^rnorm(niter,mu,sigma) 
+EGRT5_logscale <- 10^rnorm(niter,m,s) 
+
+# propagate 
+EGRT20 =  EGRT5*(20-Tmin)/(5-Tmin)^2 # equation 8
+
+Ct = Cmax/(1+(Cmax/C0)-1)*exp(-EGRT20*t)
+log10Ct = log10(Ct)
+return(data.frame(log10C0=log10C0,EGRT5=EGRT5,EGRT20=EGRT20,log10Ct=log10Ct))
+}
+```
+
+
+```{r}
+df_104 <- run_MC(10^4)
+ggplot(df_104, aes(x = log10Ct)) +
+  geom_histogram(binwidth = 0.25) +
+  geom_vline(xintercept=2,colour = "red") #+
+  #labs(title=paste("P(log10 Ct < 2)=",round(100*mean(df_104$log10C0<2),1),"%")) # a way to add the calculated probability in the graph
+```
+
+### Summary that one can provide
+
+```{r}
+quantile(log10(Ct),probs=c(0.05,0.95)) # 90% prob int
+mean(log10(Ct)) # mean considering uncertainty
+```
+### Useful summary for decision maker 
+
+```{r}
+mean(log10Ct<2)
+```
+# Answer to the question 
+
+I am `r round(mean(log10Ct<2)*100,1)`\% certain that your cheese is safe.

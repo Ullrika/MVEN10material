@@ -68,6 +68,7 @@ website:
       - section: "Expert judgement - Oct 2 and 5"
         contents: 
           - text: "Monte Carlo simulation Listeria"
+            file: ex/listeria.qmd
             target: "_blank"
           - text: "Expert judgement"
             file: ex/ex_expert_judgement.qmd
