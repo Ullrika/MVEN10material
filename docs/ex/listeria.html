@@ -385,14 +385,15 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#fixed-parameters" id="toc-fixed-parameters" class="nav-link" data-scroll-target="#fixed-parameters">Fixed parameters</a></li>
   <li><a href="#uncertainty-in-initial-concentration" id="toc-uncertainty-in-initial-concentration" class="nav-link" data-scroll-target="#uncertainty-in-initial-concentration">Uncertainty in initial concentration</a></li>
-  </ul></li>
   <li><a href="#uncertainty-in-growth-at-5-degrees" id="toc-uncertainty-in-growth-at-5-degrees" class="nav-link" data-scroll-target="#uncertainty-in-growth-at-5-degrees">Uncertainty in growth at 5 degrees</a></li>
+  </ul></li>
   <li><a href="#propagate-uncertainty" id="toc-propagate-uncertainty" class="nav-link" data-scroll-target="#propagate-uncertainty">Propagate uncertainty</a></li>
   <li><a href="#summarise-and-visualise-uncertainty" id="toc-summarise-and-visualise-uncertainty" class="nav-link" data-scroll-target="#summarise-and-visualise-uncertainty">Summarise and visualise uncertainty</a>
   <ul class="collapse">
-  <li><a href="#function-for-the-mc" id="toc-function-for-the-mc" class="nav-link" data-scroll-target="#function-for-the-mc">Function for the MC</a>
+  <li><a href="#how-to-truncate-advanced-section" id="toc-how-to-truncate-advanced-section" class="nav-link" data-scroll-target="#how-to-truncate-advanced-section">How to truncate (advanced section)</a></li>
+  <li><a href="#tuning-the-monte-carlo-simulation" id="toc-tuning-the-monte-carlo-simulation" class="nav-link" data-scroll-target="#tuning-the-monte-carlo-simulation">Tuning the Monte Carlo simulation</a>
   <ul class="collapse">
-  <li><a href="#summary-that-one-can-provide" id="toc-summary-that-one-can-provide" class="nav-link" data-scroll-target="#summary-that-one-can-provide">Summary that one can provide</a></li>
+  <li><a href="#standard-summary" id="toc-standard-summary" class="nav-link" data-scroll-target="#standard-summary">Standard summary</a></li>
   <li><a href="#useful-summary-for-decision-maker" id="toc-useful-summary-for-decision-maker" class="nav-link" data-scroll-target="#useful-summary-for-decision-maker">Useful summary for decision maker</a></li>
   </ul></li>
   </ul></li>
@@ -434,16 +435,16 @@ window.Quarto = {
 <section id="a-challenge-in-reproducing-an-assessment" class="level2">
 <h2 class="anchored" data-anchor-id="a-challenge-in-reproducing-an-assessment">A challenge in reproducing an assessment</h2>
 <p>It turns out that this is a good exercise is the challenges that can come from reproducing the work by someone else. It is also a way to learn the importance of documentation.</p>
+<p>As a benchmark, we know that when this Monte Carlo analysis was first performed it generated a log10 C(0) with a mean of -1.19 and standard deviation of 0.968, a EGR(T=20) with a sample mean of 0.137 and a C(2.5) with a mean of 0.09 log cfu/g.</p>
 </section>
 <section id="model" class="level2">
 <h2 class="anchored" data-anchor-id="model">Model</h2>
-<blockquote class="blockquote">
-<p>Ullrika have said - “Don’t trust anyone - anyone can be wrong”. It also applies to her.</p>
-</blockquote>
-<p>In this case the model equation in the study material has an error: <span class="math inline">\(EGRT(T\cdot t)\)</span> should be <span class="math inline">\(EGRT(T)\cdot t\)</span></p>
+<p>In this case the model equation in the study material has an error: <span class="math inline">\(EGR(T\cdot t)\)</span> should be <span class="math inline">\(EGR(T)\cdot t\)</span></p>
 <p>The model consists of two equations:</p>
-<p><span class="math display">\[C(t)=\frac{C_{max}}{1+(C_{max}/C(0)-1) \cdot \exp(-EGR(T)\cdot t)}\]</span> <span class="math display">\[EGR(T)=EGR(5)\left(\frac{T-T_{min}}{5-T_{min}}\right)^2\]</span> <strong>State variables:</strong> <span class="math inline">\(C(t)\)</span></p>
-<p><strong>Parameters:</strong> <span class="math inline">\(EGRT(5)\)</span> and <span class="math inline">\(C(0)\)</span> which are treated as uncertain. <span class="math inline">\(C_{max}\)</span> and <span class="math inline">\(T_{min}\)</span> which are set to be fixed.</p>
+<p>Equation 1</p>
+<p><span class="math display">\[C(t)=\frac{C_{max}}{1+(C_{max}/C(0)-1) \cdot \exp(-EGR(T)\cdot t)}\]</span> Equation 2</p>
+<p><span class="math display">\[EGR(T)=EGR(5)\left(\frac{T-T_{min}}{5-T_{min}}\right)^2\]</span> <strong>State variables:</strong> <span class="math inline">\(C(t)\)</span></p>
+<p><strong>Parameters:</strong> <span class="math inline">\(EGR(5)\)</span> and <span class="math inline">\(C(0)\)</span> which are treated as uncertain. <span class="math inline">\(C_{max}\)</span> and <span class="math inline">\(T_{min}\)</span> which are set to be fixed.</p>
 <p><strong>Other assessment values:</strong> <span class="math inline">\(t = 2.5\)</span></p>
 </section>
 <section id="set-up-and-run-monte-carlo-simulation" class="level2">
@@ -466,19 +467,25 @@ window.Quarto = {
 </section>
 <section id="uncertainty-in-initial-concentration" class="level3">
 <h3 class="anchored" data-anchor-id="uncertainty-in-initial-concentration">Uncertainty in initial concentration</h3>
-<p>Initial concentration on the log10 cpu/g scale is modelled by a generalised beta distribution in the interval with the lower (L) and upper (U) bounds -1.69 to 7. Parameter values taken from Table C.4 RTE category Cheese.</p>
+<p>Initial concentration on the log10 cpu/g scale is modelled by a generalised beta distribution in the interval with the lower (L) and upper (U) bounds -1.69 to 7. Parameter values for the generalised beta distribution are taken from Table C.4 RTE category Cheese.</p>
 <p><span class="math display">\[\frac{C(0)-L}{U-L}= \frac{C(0)-(-1.69)}{7-(-1.69)} \sim beta(0.194,3.177)\]</span></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>log10C0 <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(niter, <span class="fl">0.194</span>, <span class="fl">3.177</span>)<span class="sc">*</span>(<span class="dv">7</span><span class="sc">--</span><span class="fl">1.69</span>)<span class="sc">+-</span><span class="fl">1.69</span> <span class="co"># log10 cpu/g</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>C0 <span class="ot">=</span> <span class="dv">10</span><span class="sc">^</span>log10C0 <span class="co">#transform to original scale</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#log10C0 &lt;- rnorm(niter, -1.19, 0.968) # used in class, values comes from Maartens simulation</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#EGRT20 &lt;- rnorm(niter,0.137,0.0137) # used in class</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># check corresondance with first MC-simulation</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(log10C0)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.192162</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(log10C0)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.943017</code></pre>
+</div>
 </div>
 </section>
-</section>
-<section id="uncertainty-in-growth-at-5-degrees" class="level2">
-<h2 class="anchored" data-anchor-id="uncertainty-in-growth-at-5-degrees">Uncertainty in growth at 5 degrees</h2>
+<section id="uncertainty-in-growth-at-5-degrees" class="level3">
+<h3 class="anchored" data-anchor-id="uncertainty-in-growth-at-5-degrees">Uncertainty in growth at 5 degrees</h3>
 <div class="{note}">
 <p>The lognormal distribution</p>
 <p>To say that <span class="math inline">\(Y\)</span> is lognormal distributed implies that the log of <span class="math inline">\(Y\)</span> is normally distributed.</p>
@@ -494,22 +501,24 @@ window.Quarto = {
 <p><span class="math display">\[s = m \cdot \sqrt{e^{\sigma^2}-1}\]</span></p>
 </div>
 <p>When we compare the two distributions, we see that treating the numbers in table 2 as mean and standard deviation on the real scale generates a reasonable distribution.</p>
+<p>We also have the truncation to a maximum value at 0.0319. This is indeed challenging to work with. Let us first run without the upper truncation.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">=</span> <span class="fl">0.0117</span> <span class="co"># from table 2</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>s <span class="ot">=</span> <span class="fl">0.00816</span> <span class="co"># from table 2</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>sigma2 <span class="ot">=</span> <span class="fu">log10</span>(<span class="dv">1</span><span class="sc">+</span>(s<span class="sc">/</span>m)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>sigma<span class="ot">=</span><span class="fu">sqrt</span>(sigma2)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>mu<span class="ot">=</span><span class="fu">log10</span>(m)<span class="sc">-</span>sigma2<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># draw sample from EGRT5</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>EGRT5 <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="fu">rnorm</span>(niter,mu,sigma) </span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>EGRT5_logscale <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="fu">rnorm</span>(niter,m,s) </span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">vals =</span> <span class="fu">c</span>(EGRT5,EGRT5_logscale), <span class="at">scale =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"parameters on real scale"</span>,<span class="st">"parameters on log scale"</span>),<span class="at">each=</span>niter)),</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>vals,<span class="at">fill=</span>scale)) <span class="sc">+</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>scale, <span class="at">ncol =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">=</span> <span class="fl">0.0117</span> <span class="co"># from table 2</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>s <span class="ot">=</span> <span class="fl">0.00816</span> <span class="co"># from table 2</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>sigma2 <span class="ot">=</span> <span class="fu">log10</span>(<span class="dv">1</span><span class="sc">+</span>(s<span class="sc">/</span>m)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>sigma<span class="ot">=</span><span class="fu">sqrt</span>(sigma2)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>mu<span class="ot">=</span><span class="fu">log10</span>(m)<span class="sc">-</span>sigma2<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># draw sample from EGRT5</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>EGRT5 <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="fu">rnorm</span>(niter,mu,sigma) </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>EGRT5_logscale <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="fu">rnorm</span>(niter,m,s) </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># see the difference with real vs log scale </span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">vals =</span> <span class="fu">c</span>(EGRT5,EGRT5_logscale), <span class="at">scale =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"parameters on real scale"</span>,<span class="st">"parameters on log scale"</span>),<span class="at">each=</span>niter)),</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>vals,<span class="at">fill=</span>scale)) <span class="sc">+</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>scale, <span class="at">ncol =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -519,73 +528,61 @@ window.Quarto = {
 </div>
 </div>
 </section>
+</section>
 <section id="propagate-uncertainty" class="level2">
 <h2 class="anchored" data-anchor-id="propagate-uncertainty">Propagate uncertainty</h2>
+<p>Transform uncertainty in growth at 5 degrees to growth at 20 using the function in Equation 2.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># transform to EGRT20</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>EGRT20 <span class="ot">=</span>  EGRT5<span class="sc">*</span>(<span class="dv">20</span><span class="sc">-</span>Tmin)<span class="sc">/</span>(<span class="dv">5</span><span class="sc">-</span>Tmin)<span class="sc">^</span><span class="dv">2</span> <span class="co"># equation 8</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#mean(EGRT20)# I get around 0.09</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#EGRT = 0.137 # the point estimate in the paper, he get a higher one. It looks like his distribution has higher values than ours. </span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Output</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>Ct <span class="ot">=</span> Cmax<span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span>(Cmax<span class="sc">/</span>C0)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>EGRT20<span class="sc">*</span>t)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>log10Ct <span class="ot">=</span> <span class="fu">log10</span>(Ct)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>temperature <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">5</span>,<span class="dv">25</span>,<span class="at">by=</span><span class="fl">0.1</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">Temperature =</span> temperature, <span class="at">EGRT =</span> <span class="fu">mean</span>(EGRT5)<span class="sc">*</span>((temperature<span class="sc">-</span>Tmin)<span class="sc">/</span>(<span class="dv">5</span><span class="sc">-</span>Tmin))<span class="sc">^</span><span class="dv">2</span>),</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>Temperature, <span class="at">y =</span> EGRT)) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_line</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="listeria_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># transform to EGRT20</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>EGRT20 <span class="ot">=</span>  EGRT5<span class="sc">*</span>((<span class="dv">20</span><span class="sc">-</span>Tmin)<span class="sc">/</span>(<span class="dv">5</span><span class="sc">-</span>Tmin))<span class="sc">^</span><span class="dv">2</span> <span class="co"># equation 8</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">vals =</span> EGRT20),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>vals)) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_histogram</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="listeria_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check correspondence with first MC simulation</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(EGRT20)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1806413</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>Ct <span class="ot">=</span> Cmax<span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span>(Cmax<span class="sc">/</span>C0)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>EGRT20<span class="sc">*</span>t)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>log10Ct <span class="ot">=</span> <span class="fu">log10</span>(Ct)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="summarise-and-visualise-uncertainty" class="level1">
 <h1>Summarise and visualise uncertainty</h1>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(Ct) <span class="co"># a bit ugly graph</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(Ct) <span class="co"># a bit ugly graph</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_MC <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">log10Ct =</span> log10Ct) </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_MC, <span class="fu">aes</span>(<span class="at">x =</span> log10Ct)) <span class="sc">+</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">2</span>,<span class="at">colour =</span> <span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="listeria_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The histogram is a bit edgy. I would go back and increase the number of iterations to make it more smooth. When doing so, I reflect on the value of writing up the MC-simulation as a function.</p>
-<section id="function-for-the-mc" class="level2">
-<h2 class="anchored" data-anchor-id="function-for-the-mc">Function for the MC</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>run_MC <span class="ot">&lt;-</span> <span class="cf">function</span>(niter){</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># parameter uncertainty</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>log10C0 <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(niter, <span class="fl">0.194</span>, <span class="fl">3.177</span>)<span class="sc">*</span>(<span class="dv">7</span><span class="sc">--</span><span class="fl">1.69</span>)<span class="sc">+-</span><span class="fl">1.69</span> <span class="co"># log10 cpu/g</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>C0 <span class="ot">=</span> <span class="dv">10</span><span class="sc">^</span>log10C0 <span class="co">#transform to original scale</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>m <span class="ot">=</span> <span class="fl">0.0117</span> <span class="co"># from table 2</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>s <span class="ot">=</span> <span class="fl">0.00816</span> <span class="co"># from table 2</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>sigma2 <span class="ot">=</span> <span class="fu">log10</span>(<span class="dv">1</span><span class="sc">+</span>(s<span class="sc">/</span>m)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>sigma<span class="ot">=</span><span class="fu">sqrt</span>(sigma2)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>mu<span class="ot">=</span><span class="fu">log10</span>(m)<span class="sc">-</span>sigma2<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># draw sample from EGRT5</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>EGRT5 <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="fu">rnorm</span>(niter,mu,sigma) </span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>EGRT5_logscale <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="fu">rnorm</span>(niter,m,s) </span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co"># propagate </span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>EGRT20 <span class="ot">=</span>  EGRT5<span class="sc">*</span>(<span class="dv">20</span><span class="sc">-</span>Tmin)<span class="sc">/</span>(<span class="dv">5</span><span class="sc">-</span>Tmin)<span class="sc">^</span><span class="dv">2</span> <span class="co"># equation 8</span></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>Ct <span class="ot">=</span> Cmax<span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span>(Cmax<span class="sc">/</span>C0)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>EGRT20<span class="sc">*</span>t)</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>log10Ct <span class="ot">=</span> <span class="fu">log10</span>(Ct)</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(<span class="fu">data.frame</span>(<span class="at">log10C0=</span>log10C0,<span class="at">EGRT5=</span>EGRT5,<span class="at">EGRT20=</span>EGRT20,<span class="at">log10Ct=</span>log10Ct))</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_104 <span class="ot">&lt;-</span> <span class="fu">run_MC</span>(<span class="dv">10</span><span class="sc">^</span><span class="dv">4</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_104, <span class="fu">aes</span>(<span class="at">x =</span> log10Ct)) <span class="sc">+</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">2</span>,<span class="at">colour =</span> <span class="st">"red"</span>) <span class="co">#+</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_MC <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">log10Ct =</span> log10Ct) </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_MC, <span class="fu">aes</span>(<span class="at">x =</span> log10Ct)) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">2</span>,<span class="at">colour =</span> <span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -593,28 +590,219 @@ window.Quarto = {
 </figure>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">#labs(title=paste("P(log10 Ct &lt; 2)=",round(100*mean(df_104$log10C0&lt;2),1),"%")) # a way to add the calculated probability in the graph</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(log10Ct)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.388291</code></pre>
 </div>
-<section id="summary-that-one-can-provide" class="level3">
-<h3 class="anchored" data-anchor-id="summary-that-one-can-provide">Summary that one can provide</h3>
+</div>
+<p>The histogram is a bit edgy. I would go back and increase the number of iterations to make it more smooth. When doing so, we do not go back and change. Instead, we should write up the MC-simulation as a function.</p>
+<p>Before doing that, let us dwell on truncation</p>
+<section id="how-to-truncate-advanced-section" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-truncate-advanced-section">How to truncate (advanced section)</h2>
+<p>A simple, but unfortunately not correct way, to truncate is to assign values that are below or above a threshold the value at the threshold.</p>
+<p>For the growth this would imply that whenever the sampled value of <span class="math inline">\(EGR(5) &gt; 0.0319\)</span> it is set to be equal to 0.0319.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(<span class="fu">log10</span>(Ct),<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.05</span>,<span class="fl">0.95</span>)) <span class="co"># 90% prob int</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">=</span> <span class="fl">0.0117</span> <span class="co"># from table 2</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>s <span class="ot">=</span> <span class="fl">0.00816</span> <span class="co"># from table 2</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>sigma2 <span class="ot">=</span> <span class="fu">log10</span>(<span class="dv">1</span><span class="sc">+</span>(s<span class="sc">/</span>m)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>sigma<span class="ot">=</span><span class="fu">sqrt</span>(sigma2)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>mu<span class="ot">=</span><span class="fu">log10</span>(m)<span class="sc">-</span>sigma2<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>maxval <span class="ot">=</span> <span class="fl">0.0319</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co"># draw sample from EGRT5</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>EGRT5 <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="fu">rnorm</span>(niter,mu,sigma) </span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>EGRT5_trunc <span class="ot">&lt;-</span> EGRT5</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>EGRT5_trunc[EGRT5_trunc<span class="sc">&gt;</span>maxval] <span class="ot">=</span> maxval</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="co"># see the difference between original and truncated in the first way</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">vals =</span> <span class="fu">c</span>(EGRT5,EGRT5_trunc), <span class="at">dist =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"lognorm"</span>,<span class="st">"lognorm above threshold set to 0.0319"</span>),<span class="at">each=</span>niter)),</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>vals,<span class="at">fill=</span>dist)) <span class="sc">+</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="fl">0.005</span>) <span class="sc">+</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>dist, <span class="at">ncol =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="listeria_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The problem with this way to truncate is that it does not acknowledge that truncation shifts the probability distribution for the remaining distribution.</p>
+<p>Remember that the area under the probability density function (if continuous) or that the sum the probabilities for all outcomes (if discrete or categorical) must be one. When we truncate, this requirement should apply on the truncated distribution as well.</p>
+<p>To truncate in the correct way, we sample using the inverse method where we only sample from the range where the truncated distribution lies.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>pmax <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fu">log10</span>(maxval),mu,sigma)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>pp <span class="ot">&lt;-</span> <span class="fu">ppoints</span>(<span class="dv">200</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>prand <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">3</span>,<span class="dv">0</span>,pmax)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>df_arrow <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">pp=</span>prand,<span class="at">x=</span><span class="dv">10</span><span class="sc">^</span><span class="fu">qnorm</span>(prand,mu,sigma))</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">10</span><span class="sc">^</span><span class="fu">qnorm</span>(pp,mu,sigma), <span class="at">cdf =</span> pp),</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>cdf)) <span class="sc">+</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span>pmax, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span>maxval, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>,<span class="at">x=</span><span class="dv">0</span>,<span class="at">xend=</span><span class="dv">0</span>,<span class="at">y=</span><span class="dv">0</span>,<span class="at">yend=</span>pmax,<span class="at">col=</span><span class="st">"red"</span>,<span class="at">linewidth=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>,<span class="at">x=</span><span class="dv">0</span>,<span class="at">xend=</span><span class="dv">10</span><span class="sc">^</span><span class="fu">qnorm</span>(prand[<span class="dv">1</span>],mu,sigma),<span class="at">y=</span>prand[<span class="dv">1</span>],<span class="at">col=</span><span class="st">"red"</span>,<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.3</span>, <span class="st">"cm"</span>)))<span class="sc">+</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>   <span class="fu">annotate</span>(<span class="st">"segment"</span>,<span class="at">x=</span><span class="dv">0</span>,<span class="at">xend=</span><span class="dv">10</span><span class="sc">^</span><span class="fu">qnorm</span>(prand[<span class="dv">2</span>],mu,sigma),<span class="at">y=</span>prand[<span class="dv">2</span>],<span class="at">col=</span><span class="st">"red"</span>,<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.3</span>, <span class="st">"cm"</span>)))<span class="sc">+</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>   <span class="fu">annotate</span>(<span class="st">"segment"</span>,<span class="at">x=</span><span class="dv">0</span>,<span class="at">xend=</span><span class="dv">10</span><span class="sc">^</span><span class="fu">qnorm</span>(prand[<span class="dv">3</span>],mu,sigma),<span class="at">y=</span>prand[<span class="dv">3</span>],<span class="at">col=</span><span class="st">"red"</span>,<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.3</span>, <span class="st">"cm"</span>))) <span class="sc">+</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"EGR(5)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="listeria_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pmax <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fu">log10</span>(maxval),mu,sigma)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>pp <span class="ot">&lt;-</span> <span class="fu">runif</span>(niter,<span class="at">min=</span><span class="dv">0</span>,<span class="at">max=</span>pmax) </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>EGRT5_trunc2 <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="fu">qnorm</span>(pp,mu,sigma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># draw sample from EGRT5</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>df_egrt <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">vals =</span> <span class="fu">c</span>(EGRT5,EGRT5_trunc,EGRT5_trunc2), </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">dist =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"lognorm"</span>,<span class="st">"lognorm above threshold set to 0.0319"</span>,<span class="st">"lognorm truncated inverse method"</span>),<span class="at">each=</span>niter)) </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># see the differences between original and two ways to truncate where the inverse is correct</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_egrt,<span class="fu">aes</span>(<span class="at">x=</span>vals,<span class="at">fill=</span>dist)) <span class="sc">+</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="fl">0.005</span>) <span class="sc">+</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>dist, <span class="at">ncol =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="listeria_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Truncation matters as it changes the properties of the resulting distribution. For this particular case, truncating the distribution to be below 0.0319, result in a lower median and mean. Using the fix at threshold approach does not change the median, and does give the same mean as the distribution resulting from truncating by the inverse method.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df_egrt <span class="sc">%&gt;%</span> </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dist) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">median =</span> <span class="fu">median</span>(vals),</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="fu">mean</span>(vals),</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(vals)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  dist                                   median   mean      sd
+  &lt;chr&gt;                                   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+1 lognorm                               0.00995 0.0158 0.0190 
+2 lognorm above threshold set to 0.0319 0.00995 0.0131 0.00977
+3 lognorm truncated inverse method      0.00820 0.0106 0.00755</code></pre>
+</div>
+</div>
+<p>We should then implement the inverse approach when truncating. This is done below.</p>
+</section>
+<section id="tuning-the-monte-carlo-simulation" class="level2">
+<h2 class="anchored" data-anchor-id="tuning-the-monte-carlo-simulation">Tuning the Monte Carlo simulation</h2>
+<p>Below we specify the Monte Carlo simulation as a function where the number of iterations is our input argument. We are now to select a number of iterations that has good robustness in the derived quantity of interest.</p>
+<p>In this case, the quantity of interest is <span class="math inline">\(P(log10 C(2.5)&lt; 2)\)</span>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>run_MC <span class="ot">&lt;-</span> <span class="cf">function</span>(niter){</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># parameter uncertainty</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>log10C0 <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(niter, <span class="fl">0.194</span>, <span class="fl">3.177</span>)<span class="sc">*</span>(<span class="dv">7</span><span class="sc">--</span><span class="fl">1.69</span>)<span class="sc">+-</span><span class="fl">1.69</span> <span class="co"># log10 cpu/g</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>C0 <span class="ot">=</span> <span class="dv">10</span><span class="sc">^</span>log10C0 <span class="co">#transform to original scale</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>m <span class="ot">=</span> <span class="fl">0.0117</span> <span class="co"># from table 2</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>s <span class="ot">=</span> <span class="fl">0.00816</span> <span class="co"># from table 2</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>maxval <span class="ot">=</span> <span class="fl">0.0319</span> <span class="co">#from table 2</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>sigma2 <span class="ot">=</span> <span class="fu">log10</span>(<span class="dv">1</span><span class="sc">+</span>(s<span class="sc">/</span>m)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>sigma<span class="ot">=</span><span class="fu">sqrt</span>(sigma2)</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>mu<span class="ot">=</span><span class="fu">log10</span>(m)<span class="sc">-</span>sigma2<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="co"># draw sample from EGRT5</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>pmax <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="fu">log10</span>(maxval),mu,sigma)</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>pp <span class="ot">&lt;-</span> <span class="fu">runif</span>(niter,<span class="at">min=</span><span class="dv">0</span>,<span class="at">max=</span>pmax) </span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>EGRT5 <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="fu">qnorm</span>(pp,mu,sigma)</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a><span class="co"># propagate </span></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>EGRT20 <span class="ot">=</span>  EGRT5<span class="sc">*</span>((<span class="dv">20</span><span class="sc">-</span>Tmin)<span class="sc">/</span>(<span class="dv">5</span><span class="sc">-</span>Tmin))<span class="sc">^</span><span class="dv">2</span> <span class="co"># equation 8</span></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>Ct <span class="ot">=</span> Cmax<span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span>(Cmax<span class="sc">/</span>C0)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>EGRT20<span class="sc">*</span>t)</span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>log10Ct <span class="ot">=</span> <span class="fu">log10</span>(Ct)</span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(<span class="fu">data.frame</span>(<span class="at">log10C0=</span>log10C0,<span class="at">EGRT5=</span>EGRT5,<span class="at">EGRT20=</span>EGRT20,<span class="at">log10Ct=</span>log10Ct))</span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>derive_p2 <span class="ot">&lt;-</span> <span class="cf">function</span>(niter){</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">run_MC</span>(niter)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(out<span class="sc">$</span>log10Ct<span class="sc">&gt;</span><span class="dv">2</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>df_rob <span class="ot">&lt;-</span> <span class="fu">do.call</span>(<span class="st">'rbind'</span>,<span class="fu">lapply</span>(<span class="fu">c</span>(<span class="dv">1000</span>,<span class="dv">2000</span>,<span class="dv">5000</span>,<span class="dv">10000</span>,<span class="dv">20000</span>), <span class="cf">function</span>(j){</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  p2_reps <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">200</span>,<span class="fu">derive_p2</span>(j))</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">p2_mean =</span> <span class="fu">mean</span>(p2_reps), <span class="at">p2_sd =</span> <span class="fu">sd</span>(p2_reps), <span class="at">niter=</span>j)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>}))</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>df_rob</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    p2_mean       p2_sd niter
+1 0.0202800 0.004511471  1000
+2 0.0205025 0.003068521  2000
+3 0.0206150 0.002167363  5000
+4 0.0205550 0.001536057 10000
+5 0.0205425 0.001040424 20000</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_rob,<span class="fu">aes</span>(<span class="at">x=</span>niter,<span class="at">y=</span>p2_mean)) <span class="sc">+</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">x=</span>niter,<span class="at">ymin=</span>p2_mean<span class="sc">-</span>p2_sd,<span class="at">ymax=</span>p2_mean<span class="sc">+</span>p2_sd)) <span class="sc">+</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"prob less than 2"</span>) <span class="sc">+</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"robustness with respect to number of iterations"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="listeria_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df_MC <span class="ot">&lt;-</span> <span class="fu">run_MC</span>(<span class="dv">2</span><span class="sc">*</span><span class="dv">10</span><span class="sc">^</span><span class="dv">4</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_MC, <span class="fu">aes</span>(<span class="at">x =</span> log10Ct)) <span class="sc">+</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">2</span>,<span class="at">colour =</span> <span class="st">"red"</span>) <span class="co">#+</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="listeria_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">#labs(title=paste("P(log10 Ct &lt; 2)=",round(100*mean(df_104$log10C0&lt;2),1),"%")) # a way to add the calculated probability in the graph</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="standard-summary" class="level3">
+<h3 class="anchored" data-anchor-id="standard-summary">Standard summary</h3>
+<p>Mean and 90% probability interval</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df_MC<span class="sc">$</span>log10Ct) <span class="co"># mean considering uncertainty</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.321535</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(df_MC<span class="sc">$</span>log10Ct,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.05</span>,<span class="fl">0.95</span>)) <span class="co"># 90% prob int</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        5%        95% 
--1.7067906  0.9531708 </code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">log10</span>(Ct)) <span class="co"># mean considering uncertainty</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.200891</code></pre>
+-1.9668797  0.7967011 </code></pre>
 </div>
 </div>
 </section>
 <section id="useful-summary-for-decision-maker" class="level3">
 <h3 class="anchored" data-anchor-id="useful-summary-for-decision-maker">Useful summary for decision maker</h3>
+<p>The summary for the decision maker that is most useful is the quantity of interest.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(log10Ct<span class="sc">&lt;</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df_MC<span class="sc">$</span>log10Ct<span class="sc">&lt;</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.975</code></pre>
+<pre><code>[1] 0.97895</code></pre>
 </div>
 </div>
 </section>
@@ -622,7 +810,7 @@ window.Quarto = {
 </section>
 <section id="answer-to-the-question" class="level1">
 <h1>Answer to the question</h1>
-<p>I am 97.5% certain that your cheese is safe.</p>
+<p>I am 97.9% certain that your cheese is safe.</p>
 
 
 </section>

@@ -13,21 +13,24 @@ library(ggplot2)
 
 It turns out that this is a good exercise is the challenges that can come from reproducing the work by someone else. It is also a way to learn the importance of documentation. 
 
+As a benchmark, we know that when this Monte Carlo analysis was first performed it generated a log10 C(0) with a mean of -1.19 and standard deviation of 0.968, a EGR(T=20) with a sample mean of 0.137 and a C(2.5) with a mean of 0.09 log cfu/g.
 
 
 ## Model
 
->Ullrika have said - "Don't trust anyone - anyone can be wrong". It also applies to her. 
+In this case the model equation in the study material has an error: $EGR(T\cdot t)$ should be $EGR(T)\cdot t$
 
-In this case the model equation in the study material has an error: $EGRT(T\cdot t)$ should be $EGRT(T)\cdot t$
+The model consists of two equations:
 
-The model consists of two equations: 
+Equation 1
 
 $$C(t)=\frac{C_{max}}{1+(C_{max}/C(0)-1) \cdot \exp(-EGR(T)\cdot t)}$$
+Equation 2
+
 $$EGR(T)=EGR(5)\left(\frac{T-T_{min}}{5-T_{min}}\right)^2$$
 **State variables:** $C(t)$
 
-**Parameters:** $EGRT(5)$ and $C(0)$ which are treated as uncertain. $C_{max}$ and $T_{min}$ which are set to be fixed. 
+**Parameters:** $EGR(5)$ and $C(0)$ which are treated as uncertain. $C_{max}$ and $T_{min}$ which are set to be fixed. 
 
 **Other assessment values:** $t = 2.5$
 
@@ -57,7 +60,7 @@ Tmin = -1.18
 
 ### Uncertainty in initial concentration
 
-Initial concentration on the log10 cpu/g scale is modelled by a generalised beta distribution in the interval with the lower (L) and upper (U) bounds -1.69 to 7. Parameter values taken from Table C.4 RTE category Cheese. 
+Initial concentration on the log10 cpu/g scale is modelled by a generalised beta distribution in the interval with the lower (L) and upper (U) bounds -1.69 to 7. Parameter values for the generalised beta distribution are taken from Table C.4 RTE category Cheese. 
 
 $$\frac{C(0)-L}{U-L}= \frac{C(0)-(-1.69)}{7-(-1.69)} \sim beta(0.194,3.177)$$
 
@@ -65,12 +68,13 @@ $$\frac{C(0)-L}{U-L}= \frac{C(0)-(-1.69)}{7-(-1.69)} \sim beta(0.194,3.177)$$
 log10C0 <- rbeta(niter, 0.194, 3.177)*(7--1.69)+-1.69 # log10 cpu/g
 C0 = 10^log10C0 #transform to original scale
 
-#log10C0 <- rnorm(niter, -1.19, 0.968) # used in class, values comes from Maartens simulation
-#EGRT20 <- rnorm(niter,0.137,0.0137) # used in class
+# check corresondance with first MC-simulation
+mean(log10C0)
+sd(log10C0)
 ```
 
 
-## Uncertainty in growth at 5 degrees
+### Uncertainty in growth at 5 degrees
 
 ::: {note}
 The lognormal distribution
@@ -102,6 +106,8 @@ $$s = m \cdot \sqrt{e^{\sigma^2}-1}$$
 
 When we compare the two distributions, we see that treating the numbers in table 2 as mean and standard deviation on the real scale generates a reasonable distribution.   
 
+We also have the truncation to a maximum value at 0.0319. This is indeed challenging to work with. Let us first run without the upper truncation. 
+
 ```{r}
 #| warning: false
 
@@ -116,6 +122,7 @@ mu=log10(m)-sigma2/2
 EGRT5 <- 10^rnorm(niter,mu,sigma) 
 EGRT5_logscale <- 10^rnorm(niter,m,s) 
 
+# see the difference with real vs log scale 
 ggplot(data.frame(vals = c(EGRT5,EGRT5_logscale), scale = rep(c("parameters on real scale","parameters on log scale"),each=niter)),
        aes(x=vals,fill=scale)) +
          geom_histogram() +
@@ -124,13 +131,31 @@ ggplot(data.frame(vals = c(EGRT5,EGRT5_logscale), scale = rep(c("parameters on r
 
 ## Propagate uncertainty 
 
+Transform uncertainty in growth at 5 degrees to growth at 20 using the function in Equation 2. 
+
+```{r}
+temperature = seq(5,25,by=0.1)
+ggplot(data.frame(Temperature = temperature, EGRT = mean(EGRT5)*((temperature-Tmin)/(5-Tmin))^2),
+       aes(x=Temperature, y = EGRT)) +
+         geom_line() 
+
+```
+
+
 ```{r}
 # transform to EGRT20
-EGRT20 =  EGRT5*(20-Tmin)/(5-Tmin)^2 # equation 8
-#mean(EGRT20)# I get around 0.09
-#EGRT = 0.137 # the point estimate in the paper, he get a higher one. It looks like his distribution has higher values than ours. 
+EGRT20 =  EGRT5*((20-Tmin)/(5-Tmin))^2 # equation 8
+ 
+
+ggplot(data.frame(vals = EGRT20),
+       aes(x=vals)) +
+         geom_histogram() 
+# check correspondence with first MC simulation
+mean(EGRT20)
+```
 
 
+```{r}
 # Output
 Ct = Cmax/(1+(Cmax/C0)-1)*exp(-EGRT20*t)
 log10Ct = log10(Ct)
@@ -151,12 +176,112 @@ df_MC <- data.frame(log10Ct = log10Ct)
 ggplot(df_MC, aes(x = log10Ct)) +
   geom_histogram(binwidth = 0.25) +
   geom_vline(xintercept=2,colour = "red")
+
+mean(log10Ct)
 ```
 
 
-The histogram is a bit edgy. I would go back and increase the number of iterations to make it more smooth. When doing so, I reflect on the value of writing up the MC-simulation as a function.  
+The histogram is a bit edgy. I would go back and increase the number of iterations to make it more smooth. When doing so, we do not go back and change. Instead, we should write up the MC-simulation as a function. 
 
-## Function for the MC 
+
+Before doing that, let us dwell on truncation 
+
+## How to truncate (advanced section)
+
+A simple, but unfortunately not correct way, to truncate is to assign values that are below or above a threshold the value at the threshold.   
+
+For the growth this would imply that whenever the sampled value of $EGR(5) > 0.0319$ it is set to be equal to 0.0319.
+
+```{r}
+#| warning: false
+
+m = 0.0117 # from table 2
+s = 0.00816 # from table 2
+
+sigma2 = log10(1+(s/m)^2)
+sigma=sqrt(sigma2)
+mu=log10(m)-sigma2/2
+
+maxval = 0.0319
+
+# draw sample from EGRT5
+EGRT5 <- 10^rnorm(niter,mu,sigma) 
+EGRT5_trunc <- EGRT5
+EGRT5_trunc[EGRT5_trunc>maxval] = maxval
+
+# see the difference between original and truncated in the first way
+ggplot(data.frame(vals = c(EGRT5,EGRT5_trunc), dist = rep(c("lognorm","lognorm above threshold set to 0.0319"),each=niter)),
+       aes(x=vals,fill=dist)) +
+         geom_histogram(binwidth=0.005) +
+  facet_wrap(~dist, ncol = 1)
+```
+
+
+The problem with this way to truncate is that it does not acknowledge that truncation shifts the probability distribution for the remaining distribution. 
+
+Remember that the area under the probability density function (if continuous) or that the sum the probabilities for all outcomes (if discrete or categorical) must be one. When we truncate, this requirement should apply on the truncated distribution as well. 
+
+To truncate in the correct way, we sample using the inverse method where we only sample from the range where the truncated distribution lies.
+
+```{r}
+pmax <- pnorm(log10(maxval),mu,sigma)
+
+pp <- ppoints(200)
+prand <- runif(3,0,pmax)
+df_arrow <- data.frame(pp=prand,x=10^qnorm(prand,mu,sigma))
+ggplot(data.frame(x = 10^qnorm(pp,mu,sigma), cdf = pp),
+       aes(x=x,y=cdf)) +
+  geom_line() +
+  geom_hline(yintercept=pmax, col = "blue", linetype = "dashed") +
+  geom_vline(xintercept=maxval, col = "blue", linetype = "dashed") +
+  annotate("segment",x=0,xend=0,y=0,yend=pmax,col="red",linewidth=2) +
+  annotate("segment",x=0,xend=10^qnorm(prand[1],mu,sigma),y=prand[1],col="red",arrow = arrow(length = unit(0.3, "cm")))+
+   annotate("segment",x=0,xend=10^qnorm(prand[2],mu,sigma),y=prand[2],col="red",arrow = arrow(length = unit(0.3, "cm")))+
+   annotate("segment",x=0,xend=10^qnorm(prand[3],mu,sigma),y=prand[3],col="red",arrow = arrow(length = unit(0.3, "cm"))) +
+  xlab("EGR(5)")
+
+```
+
+
+```{r}
+pmax <- pnorm(log10(maxval),mu,sigma)
+pp <- runif(niter,min=0,max=pmax) 
+EGRT5_trunc2 <- 10^qnorm(pp,mu,sigma)
+```
+
+
+```{r}
+# draw sample from EGRT5
+df_egrt <- data.frame(vals = c(EGRT5,EGRT5_trunc,EGRT5_trunc2), 
+                      dist = rep(c("lognorm","lognorm above threshold set to 0.0319","lognorm truncated inverse method"),each=niter)) 
+
+# see the differences between original and two ways to truncate where the inverse is correct
+ggplot(df_egrt,aes(x=vals,fill=dist)) +
+         geom_histogram(binwidth=0.005) +
+  facet_wrap(~dist, ncol = 1)
+```
+
+Truncation matters as it changes the properties of the resulting distribution. For this particular case, truncating the distribution to be below 0.0319, result in a lower median and mean. Using the fix at threshold approach does not change the median, and does give the same mean as the distribution resulting from truncating by the inverse method. 
+
+```{r}
+library(dplyr)
+df_egrt %>% 
+  group_by(dist) %>% 
+  summarise(
+    median = median(vals),
+    mean = mean(vals),
+    sd = sd(vals)
+  )
+```
+
+We should then implement the inverse approach when truncating. This is done below. 
+
+## Tuning the Monte Carlo simulation 
+
+Below we specify the Monte Carlo simulation as a function where the number of iterations is our input argument. We are now to select a number of iterations that has good robustness in the derived quantity of interest. 
+
+In this case, the quantity of interest is $P(log10 C(2.5)< 2)$. 
+
 
 ```{r}
 run_MC <- function(niter){
@@ -167,17 +292,20 @@ C0 = 10^log10C0 #transform to original scale
 
 m = 0.0117 # from table 2
 s = 0.00816 # from table 2
+maxval = 0.0319 #from table 2
 
 sigma2 = log10(1+(s/m)^2)
 sigma=sqrt(sigma2)
 mu=log10(m)-sigma2/2
 
 # draw sample from EGRT5
-EGRT5 <- 10^rnorm(niter,mu,sigma) 
-EGRT5_logscale <- 10^rnorm(niter,m,s) 
+pmax <- pnorm(log10(maxval),mu,sigma)
+pp <- runif(niter,min=0,max=pmax) 
+EGRT5 <- 10^qnorm(pp,mu,sigma)
+
 
 # propagate 
-EGRT20 =  EGRT5*(20-Tmin)/(5-Tmin)^2 # equation 8
+EGRT20 =  EGRT5*((20-Tmin)/(5-Tmin))^2 # equation 8
 
 Ct = Cmax/(1+(Cmax/C0)-1)*exp(-EGRT20*t)
 log10Ct = log10(Ct)
@@ -186,25 +314,58 @@ return(data.frame(log10C0=log10C0,EGRT5=EGRT5,EGRT20=EGRT20,log10Ct=log10Ct))
 ```
 
 
+
+
 ```{r}
-df_104 <- run_MC(10^4)
-ggplot(df_104, aes(x = log10Ct)) +
+derive_p2 <- function(niter){
+  out <- run_MC(niter)
+  mean(out$log10Ct>2)
+  }
+
+df_rob <- do.call('rbind',lapply(c(1000,2000,5000,10000,20000), function(j){
+  p2_reps <- replicate(200,derive_p2(j))
+  data.frame(p2_mean = mean(p2_reps), p2_sd = sd(p2_reps), niter=j)
+}))
+
+df_rob
+```
+
+```{r}
+ggplot(df_rob,aes(x=niter,y=p2_mean)) +
+  geom_point() +
+  geom_errorbar(aes(x=niter,ymin=p2_mean-p2_sd,ymax=p2_mean+p2_sd)) +
+  ylab("prob less than 2") +
+  labs(title="robustness with respect to number of iterations")
+```
+
+
+
+
+```{r}
+df_MC <- run_MC(2*10^4)
+ggplot(df_MC, aes(x = log10Ct)) +
   geom_histogram(binwidth = 0.25) +
   geom_vline(xintercept=2,colour = "red") #+
   #labs(title=paste("P(log10 Ct < 2)=",round(100*mean(df_104$log10C0<2),1),"%")) # a way to add the calculated probability in the graph
 ```
 
-### Summary that one can provide
+### Standard summary 
+
+Mean and 90% probability interval 
 
 ```{r}
-quantile(log10(Ct),probs=c(0.05,0.95)) # 90% prob int
-mean(log10(Ct)) # mean considering uncertainty
+mean(df_MC$log10Ct) # mean considering uncertainty
+quantile(df_MC$log10Ct,probs=c(0.05,0.95)) # 90% prob int
 ```
 ### Useful summary for decision maker 
 
+The summary for the decision maker that is most useful is the quantity of interest. 
+
 ```{r}
-mean(log10Ct<2)
+mean(df_MC$log10Ct<2)
 ```
 # Answer to the question 
 
-I am `r round(mean(log10Ct<2)*100,1)`\% certain that your cheese is safe.
+I am `r round(mean(df_MC$log10Ct<2)*100,1)`\% certain that your cheese is safe.
+
+
