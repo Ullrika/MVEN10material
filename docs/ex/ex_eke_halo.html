@@ -7,9 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ullrika">
-<meta name="dcterms.date" content="2026-10-05">
 
-<title>Population Viability Analysis – MVEN10</title>
+<title>Expert Knowledge Elicitation on HALE – MVEN10</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -73,35 +72,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -115,7 +85,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ex/PVA_stud.html">Model uncertainty - Sept 30</a></li><li class="breadcrumb-item"><a href="../ex/PVA_stud.html">Population Viabiltiy Analysis</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ex/listeria.html">Expert judgement - Oct 2 and 5</a></li><li class="breadcrumb-item"><a href="../ex/ex_eke_halo.html">EKE with behavioural aggregation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -300,7 +270,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ex/PVA_stud.html" class="sidebar-item-text sidebar-link active" target="_blank">
+  <a href="../ex/PVA_stud.html" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">Population Viabiltiy Analysis</span></a>
   </div>
 </li>
@@ -335,7 +305,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../ex/ex_eke_halo.html" class="sidebar-item-text sidebar-link" target="_blank">
+  <a href="../ex/ex_eke_halo.html" class="sidebar-item-text sidebar-link active" target="_blank">
  <span class="menu-text">EKE with behavioural aggregation</span></a>
   </div>
 </li>
@@ -351,25 +321,21 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#model-specification" id="toc-model-specification" class="nav-link active" data-scroll-target="#model-specification">Model specification</a></li>
-  <li><a href="#pva-with-fixed-parameter-values" id="toc-pva-with-fixed-parameter-values" class="nav-link" data-scroll-target="#pva-with-fixed-parameter-values">PVA with fixed parameter values</a></li>
-  <li><a href="#evaluate-robustness-in-the-pva" id="toc-evaluate-robustness-in-the-pva" class="nav-link" data-scroll-target="#evaluate-robustness-in-the-pva">Evaluate robustness in the PVA</a></li>
-  <li><a href="#robustness-check" id="toc-robustness-check" class="nav-link" data-scroll-target="#robustness-check">Robustness check</a></li>
-  <li><a href="#consider-uncertainty-in-parameters" id="toc-consider-uncertainty-in-parameters" class="nav-link" data-scroll-target="#consider-uncertainty-in-parameters">Consider uncertainty in parameters</a></li>
-  <li><a href="#sensitivity-analysis" id="toc-sensitivity-analysis" class="nav-link" data-scroll-target="#sensitivity-analysis">Sensitivity analysis</a></li>
-  <li><a href="#decision-analysis" id="toc-decision-analysis" class="nav-link" data-scroll-target="#decision-analysis">Decision analysis</a>
-  <ul class="collapse">
-  <li><a href="#summarise-uncertainty-for-different-catch-values" id="toc-summarise-uncertainty-for-different-catch-values" class="nav-link" data-scroll-target="#summarise-uncertainty-for-different-catch-values">Summarise uncertainty for different catch values</a></li>
-  </ul></li>
+  <li><a href="#task-1." id="toc-task-1." class="nav-link active" data-scroll-target="#task-1.">Task 1.</a></li>
+  <li><a href="#expert-elicitation-on-hale" id="toc-expert-elicitation-on-hale" class="nav-link" data-scroll-target="#expert-elicitation-on-hale">Expert Elicitation on HALE</a></li>
+  <li><a href="#motivation-for-hale-as-indicator" id="toc-motivation-for-hale-as-indicator" class="nav-link" data-scroll-target="#motivation-for-hale-as-indicator">Motivation for HALE as indicator</a></li>
+  <li><a href="#eke-session-hale---individual-judgements" id="toc-eke-session-hale---individual-judgements" class="nav-link" data-scroll-target="#eke-session-hale---individual-judgements">EKE session HALE - individual judgements</a></li>
+  <li><a href="#eke-session-hale---facilitated-discussion" id="toc-eke-session-hale---facilitated-discussion" class="nav-link" data-scroll-target="#eke-session-hale---facilitated-discussion">EKE session HALE - facilitated discussion</a></li>
+  <li><a href="#eke-session-hale---consensus-judgement" id="toc-eke-session-hale---consensus-judgement" class="nav-link" data-scroll-target="#eke-session-hale---consensus-judgement">EKE session HALE - consensus judgement</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ex/PVA_stud.html">Model uncertainty - Sept 30</a></li><li class="breadcrumb-item"><a href="../ex/PVA_stud.html">Population Viabiltiy Analysis</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ex/listeria.html">Expert judgement - Oct 2 and 5</a></li><li class="breadcrumb-item"><a href="../ex/ex_eke_halo.html">EKE with behavioural aggregation</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Population Viability Analysis</h1>
+<h1 class="title">Expert Knowledge Elicitation on HALE</h1>
 <p class="subtitle lead">MVEN10</p>
 </div>
 
@@ -384,12 +350,6 @@ window.Quarto = {
           </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">October 5, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -399,189 +359,68 @@ window.Quarto = {
 </header>
 
 
-<section id="model-specification" class="level2">
-<h2 class="anchored" data-anchor-id="model-specification">Model specification</h2>
-<p><span class="math display">\[B_t = B_{t-1} e^{(\pi -\delta B_{t-1}+S_t)} - C_t\]</span></p>
-<p><span class="math display">\[S_t \sim N(0,\sigma)\]</span></p>
-<ol class="example" type="1">
-<li>Identify state variables, assessment variables and model parameters.</li>
-</ol>
+<section id="task-1." class="level2">
+<h2 class="anchored" data-anchor-id="task-1.">Task 1.</h2>
+<p>You are an assessor invited to support structured expert judgement using expert knowledge elicitation.</p>
 </section>
-<section id="pva-with-fixed-parameter-values" class="level2">
-<h2 class="anchored" data-anchor-id="pva-with-fixed-parameter-values">PVA with fixed parameter values</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="PVA_stud_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<section id="expert-elicitation-on-hale" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="expert-elicitation-on-hale">Expert Elicitation on HALE</h2>
+<p>A group of experts have been invited to contribute with their knowledge on the European value of the indicator <strong>Healthy life expectancy (HALE) at birth</strong></p>
+<p>HALE is defined as follows: <strong>The average number of years that a person can expect to live in “full health” by taking into account years lived in less than full health due to disease and/or injury.</strong></p>
+<p>They have been asked to express their uncertainty about the value of the EU average of HALE in 2030?</p>
 </section>
-<section id="evaluate-robustness-in-the-pva" class="level2">
-<h2 class="anchored" data-anchor-id="evaluate-robustness-in-the-pva">Evaluate robustness in the PVA</h2>
-<ol start="2" class="example" type="1">
-<li>Find the number of iterations where the estimate of the quasi-extinction risk has a reasonable standard deviation.</li>
-</ol>
+<section id="motivation-for-hale-as-indicator" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="motivation-for-hale-as-indicator">Motivation for HALE as indicator</h2>
+<p>Substantial resources are devoted to reducing the incidence, duration and severity of major diseases that cause morbidity but not mortality and to reducing their impact on people’s lives.</p>
+<p>It is important to capture both fatal and non-fatal health outcomes in a summary measure of average levels of population health.</p>
+<p>Healthy life expectancy (HALE) at birth adds up expectation of life for different health states, adjusted for severity distribution making it sensitive to changes over time or differences between countries in the severity distribution of health states.</p>
+<!-- ## Method to calculate HALE{.smaller} -->
+<!-- Eurostat calculates information relating to healthy life years for 3 ages: at birth, at age 50 years and at age 65 years. This information is calculated using mortality statistics and data on self-perceived long-standing activity limitations. Mortality data come from Eurostat's demographic database, while self-perceived long-standing activity limitations data come from a European health module that is integrated within the data collection for EU statistics on income and living conditions (EU-SILC). -->
+<!-- The general coverage of EU-SILC is all private households and their members (who are residents at the time of data collection); it therefore excludes people living in collective households. -->
+<!-- ## Method to calculate HALE{.smaller} -->
+<!-- The relevant EU-SILC questions concerning long-standing activity limitation are: -->
+<!-- - Are you limited because of a health problem in activities people usually do? Would you say you are ... severely limited, limited but not severely or not limited at all? -->
+<!-- If the answer is 'severely limited' or 'limited but not severely' ask: -->
+<!-- - Have you been limited for at least the past 6 months? Yes, No. -->
+<!-- ## Limitations of data behind HALE{.smaller} -->
+<!-- - The indicator is derived from self-reported data. As such, it is affected – to a certain extent – by respondents' subjective perceptions, as well as by their social and cultural background. -->
+<!-- - EU-SILC doesn't cover the institutionalised population, for example, people living in health and social care institutions who are more likely to face activity limitations than people living in private households. It is therefore likely that, to some degree, this data source under-estimates the share of people facing such limitations.  -->
+<!-- - The implementation of EU-SILC is organised nationally, which may impact on the results presented, for example, due to differences in the formulation of questions or changing the related questions in a specific year. -->
+<!-- ## Information shared with experts -->
+<!-- <!-- https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20240503-2 -->
+<p>–&gt;</p>
+<!-- ![](img/lifeexp.png) -->
+<!-- <!-- https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Healthy_life_years_statistics#Healthy_life_years_at_age_65_years -->
+<p>–&gt;</p>
+<!-- ## Information shared with experts -->
+<!-- ![](img/healthy-life-years-2023.jpg) -->
+<!-- https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20250808-1 -->
 </section>
-<section id="robustness-check" class="level2">
-<h2 class="anchored" data-anchor-id="robustness-check">Robustness check</h2>
-<ol start="3" class="example" type="1">
-<li>Make a plot showing the standard deviation for different number of iterations</li>
-</ol>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="PVA_stud_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<ol start="4" class="example" type="1">
-<li>Make a plot showing the estimated quasi-extinction risk with error bars for different number of iterations. Add “quasi-extinction risk” as y-label. Add “number of iterations for variability” as x-label.</li>
-</ol>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="PVA_stud_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<section id="eke-session-hale---individual-judgements" class="level2">
+<h2 class="anchored" data-anchor-id="eke-session-hale---individual-judgements">EKE session HALE - individual judgements</h2>
+<ul>
+<li>Individual judgements were collected using the quartile method</li>
+</ul>
+<p>Each expert has provided their quantiles U,L,M,Q1 and Q3 together with reasoning</p>
+<!-- ![https://survey.mailing.lu.se/Survey/64438](img/qr_code.png) -->
 </section>
-<section id="consider-uncertainty-in-parameters" class="level2">
-<h2 class="anchored" data-anchor-id="consider-uncertainty-in-parameters">Consider uncertainty in parameters</h2>
-<p>So far we used point estimates of the parameters. Now we will include uncertainty in parameters. Since we have both uncertainty and variability, this will be a 2D Monte Carlo simulation.</p>
-<p>Here I have copied and pasted in the function for the assessment, I use the selected number of iterations for variability from above (niter_ale) and have given it a different name (calc_risk_2D). The input argument is now iter_epi.</p>
-<ol start="5" class="example" type="1">
-<li>Add uncertainty in the parameters into the Monte Carlo simulation of the PVA. Replace parameter values by the iter_epi’th draw in df_par.</li>
-</ol>
-<ol start="6" class="example" type="1">
-<li>Run the PVA simulation for all niter_epi draws from parameter uncertainty and save to an object</li>
-</ol>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>  [1] 0.624 0.264 0.290 0.022 0.822 0.046 0.192 0.310 0.176 0.020 0.094 0.216
- [13] 0.000 0.002 0.144 0.208 0.226 0.024 0.536 0.490 0.320 0.074 0.230 0.408
- [25] 0.134 0.400 0.178 0.008 0.152 0.000 0.000 0.000 0.202 0.046 0.376 0.026
- [37] 0.000 0.008 0.030 0.356 0.150 0.344 0.074 0.224 0.000 0.002 0.512 0.008
- [49] 0.478 0.002 0.232 0.522 0.346 0.246 0.300 0.024 0.000 0.002 0.000 0.000
- [61] 0.054 0.170 0.432 0.854 0.020 0.090 0.398 0.506 0.146 0.666 0.000 0.756
- [73] 0.468 0.430 0.204 0.112 0.108 0.206 0.030 0.582 0.694 0.236 0.266 0.000
- [85] 0.002 0.324 0.400 0.490 0.440 0.000 0.184 0.328 0.008 0.402 0.150 0.462
- [97] 0.002 0.000 0.002 0.114 0.030 0.248 0.276 0.000 0.022 0.074 0.226 0.148
-[109] 0.068 0.410 0.000 0.184 0.318 0.246 0.002 0.022 0.432 0.000 0.338 0.156
-[121] 0.046 0.000 0.050 0.940 0.246 0.582 0.000 0.430 0.042 0.424 0.270 0.398
-[133] 0.022 0.428 0.000 0.004 0.060 0.000 0.142 0.004 0.390 0.000 0.000 0.590
-[145] 0.364 0.056 0.166 0.000 0.234 0.582 0.000 0.570 0.366 0.450 0.504 0.704
-[157] 0.020 0.000 0.000 0.004 0.232 0.420 0.000 0.000 0.022 0.000 0.000 0.068
-[169] 0.000 0.000 0.050 0.002 0.436 0.196 0.002 0.506 0.000 0.498 0.000 0.554
-[181] 0.290 0.006 0.000 0.088 0.078 0.080 0.000 0.060 0.112 0.000 0.228 0.014
-[193] 0.058 0.626 0.066 0.010 0.578 0.274 0.016 0.000</code></pre>
-</div>
-</div>
-<ol start="7" class="example" type="1">
-<li>Visualise uncertainty in the risk estimate using a histogram</li>
-</ol>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="PVA_stud_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<ol start="8" class="example" type="1">
-<li>Visualise uncertainty in the risk estimate using a boxplot. Add “Uncertainty in quasi-extinction risk” as a title. Add “Quasi extinction risk” as y-label. Make y axis go from 0 to 1. Flip axis.</li>
-</ol>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="PVA_stud_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<ol start="9" class="example" type="1">
-<li>Summarise uncertainty in the quasi-extinction risk by a 90% probability interval and a mean value.</li>
-</ol>
-<ol start="10" class="example" type="1">
-<li>Add the results into the following text.</li>
-</ol>
-<p>The quasi-extinction risk for a catch of 23 is assessed to be 0.19857 with an 90% uncertainty interval (0 , 0.5824).</p>
+<section id="eke-session-hale---facilitated-discussion" class="level2">
+<h2 class="anchored" data-anchor-id="eke-session-hale---facilitated-discussion">EKE session HALE - facilitated discussion</h2>
+<p>Judgements collected during the exercise are in the Sheffield Role Play document</p>
+<p>First the elicitor fit using the SHELF app for multiple experts. Try out yourself!</p>
+<p>Then the elicitor moderate a discussion among the experts. Here you are to play the expert A-D. Ullrika is the elicitor and will be facilitating the discussion. Follow the script!</p>
 </section>
-<section id="sensitivity-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="sensitivity-analysis">Sensitivity analysis</h2>
-<p>One way to identify which parameters that has the strongest contribution to uncertainty in the output is to perform a sensitivity analysis. I recommend to perform sensitivity analysis by visualisatio and a quantitative measure.</p>
-<ol start="11" class="example" type="1">
-<li>Visualise the influence of parameter on calculated risk using scatter plots</li>
-</ol>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="PVA_stud_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<ol start="12" class="example" type="1">
-<li>Calculate the spearman rang correlation</li>
-</ol>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>                pi       delta        sigma       risk
-pi     1.000000000  0.08603915 -0.006441161 -0.5872764
-delta  0.086039151  1.00000000 -0.065439136  0.1396520
-sigma -0.006441161 -0.06543914  1.000000000  0.7057753
-risk  -0.587276381  0.13965198  0.705775310  1.0000000</code></pre>
-</div>
-</div>
-<ol start="13" class="example" type="1">
-<li><p>Why is the influence from growth negative?</p></li>
-<li><p>Which parameter has the strongest influence on the calculated risk?</p></li>
-</ol>
-<p>Which parameter that has the strongest influence depends on the role it has in a model and how much uncertainty it has compared to the other parameters.</p>
-</section>
-<section id="decision-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="decision-analysis">Decision analysis</h2>
-<p>Decision makers wants to find the fishing pressure for which the experts are at least 80% certain that the quasi-extinction risk is below 10.</p>
-<p>We search for the highest fishing pressure where this applies, but testing different values on C and summarising uncertainty by its 80% quantile.</p>
-<p>Visualise the simulated values.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="PVA_stud_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<section id="summarise-uncertainty-for-different-catch-values" class="level3">
-<h3 class="anchored" data-anchor-id="summarise-uncertainty-for-different-catch-values">Summarise uncertainty for different catch values</h3>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 8 × 4
-  C     av_risk sd_risk    q80
-  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
-1 10    0.00946  0.0400 0.004 
-2 12    0.0181   0.0569 0.016 
-3 14    0.0310   0.0768 0.0404
-4 15    0.0387   0.0876 0.0564
-5 16    0.0498   0.0977 0.0784
-6 17    0.0625   0.112  0.114 
-7 18    0.0776   0.127  0.135 
-8 20    0.117    0.160  0.233 </code></pre>
-</div>
-</div>
+<section id="eke-session-hale---consensus-judgement" class="level2">
+<h2 class="anchored" data-anchor-id="eke-session-hale---consensus-judgement">EKE session HALE - consensus judgement</h2>
+<ul>
+<li>We use the probability method to elicit judgements by the RIO</li>
+</ul>
+<p>P(QoI&lt;X1) for a value of X1 given by the facilitator</p>
+<p>P(QoI&gt;X2) for a value of X2 given by the facilitator</p>
+<p>P(QoI&lt;X0) for a value of X0 given by the facilitator</p>
+<p>Fit using SHELF app for single expert</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

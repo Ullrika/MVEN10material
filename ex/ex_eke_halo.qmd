@@ -1,0 +1,99 @@
+---
+title: "Expert Knowledge Elicitation on HALE"
+subtitle: "MVEN10"
+author: "Ullrika"
+#format: pdf
+#format: revealjs
+format: html
+#embed-resources: true
+editor: source
+---
+
+
+## Task 1. 
+
+You are an assessor invited to support structured expert judgement using expert knowledge elicitation.  
+
+## Expert Elicitation on HALE{.smaller}
+
+A group of experts have been invited to contribute with their knowledge on the European value of the indicator **Healthy life expectancy (HALE) at birth**
+
+HALE is defined as follows: **The average number of years that a person can expect to live in "full health" by taking into account years lived in less than full health due to disease and/or injury.**
+
+They have been asked to express their uncertainty about the value of the EU average of HALE in 2030? 
+
+## Motivation for HALE as indicator{.smaller}
+
+Substantial resources are devoted to reducing the incidence, duration and severity of major diseases that cause morbidity but not mortality and to reducing their impact on people’s lives. 
+
+It is important to capture both fatal and non-fatal health outcomes in a summary measure of average levels of population health. 
+
+Healthy life expectancy (HALE) at birth adds up expectation of life for different health states, adjusted for severity distribution making it sensitive to changes over time or differences between countries in the severity distribution of health states.
+
+<!-- ## Method to calculate HALE{.smaller} -->
+
+<!-- Eurostat calculates information relating to healthy life years for 3 ages: at birth, at age 50 years and at age 65 years. This information is calculated using mortality statistics and data on self-perceived long-standing activity limitations. Mortality data come from Eurostat's demographic database, while self-perceived long-standing activity limitations data come from a European health module that is integrated within the data collection for EU statistics on income and living conditions (EU-SILC). -->
+
+<!-- The general coverage of EU-SILC is all private households and their members (who are residents at the time of data collection); it therefore excludes people living in collective households. -->
+
+<!-- ## Method to calculate HALE{.smaller} -->
+
+<!-- The relevant EU-SILC questions concerning long-standing activity limitation are: -->
+
+<!-- - Are you limited because of a health problem in activities people usually do? Would you say you are ... severely limited, limited but not severely or not limited at all? -->
+
+<!-- If the answer is 'severely limited' or 'limited but not severely' ask: -->
+
+<!-- - Have you been limited for at least the past 6 months? Yes, No. -->
+
+
+<!-- ## Limitations of data behind HALE{.smaller} -->
+
+<!-- - The indicator is derived from self-reported data. As such, it is affected – to a certain extent – by respondents' subjective perceptions, as well as by their social and cultural background. -->
+
+<!-- - EU-SILC doesn't cover the institutionalised population, for example, people living in health and social care institutions who are more likely to face activity limitations than people living in private households. It is therefore likely that, to some degree, this data source under-estimates the share of people facing such limitations.  -->
+
+<!-- - The implementation of EU-SILC is organised nationally, which may impact on the results presented, for example, due to differences in the formulation of questions or changing the related questions in a specific year. -->
+
+<!-- ## Information shared with experts -->
+<!-- <!-- https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20240503-2 --> -->
+
+<!-- ![](img/lifeexp.png) -->
+
+<!-- <!-- https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Healthy_life_years_statistics#Healthy_life_years_at_age_65_years --> -->
+
+<!-- ## Information shared with experts -->
+
+<!-- ![](img/healthy-life-years-2023.jpg) -->
+
+<!-- https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20250808-1 -->
+
+## EKE session HALE - individual judgements
+
+- Individual judgements were collected using the quartile method
+
+Each expert has provided their quantiles U,L,M,Q1 and Q3 together with reasoning
+
+<!-- ![https://survey.mailing.lu.se/Survey/64438](img/qr_code.png) -->
+
+## EKE session HALE - facilitated discussion 
+
+Judgements collected during the exercise are in the Sheffield Role Play document
+
+First the elicitor fit using the SHELF app for multiple experts. Try out yourself! 
+
+Then the elicitor moderate a discussion among the experts. Here you are to play the expert A-D. Ullrika is the elicitor and will be facilitating the discussion. Follow the script! 
+
+## EKE session HALE - consensus judgement
+
+- We use the probability method to elicit judgements by the RIO
+
+P(QoI<X1) for a value of X1 given by the facilitator
+
+P(QoI>X2) for a value of X2 given by the facilitator
+
+P(QoI<X0) for a value of X0 given by the facilitator
+
+Fit using SHELF app for single expert 
+
+

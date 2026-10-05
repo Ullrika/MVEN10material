@@ -367,6 +367,12 @@ window.Quarto = {
  <span class="menu-text">Assessment of overall uncertainty</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ex/ex_eke_halo.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">EKE with behavioural aggregation</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -476,11 +482,11 @@ window.Quarto = {
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># check corresondance with first MC-simulation</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(log10C0)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.192162</code></pre>
+<pre><code>[1] -1.179485</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(log10C0)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.943017</code></pre>
+<pre><code>[1] 0.9826783</code></pre>
 </div>
 </div>
 </section>
@@ -563,7 +569,7 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check correspondence with first MC simulation</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(EGRT20)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1806413</code></pre>
+<pre><code>[1] 0.1687289</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -592,7 +598,7 @@ window.Quarto = {
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(log10Ct)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.388291</code></pre>
+<pre><code>[1] -1.36268</code></pre>
 </div>
 </div>
 <p>The histogram is a bit edgy. I would go back and increase the number of iterations to make it more smooth. When doing so, we do not go back and change. Instead, we should write up the MC-simulation as a function.</p>
@@ -692,9 +698,9 @@ window.Quarto = {
 <pre><code># A tibble: 3 × 4
   dist                                   median   mean      sd
   &lt;chr&gt;                                   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-1 lognorm                               0.00995 0.0158 0.0190 
-2 lognorm above threshold set to 0.0319 0.00995 0.0131 0.00977
-3 lognorm truncated inverse method      0.00820 0.0106 0.00755</code></pre>
+1 lognorm                               0.00964 0.0154 0.0186 
+2 lognorm above threshold set to 0.0319 0.00964 0.0128 0.00987
+3 lognorm truncated inverse method      0.00856 0.0105 0.00735</code></pre>
 </div>
 </div>
 <p>We should then implement the inverse approach when truncating. This is done below.</p>
@@ -745,12 +751,12 @@ window.Quarto = {
 <span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>df_rob</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    p2_mean       p2_sd niter
-1 0.0202800 0.004511471  1000
-2 0.0205025 0.003068521  2000
-3 0.0206150 0.002167363  5000
-4 0.0205550 0.001536057 10000
-5 0.0205425 0.001040424 20000</code></pre>
+<pre><code>     p2_mean       p2_sd niter
+1 0.02051500 0.004681813  1000
+2 0.02046750 0.003120719  2000
+3 0.02059800 0.001986688  5000
+4 0.02056850 0.001529462 10000
+5 0.02057375 0.000982957 20000</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -787,12 +793,12 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df_MC<span class="sc">$</span>log10Ct) <span class="co"># mean considering uncertainty</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.321535</code></pre>
+<pre><code>[1] -1.31911</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(df_MC<span class="sc">$</span>log10Ct,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.05</span>,<span class="fl">0.95</span>)) <span class="co"># 90% prob int</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>        5%        95% 
--1.9668797  0.7967011 </code></pre>
+<pre><code>       5%       95% 
+-1.964584  0.827489 </code></pre>
 </div>
 </div>
 </section>
@@ -802,7 +808,7 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df_MC<span class="sc">$</span>log10Ct<span class="sc">&lt;</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.97895</code></pre>
+<pre><code>[1] 0.97915</code></pre>
 </div>
 </div>
 </section>
