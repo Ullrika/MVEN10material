@@ -1,0 +1,112 @@
+---
+title: "Fit distributions"
+---
+
+
+```{r}
+# Load required package 
+require("fitdistrplus")
+library(fitdistrplus)
+```
+
+
+## Example with normal
+
+```{r}
+# Example data set 
+x = c(42,37,50,28,33,46,39,55,31,49,31,33,36,44,40.5,27,52,44.8,38,43,30,47,35,51)
+hist(x) #ugly hist
+```
+
+
+```{r}
+# Fit distribution to data using maximum likelihood 
+fit1 <- fitdist(x,distr= "norm", method = "mle")
+```
+
+```{r}
+# Generats plots comparising empirical cdf with fitted cdf, and histogram with fitted pdf
+plot(fit1)
+```
+
+```{r}
+# Extract goodness of fit as an AIC-value 
+AIC(fit1)
+```
+
+
+```{r}
+# Extract the parameters for the fitted distribution. You use these values to sample or calculate things from the distribution 
+fit1$estimate
+```
+
+```{r}
+# For example, if the distribution is normal one can calculate the 95th percentile like this
+qnorm(0.95,mean=fit1$estimate[1],sd=fit1$estimate[2])
+```
+
+
+
+## Example with data bounded in 0 and 1
+
+```{r}
+# Example data set
+x = c(0.45, 0.08, 0.02, 0.001, 0.001, 0.01, 0.86, 0.006, 0.01, 0.26, 0.63, 0.20, 0.007, 0.73, 0.51, 0.002, 0.03, 0.38, 0.02, 0.04)
+hist(x) #ugly hist
+```
+
+
+```{r}
+# Fit distribution to data using maximum likelihood 
+fit2 <- fitdist(x,distr= "beta", method = "mle")
+```
+
+```{r}
+# Generats plots comparising empirical cdf with fitted cdf, and histogram with fitted pdf
+plot(fit2)
+```
+
+```{r}
+# Extract goodness of fit as an AIC-value 
+AIC(fit2)
+```
+
+
+```{r}
+# Extract the parameters for the fitted distribution. You use these values to sample or calculate things from the distribution 
+fit2$estimate
+```
+
+```{r}
+# For example, if the distribution is beta one can generate 200 random numbers like this
+rbeta(200,shape1=fit2$estimate[1],shape2=fit2$estimate[2])
+```
+
+Let us compare two candidate distributions 
+
+```{r}
+# Fit distribution to data using maximum likelihood 
+fit3 <- fitdist(x,distr= "gamma", method = "mle")
+```
+
+```{r}
+# Generats plots comparising empirical cdf with fitted cdf, and histogram with fitted pdf
+plot(fit3)
+```
+
+```{r}
+# Extract goodness of fit as an AIC-value and compare the two candidate models. Lower AIC is better model
+AIC(fit2) # beta
+AIC(fit3) # gamma
+```
+
+
+```{r}
+# Extract the parameters for the fitted distribution. You use these values to sample or calculate things from the distribution 
+fit3$estimate
+```
+
+```{r}
+# For example, if the distribution is beta one can generate 200 random numbers like this
+rgamma(200,shape=fit3$estimate[1],rate=fit2$estimate[2])
+```

@@ -33,6 +33,9 @@ website:
           - text: "Exercise Probability"
             file: ex/chance_belief_frequency.qmd
             target: "_blank"
+          - text: "Fit probability distributions"
+            file: ex/ex_fitdist.qmd
+            target: "_blank"
       - section: "Exposure assessment - Sept 11" 
         contents: 
           - text: "Exposure DATABASES"
