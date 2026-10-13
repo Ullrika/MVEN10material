@@ -106,6 +106,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -361,8 +390,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#example-with-normal" id="toc-example-with-normal" class="nav-link active" data-scroll-target="#example-with-normal">Example with normal</a></li>
-  <li><a href="#example-with-data-bounded-in-0-and-1" id="toc-example-with-data-bounded-in-0-and-1" class="nav-link" data-scroll-target="#example-with-data-bounded-in-0-and-1">Example with data bounded in 0 and 1</a></li>
+  <li><a href="#load-package" id="toc-load-package" class="nav-link active" data-scroll-target="#load-package">Load package</a></li>
+  <li><a href="#fit-distribution-to-data---example-with-normal" id="toc-fit-distribution-to-data---example-with-normal" class="nav-link" data-scroll-target="#fit-distribution-to-data---example-with-normal">Fit distribution to data - Example with normal</a></li>
+  <li><a href="#fit-distribution-to-data---example-with-data-bounded-in-0-and-1" id="toc-fit-distribution-to-data---example-with-data-bounded-in-0-and-1" class="nav-link" data-scroll-target="#fit-distribution-to-data---example-with-data-bounded-in-0-and-1">Fit distribution to data - Example with data bounded in 0 and 1</a></li>
+  <li><a href="#fit-distribution---gamma" id="toc-fit-distribution---gamma" class="nav-link" data-scroll-target="#fit-distribution---gamma">Fit distribution - gamma</a></li>
+  <li><a href="#compare-two-candidate-distributions" id="toc-compare-two-candidate-distributions" class="nav-link" data-scroll-target="#compare-two-candidate-distributions">Compare two candidate distributions</a></li>
+  <li><a href="#assign-uncertainty-to-parameters" id="toc-assign-uncertainty-to-parameters" class="nav-link" data-scroll-target="#assign-uncertainty-to-parameters">Assign uncertainty to parameters</a></li>
+  <li><a href="#calculate-probability-a-variable-is-greater-than-a-fixed-value" id="toc-calculate-probability-a-variable-is-greater-than-a-fixed-value" class="nav-link" data-scroll-target="#calculate-probability-a-variable-is-greater-than-a-fixed-value">Calculate probability a variable is greater than a fixed value</a></li>
   </ul>
 </nav>
     </div>
@@ -388,6 +422,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="load-package" class="level2">
+<h2 class="anchored" data-anchor-id="load-package">Load package</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required package </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">"fitdistrplus"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -405,12 +441,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fitdistrplus)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="example-with-normal" class="level2">
-<h2 class="anchored" data-anchor-id="example-with-normal">Example with normal</h2>
+</section>
+<section id="fit-distribution-to-data---example-with-normal" class="level2">
+<h2 class="anchored" data-anchor-id="fit-distribution-to-data---example-with-normal">Fit distribution to data - Example with normal</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example data set </span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">42</span>,<span class="dv">37</span>,<span class="dv">50</span>,<span class="dv">28</span>,<span class="dv">33</span>,<span class="dv">46</span>,<span class="dv">39</span>,<span class="dv">55</span>,<span class="dv">31</span>,<span class="dv">49</span>,<span class="dv">31</span>,<span class="dv">33</span>,<span class="dv">36</span>,<span class="dv">44</span>,<span class="fl">40.5</span>,<span class="dv">27</span>,<span class="dv">52</span>,<span class="fl">44.8</span>,<span class="dv">38</span>,<span class="dv">43</span>,<span class="dv">30</span>,<span class="dv">47</span>,<span class="dv">35</span>,<span class="dv">51</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x) <span class="co">#ugly hist</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rgamma</span>(<span class="dv">20</span>,<span class="dv">3</span>,<span class="dv">5</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x) <span class="co">#ugly hist</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -438,7 +477,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract goodness of fit as an AIC-value </span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(fit1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 171.9233</code></pre>
+<pre><code>[1] 17.95091</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -446,19 +485,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fit1<span class="sc">$</span>estimate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     mean        sd 
-40.095833  8.000181 </code></pre>
+0.5098876 0.3429516 </code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, if the distribution is normal one can calculate the 95th percentile like this</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>,<span class="at">mean=</span>fit1<span class="sc">$</span>estimate[<span class="dv">1</span>],<span class="at">sd=</span>fit1<span class="sc">$</span>estimate[<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 53.25496</code></pre>
+<pre><code>[1] 1.073993</code></pre>
 </div>
 </div>
 </section>
-<section id="example-with-data-bounded-in-0-and-1" class="level2">
-<h2 class="anchored" data-anchor-id="example-with-data-bounded-in-0-and-1">Example with data bounded in 0 and 1</h2>
+<section id="fit-distribution-to-data---example-with-data-bounded-in-0-and-1" class="level2">
+<h2 class="anchored" data-anchor-id="fit-distribution-to-data---example-with-data-bounded-in-0-and-1">Fit distribution to data - Example with data bounded in 0 and 1</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example data set</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.45</span>, <span class="fl">0.08</span>, <span class="fl">0.02</span>, <span class="fl">0.001</span>, <span class="fl">0.001</span>, <span class="fl">0.01</span>, <span class="fl">0.86</span>, <span class="fl">0.006</span>, <span class="fl">0.01</span>, <span class="fl">0.26</span>, <span class="fl">0.63</span>, <span class="fl">0.20</span>, <span class="fl">0.007</span>, <span class="fl">0.73</span>, <span class="fl">0.51</span>, <span class="fl">0.002</span>, <span class="fl">0.03</span>, <span class="fl">0.38</span>, <span class="fl">0.02</span>, <span class="fl">0.04</span>)</span>
@@ -476,7 +515,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">fitdist</span>(x,<span class="at">distr=</span> <span class="st">"beta"</span>, <span class="at">method =</span> <span class="st">"mle"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generats plots comparising empirical cdf with fitted cdf, and histogram with fitted pdf</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generates plots comparing empirical cdf with fitted cdf, and histogram with fitted pdf</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fit2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
@@ -502,58 +541,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, if the distribution is beta one can generate 200 random numbers like this</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rbeta</span>(<span class="dv">200</span>,<span class="at">shape1=</span>fit2<span class="sc">$</span>estimate[<span class="dv">1</span>],<span class="at">shape2=</span>fit2<span class="sc">$</span>estimate[<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, if the distribution is beta one can generate 10 random numbers like this</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rbeta</span>(<span class="dv">10</span>,<span class="at">shape1=</span>fit2<span class="sc">$</span>estimate[<span class="dv">1</span>],<span class="at">shape2=</span>fit2<span class="sc">$</span>estimate[<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] 1.710427e-01 6.067924e-01 2.346136e-02 4.276503e-01 5.377750e-01
-  [6] 2.819482e-02 8.599655e-01 1.588015e-04 2.483076e-01 7.704071e-01
- [11] 1.668643e-03 9.445573e-02 6.852174e-01 1.056271e-01 5.159075e-03
- [16] 2.382167e-03 4.305135e-01 2.235957e-01 1.379760e-03 1.026734e-01
- [21] 6.050158e-01 9.130369e-03 7.836167e-01 1.025059e-01 4.105236e-01
- [26] 5.979729e-01 4.387804e-01 1.042314e-01 3.890431e-01 7.712804e-01
- [31] 2.531982e-02 3.623872e-01 4.255353e-09 1.505370e-02 3.986433e-01
- [36] 8.086067e-07 5.580467e-02 3.236140e-02 2.369828e-02 5.140863e-02
- [41] 1.364685e-02 6.673750e-01 5.084412e-01 1.679635e-01 5.494347e-02
- [46] 5.568503e-01 2.511898e-03 5.008184e-02 6.751412e-02 2.953694e-02
- [51] 5.250966e-01 2.247247e-02 2.510411e-02 3.554834e-03 1.857252e-01
- [56] 2.671372e-01 4.326302e-02 7.340016e-01 7.045022e-01 8.155143e-02
- [61] 5.951450e-02 1.614495e-01 4.411612e-02 5.418402e-03 6.256972e-04
- [66] 1.406816e-01 7.689072e-01 3.128841e-02 3.237373e-01 4.098461e-01
- [71] 4.487270e-02 5.244329e-03 4.037891e-03 5.160480e-02 1.214146e-01
- [76] 6.862399e-01 2.357821e-03 4.385413e-01 8.444895e-02 1.127412e-01
- [81] 6.914905e-03 6.665049e-02 3.970463e-02 2.629070e-01 1.058051e-03
- [86] 8.619603e-01 6.995432e-01 3.290742e-01 5.257972e-01 6.989659e-04
- [91] 6.361634e-01 5.693242e-03 1.951840e-02 5.299896e-02 1.864466e-01
- [96] 1.173610e-01 2.984197e-02 1.286306e-02 6.340797e-01 3.764067e-01
-[101] 3.578947e-02 5.634684e-03 1.144180e-05 3.399742e-01 4.285927e-01
-[106] 1.015754e-06 2.626053e-01 1.974867e-02 1.289437e-02 1.507269e-01
-[111] 7.497668e-01 3.521337e-03 1.903012e-01 4.235488e-01 1.883621e-01
-[116] 1.487141e-01 5.505087e-03 1.443336e-01 7.399562e-03 3.197290e-01
-[121] 5.828421e-01 1.766581e-04 5.231041e-03 6.924086e-02 5.192286e-04
-[126] 4.533130e-01 3.248543e-01 7.720852e-02 2.006453e-03 2.748668e-01
-[131] 1.177038e-09 2.191472e-01 5.399139e-02 1.260004e-03 6.658618e-02
-[136] 2.290270e-02 4.781039e-01 8.144121e-05 1.802183e-01 1.772130e-02
-[141] 2.343234e-02 6.000428e-02 2.586525e-01 4.466836e-01 8.346996e-05
-[146] 1.148063e-03 2.660313e-08 1.553608e-01 2.370848e-01 5.607263e-04
-[151] 1.630062e-01 3.387144e-01 5.668381e-03 2.680011e-01 3.966231e-02
-[156] 1.290621e-01 1.495345e-01 1.986829e-04 7.481880e-01 4.510326e-01
-[161] 5.825877e-01 7.738460e-02 3.942440e-01 3.602649e-02 9.818147e-01
-[166] 6.160310e-03 8.950906e-01 7.074316e-01 6.107347e-01 6.005941e-02
-[171] 1.348523e-01 1.309653e-01 7.025013e-01 1.602551e-06 4.451173e-03
-[176] 1.996954e-01 9.257741e-02 1.299691e-01 2.261996e-01 3.205655e-01
-[181] 2.481420e-02 9.073025e-02 1.564622e-01 5.935656e-01 4.795716e-01
-[186] 8.889907e-01 7.073575e-01 1.445643e-04 1.848827e-01 1.259575e-01
-[191] 2.359320e-01 1.119891e-02 9.570777e-03 3.473629e-01 1.632868e-01
-[196] 9.798229e-02 1.441654e-01 1.929789e-02 8.229612e-02 4.748475e-02</code></pre>
+<pre><code> [1] 0.44552658 0.38414398 0.19653651 0.10688730 0.47324676 0.87443909
+ [7] 0.05563446 0.43827608 0.01679596 0.13998680</code></pre>
 </div>
 </div>
-<p>Let us compare two candidate distributions</p>
+</section>
+<section id="fit-distribution---gamma" class="level2">
+<h2 class="anchored" data-anchor-id="fit-distribution---gamma">Fit distribution - gamma</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit distribution to data using maximum likelihood </span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>fit3 <span class="ot">&lt;-</span> <span class="fu">fitdist</span>(x,<span class="at">distr=</span> <span class="st">"gamma"</span>, <span class="at">method =</span> <span class="st">"mle"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generats plots comparising empirical cdf with fitted cdf, and histogram with fitted pdf</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generates plots comparing empirical cdf with fitted cdf, and histogram with fitted pdf</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fit3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
@@ -564,68 +567,138 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract goodness of fit as an AIC-value and compare the two candidate models. Lower AIC is better model</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(fit2) <span class="co"># beta</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -36.1783</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(fit3) <span class="co"># gamma</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -33.53977</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the parameters for the fitted distribution. You use these values to sample or calculate things from the distribution </span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>fit3<span class="sc">$</span>estimate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the parameters for the fitted distribution. You use these values to sample or calculate things from the distribution </span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>fit3<span class="sc">$</span>estimate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    shape      rate 
 0.4127028 1.9434447 </code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, if the distribution is beta one can generate 200 random numbers like this</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rgamma</span>(<span class="dv">200</span>,<span class="at">shape=</span>fit3<span class="sc">$</span>estimate[<span class="dv">1</span>],<span class="at">rate=</span>fit2<span class="sc">$</span>estimate[<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, if the distribution is beta one can generate 10 random numbers like this</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rgamma</span>(<span class="dv">10</span>,<span class="at">shape=</span>fit3<span class="sc">$</span>estimate[<span class="dv">1</span>],<span class="at">rate=</span>fit2<span class="sc">$</span>estimate[<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] 1.650859e-01 1.500409e-01 7.524526e-01 1.186095e+00 1.350327e+00
-  [6] 1.267588e-01 8.928750e-02 8.485491e-01 7.226498e-01 6.262870e-02
- [11] 5.061857e-06 1.772496e+00 2.674553e-01 6.798028e-03 3.158605e-02
- [16] 2.733924e+00 6.592551e-01 2.722036e-01 7.590125e-03 3.011072e-02
- [21] 5.654728e-02 9.605664e-02 2.687886e-01 5.004417e-04 3.241594e-01
- [26] 3.443807e-01 1.976453e-01 2.024159e+00 3.103623e-01 1.891857e-01
- [31] 1.684322e-01 3.989121e-01 4.018672e-02 3.017801e-01 4.466941e-01
- [36] 3.125850e-01 4.449726e-01 4.118688e-02 3.798457e-02 9.494850e-02
- [41] 3.288401e-01 3.932870e-03 2.158694e-04 8.078120e-03 4.631909e-01
- [46] 1.694353e-02 2.373933e-01 6.691978e-03 3.926259e-01 2.841768e-05
- [51] 2.654852e-01 5.604675e-04 3.828503e-02 1.012669e+00 1.675713e-02
- [56] 3.734958e-03 3.440996e-01 1.794297e-02 1.930272e-01 5.019758e-02
- [61] 2.035583e-02 6.109070e-02 5.483828e-03 5.557258e-01 7.240906e-01
- [66] 3.028012e-01 2.812684e-03 7.709190e-02 6.461635e-03 2.593489e+00
- [71] 3.110456e-01 1.331642e-01 1.593177e-01 2.393757e-01 8.759954e-03
- [76] 2.395241e-04 8.132920e-03 1.261289e-02 1.899532e-01 2.480189e-03
- [81] 1.097435e-02 1.059405e-02 6.691467e-04 1.815706e-02 4.403796e-02
- [86] 1.094494e-02 1.159020e+00 7.050593e-02 1.220770e+00 3.227525e-03
- [91] 2.161392e-01 4.924383e-02 8.142410e-02 1.589465e-01 1.830514e-01
- [96] 1.041143e-03 1.303879e+00 1.687175e-08 2.396822e-01 1.473800e-07
-[101] 7.413390e-02 5.086201e-04 1.937329e-01 1.643605e-01 7.603367e-01
-[106] 1.658700e+00 5.899414e-03 1.810321e-01 4.106018e-02 5.505525e-02
-[111] 1.555340e-01 1.094136e+00 4.101405e-02 2.120910e-08 1.782191e-01
-[116] 4.716777e-03 4.297945e-01 8.959104e-02 4.949297e-01 4.787697e-02
-[121] 9.090883e-01 2.476994e-02 1.583365e-02 3.444420e-01 2.389761e-01
-[126] 1.348812e-01 7.660216e-01 8.523285e-02 1.929678e+00 5.559960e-03
-[131] 5.194983e-01 1.753484e-01 1.380930e+00 2.816702e-02 7.175025e-02
-[136] 1.615910e+00 1.271408e-04 8.581802e-02 1.926123e-01 1.017175e+00
-[141] 1.441677e-01 1.452031e-01 2.667966e-01 6.478710e-02 2.519836e+00
-[146] 1.655625e+00 1.425947e+00 4.009861e-01 1.141097e+00 1.815385e-01
-[151] 3.590214e-02 4.167270e-03 1.405797e-02 5.440899e-02 3.058601e-01
-[156] 1.856717e-01 6.981592e-01 2.935290e-05 7.127686e-03 2.409369e-05
-[161] 8.516213e-04 8.820753e-02 4.106000e-01 4.667205e-03 3.138928e-01
-[166] 3.163623e-01 5.832237e-01 2.573832e-01 3.010598e-01 5.316543e-02
-[171] 4.708294e-02 2.328803e-01 2.679390e-01 7.679419e-01 6.515390e-01
-[176] 3.394992e-01 3.997044e-01 2.866716e+00 1.834714e-01 1.727560e-02
-[181] 2.233273e-01 1.127605e+00 1.119077e-01 6.206739e-04 6.763718e-03
-[186] 2.366274e-01 5.976687e-02 2.327630e-01 1.741942e-01 2.945452e-01
-[191] 3.066945e-01 8.876116e-02 4.035640e-03 3.447739e-01 4.953041e-02
-[196] 1.157990e-01 5.181770e-01 4.381429e-01 2.265283e-03 3.765728e-01</code></pre>
+<pre><code> [1] 0.04329502 0.51316832 0.04993740 0.55084504 0.09412998 0.27400965
+ [7] 0.11083370 1.09204135 0.35562567 2.51823328</code></pre>
+</div>
+</div>
+</section>
+<section id="compare-two-candidate-distributions" class="level2">
+<h2 class="anchored" data-anchor-id="compare-two-candidate-distributions">Compare two candidate distributions</h2>
+<p>Look at plots and compare AIC-values (lower AIC is better)</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract goodness of fit as an AIC-value and compare the two candidate models. Lower AIC is better model</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(fit2) <span class="co"># beta</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -36.1783</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(fit3) <span class="co"># gamma</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -33.53977</code></pre>
+</div>
+</div>
+</section>
+<section id="assign-uncertainty-to-parameters" class="level2">
+<h2 class="anchored" data-anchor-id="assign-uncertainty-to-parameters">Assign uncertainty to parameters</h2>
+<p>This is applicable for the groups working with the diclofenac example</p>
+<p>Here parameters are estimated using maximum likelihood. This provides a point estimate. If done in Bayesian framework, parameters would have been estimated with probability distributions. You are not expected to be able to do that in this course. To get uncertainty outside a Bayesian framework, one can use bootstrap. Here, I suggest you use a hack using the information from the maximum likelihood estimation.</p>
+<p>In fitdist you also get the standard deviation of the estimated parameter. I suggest you use this to construct a probability distribution for the parameters. This is an ‘ad hoc’ method, but it is sufficient for the project.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>fit4 <span class="ot">&lt;-</span> <span class="fu">fitdist</span>(x,<span class="at">distr=</span> <span class="st">"lnorm"</span>, <span class="at">method =</span> <span class="st">"mle"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>For the lognormal distribution we have two parameters (mean and sd on the log scale).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>fit4<span class="sc">$</span>estimate <span class="co"># the estimated values (central)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  meanlog     sdlog 
+-3.135851  2.202322 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>fit4<span class="sc">$</span>sd <span class="co"># the standard deviation in the estimated values</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  meanlog     sdlog 
+0.4924541 0.3482173 </code></pre>
+</div>
+</div>
+<p>We can use the normal distribution to represent uncertainty on the meanlog</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>meanlog_mean <span class="ot">=</span> fit4<span class="sc">$</span>estimate[<span class="dv">1</span>]</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>meanlog_sd <span class="ot">=</span> fit4<span class="sc">$</span>sd[<span class="dv">1</span>]</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># random draw from the parameter distribution</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rlnorm</span>(<span class="dv">1</span>,meanlog_mean,meanlog_sd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.09622854</code></pre>
+</div>
+</div>
+<p>We can use a uniform distribution to represent uncertainty on the sdlog</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>sdlog_mean <span class="ot">=</span> fit4<span class="sc">$</span>estimate[<span class="dv">2</span>]</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>sdlog_sd <span class="ot">=</span> fit4<span class="sc">$</span>sd[<span class="dv">2</span>]</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="co"># random draw from the parameter distribution</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">1</span>,<span class="fu">max</span>(sdlog_mean<span class="sc">-</span>sdlog_sd,<span class="dv">0</span>),sdlog_mean<span class="sc">+</span>sdlog_sd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.542259</code></pre>
+</div>
+</div>
+<p>In case you work with a gamma distribution, consider that it has two parameters (shape and rate).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example with gamma</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>fit3 <span class="ot">&lt;-</span> <span class="fu">fitdist</span>(x,<span class="at">distr=</span> <span class="st">"gamma"</span>, <span class="at">method =</span> <span class="st">"mle"</span>)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>fit3<span class="sc">$</span>estimate <span class="co"># the estimated values (central)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    shape      rate 
+0.4127028 1.9434447 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>fit3<span class="sc">$</span>sd <span class="co"># the standard deviation in the estimated values</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    shape      rate 
+0.1058674 0.8403148 </code></pre>
+</div>
+</div>
+<p>These two parameter values are both strictly positive. if we select a probability distribution for them, we have to ensure that they are positive and not zero.</p>
+<p>I suggest you describe uncertainty in these parameters using a probability distribution that is strictly positive as well. In the code below I use a lognormal distribution. First I transform the mean and sd of the estimated parameter to logscale and then put these into the lognormal distribution.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>shape_mean <span class="ot">=</span> fit3<span class="sc">$</span>estimate[<span class="dv">1</span>]</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>shape_sd <span class="ot">=</span> fit3<span class="sc">$</span>sd[<span class="dv">1</span>]</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>shape_sigma <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>(shape_sd<span class="sc">/</span>shape_mean)<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>shape_mu<span class="ot">=</span><span class="fu">log</span>(shape_mean)<span class="sc">-</span>shape_sigma<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="co"># random draw from the parameter distribution</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rlnorm</span>(<span class="dv">1</span>,shape_mu,shape_sigma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5334455</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>rate_mean <span class="ot">=</span> fit3<span class="sc">$</span>estimate[<span class="dv">2</span>]</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>rate_sd <span class="ot">=</span> fit3<span class="sc">$</span>sd[<span class="dv">2</span>]</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>rate_sigma <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>(rate_sd<span class="sc">/</span>rate_mean)<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>rate_mu<span class="ot">=</span><span class="fu">log</span>(rate_mean)<span class="sc">-</span>rate_sigma<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="co"># random draw from the parameter distribution</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rlnorm</span>(<span class="dv">1</span>,rate_mu,rate_sigma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.22877</code></pre>
+</div>
+</div>
+</section>
+<section id="calculate-probability-a-variable-is-greater-than-a-fixed-value" class="level2">
+<h2 class="anchored" data-anchor-id="calculate-probability-a-variable-is-greater-than-a-fixed-value">Calculate probability a variable is greater than a fixed value</h2>
+<p>Let us say that X follows a distribution</p>
+<p>To calcluate the probability that X is greater than a value <span class="math inline">\(x_0\)</span>, i.e.&nbsp;<span class="math inline">\(P(X&gt;x_0)\)</span> one use the probability function for the complementary event.</p>
+<p><span class="math display">\[P(X&gt;x_0) = 1-P(X\leq x_0)\]</span></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example with normal distribution</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>mean<span class="ot">=</span><span class="dv">3</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>sd<span class="ot">=</span><span class="dv">1</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>x0 <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(x0,mean,sd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8413447</code></pre>
 </div>
 </div>
 

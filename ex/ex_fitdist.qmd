@@ -2,6 +2,7 @@
 title: "Fit distributions"
 ---
 
+## Load package
 
 ```{r}
 # Load required package 
@@ -10,11 +11,14 @@ library(fitdistrplus)
 ```
 
 
-## Example with normal
+
+## Fit distribution to data - Example with normal
 
 ```{r}
 # Example data set 
 x = c(42,37,50,28,33,46,39,55,31,49,31,33,36,44,40.5,27,52,44.8,38,43,30,47,35,51)
+
+x = rgamma(20,3,5)
 hist(x) #ugly hist
 ```
 
@@ -27,7 +31,9 @@ fit1 <- fitdist(x,distr= "norm", method = "mle")
 ```{r}
 # Generats plots comparising empirical cdf with fitted cdf, and histogram with fitted pdf
 plot(fit1)
+
 ```
+
 
 ```{r}
 # Extract goodness of fit as an AIC-value 
@@ -47,7 +53,7 @@ qnorm(0.95,mean=fit1$estimate[1],sd=fit1$estimate[2])
 
 
 
-## Example with data bounded in 0 and 1
+## Fit distribution to data - Example with data bounded in 0 and 1
 
 ```{r}
 # Example data set
@@ -62,7 +68,7 @@ fit2 <- fitdist(x,distr= "beta", method = "mle")
 ```
 
 ```{r}
-# Generats plots comparising empirical cdf with fitted cdf, and histogram with fitted pdf
+# Generates plots comparing empirical cdf with fitted cdf, and histogram with fitted pdf
 plot(fit2)
 ```
 
@@ -78,11 +84,11 @@ fit2$estimate
 ```
 
 ```{r}
-# For example, if the distribution is beta one can generate 200 random numbers like this
-rbeta(200,shape1=fit2$estimate[1],shape2=fit2$estimate[2])
+# For example, if the distribution is beta one can generate 10 random numbers like this
+rbeta(10,shape1=fit2$estimate[1],shape2=fit2$estimate[2])
 ```
 
-Let us compare two candidate distributions 
+## Fit distribution - gamma 
 
 ```{r}
 # Fit distribution to data using maximum likelihood 
@@ -90,9 +96,23 @@ fit3 <- fitdist(x,distr= "gamma", method = "mle")
 ```
 
 ```{r}
-# Generats plots comparising empirical cdf with fitted cdf, and histogram with fitted pdf
+# Generates plots comparing empirical cdf with fitted cdf, and histogram with fitted pdf
 plot(fit3)
+
 ```
+```{r}
+# Extract the parameters for the fitted distribution. You use these values to sample or calculate things from the distribution 
+fit3$estimate
+```
+
+```{r}
+# For example, if the distribution is beta one can generate 10 random numbers like this
+rgamma(10,shape=fit3$estimate[1],rate=fit2$estimate[2])
+```
+
+## Compare two candidate distributions 
+
+Look at plots and compare AIC-values (lower AIC is better)
 
 ```{r}
 # Extract goodness of fit as an AIC-value and compare the two candidate models. Lower AIC is better model
@@ -101,12 +121,98 @@ AIC(fit3) # gamma
 ```
 
 
-```{r}
-# Extract the parameters for the fitted distribution. You use these values to sample or calculate things from the distribution 
-fit3$estimate
-```
+## Assign uncertainty to parameters
+
+This is applicable for the groups working with the diclofenac example 
+
+Here parameters are estimated using maximum likelihood. This provides a point estimate. If done in Bayesian framework, parameters would have been estimated with probability distributions. You are not expected to be able to do that in this course. To get uncertainty outside a Bayesian framework, one can use bootstrap. Here, I suggest you use a hack using the information from the maximum likelihood estimation. 
+
+In fitdist you also get the standard deviation of the estimated parameter. I suggest you use this to construct a probability distribution for the parameters. This is an 'ad hoc' method, but it is sufficient for the project. 
+
 
 ```{r}
-# For example, if the distribution is beta one can generate 200 random numbers like this
-rgamma(200,shape=fit3$estimate[1],rate=fit2$estimate[2])
+fit4 <- fitdist(x,distr= "lnorm", method = "mle") 
+```
+
+For the lognormal distribution we have two parameters (mean and sd on the log scale). 
+
+```{r}
+fit4$estimate # the estimated values (central)
+fit4$sd # the standard deviation in the estimated values
+```
+
+We can use the normal distribution to represent uncertainty on the meanlog
+
+```{r}
+meanlog_mean = fit4$estimate[1]
+meanlog_sd = fit4$sd[1]
+
+# random draw from the parameter distribution
+rlnorm(1,meanlog_mean,meanlog_sd)
+```
+
+We can use a uniform distribution to represent uncertainty on the sdlog 
+
+```{r}
+sdlog_mean = fit4$estimate[2]
+sdlog_sd = fit4$sd[2]
+
+
+# random draw from the parameter distribution
+runif(1,max(sdlog_mean-sdlog_sd,0),sdlog_mean+sdlog_sd)
+```
+
+In case you work with a gamma distribution, consider that it has two parameters (shape and rate). 
+
+```{r}
+# Example with gamma
+fit3 <- fitdist(x,distr= "gamma", method = "mle")
+fit3$estimate # the estimated values (central)
+fit3$sd # the standard deviation in the estimated values
+```
+
+These two parameter values are both strictly positive. if we select a probability distribution for them, we have to ensure that they are positive and not zero. 
+
+I suggest you describe uncertainty in these parameters using a probability distribution that is strictly positive as well. In the code below I use a lognormal distribution. First I transform the mean and sd of the estimated parameter to logscale and then put these into the lognormal distribution. 
+
+```{r}
+shape_mean = fit3$estimate[1]
+shape_sd = fit3$sd[1]
+
+shape_sigma = sqrt(log(1+(shape_sd/shape_mean)^2))
+shape_mu=log(shape_mean)-shape_sigma^2/2
+
+# random draw from the parameter distribution
+rlnorm(1,shape_mu,shape_sigma)
+```
+
+
+
+
+```{r}
+rate_mean = fit3$estimate[2]
+rate_sd = fit3$sd[2]
+
+rate_sigma = sqrt(log(1+(rate_sd/rate_mean)^2))
+rate_mu=log(rate_mean)-rate_sigma^2/2
+
+# random draw from the parameter distribution
+rlnorm(1,rate_mu,rate_sigma)
+```
+## Calculate probability a variable is greater than a fixed value 
+
+Let us say that X follows a distribution 
+
+To calcluate the probability that X is greater than a value $x_0$, i.e. $P(X>x_0)$ one use the probability function for the complementary event. 
+
+$$P(X>x_0) = 1-P(X\leq x_0)$$
+
+
+
+```{r}
+# example with normal distribution
+mean=3
+sd=1
+x0 = 2
+1-pnorm(x0,mean,sd)
 ```
