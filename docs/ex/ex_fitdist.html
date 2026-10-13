@@ -395,8 +395,12 @@ window.Quarto = {
   <li><a href="#fit-distribution-to-data---example-with-data-bounded-in-0-and-1" id="toc-fit-distribution-to-data---example-with-data-bounded-in-0-and-1" class="nav-link" data-scroll-target="#fit-distribution-to-data---example-with-data-bounded-in-0-and-1">Fit distribution to data - Example with data bounded in 0 and 1</a></li>
   <li><a href="#fit-distribution---gamma" id="toc-fit-distribution---gamma" class="nav-link" data-scroll-target="#fit-distribution---gamma">Fit distribution - gamma</a></li>
   <li><a href="#compare-two-candidate-distributions" id="toc-compare-two-candidate-distributions" class="nav-link" data-scroll-target="#compare-two-candidate-distributions">Compare two candidate distributions</a></li>
+  <li><a href="#the-remaining-suggestions-are-applicable-for-the-groups-working-with-the-diclofenac-example" id="toc-the-remaining-suggestions-are-applicable-for-the-groups-working-with-the-diclofenac-example" class="nav-link" data-scroll-target="#the-remaining-suggestions-are-applicable-for-the-groups-working-with-the-diclofenac-example">The remaining suggestions are applicable for the groups working with the diclofenac example</a>
+  <ul class="collapse">
   <li><a href="#assign-uncertainty-to-parameters" id="toc-assign-uncertainty-to-parameters" class="nav-link" data-scroll-target="#assign-uncertainty-to-parameters">Assign uncertainty to parameters</a></li>
-  <li><a href="#calculate-probability-a-variable-is-greater-than-a-fixed-value" id="toc-calculate-probability-a-variable-is-greater-than-a-fixed-value" class="nav-link" data-scroll-target="#calculate-probability-a-variable-is-greater-than-a-fixed-value">Calculate probability a variable is greater than a fixed value</a></li>
+  <li><a href="#calculate-probability-a-random-variable-is-greater-than-a-fixed-value" id="toc-calculate-probability-a-random-variable-is-greater-than-a-fixed-value" class="nav-link" data-scroll-target="#calculate-probability-a-random-variable-is-greater-than-a-fixed-value">Calculate probability a random variable is greater than a fixed value</a></li>
+  <li><a href="#extract-bootstrap-sample-from-ssd" id="toc-extract-bootstrap-sample-from-ssd" class="nav-link" data-scroll-target="#extract-bootstrap-sample-from-ssd">Extract bootstrap sample from SSD</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -477,7 +481,7 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract goodness of fit as an AIC-value </span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(fit1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 17.95091</code></pre>
+<pre><code>[1] 13.761</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -485,14 +489,14 @@ window.Quarto = {
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fit1<span class="sc">$</span>estimate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     mean        sd 
-0.5098876 0.3429516 </code></pre>
+0.6222942 0.3088457 </code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, if the distribution is normal one can calculate the 95th percentile like this</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>,<span class="at">mean=</span>fit1<span class="sc">$</span>estimate[<span class="dv">1</span>],<span class="at">sd=</span>fit1<span class="sc">$</span>estimate[<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.073993</code></pre>
+<pre><code>[1] 1.1303</code></pre>
 </div>
 </div>
 </section>
@@ -544,8 +548,8 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, if the distribution is beta one can generate 10 random numbers like this</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rbeta</span>(<span class="dv">10</span>,<span class="at">shape1=</span>fit2<span class="sc">$</span>estimate[<span class="dv">1</span>],<span class="at">shape2=</span>fit2<span class="sc">$</span>estimate[<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.44552658 0.38414398 0.19653651 0.10688730 0.47324676 0.87443909
- [7] 0.05563446 0.43827608 0.01679596 0.13998680</code></pre>
+<pre><code> [1] 3.892527e-02 2.327219e-01 4.934040e-01 1.204543e-01 7.149547e-02
+ [6] 6.309861e-02 6.439940e-05 3.271561e-01 9.073447e-05 2.181313e-01</code></pre>
 </div>
 </div>
 </section>
@@ -578,8 +582,8 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, if the distribution is beta one can generate 10 random numbers like this</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rgamma</span>(<span class="dv">10</span>,<span class="at">shape=</span>fit3<span class="sc">$</span>estimate[<span class="dv">1</span>],<span class="at">rate=</span>fit2<span class="sc">$</span>estimate[<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.04329502 0.51316832 0.04993740 0.55084504 0.09412998 0.27400965
- [7] 0.11083370 1.09204135 0.35562567 2.51823328</code></pre>
+<pre><code> [1] 0.009843817 0.235915970 0.209056711 0.358355289 0.063934735 0.055071276
+ [7] 0.023141403 2.317394986 0.238615992 0.002335998</code></pre>
 </div>
 </div>
 </section>
@@ -598,11 +602,20 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="assign-uncertainty-to-parameters" class="level2">
-<h2 class="anchored" data-anchor-id="assign-uncertainty-to-parameters">Assign uncertainty to parameters</h2>
-<p>This is applicable for the groups working with the diclofenac example</p>
-<p>Here parameters are estimated using maximum likelihood. This provides a point estimate. If done in Bayesian framework, parameters would have been estimated with probability distributions. You are not expected to be able to do that in this course. To get uncertainty outside a Bayesian framework, one can use bootstrap. Here, I suggest you use a hack using the information from the maximum likelihood estimation.</p>
-<p>In fitdist you also get the standard deviation of the estimated parameter. I suggest you use this to construct a probability distribution for the parameters. This is an ‘ad hoc’ method, but it is sufficient for the project.</p>
+<section id="the-remaining-suggestions-are-applicable-for-the-groups-working-with-the-diclofenac-example" class="level2">
+<h2 class="anchored" data-anchor-id="the-remaining-suggestions-are-applicable-for-the-groups-working-with-the-diclofenac-example">The remaining suggestions are applicable for the groups working with the diclofenac example</h2>
+<section id="assign-uncertainty-to-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="assign-uncertainty-to-parameters">Assign uncertainty to parameters</h3>
+<p>In the examples above you use estimate parameters using maximum likelihood. This provides a point estimate. In the diclofenac, where the fitted probability distribution represents variability between sites, you want to have uncertainty in parameters as well. Thereare several options to fit distributions and get uncertainty in parameters.</p>
+<p>If done in Bayesian framework, parameters would have been estimated with probability distributions. You are not expected to be able to do that in this course. To get uncertainty outside a Bayesian framework, one can use bootstrap. An alternative way is to using the information from the maximum likelihood estimation and assign a distribution based on that.</p>
+<ul>
+<li><p>Bayesian - best but not required for this course</p></li>
+<li><p>Bootstrap - a good alternative when there is enough data for resampling, captures correlation between parameters. Contact Ullrika if you want to do this</p></li>
+<li><p>Assign distribution in parameters using ML estimation info. This approach is described below.</p></li>
+</ul>
+<section id="using-ml-estimation-info" class="level4">
+<h4 class="anchored" data-anchor-id="using-ml-estimation-info">Using ML estimation info</h4>
+<p>In fitdist you get the standard deviation of the estimated parameter. I suggest you use this to construct a probability distribution for the parameters. This is an ‘ad hoc’ method, but it is sufficient for the project.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>fit4 <span class="ot">&lt;-</span> <span class="fu">fitdist</span>(x,<span class="at">distr=</span> <span class="st">"lnorm"</span>, <span class="at">method =</span> <span class="st">"mle"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -627,7 +640,7 @@ window.Quarto = {
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># random draw from the parameter distribution</span></span>
 <span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rlnorm</span>(<span class="dv">1</span>,meanlog_mean,meanlog_sd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.09622854</code></pre>
+<pre><code>[1] 0.05342969</code></pre>
 </div>
 </div>
 <p>We can use a uniform distribution to represent uncertainty on the sdlog</p>
@@ -639,7 +652,7 @@ window.Quarto = {
 <span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="co"># random draw from the parameter distribution</span></span>
 <span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">1</span>,<span class="fu">max</span>(sdlog_mean<span class="sc">-</span>sdlog_sd,<span class="dv">0</span>),sdlog_mean<span class="sc">+</span>sdlog_sd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.542259</code></pre>
+<pre><code>[1] 2.066226</code></pre>
 </div>
 </div>
 <p>In case you work with a gamma distribution, consider that it has two parameters (shape and rate).</p>
@@ -669,7 +682,7 @@ window.Quarto = {
 <span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="co"># random draw from the parameter distribution</span></span>
 <span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rlnorm</span>(<span class="dv">1</span>,shape_mu,shape_sigma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.5334455</code></pre>
+<pre><code>[1] 0.5414673</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -682,14 +695,15 @@ window.Quarto = {
 <span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="co"># random draw from the parameter distribution</span></span>
 <span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rlnorm</span>(<span class="dv">1</span>,rate_mu,rate_sigma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.22877</code></pre>
+<pre><code>[1] 1.549783</code></pre>
 </div>
 </div>
 </section>
-<section id="calculate-probability-a-variable-is-greater-than-a-fixed-value" class="level2">
-<h2 class="anchored" data-anchor-id="calculate-probability-a-variable-is-greater-than-a-fixed-value">Calculate probability a variable is greater than a fixed value</h2>
+</section>
+<section id="calculate-probability-a-random-variable-is-greater-than-a-fixed-value" class="level3">
+<h3 class="anchored" data-anchor-id="calculate-probability-a-random-variable-is-greater-than-a-fixed-value">Calculate probability a random variable is greater than a fixed value</h3>
 <p>Let us say that X follows a distribution</p>
-<p>To calcluate the probability that X is greater than a value <span class="math inline">\(x_0\)</span>, i.e.&nbsp;<span class="math inline">\(P(X&gt;x_0)\)</span> one use the probability function for the complementary event.</p>
+<p>To calculate the probability that X is greater than a value <span class="math inline">\(x_0\)</span>, i.e.&nbsp;<span class="math inline">\(P(X&gt;x_0)\)</span> one use the probability function for the complementary event.</p>
 <p><span class="math display">\[P(X&gt;x_0) = 1-P(X\leq x_0)\]</span></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example with normal distribution</span></span>
@@ -701,8 +715,55 @@ window.Quarto = {
 <pre><code>[1] 0.8413447</code></pre>
 </div>
 </div>
+</section>
+<section id="extract-bootstrap-sample-from-ssd" class="level3">
+<h3 class="anchored" data-anchor-id="extract-bootstrap-sample-from-ssd">Extract bootstrap sample from SSD</h3>
+<p>Information about the predict function can be found on this page <a href="https://cran.r-project.org/web/packages/ssdtools/refman/ssdtools.html#ssd_hc">ssd_hc.fitdists</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ssdtools)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ssdtools' was built under R version 4.6.1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'readr' was built under R version 4.6.1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read dataset</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../data/metolachlor_ssd.csv"</span>) <span class="co"># make sure Conc is numeric</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 6 Columns: 10
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (8): Genus, Group, Life_stage, Notes, Phylum, Species, Test_endpoint, To...
+dbl (2): Conc, Duration
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fit distributions</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>dist <span class="ot">&lt;-</span> <span class="fu">ssd_fit_dists</span>(data, <span class="at">left =</span> <span class="st">'Conc'</span>, <span class="at">dists =</span> <span class="fu">c</span>(<span class="st">'gamma'</span>, <span class="st">'lgumbel'</span>, <span class="st">'llogis'</span>, <span class="st">'lnorm'</span>, <span class="st">'lnorm_lnorm'</span>, <span class="st">'weibull'</span>), <span class="at">silent =</span> <span class="cn">TRUE</span>, <span class="at">reweight =</span> <span class="cn">FALSE</span>, <span class="at">min_pmix =</span> <span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">6</span>L, <span class="at">computable =</span> <span class="cn">TRUE</span>, <span class="at">at_boundary_ok =</span> <span class="cn">FALSE</span>, <span class="at">rescale =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="co"># derive hazardous concentration for fraction 0.05 by inverting the model. Use bootstrap to get uncertainty in hazardous concentration. </span></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>pred <span class="ot">&lt;-</span> <span class="fu">ssd_hc</span>(dist, <span class="at">proportion=</span><span class="fl">0.05</span>, <span class="at">average =</span> <span class="cn">TRUE</span>, <span class="at">ci =</span> <span class="cn">TRUE</span>, <span class="at">nboot =</span> <span class="dv">200</span>, <span class="at">min_pboot =</span> <span class="fl">0.2</span>,<span class="at">samples =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'future' was built under R version 4.6.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'purrr' was built under R version 4.6.1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>pnec_sample <span class="ot">&lt;-</span> <span class="fu">unlist</span>(pred<span class="sc">$</span>samples) <span class="co"># using an uncertainty factor of 1, the hazardous concentration is the PNEC</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pnec_sample)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ex_fitdist_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

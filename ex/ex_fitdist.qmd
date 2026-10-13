@@ -121,13 +121,23 @@ AIC(fit3) # gamma
 ```
 
 
-## Assign uncertainty to parameters
+## The remaining suggestions are applicable for the groups working with the diclofenac example
 
-This is applicable for the groups working with the diclofenac example 
+### Assign uncertainty to parameters
 
-Here parameters are estimated using maximum likelihood. This provides a point estimate. If done in Bayesian framework, parameters would have been estimated with probability distributions. You are not expected to be able to do that in this course. To get uncertainty outside a Bayesian framework, one can use bootstrap. Here, I suggest you use a hack using the information from the maximum likelihood estimation. 
+In the examples above you use estimate parameters using maximum likelihood. This provides a point estimate. In the diclofenac, where the fitted probability distribution represents variability between sites, you want to have uncertainty in parameters as well. Thereare several options to fit distributions and get uncertainty in parameters. 
 
-In fitdist you also get the standard deviation of the estimated parameter. I suggest you use this to construct a probability distribution for the parameters. This is an 'ad hoc' method, but it is sufficient for the project. 
+If done in Bayesian framework, parameters would have been estimated with probability distributions. You are not expected to be able to do that in this course. To get uncertainty outside a Bayesian framework, one can use bootstrap. An alternative way is to using the information from the maximum likelihood estimation and assign a distribution based on that. 
+
+- Bayesian - best but not required for this course
+
+- Bootstrap - a good alternative when there is enough data for resampling, captures correlation between parameters. Contact Ullrika if you want to do this
+
+- Assign distribution in parameters using ML estimation info. This approach is described below. 
+
+#### Using ML estimation info 
+
+In fitdist you get the standard deviation of the estimated parameter. I suggest you use this to construct a probability distribution for the parameters. This is an 'ad hoc' method, but it is sufficient for the project. 
 
 
 ```{r}
@@ -199,11 +209,11 @@ rate_mu=log(rate_mean)-rate_sigma^2/2
 # random draw from the parameter distribution
 rlnorm(1,rate_mu,rate_sigma)
 ```
-## Calculate probability a variable is greater than a fixed value 
+### Calculate probability a random variable is greater than a fixed value 
 
 Let us say that X follows a distribution 
 
-To calcluate the probability that X is greater than a value $x_0$, i.e. $P(X>x_0)$ one use the probability function for the complementary event. 
+To calculate the probability that X is greater than a value $x_0$, i.e. $P(X>x_0)$ one use the probability function for the complementary event. 
 
 $$P(X>x_0) = 1-P(X\leq x_0)$$
 
@@ -216,3 +226,25 @@ sd=1
 x0 = 2
 1-pnorm(x0,mean,sd)
 ```
+
+### Extract bootstrap sample from SSD 
+
+Information about the predict function can be found on this page [ssd_hc.fitdists](https://cran.r-project.org/web/packages/ssdtools/refman/ssdtools.html#ssd_hc)
+
+
+```{r}
+library(ssdtools)
+library(readr)
+
+# read dataset
+data <- read_csv("../data/metolachlor_ssd.csv") # make sure Conc is numeric
+
+# fit distributions
+dist <- ssd_fit_dists(data, left = 'Conc', dists = c('gamma', 'lgumbel', 'llogis', 'lnorm', 'lnorm_lnorm', 'weibull'), silent = TRUE, reweight = FALSE, min_pmix = 0, nrow = 6L, computable = TRUE, at_boundary_ok = FALSE, rescale = TRUE)
+
+# derive hazardous concentration for fraction 0.05 by inverting the model. Use bootstrap to get uncertainty in hazardous concentration. 
+pred <- ssd_hc(dist, proportion=0.05, average = TRUE, ci = TRUE, nboot = 200, min_pboot = 0.2,samples = TRUE)
+pnec_sample <- unlist(pred$samples) # using an uncertainty factor of 1, the hazardous concentration is the PNEC
+hist(pnec_sample)
+```
+

@@ -488,11 +488,11 @@ window.Quarto = {
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># check corresondance with first MC-simulation</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(log10C0)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.188105</code></pre>
+<pre><code>[1] -1.200394</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(log10C0)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9671734</code></pre>
+<pre><code>[1] 0.9388046</code></pre>
 </div>
 </div>
 </section>
@@ -575,7 +575,7 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check correspondence with first MC simulation</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(EGRT20)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.179355</code></pre>
+<pre><code>[1] 0.1822275</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -604,7 +604,7 @@ window.Quarto = {
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(log10Ct)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.382837</code></pre>
+<pre><code>[1] -1.398245</code></pre>
 </div>
 </div>
 <p>The histogram is a bit edgy. I would go back and increase the number of iterations to make it more smooth. When doing so, we do not go back and change. Instead, we should write up the MC-simulation as a function.</p>
@@ -704,9 +704,9 @@ window.Quarto = {
 <pre><code># A tibble: 3 × 4
   dist                                   median   mean      sd
   &lt;chr&gt;                                   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-1 lognorm                               0.00983 0.0156 0.0221 
-2 lognorm above threshold set to 0.0319 0.00983 0.0129 0.00965
-3 lognorm truncated inverse method      0.00818 0.0103 0.00744</code></pre>
+1 lognorm                               0.00956 0.0149 0.0168 
+2 lognorm above threshold set to 0.0319 0.00956 0.0127 0.00953
+3 lognorm truncated inverse method      0.00837 0.0104 0.00741</code></pre>
 </div>
 </div>
 <p>We should then implement the inverse approach when truncating. This is done below.</p>
@@ -758,11 +758,11 @@ window.Quarto = {
 <span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>df_rob</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     p2_mean       p2_sd niter
-1 0.02048500 0.004351373  1000
-2 0.02047750 0.002976583  2000
-3 0.02065800 0.001949471  5000
-4 0.02052400 0.001487037 10000
-5 0.02063975 0.001037044 20000</code></pre>
+1 0.02024000 0.004776660  1000
+2 0.02088250 0.003215063  2000
+3 0.02058200 0.001936810  5000
+4 0.02046900 0.001430022 10000
+5 0.02052475 0.001083708 20000</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -799,12 +799,12 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df_MC<span class="sc">$</span>log10Ct) <span class="co"># mean considering uncertainty</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.320038</code></pre>
+<pre><code>[1] -1.321682</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(df_MC<span class="sc">$</span>log10Ct,<span class="at">probs=</span><span class="fu">c</span>(<span class="fl">0.05</span>,<span class="fl">0.95</span>)) <span class="co"># 90% prob int</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        5%        95% 
--1.9645827  0.8010249 </code></pre>
+-1.9643103  0.8007489 </code></pre>
 </div>
 </div>
 </section>
@@ -814,7 +814,7 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df_MC<span class="sc">$</span>log10Ct<span class="sc">&lt;</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9791</code></pre>
+<pre><code>[1] 0.97965</code></pre>
 </div>
 </div>
 </section>
@@ -822,7 +822,7 @@ window.Quarto = {
 </section>
 <section id="answer-to-the-question" class="level1">
 <h1>Answer to the question</h1>
-<p>I am 97.9% certain that your cheese is safe.</p>
+<p>I am 98% certain that your cheese is safe.</p>
 
 
 </section>
